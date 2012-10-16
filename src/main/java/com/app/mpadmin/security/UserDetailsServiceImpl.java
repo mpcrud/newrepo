@@ -29,10 +29,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.app.mpadmin.context.UserWithId;
 import com.app.mpadmin.domain.AuthUser;
+import com.app.mpadmin.domain.TdUserAuth;
 import com.app.mpadmin.repository.AuthUserRepository;
 
 /**
- * An implementation of Spring Security's UserDetailsService.
+  * An implementation of Spring Security's UserDetailsService.
  */
 @Named("userDetailsService")
 @Singleton
@@ -67,7 +68,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             log.debug("Security verification for user '" + username + "'");
         }
 
-        AuthUser account = authUserRepository.getByUsername(username);
+        TdUserAuth account = authUserRepository.getByUsername(username);
 
         if (account == null) {
             if (log.isInfoEnabled()) {
@@ -77,7 +78,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
 
         Collection<GrantedAuthority> grantedAuthorities = toGrantedAuthorities(account.getRoleNames());
-        String password = account.getPassword();
+        String password = account.getUserpassword();
 
         boolean enabled = true;
         boolean accountNonExpired = true;
