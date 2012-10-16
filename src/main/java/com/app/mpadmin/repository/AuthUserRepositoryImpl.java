@@ -20,7 +20,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.app.mpadmin.dao.support.GenericDao;
 import com.app.mpadmin.repository.support.RepositoryImpl;
 import com.app.mpadmin.domain.AuthUser;
+import com.app.mpadmin.domain.TdUserAuth;
 import com.app.mpadmin.dao.AuthUserDao;
+import com.app.mpadmin.dao.TdUserAuthDao;
 
 /**
  * Default implementation of the {@link AuthUserRepository} interface.
@@ -29,40 +31,40 @@ import com.app.mpadmin.dao.AuthUserDao;
  */
 @Named("authUserRepository")
 @Singleton
-public class AuthUserRepositoryImpl extends RepositoryImpl<AuthUser, Integer> implements AuthUserRepository {
+public class AuthUserRepositoryImpl extends RepositoryImpl<TdUserAuth, Integer> implements AuthUserRepository {
 
     @SuppressWarnings("unused")
     private static final Logger log = Logger.getLogger(AuthUserRepositoryImpl.class);
 
-    protected AuthUserDao authUserDao;
+    protected TdUserAuthDao tdUserAuthDao;
 
     @Inject
-    public void setAuthUserDao(AuthUserDao authUserDao) {
-        this.authUserDao = authUserDao;
+    public void setAuthUserDao(TdUserAuthDao tdUserAuthDao) {
+        this.tdUserAuthDao = tdUserAuthDao;
     }
 
     /**
      * Dao getter used by the {@link RepositoryImpl}.
      */
     @Override
-    public GenericDao<AuthUser, Integer> getDao() {
-        return authUserDao;
+    public GenericDao<TdUserAuth, Integer> getDao() {
+        return tdUserAuthDao;
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public AuthUser getNew() {
-        return new AuthUser();
+    public TdUserAuth getNew() {
+        return new TdUserAuth();
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public AuthUser getNewWithDefaults() {
-        AuthUser result = getNew();
+    public TdUserAuth getNewWithDefaults() {
+    	TdUserAuth result = getNew();
         result.initDefaultValues();
         return result;
     }
@@ -72,7 +74,7 @@ public class AuthUserRepositoryImpl extends RepositoryImpl<AuthUser, Integer> im
      */
     @Override
     @Transactional(readOnly = true)
-    public AuthUser get(AuthUser model) {
+    public TdUserAuth get(TdUserAuth model) {
         if (model == null) {
             return null;
         }
@@ -82,7 +84,7 @@ public class AuthUserRepositoryImpl extends RepositoryImpl<AuthUser, Integer> im
         }
 
         if (!isNotEmpty(model.getUsername())) {
-            AuthUser result = getByUsername(model.getUsername());
+        	TdUserAuth result = getByUsername(model.getUsername());
             if (result != null) {
                 return result;
             }
@@ -96,8 +98,8 @@ public class AuthUserRepositoryImpl extends RepositoryImpl<AuthUser, Integer> im
      */
     @Override
     @Transactional(readOnly = true)
-    public AuthUser getByUsername(String _username) {
-        AuthUser authUser = new AuthUser();
+    public TdUserAuth getByUsername(String _username) {
+    	TdUserAuth authUser = new TdUserAuth();
         authUser.setUsername(_username);
         return findUniqueOrNone(authUser);
     }

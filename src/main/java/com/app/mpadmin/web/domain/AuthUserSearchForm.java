@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.PropertySelectors.BooleanSelector;
 import com.app.mpadmin.dao.support.Ranges.RangeDate;
 import com.app.mpadmin.domain.AuthUser;
+import com.app.mpadmin.domain.TdUserAuth;
 import com.app.mpadmin.web.domain.support.SearchFormBase;
 
 /**
@@ -29,14 +30,14 @@ import com.app.mpadmin.web.domain.support.SearchFormBase;
 public class AuthUserSearchForm extends SearchFormBase {
     private static final long serialVersionUID = 1L;
 
-    private AuthUser authUser = new AuthUser();
+    private TdUserAuth authUser = new TdUserAuth();
     private RangeDate<AuthUser> lastLoginRange = newRangeDate(lastLogin);
     private RangeDate<AuthUser> dateJoinedRange = newRangeDate(dateJoined);
     private BooleanSelector<AuthUser> isStaffSelector = newBooleanSelector(isStaff);
     private BooleanSelector<AuthUser> isActiveSelector = newBooleanSelector(isActive);
     private BooleanSelector<AuthUser> isSuperuserSelector = newBooleanSelector(isSuperuser);
 
-    public AuthUser getAuthUser() {
+    public TdUserAuth getAuthUser() {
         return authUser;
     }
 

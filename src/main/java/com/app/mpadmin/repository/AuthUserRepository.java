@@ -7,7 +7,8 @@
  */
 package com.app.mpadmin.repository;
 
-import com.app.mpadmin.domain.AuthUser;
+
+import com.app.mpadmin.domain.TdUserAuth;
 import com.app.mpadmin.repository.support.Repository;
 
 /**
@@ -20,7 +21,7 @@ import com.app.mpadmin.repository.support.Repository;
  * instance from where you can control your search options including the usage
  * of named queries.
  */
-public interface AuthUserRepository extends Repository<AuthUser, Integer> {
+public interface AuthUserRepository extends Repository<TdUserAuth, Integer> {
 
     /**
      * Return the persistent instance of {@link AuthUser} with the given unique property value username,
@@ -29,7 +30,7 @@ public interface AuthUserRepository extends Repository<AuthUser, Integer> {
      * @param username the unique value
      * @return the corresponding {@link AuthUser} persistent instance or null
      */
-    AuthUser getByUsername(String username);
+	TdUserAuth getByUsername(String username);
 
     /**
      * Delete a {@link AuthUser} using the unique column username

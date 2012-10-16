@@ -15,6 +15,7 @@ import org.primefaces.model.SortOrder;
 
 import com.app.mpadmin.dao.support.SearchParameters;
 import com.app.mpadmin.domain.AuthUser;
+import com.app.mpadmin.domain.TdUserAuth;
 import com.app.mpadmin.repository.AuthUserRepository;
 import com.app.mpadmin.web.domain.support.GenericLazyDataModel;
 
@@ -23,7 +24,7 @@ import com.app.mpadmin.web.domain.support.GenericLazyDataModel;
  *
  * @see http://jira.springframework.org/browse/SWF-1224 to avoid instanciate it as a var from your flow 
  */
-public class AuthUserLazyDataModel extends GenericLazyDataModel<AuthUser> {
+public class AuthUserLazyDataModel extends GenericLazyDataModel<TdUserAuth> {
     private static final long serialVersionUID = 1L;
 
     @Inject
@@ -36,7 +37,7 @@ public class AuthUserLazyDataModel extends GenericLazyDataModel<AuthUser> {
      * Automatically called by PrimeFaces component.
      */
     @Override
-    public List<AuthUser> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, String> filters) {
+    public List<TdUserAuth> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, String> filters) {
         SearchParameters sp = authUserSearchForm.getSearchParameters();
 
         // ranges
@@ -50,7 +51,7 @@ public class AuthUserLazyDataModel extends GenericLazyDataModel<AuthUser> {
         sp.addPropertySelector(authUserSearchForm.getIsActiveSelector());
         sp.addPropertySelector(authUserSearchForm.getIsSuperuserSelector());
 
-        AuthUser authUser = authUserSearchForm.getAuthUser();
+        TdUserAuth authUser = authUserSearchForm.getAuthUser();
         setRowCount(authUserRepository.findCount(authUser, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
 

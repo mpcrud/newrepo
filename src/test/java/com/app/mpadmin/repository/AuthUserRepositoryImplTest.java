@@ -18,8 +18,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.app.mpadmin.domain.AuthUser;
+import com.app.mpadmin.domain.TdUserAuth;
 import com.app.mpadmin.repository.AuthUserRepositoryImpl;
 import com.app.mpadmin.dao.AuthUserDao;
+import com.app.mpadmin.dao.TdUserAuthDao;
 import com.app.mpadmin.dao.support.SearchParameters;
 
 /**
@@ -28,73 +30,73 @@ import com.app.mpadmin.dao.support.SearchParameters;
 public class AuthUserRepositoryImplTest {
 
     private AuthUserRepositoryImpl authUserRepositoryImpl;
-    private AuthUserDao authUserDao;
+    private TdUserAuthDao authUserDao;
 
     @Before
     public void setUp() {
         // called before each test.
         authUserRepositoryImpl = new AuthUserRepositoryImpl();
-        authUserDao = mock(AuthUserDao.class);
+        authUserDao = mock(TdUserAuthDao.class);
         authUserRepositoryImpl.setAuthUserDao(authUserDao);
     }
 
     @Test
     public void testFindUniqueOrNoneCaseNone() {
-        AuthUser none = null;
+    	TdUserAuth none = null;
 
-        when(authUserDao.findUniqueOrNone(any(AuthUser.class), any(SearchParameters.class))).thenReturn(none);
+        when(authUserDao.findUniqueOrNone(any(TdUserAuth.class), any(SearchParameters.class))).thenReturn(none);
 
-        AuthUser result = authUserRepositoryImpl.findUniqueOrNone(new AuthUser());
+        TdUserAuth result = authUserRepositoryImpl.findUniqueOrNone(new TdUserAuth());
 
         assertThat(result).isNull();
-        verify(authUserDao, times(1)).findUniqueOrNone(any(AuthUser.class), any(SearchParameters.class));
+        verify(authUserDao, times(1)).findUniqueOrNone(any(TdUserAuth.class), any(SearchParameters.class));
     }
 
     @Test
     public void testFindUniqueOrNoneCaseUnique() {
-        AuthUser unique = new AuthUser();
+    	TdUserAuth unique = new TdUserAuth();
 
-        when(authUserDao.findUniqueOrNone(any(AuthUser.class), any(SearchParameters.class))).thenReturn(unique);
+        when(authUserDao.findUniqueOrNone(any(TdUserAuth.class), any(SearchParameters.class))).thenReturn(unique);
 
-        AuthUser result = authUserRepositoryImpl.findUniqueOrNone(new AuthUser());
+        TdUserAuth result = authUserRepositoryImpl.findUniqueOrNone(new TdUserAuth());
 
         assertThat(result).isNotNull();
-        verify(authUserDao, times(1)).findUniqueOrNone(any(AuthUser.class), any(SearchParameters.class));
+        verify(authUserDao, times(1)).findUniqueOrNone(any(TdUserAuth.class), any(SearchParameters.class));
     }
 
     @SuppressWarnings("unchecked")
     @Test(expected = NonUniqueResultException.class)
     public void testFindUniqueOrNoneCaseMultiple() {
-        when(authUserDao.findUniqueOrNone(any(AuthUser.class), any(SearchParameters.class))).thenThrow(NonUniqueResultException.class);
+        when(authUserDao.findUniqueOrNone(any(TdUserAuth.class), any(SearchParameters.class))).thenThrow(NonUniqueResultException.class);
 
-        authUserRepositoryImpl.findUniqueOrNone(new AuthUser());
+        authUserRepositoryImpl.findUniqueOrNone(new TdUserAuth());
     }
 
     @SuppressWarnings("unchecked")
     @Test(expected = NoResultException.class)
     public void testFindUniqueCaseNone() {
-        when(authUserDao.findUnique(any(AuthUser.class), any(SearchParameters.class))).thenThrow(NoResultException.class);
+        when(authUserDao.findUnique(any(TdUserAuth.class), any(SearchParameters.class))).thenThrow(NoResultException.class);
 
-        authUserRepositoryImpl.findUnique(new AuthUser());
+        authUserRepositoryImpl.findUnique(new TdUserAuth());
     }
 
     @Test
     public void testFindUniqueCaseUnique() {
-        AuthUser unique = new AuthUser();
+    	TdUserAuth unique = new TdUserAuth();
 
-        when(authUserDao.findUnique(any(AuthUser.class), any(SearchParameters.class))).thenReturn(unique);
+        when(authUserDao.findUnique(any(TdUserAuth.class), any(SearchParameters.class))).thenReturn(unique);
 
-        AuthUser result = authUserRepositoryImpl.findUnique(new AuthUser());
+        TdUserAuth result = authUserRepositoryImpl.findUnique(new TdUserAuth());
 
         assertThat(result).isNotNull();
-        verify(authUserDao, times(1)).findUnique(any(AuthUser.class), any(SearchParameters.class));
+        verify(authUserDao, times(1)).findUnique(any(TdUserAuth.class), any(SearchParameters.class));
     }
 
     @SuppressWarnings("unchecked")
     @Test(expected = NonUniqueResultException.class)
     public void testFindUniqueCaseMultiple() {
-        when(authUserDao.findUnique(any(AuthUser.class), any(SearchParameters.class))).thenThrow(NonUniqueResultException.class);
+        when(authUserDao.findUnique(any(TdUserAuth.class), any(SearchParameters.class))).thenThrow(NonUniqueResultException.class);
 
-        authUserRepositoryImpl.findUnique(new AuthUser());
+        authUserRepositoryImpl.findUnique(new TdUserAuth());
     }
 }
