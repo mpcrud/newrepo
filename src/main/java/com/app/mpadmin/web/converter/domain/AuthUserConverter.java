@@ -10,6 +10,7 @@ package com.app.mpadmin.web.converter.domain;
 import javax.inject.Inject;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.domain.AuthUser;
+import com.app.mpadmin.domain.TdUserAuth;
 import com.app.mpadmin.repository.AuthUserRepository;
 import com.app.mpadmin.web.converter.GenericJsfConverter;
 
@@ -18,14 +19,14 @@ import com.app.mpadmin.web.converter.GenericJsfConverter;
  * Each converter provides a 'print' method to convert an entity instance to a friendly string representation (readable by humans...).
  */
 @Component
-public class AuthUserConverter extends GenericJsfConverter<AuthUser, Integer> {
+public class AuthUserConverter extends GenericJsfConverter<TdUserAuth, Integer> {
     @Inject
     public AuthUserConverter(AuthUserRepository authUserRepository) {
         super(authUserRepository, Integer.class);
     }
 
     @Override
-    public String print(AuthUser authUser) {
+    public String print(TdUserAuth authUser) {
         return authUser == null ? "" : "" + authUser.getUsername();
     }
 }

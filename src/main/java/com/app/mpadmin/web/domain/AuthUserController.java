@@ -14,6 +14,7 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 
 import com.app.mpadmin.domain.AuthUser;
+import com.app.mpadmin.domain.TdUserAuth;
 import com.app.mpadmin.repository.AuthUserRepository;
 import com.app.mpadmin.web.converter.domain.AuthUserConverter;
 import com.app.mpadmin.web.util.MessageUtil;
@@ -36,7 +37,7 @@ public class AuthUserController {
     @Inject
     private AuthUserConverter authUserConverter;
 
-    public AuthUser newIfNull(AuthUser authUser) {
+    public TdUserAuth newIfNull(TdUserAuth authUser) {
         if (authUser != null) {
             return authUser;
         }
@@ -44,20 +45,20 @@ public class AuthUserController {
         return authUserRepository.getNewWithDefaults();
     }
 
-    public boolean save(AuthUser authUser) {
+    public boolean save(TdUserAuth authUser) {
         authUserRepository.save(authUser);
         messageUtil.info("status_saved_ok", authUserConverter.print(authUser));
         return true;
     }
 
-    public boolean saveAndClose(AuthUser authUser) {
+    public boolean saveAndClose(TdUserAuth authUser) {
         authUserRepository.save(authUser);
         messageUtil.infoDelayed("status_saved_ok", authUserConverter.print(authUser));
         forceClose();
         return true;
     }
 
-    public boolean delete(AuthUser authUser) {
+    public boolean delete(TdUserAuth authUser) {
         String infoArg = authUserConverter.print(authUser);
         authUserRepository.delete(authUser);
         messageUtil.info("status_deleted_ok", infoArg);
