@@ -9,6 +9,7 @@ package com.app.mpadmin.security;
 
 import static com.google.common.collect.Lists.newArrayList;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.io.Serializable;
@@ -28,8 +29,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.app.mpadmin.context.UserWithId;
-import com.app.mpadmin.domain.AuthUser;
-import com.app.mpadmin.repository.AuthUserRepository;
+//import com.app.mpadmin.domain.AuthUser;
+import com.app.mpadmin.domain.TdUserAuth;
+//import com.app.mpadmin.repository.AuthUserRepository;
+import com.app.mpadmin.repository.TdUserAuthRepository;
 
 /**
  * An implementation of Spring Security's UserDetailsService.
@@ -40,13 +43,17 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     private static final Logger log = Logger.getLogger(UserDetailsServiceImpl.class);
 
-    private AuthUserRepository authUserRepository;
+    //private AuthUserRepository authUserRepository; 
+    private TdUserAuthRepository userAuthRepository;
 
     @Inject
-    public UserDetailsServiceImpl(AuthUserRepository authUserRepository) {
+   /* public UserDetailsServiceImpl(AuthUserRepository authUserRepository) {
         this.authUserRepository = authUserRepository;
     }
-
+*/
+    public UserDetailsServiceImpl(TdUserAuthRepository userAuthRepository) {
+        this.userAuthRepository = userAuthRepository;
+    }
     /**
      * Retrieve an account depending on its login this method is not case sensitive.<br>
      * use <code>obtainAccount</code> to match the login to either email, login or whatever is your login logic
@@ -57,6 +64,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
      * @throws UsernameNotFoundException when the user could not be found
      * @throws DataAccessException when an error occured while retrieving the account
      */
+    
+    
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException {
         if (username == null || username.trim().isEmpty()) {
@@ -67,7 +76,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             log.debug("Security verification for user '" + username + "'");
         }
 
-        AuthUser account = authUserRepository.getByUsername(username);
+        //AuthUser account = authUserRepository.getByUsername(username); 
+        TdUserAuth account = userAuthRepository.getByUsername(username);
 
         if (account == null) {
             if (log.isInfoEnabled()) {
@@ -76,15 +86,19 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException("user " + username + " could not be found");
         }
 
-        Collection<GrantedAuthority> grantedAuthorities = toGrantedAuthorities(account.getRoleNames());
-        String password = account.getPassword();
+        List<String> rolenames = new ArrayList<String>();
+        rolenames.add(account.getRole().getRoleName());
+        if(account.getRole().getRoleName()=="ROLE_ADMIN")
+        	rolenames.add("ROLE_USER");        
+        Collection<GrantedAuthority> grantedAuthorities = toGrantedAuthorities(rolenames);//account.getRole().getRoleName());
+        String password = account.getUserpassword();
 
         boolean enabled = true;
         boolean accountNonExpired = true;
         boolean credentialsNonExpired = true;
         boolean accountNonLocked = true;
         Serializable id = account.getId();
-
+        log.info("user:"+username+"  password:"+password+" role:"+account.getRole().getRoleName());
         return new UserWithId(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, grantedAuthorities, id);
     }
 

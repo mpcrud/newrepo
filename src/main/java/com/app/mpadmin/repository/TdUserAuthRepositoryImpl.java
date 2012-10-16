@@ -10,6 +10,7 @@ package com.app.mpadmin.repository;
 import javax.inject.Inject;
 
 import org.apache.log4j.Logger;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -62,6 +63,23 @@ public class TdUserAuthRepositoryImpl extends RepositoryImpl<TdUserAuth, Integer
         TdUserAuth result = getNew();
         result.initDefaultValues();
         return result;
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public TdUserAuth getByUsername(String _username) {
+        TdUserAuth authUser = new TdUserAuth();
+        authUser.setUsername(_username);
+        return findUniqueOrNone(authUser);
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    @Transactional
+    public void deleteByUsername(String username) {
+        delete(getByUsername(username));
     }
 
 }

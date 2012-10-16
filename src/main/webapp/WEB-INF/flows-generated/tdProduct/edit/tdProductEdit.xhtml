@@ -115,8 +115,12 @@
 				<app:inputDateTime id="updationDate" value="#{tdProduct.updationDate}" label="${msg.tdProduct_updationDate}" />
 			</h:panelGrid>
 		</p:fieldset>
-		<app:saveButton title="${msg.tdProduct}"/>
+		<app:saveButton title="${msg.tdProduct}"/>	
+		<p:commandButton ajax="false" action="editTagGrpTagMapping" disabled="#{readonly}" title="TagGrpTag">
+         <ui:insert/>
+        </p:commandButton>	
 	</f:validateBean>
 </ui:define>
+
 </app:panelMenu>
 </ui:composition>

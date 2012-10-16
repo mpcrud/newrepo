@@ -10,7 +10,7 @@
 	<application>
 		<resource-handler>com.app.mpadmin.web.util.PrimeResourceHandlerWithCache</resource-handler>
 		<locale-config>
-			<default-locale>fr</default-locale>
+			<default-locale>en</default-locale>
 			<supported-locale>en</supported-locale>
 			<supported-locale>fr</supported-locale>
 		</locale-config>
