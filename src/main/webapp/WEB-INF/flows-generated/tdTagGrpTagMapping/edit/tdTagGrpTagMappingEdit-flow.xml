@@ -17,6 +17,7 @@
 	<!-- Flow input parameters -->
 	<!-- tdTagGrpTagMapping: the entity to edit. If null, then we create it here -->
 	<input name="tdTagGrpTagMapping" required="false" value="flowScope.tdTagGrpTagMapping"/>	
+	<input name="tdTagGrp" required="false" value="flowScope.tdTagGrp"/>
 	<on-start>
 		<evaluate expression="tdTagGrpTagMappingController.newIfNull(tdTagGrpTagMapping)" result="flowScope.tdTagGrpTagMapping" />
 	</on-start>

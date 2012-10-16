@@ -26,7 +26,7 @@
 	</decision-state>
 
 	<!-- EDIT -->
-	<view-state id="tdProductEdit">
+	<view-state id="tdProductEdit" parent="#tdProductEditCommon">
 		<on-render>
 			<evaluate expression="flowsMenuHandler.updateMenu(flowRequestContext,tdProduct.id,tdProductConverter.print(tdProduct))" />
 		</on-render>
@@ -39,7 +39,7 @@
 			<evaluate expression="tdProductController.save(tdProduct)" />
 		</transition>
 
-		<transition on="saveAndClose">
+		<transition on="saveAndClose" to="editTagGrpTagMapping">
 			<evaluate expression="tdProductController.saveAndClose(tdProduct)" />
 		</transition>
 
@@ -53,12 +53,30 @@
 	</view-state>
 
 	<!-- SUB-EDIT -->
-	<view-state id="tdProductSubEdit" view="tdProductEdit.xhtml">
+	<view-state id="tdProductSubEdit" view="tdProductEdit.xhtml" parent="#tdProductEditCommon">
 		<transition on="ok">
 			<evaluate expression="primeFacesUtil.forceClose()" />
 		</transition>
 		<transition on="cancel" to="cancelEdit" />
 	</view-state>
+	
+	
+	<view-state id="tdProductEditCommon">
+		<!-- TagGrpTagMapping transitions  -->
+		<transition on="editTagGrpTagMapping" to="editTagGrpTagMapping">
+			<set name="requestScope.paramReadonly" value="false" type="boolean" />
+		</transition>		
+	</view-state>	
+	
+	<!-- SUBFLOW TagGrpTagMapping -->
+	<subflow-state id="editTagGrpTagMapping" subflow="tdTagGrpTagMapping/edit">
+		<input name="sub" value="false" />
+		<input name="readonly" value="requestScope.paramReadonly" />
+		<input name="tdTagGrp" value="flowScope.tdTagGrp"/>		
+		<transition on="endEdit" to="startChoice"/>			
+		<transition on="cancelEdit" to="startChoice" />
+	</subflow-state>
+	
 
 	<end-state id="endEdit">
 		<output name="tdProduct" value="tdProduct" />

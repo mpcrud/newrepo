@@ -21,4 +21,7 @@ import com.app.mpadmin.repository.support.Repository;
  * of named queries.
  */
 public interface TdUserAuthRepository extends Repository<TdUserAuth, Integer> {
+	
+	public TdUserAuth getByUsername(String _username);
+	public void deleteByUsername(String username);
 }

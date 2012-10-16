@@ -151,7 +151,7 @@ public class TdTag implements Identifiable<Integer>, Serializable {
     // -- [tagUrl] ------------------------
 
     @Size(max = 45)
-    @URL
+   // @URL
     @Column(name = "tag_url", length = 45)
     public String getTagUrl() {
         return tagUrl;
