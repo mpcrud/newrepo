@@ -12,7 +12,10 @@ import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.TemporalType.TIMESTAMP;
 import static org.hibernate.annotations.CacheConcurrencyStrategy.NONSTRICT_READ_WRITE;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -271,4 +274,39 @@ public class TdUserAuth implements Identifiable<Integer>, Serializable {
     protected void prePersist() {
         setCreationDate(new Date());
     }
+    
+    /**
+     * Default implementation returns hard coded granted authorities for this account (i.e. "ROLE_USER" and "ROLE_ADMIN").
+     * TODO: You should override this method to provide your own custom authorities using your own logic.
+     * Or you can follow Celerio Account Table convention. Please refer to Celerio Documentation.
+     */
+    @Transient
+    @XmlTransient
+    public List<String> getRoleNames() {
+        List<String> roleNames = new ArrayList<String>();
+        if ("user".equalsIgnoreCase(getUsername())) {
+            roleNames.add("ROLE_USER");
+        } else if ("admin".equalsIgnoreCase(getUsername())) {
+            roleNames.add("ROLE_USER");
+            roleNames.add("ROLE_ADMIN");
+        }
+
+        log.warn("Returning hard coded role names. TODO: get the real role names");
+        return roleNames;
+    }
+
+    
+//    // -- [password] ------------------------
+//
+//    @Size(max = 128)
+//    @NotEmpty
+//    @Column(name = "`userpassword`", nullable = false, length = 128)
+//    public String getPassword() {
+//        return userpassword;
+//    }
+//
+//    public void setPassword(String userpassword) {
+//        this.userpassword = userpassword;
+//    }
+
 }
