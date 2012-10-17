@@ -28,4 +28,9 @@ public class TdProductConverter extends GenericJsfConverter<TdProduct, Integer> 
     public String print(TdProduct tdProduct) {
         return tdProduct == null ? "" : "" + tdProduct.getProductDisplayName();
     }
+
+    public int printId(TdProduct tdProduct)
+    {
+        return tdProduct == null ? -1 : tdProduct.getId();
+    }
 }

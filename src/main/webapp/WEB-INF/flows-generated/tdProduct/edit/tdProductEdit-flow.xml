@@ -39,8 +39,8 @@
 			<evaluate expression="tdProductController.save(tdProduct)" />
 		</transition>
 
-		<transition on="saveAndClose" to="editTagGrpTagMapping">
-			<evaluate expression="tdProductController.saveAndClose(tdProduct)" />
+		<transition on="saveAndClose">
+			<evaluate expression="tdProductController.save(tdProduct)" />
 		</transition>
 
 		<transition on="close">
@@ -60,19 +60,17 @@
 		<transition on="cancel" to="cancelEdit" />
 	</view-state>
 	
-	
 	<view-state id="tdProductEditCommon">
 		<!-- TagGrpTagMapping transitions  -->
 		<transition on="editTagGrpTagMapping" to="editTagGrpTagMapping">
 			<set name="requestScope.paramReadonly" value="false" type="boolean" />
-		</transition>		
-	</view-state>	
+		</transition>
+    </view-state>
 	
 	<!-- SUBFLOW TagGrpTagMapping -->
 	<subflow-state id="editTagGrpTagMapping" subflow="tdTagGrpTagMapping/edit">
 		<input name="sub" value="false" />
 		<input name="readonly" value="requestScope.paramReadonly" />
-		<input name="tdTagGrp" value="flowScope.tdTagGrp"/>		
 		<transition on="endEdit" to="startChoice"/>			
 		<transition on="cancelEdit" to="startChoice" />
 	</subflow-state>

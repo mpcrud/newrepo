@@ -34,6 +34,11 @@ public class PrimeFacesUtil {
         }
     }
 
+    static public void showAskForMapTagGrpToTagDialog() {
+            RequestContext rc = RequestContext.getCurrentInstance();
+            rc.execute("askForMapTagGrpToTagDialog.show();");
+        }
+
     /**
      * Set a callback that instruct the client to silently request a forceClose transition.
      * Note: 'event' (i.e. 'transition' without 'to' in webflow) cannot by definition transition to another state.

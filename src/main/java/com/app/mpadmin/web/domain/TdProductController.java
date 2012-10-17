@@ -8,12 +8,13 @@
 package com.app.mpadmin.web.domain;
 
 import static com.app.mpadmin.web.util.PrimeFacesUtil.forceClose;
-
+import static com.app.mpadmin.web.util.PrimeFacesUtil.showAskForMapTagGrpToTagDialog;
 import java.util.Calendar;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
+
 
 import com.app.mpadmin.domain.TdProduct;
 import com.app.mpadmin.domain.TdTagGrp;
@@ -71,10 +72,10 @@ public class TdProductController {
         tdProductRepository.save(tdProduct);
         messageUtil.info("status_saved_ok", tdProductConverter.print(tdProduct)); 
         String productname =tdProduct.getProductDisplayName();
+        TdTagGrp tagGroup = new TdTagGrp();
         if(tdProductConverter.printId(tdProduct)!=-1)
         {
-        	
-        TdTagGrp tagGroup = new TdTagGrp();
+
         tagGroup.setIsActive(1);
         tagGroup.setCreationDate(Calendar.getInstance().getTime());
         tagGroup.setReferenceId(tdProduct.getId());
@@ -105,6 +106,7 @@ public class TdProductController {
         tdTagGrpTagMappingRepository.save(grp);*/
         //tagService.grpMapTagng(tagId,tagGroupId);
         }
+        showAskForMapTagGrpToTagDialog();
         return true;
     }
 

@@ -115,12 +115,17 @@
 				<app:inputDateTime id="updationDate" value="#{tdProduct.updationDate}" label="${msg.tdProduct_updationDate}" />
 			</h:panelGrid>
 		</p:fieldset>
-		<app:saveButton title="${msg.tdProduct}"/>	
-		<p:commandButton ajax="false" action="editTagGrpTagMapping" disabled="#{readonly}" title="TagGrpTag">
+		<app:saveButton title="${msg.tdProduct}"/>
+		<!-- <p:commandButton ajax="false" action="editTagGrpTagMapping" disabled="#{readonly}" title="TagGrpTag">
          <ui:insert/>
-        </p:commandButton>	
+        </p:commandButton>	-->
 	</f:validateBean>
 </ui:define>
-
+ <ui:define name="dialogs">
+    <p:confirmDialog widgetVar="askForMapTagGrpToTagDialog" header="${msg.menu_map}?" message="${msg.dialog_map_confirm}">
+      <p:commandButton id="askForMapTagGrpToTagDialogYes" action="editTagGrpTagMapping" ajax="true" oncomplete="askForMapTagGrpToTagDialog.hide();" immediate="true" process="@this" value="${msg.yes}" title="${msg.dialog_map_confirm} ${msg.yes}" icon="ui-icon-check" />
+      <p:commandButton id="askForMapTagGrpToTagDialogNo" value="${msg.no}" title="${msg.dialog_map_confirm} ${msg.no}" onclick="askForMapTagGrpToTagDialog.hide(); return false;" icon="ui-icon-cancel"/>
+    </p:confirmDialog>
+ </ui:define>
 </app:panelMenu>
 </ui:composition>
