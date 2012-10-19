@@ -60,12 +60,18 @@
             			<p:column id="tdTagGrp_isActive" headerText="${msg.tdTagGrp_isActive}" sortBy="#{item.isActive}">
             				<h:outputText value="#{item.isActive}" />
             			</p:column>
-            			<p:column id="tdTagGrp_tagGrpStatus" headerText="${msg.tdTagGrp_tagGrpStatus}" sortBy="#{item.tagGrpStatus}">
+            		<!--	<p:column id="tdTagGrp_tagGrpStatus" headerText="${msg.tdTagGrp_tagGrpStatus}" sortBy="#{item.tagGrpStatus}">
             				<h:outputText value="#{item.tagGrpStatus}" />
-            			</p:column>
+            			</p:column>    -->
             			<p:column id="tdTagGrp_referenceType" headerText="${msg.tdTagGrp_referenceType}" sortBy="#{item.referenceType}">
             				<h:outputText value="#{item.referenceType}" />
             			</p:column>
+                        <p:column id="tdTagGrp_product" headerText="${msg.tdTagGrp_product}">
+                           <h:outputText value="#{tdProductConverter.print(item.product)}" />
+                        </p:column>
+                         <p:column id="tdTagGrp_topic" headerText="${msg.tdTagGrp_topic}">
+                           <h:outputText value="#{tdTopicConverter.print(item.topic)}" />
+                         </p:column>
             			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
             				<app:iconSelect action="select" process="@this" title="${tdTagGrpConverter.print(item)}" rendered="true">
             					<f:setPropertyActionListener value="#{item}" target="#{tdTagGrpLazyDataModel.selectedRow}" />
