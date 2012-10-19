@@ -12,6 +12,9 @@ import static com.app.mpadmin.dao.support.EntitySelectors.TdTagGrpSelector.newTd
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
 import static com.app.mpadmin.domain.TdTagGrpTagMapping_.tagGrpId;
 import static com.app.mpadmin.domain.TdTagGrpTagMapping_.tagId;
+
+import com.app.mpadmin.dao.support.EntitySelectors;
+import com.app.mpadmin.domain.TdProduct;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -56,4 +59,5 @@ public class TdTagGrpTagMappingSearchForm extends SearchFormBase {
     public TdTagSelector<TdTagGrpTagMapping> getTagSelector() {
         return tagSelector;
     }
+
 }

@@ -1262,7 +1262,7 @@ public class TdProduct implements Identifiable<Integer>, Serializable {
         setDealerPrice(0);
         setRecommendedProduct(false);
         setBestSeller(false);
-        setBookableOnline(false);
+        setBookableOnline(true);
         setBookableOffline(false);
         setUniformAcrossYear(false);
         setUniformAcrossSubmodel(false);

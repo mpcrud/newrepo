@@ -8,6 +8,7 @@
 package com.app.mpadmin.dao.support;
 
 import java.util.Calendar;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -109,7 +110,7 @@ public class NamedQueryUtil {
 
         Query query = entityManager.createNamedQuery(searchParameters.getNamedQuery());
         String queryString = getQueryString(query);
-
+         log.debug("Query String------------"+queryString);
         // append select count if needed
         if (queryString != null && queryString.toLowerCase().startsWith("from") && !queryString.toLowerCase().contains("count(")) {
             query = recreateQuery(query, "select count(*) " + queryString);
@@ -121,9 +122,16 @@ public class NamedQueryUtil {
             log.debug("objectNamedQuery " + searchParameters.toString());
         }
 
+        log.debug(query);
         // execute
-        Object result = query.getSingleResult();
+        // Object result = query.getSingleResult();
+        int count =0;
+         for (Iterator it = query.getResultList().iterator(); it.hasNext();) {
+               it.next();
+               count++;
+          }
 
+        Object result = new Integer(count);
         if (log.isDebugEnabled()) {
             log.debug(searchParameters.getNamedQuery() + " returned a " + (result == null ? "null" : result.getClass()) + " object");
             if (result instanceof Number) {

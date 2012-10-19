@@ -14,6 +14,9 @@
 
 	<persistence-context />
 
+    <var name="unTagGrpLazyDataModel" class="com.app.mpadmin.web.domain.UnMappedTagGrpLazyDataModel" />
+    <var name="tdTagGrpLazyDataModel" class="com.app.mpadmin.web.domain.TdTagGrpLazyDataModel" />
+
 	<!-- Flow input parameters -->
 	<!-- tdTagGrpTagMapping: the entity to edit. If null, then we create it here -->
 	<input name="tdTagGrpTagMapping" required="false" value="flowScope.tdTagGrpTagMapping"/>	
@@ -51,6 +54,11 @@
 		<transition on="deleteAndClose" to="deleteAndClose">
 			<evaluate expression="tdTagGrpTagMappingController.delete(tdTagGrpTagMapping)" />
 		</transition>
+
+        <transition on="select">
+            <evaluate expression="tdTagGrpTagMapping.setTagGrp(tdTagGrpLazyDataModel.selectedRow)" />
+            <evaluate expression="messageUtil.info('status_selected_ok',resourceBundle.tdTagGrpTagMapping_tagGrp)" />
+        </transition>
 	</view-state>
 
 	<!-- SUB-EDIT -->

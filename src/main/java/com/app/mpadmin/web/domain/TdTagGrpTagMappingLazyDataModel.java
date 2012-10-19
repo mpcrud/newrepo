@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import javax.inject.Inject;
 
+import com.app.mpadmin.domain.TdProduct;
 import org.primefaces.model.SortOrder;
 
 import com.app.mpadmin.dao.support.SearchParameters;
@@ -53,4 +54,5 @@ public class TdTagGrpTagMappingLazyDataModel extends GenericLazyDataModel<TdTagG
 
         return tdTagGrpTagMappingRepository.find(tdTagGrpTagMapping, sp);
     }
+
 }

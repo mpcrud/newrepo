@@ -26,6 +26,6 @@ public class TdTagConverter extends GenericJsfConverter<TdTag, Integer> {
 
     @Override
     public String print(TdTag tdTag) {
-        return tdTag == null ? "" : "" + tdTag.getTagTitle() + "/" + tdTag.getTagDesc() + "/" + tdTag.getTagUrl();
+        return tdTag == null ? "" : tdTag.getId()+"/ " + tdTag.getTagTitle() + "/ " + tdTag.getTagDesc() + "/ " + tdTag.getTagUrl();
     }
 }

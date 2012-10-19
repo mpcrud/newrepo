@@ -16,6 +16,6 @@
 	<entry key="tdTagGrpTagMapping_grpTagMappingId">Grp Tag Mapping Id</entry>
 	<entry key="tdTagGrpTagMapping_tagGrpId">Tag Grp Id</entry>
 	<entry key="tdTagGrpTagMapping_tagId">Tag Id</entry>
-	<entry key="tdTagGrpTagMapping_tagGrp">Tag Grp</entry>
-	<entry key="tdTagGrpTagMapping_tag">Tag</entry>
+	<entry key="tdTagGrpTagMapping_tagGrp">TagGrp Id/Reference Id/Reference Type</entry>
+	<entry key="tdTagGrpTagMapping_tag">Tag Id/ Tag Title/ Tag Desc/ Tag Url</entry>
 </properties>

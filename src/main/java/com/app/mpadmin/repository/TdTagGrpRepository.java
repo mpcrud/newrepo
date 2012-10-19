@@ -21,4 +21,5 @@ import com.app.mpadmin.repository.support.Repository;
  * of named queries.
  */
 public interface TdTagGrpRepository extends Repository<TdTagGrp, Integer> {
+
 }

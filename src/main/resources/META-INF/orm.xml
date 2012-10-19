@@ -78,4 +78,14 @@
 			<query>select {account.*} from auth_user</query>
 		</named-native-query>
 	</entity>
+
+    <entity metadata-complete="false" class="com.app.mpadmin.domain.TdTagGrp">
+        <named-query name="TdTagGrp.NotMappedToTag">
+            <query>from com.app.mpadmin.domain.TdTagGrp as tagGrp where tagGrp.tagGrpId not in(select distinct(mapping.tagGrpId) from com.app.mpadmin.domain.TdTagGrpTagMapping as mapping)</query>
+            <hint name="dynamic" value="true" />
+            <hint name="query" value="from com.app.mpadmin.domain.TdTagGrp as tagGrp where tagGrp.tagGrpId not in(select distinct(mapping.tagGrpId) from com.app.mpadmin.domain.TdTagGrpTagMapping as mapping)" />
+            <hint name="org.hibernate.cacheable" value="true"/>
+        </named-query>
+
+    </entity>
 </entity-mappings>

@@ -46,6 +46,9 @@ public class TdTagGrpLazyDataModel extends GenericLazyDataModel<TdTagGrp> {
         sp.addRange(tdTagGrpSearchForm.getIsActiveRange());
         sp.addRange(tdTagGrpSearchForm.getTagGrpStatusRange());
         sp.addRange(tdTagGrpSearchForm.getReferenceTypeRange());
+        sp.clearEntitySelectors();
+        sp.addEntitySelector(tdTagGrpSearchForm.getProductSelector());
+        sp.addEntitySelector(tdTagGrpSearchForm.getTopicSelector());
 
         TdTagGrp tdTagGrp = tdTagGrpSearchForm.getTdTagGrp();
         setRowCount(tdTagGrpRepository.findCount(tdTagGrp, sp)); // total count so the paginator may display the total number of pages

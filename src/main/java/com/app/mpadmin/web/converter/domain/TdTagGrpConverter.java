@@ -26,6 +26,6 @@ public class TdTagGrpConverter extends GenericJsfConverter<TdTagGrp, Integer> {
 
     @Override
     public String print(TdTagGrp tdTagGrp) {
-        return tdTagGrp == null ? "" : "" + tdTagGrp.getReferenceId() + "/" + tdTagGrp.getCreationDate() + "/" + tdTagGrp.getUpdationDate();
+        return tdTagGrp == null ? "" : "" +tdTagGrp.getId()+"/ "+ tdTagGrp.getReferenceId() + "/ " + tdTagGrp.getReferenceType();
     }
 }

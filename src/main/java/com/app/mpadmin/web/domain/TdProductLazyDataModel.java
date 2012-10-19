@@ -98,4 +98,5 @@ public class TdProductLazyDataModel extends GenericLazyDataModel<TdProduct> {
 
         return tdProductRepository.find(tdProduct, sp);
     }
-}
+
+  }

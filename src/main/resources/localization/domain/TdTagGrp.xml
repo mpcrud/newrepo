@@ -19,4 +19,6 @@
 	<entry key="tdTagGrp_isActive">Is Active?</entry>
 	<entry key="tdTagGrp_tagGrpStatus">Tag Grp Status</entry>
 	<entry key="tdTagGrp_referenceType">Reference Type</entry>
+    <entry key="tdTagGrp_product">Product Name</entry>
+    <entry key="tdTagGrp_topic">Topic</entry>
 </properties>

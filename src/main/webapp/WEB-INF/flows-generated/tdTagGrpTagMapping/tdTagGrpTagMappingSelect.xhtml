@@ -21,7 +21,7 @@
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
 				<app:tdTagGrpMultiAutoComplete id="tagGrpSelector" value="#{tdTagGrpTagMappingSearchForm.tagGrpSelector.selected}" label="${msg.tdTagGrpTagMapping_tagGrp}" />
-					<app:tdTagMultiAutoComplete id="tagSelector" value="#{tdTagGrpTagMappingSearchForm.tagSelector.selected}" label="${msg.tdTagGrpTagMapping_tag}" />
+				<app:tdTagMultiAutoComplete id="tagSelector" value="#{tdTagGrpTagMappingSearchForm.tagSelector.selected}" label="${msg.tdTagGrpTagMapping_tag}" />
 				<!-- 	<app:rangeInt id="tagGrpId" value="#{tdTagGrpTagMappingSearchForm.tagGrpIdRange}" label="${msg.tdTagGrpTagMapping_tagGrpId}"/>
 					<app:rangeInt id="tagId" value="#{tdTagGrpTagMappingSearchForm.tagIdRange}" label="${msg.tdTagGrpTagMapping_tagId}"/> -->
 				</h:panelGrid>
@@ -40,7 +40,13 @@
 			</p:column>
 			<p:column id="tdTagGrpTagMapping_tag" headerText="${msg.tdTagGrpTagMapping_tag}">
 				<h:outputText value="#{tdTagConverter.print(item.tag)}" />
-			</p:column>	
+			</p:column>
+            <p:column id="tdTagGrpTagMapping_product" headerText="${msg.tdTagGrp_product}">
+                <h:outputText value="#{tdProductConverter.print(item.tagGrp.product)}" />
+            </p:column>
+            <p:column id="tdTagGrpTagMapping_topic" headerText="${msg.tdTagGrp_topic}">
+                <h:outputText value="#{tdTopicConverter.print(item.tagGrp.topic)}" />
+             </p:column>
 			
 			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdTagGrpTagMappingConverter.print(item)}">

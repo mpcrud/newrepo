@@ -35,6 +35,47 @@
 		</p:fieldset>
 		<app:saveButton title="${msg.tdTagGrpTagMapping}"/>
 	</f:validateBean>
-</ui:define>
+    <h4>List of TagGroups that have not yet been mapped to any Tag </h4>
+    <p:dataTable id="searchResults"
+        		value="#{unTagGrpLazyDataModel}"
+        		var="item"
+        		rows="10"
+        		lazy="true"
+        		paginator="true"
+        		paginatorAlwaysVisible="true"
+        		paginatorPosition="bottom"
+        		currentPageReportTemplate="{currentPage} / {totalPages}"
+        		paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}"
+        		rowKey="#{item}"
+        		height="500px">
+                        <p:column id="tdTagGrp_tagGrpId" headerText="${msg.tdTagGrp_tagGrpId}" sortBy="#{item.tagGrpId}">
+                    		<h:outputText value="#{item.tagGrpId}" />
+                    	</p:column>
+            			<p:column id="tdTagGrp_referenceId" headerText="${msg.tdTagGrp_referenceId}" sortBy="#{item.referenceId}">
+            				<h:outputText value="#{item.referenceId}" />
+            			</p:column>
+            			<p:column id="tdTagGrp_updationDate" headerText="${msg.tdTagGrp_updationDate}" sortBy="#{item.updationDate}">
+            				<h:outputText value="#{item.updationDate}" />
+            			</p:column>
+            			<p:column id="tdTagGrp_isActive" headerText="${msg.tdTagGrp_isActive}" sortBy="#{item.isActive}">
+            				<h:outputText value="#{item.isActive}" />
+            			</p:column>
+            			<p:column id="tdTagGrp_tagGrpStatus" headerText="${msg.tdTagGrp_tagGrpStatus}" sortBy="#{item.tagGrpStatus}">
+            				<h:outputText value="#{item.tagGrpStatus}" />
+            			</p:column>
+            			<p:column id="tdTagGrp_referenceType" headerText="${msg.tdTagGrp_referenceType}" sortBy="#{item.referenceType}">
+            				<h:outputText value="#{item.referenceType}" />
+            			</p:column>
+            			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+            				<app:iconSelect action="select" process="@this" title="${tdTagGrpConverter.print(item)}" rendered="true">
+            					<f:setPropertyActionListener value="#{item}" target="#{tdTagGrpLazyDataModel.selectedRow}" />
+            				</app:iconSelect>
+            			</p:column>
+
+
+      </p:dataTable>
+
+
+    </ui:define>
 </app:panelMenu>
 </ui:composition>

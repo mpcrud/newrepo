@@ -7,23 +7,26 @@
  */
 package com.app.mpadmin.domain;
 
+import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.TemporalType.TIMESTAMP;
 import static org.hibernate.annotations.CacheConcurrencyStrategy.NONSTRICT_READ_WRITE;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
+import javax.annotation.Nullable;
+import javax.persistence.*;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.PrePersist;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlTransient;
+
+import com.app.mpadmin.repository.TdProductRepository;
+import com.app.mpadmin.repository.TdProductRepositoryImpl;
 import org.apache.log4j.Logger;
-import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.*;
 import com.app.mpadmin.domain.PersistableHashBuilder;
 import com.google.common.base.Objects;
+import org.hibernate.annotations.Cache;
 
 @Entity
 @Table(name = "td_tag_grp")
@@ -40,6 +43,10 @@ public class TdTagGrp implements Identifiable<Integer>, Serializable {
     private Integer isActive;
     private Integer tagGrpStatus;
     private Integer referenceType;
+
+    //Others
+    private TdTopic topic;
+    private TdProduct product;
 
     // ---------------------------
     // Constructors
@@ -106,7 +113,7 @@ public class TdTagGrp implements Identifiable<Integer>, Serializable {
 
     public void setReferenceId(Integer referenceId) {
         this.referenceId = referenceId;
-    }
+     }
 
     // -- [creationDate] ------------------------
 
@@ -165,11 +172,47 @@ public class TdTagGrp implements Identifiable<Integer>, Serializable {
         this.referenceType = referenceType;
     }
 
-    /**
+    @Cache(usage = NONSTRICT_READ_WRITE)
+    @JoinColumn(name = "reference_id", referencedColumnName = "topic_id",updatable = false,insertable = false)
+    @OneToOne(cascade = PERSIST, fetch = LAZY)
+    @NotFound(action= NotFoundAction.IGNORE)
+    @Nullable
+    public TdTopic getTopic( ){
+        if(referenceType==400)
+          topic=null;
+        return topic;
+    }
+
+    public void setTopic(TdTopic topic){
+        this.topic=topic;
+        if(topic!=null)
+          setReferenceId(topic.getId());
+        else setReferenceId(null);
+    }
+
+    @Cache(usage = NONSTRICT_READ_WRITE)
+    @JoinColumn(name = "reference_id", referencedColumnName = "product_id",updatable = false,insertable = false)
+    @OneToOne(cascade = PERSIST, fetch = LAZY)
+    @NotFound(action= NotFoundAction.IGNORE)
+    @Nullable
+    public TdProduct getProduct( ){
+         if(referenceType != 400)
+            product=null;
+         return product;
+    }
+
+    public void setProduct(TdProduct product){
+        this.product = product;
+        if(product!=null)
+            setReferenceId(product.getId());
+        else setReferenceId(null);
+    }
+
+      /**
      * Set the default values.
      */
     public void initDefaultValues() {
-    }
+           }
 
     /**
      * equals implementation using a business key.
