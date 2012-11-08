@@ -3,17 +3,18 @@
 	xmlns:h="http://java.sun.com/jsf/html" 
 	xmlns:f="http://java.sun.com/jsf/core" 
 	xmlns:p="http://primefaces.org/ui">
-	<p:fieldset legend="#{msg.search_criteria}">
+	<p:fieldset legend="#{msg.search_criteria}" toggleable="true" toggleSpeed="500" collapsed="true">
 		<ui:insert name="filters" />
-	</p:fieldset>
+
 	<p:commandButton id="search" action="search" process="@form"
 		oncomplete="APP.updateSearchResultsRegion(xhr,status,args)"
 		icon="iconSearch" styleClass="aria-search-button default"
 		update="searchResults messages"
 		value="#{msg.menu_search}"
 		title="#{msg.menu_search} #{title}" />
-	<p:commandButton icon="ui-icon-power" value="${msg.search_reset}" type="reset" />		
-	<br/>
+	<p:commandButton icon="ui-icon-power" value="${msg.search_reset}" type="reset" />
+    </p:fieldset>
+	<!--<br/>  -->
 	<span style="height: 16px; display: block;">
 		<p:ajaxStatus>
 			<f:facet name="start">
@@ -34,7 +35,7 @@
 		id="searchResults"
 		value="#{data}"
 		var="item"
-		rows="10"
+		rows="20"
 		lazy="true"
 		paginator="true"
 		paginatorAlwaysVisible="true"
@@ -45,5 +46,5 @@
 		height="500px">
 		<ui:insert name="result" />
 	</p:dataTable>
-	<script>jQuery("#searchResultsRegion").text('' + #{data.rowCount} + ' results');</script>
+	<script> jQuery("#searchResultsRegion").text('' + #{data.rowCount} + ' results'); </script>
 </ui:component>

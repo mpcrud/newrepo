@@ -275,6 +275,11 @@
 					<h:outputText value="${msg.tempTdTagGrpTagMapping}" />
 				</h:outputLink>
 			</li>
+            <li>
+               	<h:outputLink value="productsWithoutImage">
+                    	  <h:outputText value="Products Without Image" />
+                </h:outputLink>
+            </li>
 			</ul>
 		</p:panel>
 
@@ -521,10 +526,15 @@
 						<h:outputText value="${msg.tempTdTagGrpTagMapping}" />
 					</h:outputLink>
 				</li>
+                <li>
+                	<h:outputLink value="productsWithoutImage">
+                	  <h:outputText value="Products Without Image" />
+                	</h:outputLink>
+                </li>
 			</ul>
 		</p:panel>
 
-		<p:panel header="Fine tuning code generation" rendered="#{!(userContext.locale eq 'fr')}">
+	<!--	<p:panel header="Fine tuning code generation" rendered="#{!(userContext.locale eq 'fr')}">
 			<p><a href="http://www.springfuse.com/documentation/configuration.html">You can fine tune the code generation</a> using Celerio configuration file which can be found in the folder
 			"mpadmin/src/main/config/maven-celerio-plugin". 
 			This file allows you to:</p>
@@ -548,6 +558,6 @@
 				<li>Customiser les règles de mapping des nombres ou dates</li>
 				<li>etc.</li>
 			</ul>
-		</p:panel>
+		</p:panel>     -->
 	</app:panelTopMenu>
 </ui:composition>
