@@ -212,6 +212,7 @@ public class TdTagGrp implements Identifiable<Integer>, Serializable {
      * Set the default values.
      */
     public void initDefaultValues() {
+         setReferenceType(0);
            }
 
     /**

@@ -48,6 +48,10 @@
 		<filter-name>fileUploadFilter</filter-name>
 		<servlet-name>springMVCServlet</servlet-name>
 	</filter-mapping>
+    <filter-mapping>
+       <filter-name>fileUploadFilter</filter-name>
+       <servlet-name>facesServlet</servlet-name>
+    </filter-mapping>
 	<filter>
 		<filter-name>exceptionFilter</filter-name>
 		<filter-class>com.app.mpadmin.web.filter.ExceptionFilter</filter-class>

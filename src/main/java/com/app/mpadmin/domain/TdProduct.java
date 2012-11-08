@@ -28,10 +28,14 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlTransient;
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.NamedQuery;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.URL;
 import com.app.mpadmin.domain.PersistableHashBuilder;
 import com.google.common.base.Objects;
+
+@NamedQuery(name="product.getAllWithoutImages",query = "from TdProduct as p where p.productId not in(select pic.pictureRefId from TdPicture as pic where pic.pictureType=1000)")
+
 
 @Entity
 @Table(name = "td_product")
@@ -1292,13 +1296,14 @@ public class TdProduct implements Identifiable<Integer>, Serializable {
      */
     @Override
     public String toString() {
+
         return Objects.toStringHelper(this) //
                 .add("productId", getProductId()) //
-                .add("productSupplierId", getProductSupplierId()) //
+             /*   .add("productSupplierId", getProductSupplierId()) //
                 .add("productShipmentId", getProductShipmentId()) //
                 .add("supplierProductCode", getSupplierProductCode()) //
-                .add("productDisplayName", getProductDisplayName()) //
-                .add("productTechnicalName", getProductTechnicalName()) //
+             */   .add("productName", getProductDisplayName()) //
+             /*   .add("productTechnicalName", getProductTechnicalName()) //
                 .add("productAlternateName", getProductAlternateName()) //
                 .add("microDescription", getMicroDescription()) //
                 .add("shortDesc", getShortDesc()) //
@@ -1377,7 +1382,7 @@ public class TdProduct implements Identifiable<Integer>, Serializable {
                 .add("metaKeyword", getMetaKeyword()) //
                 .add("metaDescription", getMetaDescription()) //
                 .add("creationDate", getCreationDate()) //
-                .add("updationDate", getUpdationDate()) //
+                .add("updationDate", getUpdationDate()) //     */
                 .toString();
     }
 
@@ -1385,4 +1390,6 @@ public class TdProduct implements Identifiable<Integer>, Serializable {
     protected void prePersist() {
         setCreationDate(new Date());
     }
+
+
 }

@@ -25,11 +25,16 @@
 					<app:rangeInt id="isActive" value="#{tdTagGrpSearchForm.isActiveRange}" label="${msg.tdTagGrp_isActive}"/>
 					<app:rangeInt id="tagGrpStatus" value="#{tdTagGrpSearchForm.tagGrpStatusRange}" label="${msg.tdTagGrp_tagGrpStatus}"/>
 					<app:rangeInt id="referenceType" value="#{tdTagGrpSearchForm.referenceTypeRange}" label="${msg.tdTagGrp_referenceType}"/>
+                    <app:tdProductMultiAutoComplete id="product" value="#{tdTagGrpSearchForm.productSelector.selected}" label="${msg.tdTagGrp_product}"/>
+                    <app:tdTopicMultiAutoComplete id="topic" value="#{tdTagGrpSearchForm.topicSelector.selected}" label="${msg.tdTagGrp_topic}"/>
 				</h:panelGrid>
 			</f:validateBean>
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdTagGrp_tagGrpId" headerText="${msg.tdTagGrp_tagGrpId}" sortBy="#{item.tagGrpId}">
+            	<h:outputText value="#{item.tagGrpId}" />
+            </p:column>
 			<p:column id="tdTagGrp_referenceId" headerText="${msg.tdTagGrp_referenceId}" sortBy="#{item.referenceId}">
 				<h:outputText value="#{item.referenceId}" />
 			</p:column>

@@ -12,6 +12,8 @@ import org.springframework.stereotype.Component;
 import com.app.mpadmin.domain.TdTagGrp;
 import com.app.mpadmin.repository.TdTagGrpRepository;
 import com.app.mpadmin.web.converter.GenericJsfConverter;
+import com.app.mpadmin.repository.TdProductRepository;
+import com.app.mpadmin.repository.TdTopicRepository;
 
 /**
  * Responsible for creating TdTagGrp JSF converters.
@@ -26,6 +28,10 @@ public class TdTagGrpConverter extends GenericJsfConverter<TdTagGrp, Integer> {
 
     @Override
     public String print(TdTagGrp tdTagGrp) {
-        return tdTagGrp == null ? "" : "" +tdTagGrp.getId()+"/ "+ tdTagGrp.getReferenceId() + "/ " + tdTagGrp.getReferenceType();
+        if(tdTagGrp!=null && tdTagGrp.getProduct()==null && tdTagGrp.getTopic()==null)
+            return tdTagGrp.getId()+"/"+tdTagGrp.getReferenceId();
+        String display = tdTagGrp == null ? "" : tdTagGrp.getId() +"/ "+ tdTagGrp.getReferenceId()+"/"+tdTagGrp.getProduct()+"/"+tdTagGrp.getTopic(); //+tdTagGrp.getId()
+
+       return display;
     }
 }

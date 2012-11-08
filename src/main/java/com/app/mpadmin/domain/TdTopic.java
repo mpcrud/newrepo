@@ -529,7 +529,7 @@ public class TdTopic implements Identifiable<Integer>, Serializable {
         return Objects.toStringHelper(this) //
                 .add("topicId", getTopicId()) //
                 .add("topicTitle", getTopicTitle()) //
-                .add("viewCount", getViewCount()) //
+              /*  .add("viewCount", getViewCount()) //
                 .add("commentCount", getCommentCount()) //
                 .add("assignedSince", getAssignedSince()) //
                 .add("descShort", getDescShort()) //
@@ -557,7 +557,7 @@ public class TdTopic implements Identifiable<Integer>, Serializable {
                 .add("seoUrl", getSeoUrl()) //
                 .add("h1", getH1()) //
                 .add("h2", getH2()) //
-                .toString();
+            */    .toString();
     }
 
     @PrePersist

@@ -21,6 +21,7 @@
 			<h:panelGrid columns="2" styleClass="aria-role-presentation">
 			<!-- 	<app:input id="tagGrpId" value="#{tdTagGrpTagMapping.tagGrpId}" label="${msg.tdTagGrpTagMapping_tagGrpId}" />
 				<app:input id="tagId" value="#{tdTagGrpTagMapping.tagId}" label="${msg.tdTagGrpTagMapping_tagId}" /> -->
+
 				<app:tdTagGrpAutoComplete id="tagGrp" value="#{tdTagGrpTagMapping.tagGrp}" required="true" label="${msg.tdTagGrpTagMapping_tagGrp}">
 					<app:iconSearch action="selectTagGrp" title="${msg.tdTagGrpTagMapping_tagGrp} " />
 					<app:iconEdit action="editTagGrp" title="${msg.tdTagGrpTagMapping_tagGrp}" />
@@ -39,7 +40,7 @@
     <p:dataTable id="searchResults"
         		value="#{unTagGrpLazyDataModel}"
         		var="item"
-        		rows="10"
+        		rows="20"
         		lazy="true"
         		paginator="true"
         		paginatorAlwaysVisible="true"
@@ -48,10 +49,10 @@
         		paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}"
         		rowKey="#{item}"
         		height="500px">
-                        <p:column id="tdTagGrp_tagGrpId" headerText="${msg.tdTagGrp_tagGrpId}" sortBy="#{item.tagGrpId}">
+                        <p:column id="tdTagGrp_tagGrpId" headerText="${msg.tdTagGrp_tagGrpId}" sortBy="#{item.tagGrpId}" >
                     		<h:outputText value="#{item.tagGrpId}" />
                     	</p:column>
-            			<p:column id="tdTagGrp_referenceId" headerText="${msg.tdTagGrp_referenceId}" sortBy="#{item.referenceId}">
+            			<p:column id="tdTagGrp_referenceId" headerText="${msg.tdTagGrp_referenceId}" sortBy="#{item.referenceId}" resizable="true">
             				<h:outputText value="#{item.referenceId}" />
             			</p:column>
             			<p:column id="tdTagGrp_updationDate" headerText="${msg.tdTagGrp_updationDate}" sortBy="#{item.updationDate}">
