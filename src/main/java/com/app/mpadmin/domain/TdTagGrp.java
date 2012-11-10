@@ -13,6 +13,7 @@ import static javax.persistence.TemporalType.TIMESTAMP;
 import static org.hibernate.annotations.CacheConcurrencyStrategy.NONSTRICT_READ_WRITE;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.annotation.Nullable;
 import javax.persistence.*;
 import javax.persistence.CascadeType;
@@ -47,6 +48,7 @@ public class TdTagGrp implements Identifiable<Integer>, Serializable {
     //Others
     private TdTopic topic;
     private TdProduct product;
+
 
     // ---------------------------
     // Constructors
