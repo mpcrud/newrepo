@@ -27,10 +27,14 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlTransient;
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.NamedQuery;
 import org.hibernate.validator.constraints.URL;
 import com.app.mpadmin.domain.PersistableHashBuilder;
 import com.app.mpadmin.domain.TdUserAuth;
 import com.google.common.base.Objects;
+
+@NamedQuery(name="TdTopic.NotMappedToTag",
+            query="from TdTopic as t where t.topicId not in(select tag.referenceId from TdTagGrp as tag where tag.referenceType!=400) ")
 
 @Entity
 @Table(name = "td_topic")

@@ -28,14 +28,21 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlTransient;
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.NamedQueries;
 import org.hibernate.annotations.NamedQuery;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.URL;
 import com.app.mpadmin.domain.PersistableHashBuilder;
 import com.google.common.base.Objects;
 
-@NamedQuery(name="product.getAllWithoutImages",query = "from TdProduct as p where p.productId not in(select pic.pictureRefId from TdPicture as pic where pic.pictureType=1000)")
-
+@NamedQueries(
+  {
+@NamedQuery(name="product.getAllWithoutImages",
+ query = "from TdProduct as p where p.productId not in(select pic.pictureRefId from TdPicture as pic where pic.pictureType=1000)"),
+@NamedQuery(name="product.getAllWithoutTags",query="from TdProduct as p where p.productId not in(select tag.referenceId from TdTagGrp as tag where tag.referenceType=400) "),
+@NamedQuery(name="product.getUnmappedToCars",query="from TdProduct as p where p.productId not in(select pModel.productId from TdProductModel as pModel)")
+   }
+)
 
 @Entity
 @Table(name = "td_product")
