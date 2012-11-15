@@ -45,6 +45,9 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdProductBrand_brandId" headerText="${msg.tdProductBrand_brandId}" sortBy="#{item.brandId}">
+				<h:outputText value="#{item.brandId}" />
+			</p:column>
 			<p:column id="tdProductBrand_brandDisplayName" headerText="${msg.tdProductBrand_brandDisplayName}" sortBy="#{item.brandDisplayName}">
 				<h:outputText value="#{item.brandDisplayName}" />
 			</p:column>
@@ -60,8 +63,44 @@
 			<p:column id="tdProductBrand_internalRating" headerText="${msg.tdProductBrand_internalRating}" sortBy="#{item.internalRating}">
 				<h:outputText value="#{item.internalRating}" />
 			</p:column>
+            <p:column id="tdProductBrand_isActive" headerText="${msg.tdProductBrand_isActive}" sortBy="#{item.isActive}">
+				<h:outputText value="#{item.isActive}" />
+			</p:column>
+            <p:column id="tdProductBrand_brandStatus" headerText="${msg.tdProductBrand_brandStatus}" sortBy="#{item.brandStatus}">
+				<h:outputText value="#{item.brandStatus}" />
+			</p:column>
 			<p:column id="tdProductBrand_refLink1" headerText="${msg.tdProductBrand_refLink1}" sortBy="#{item.refLink1}">
 				<h:outputText value="#{item.refLink1}" />
+			</p:column>
+            <p:column id="tdProductBrand_refLink2" headerText="${msg.tdProductBrand_refLink2}" sortBy="#{item.refLink2}">
+				<h:outputText value="#{item.refLink2}" />
+			</p:column>
+            <p:column id="tdProductBrand_seoResources" headerText="${msg.tdProductBrand_seoResources}" sortBy="#{item.seoResources}">
+				<h:outputText value="#{item.seoResources}" />
+			</p:column>
+            <p:column id="tdProductBrand_seoUrl" headerText="${msg.tdProductBrand_seoUrl}" sortBy="#{item.seoUrl}">
+				<h:outputText value="#{item.seoUrl}" />
+			</p:column>
+            <p:column id="tdProductBrand_seoH1" headerText="${msg.tdProductBrand_seoH1}" sortBy="#{item.seoH1}">
+				<h:outputText value="#{item.seoH1}" />
+			</p:column>
+            <p:column id="tdProductBrand_seoH2" headerText="${msg.tdProductBrand_seoH2}" sortBy="#{item.seoH2}">
+				<h:outputText value="#{item.seoH2}" />
+			</p:column>
+            <p:column id="tdProductBrand_metaTitle" headerText="${msg.tdProductBrand_metaTitle}" sortBy="#{item.metaTitle}">
+				<h:outputText value="#{item.metaTitle}" />
+			</p:column>
+            <p:column id="tdProductBrand_metaKeyword" headerText="${msg.tdProductBrand_metaKeyword}" sortBy="#{item.metaKeyword}">
+				<h:outputText value="#{item.metaKeyword}" />
+			</p:column>
+            <p:column id="tdProductBrand_metaDescription" headerText="${msg.tdProductBrand_metaDescription}" sortBy="#{item.metaDescription}">
+				<h:outputText value="#{item.metaDescription}" />
+			</p:column>
+            <p:column id="tdProductBrand_creationDate" headerText="${msg.tdProductBrand_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
+            <p:column id="tdProductBrand_updationDate" headerText="${msg.tdProductBrand_updationDate}" sortBy="#{item.updationDate}">
+				<h:outputText value="#{item.updationDate}" />
 			</p:column>
 			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdProductBrandConverter.print(item)}">

@@ -19,11 +19,11 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdTag}">
 			<h:panelGrid columns="2" styleClass="aria-role-presentation">
-				<app:input id="tagTitle" value="#{tdTag.tagTitle}" size="45" label="${msg.tdTag_tagTitle}" />
+				<app:input id="tagTitle" value="#{tdTag.tagTitle}" size="45" label="${msg.tdTag_tagTitle}" maxlength="45"/>
 				<app:input id="tagPriority" value="#{tdTag.tagPriority}" label="${msg.tdTag_tagPriority}" />
 				<app:input id="tagType" value="#{tdTag.tagType}" label="${msg.tdTag_tagType}" />
 				<app:inputTextArea id="tagDesc" value="#{tdTag.tagDesc}" label="${msg.tdTag_tagDesc}" />
-				<app:input id="tagUrl" value="#{tdTag.tagUrl}" size="45" label="${msg.tdTag_tagUrl}" />
+				<app:input id="tagUrl" value="#{tdTag.tagUrl}" size="45" label="${msg.tdTag_tagUrl}" maxlength="45"/>
 				<app:inputDateTime id="updationDate" value="#{tdTag.updationDate}" label="${msg.tdTag_updationDate}" />
 				<app:input id="isActive" value="#{tdTag.isActive}" label="${msg.tdTag_isActive}" />
 				<app:input id="tagStatus" value="#{tdTag.tagStatus}" label="${msg.tdTag_tagStatus}" />

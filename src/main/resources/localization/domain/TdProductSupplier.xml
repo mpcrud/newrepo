@@ -36,7 +36,7 @@
 	<entry key="tdProductSupplier_metaKeyword">Meta Keyword</entry>
 	<entry key="tdProductSupplier_metaDescription">Meta Description</entry>
 	<entry key="tdProductSupplier_updationDate">Updation Date</entry>
-
+    <entry key="tdProductSupplier_creationDate">Creation Date</entry>
 	<!-- many-to-many -->
 	<entry key="tdProductSupplier_products">Products</entry>
 </properties>

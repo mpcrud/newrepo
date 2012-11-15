@@ -96,6 +96,7 @@
 	<entry key="tdProduct_metaTitle">Meta Title</entry>
 	<entry key="tdProduct_metaKeyword">Meta Keyword</entry>
 	<entry key="tdProduct_metaDescription">Meta Description</entry>
+    <entry key="tdProduct_creationDate">Creation Date</entry>
 	<entry key="tdProduct_updationDate">Updation Date</entry>
 	<entry key="tdProduct_productSupplier">Product Supplier Name</entry>
 	<entry key="tdProduct_productShipment">Shipment Id/Vendor Id/Status</entry>

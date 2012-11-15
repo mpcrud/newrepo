@@ -17,6 +17,7 @@
 	<entry key="tdUserTagPreference_userId">User Id</entry>
 	<entry key="tdUserTagPreference_tagId">Tag Id</entry>
 	<entry key="tdUserTagPreference_updationDate">Updation Date</entry>
+    <entry key="tdUserTagPreference_creationDate">Creation Date</entry>
 
 	<!-- x-to-one -->
 	<entry key="tdUserTagPreference_user">User</entry>

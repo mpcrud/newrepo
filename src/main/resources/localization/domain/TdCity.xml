@@ -36,4 +36,5 @@
 	<entry key="tdCity_customtable3">Customtable3</entry>
 	<entry key="tdCity_customtable4">Customtable4</entry>
 	<entry key="tdCity_updationDate">Updation Date</entry>
+    <entry key="tdCity_creationDate">Creation Date</entry>
 </properties>

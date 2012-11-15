@@ -52,6 +52,7 @@ public class TdUserAuth implements Identifiable<Integer>, Serializable {
     private Date creationDate;
     private Date updationDate;
 
+
     // Technical attributes for query by example
     private Integer roleId;
 
@@ -92,7 +93,8 @@ public class TdUserAuth implements Identifiable<Integer>, Serializable {
         return isUserIdSet();
     }
 
-    // -------------------------------
+
+// -------------------------------
     // Getter & Setter
     // -------------------------------
 

@@ -48,6 +48,9 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdProductSupplier_productSupplierId" headerText="${msg.tdProductSupplier_productSupplierId}" sortBy="#{item.productSupplierId}">
+				<h:outputText value="#{item.productSupplierId}" />
+			</p:column>
 			<p:column id="tdProductSupplier_productSupplierDisplayName" headerText="${msg.tdProductSupplier_productSupplierDisplayName}" sortBy="#{item.productSupplierDisplayName}">
 				<h:outputText value="#{item.productSupplierDisplayName}" />
 			</p:column>
@@ -65,6 +68,51 @@
 			</p:column>
 			<p:column id="tdProductSupplier_shortDesc" headerText="${msg.tdProductSupplier_shortDesc}" sortBy="#{item.shortDesc}">
 				<h:outputText value="#{item.shortDesc}" />
+			</p:column>
+            <p:column id="tdProductSupplier_longDesc" headerText="${msg.tdProductSupplier_longDesc}" sortBy="#{item.longDesc}">
+				<h:outputText value="#{item.longDesc}" />
+			</p:column>
+            <p:column id="tdProductSupplier_productSupplierRating" headerText="${msg.tdProductSupplier_productSupplierRating}" sortBy="#{item.productSupplierRating}">
+				<h:outputText value="#{item.productSupplierRating}" />
+			</p:column>
+            <p:column id="tdProductSupplier_productSupplierType" headerText="${msg.tdProductSupplier_productSupplierType}" sortBy="#{item.productSupplierType}">
+				<h:outputText value="#{item.productSupplierType}" />
+			</p:column>
+            <p:column id="tdProductSupplier_productSupplierLogoSmall" headerText="${msg.tdProductSupplier_productSupplierLogoSmall}" sortBy="#{item.sproductSupplierLogoSmall}">
+				<h:outputText value="#{item.productSupplierLogoSmall}" />
+			</p:column>
+            <p:column id="tdProductSupplier_productSupplierLogoLong" headerText="${msg.tdProductSupplier_productSupplierLogoLong}" sortBy="#{item.productSupplierLogoLong}">
+				<h:outputText value="#{item.productSupplierLogoLong}" />
+			</p:column>
+            <p:column id="tdProductSupplier_productSupplierStatus" headerText="${msg.tdProductSupplier_productSupplierStatus}" sortBy="#{item.productSupplierStatus}">
+				<h:outputText value="#{item.productSupplierStatus}" />
+			</p:column>
+            <p:column id="tdProductSupplier_seoResources" headerText="${msg.tdProductSupplier_seoResources}" sortBy="#{item.seoResources}">
+				<h:outputText value="#{item.seoResources}" />
+			</p:column>
+            <p:column id="tdProductSupplier_seoUrl" headerText="${msg.tdProductSupplier_seoUrl}" sortBy="#{item.seoUrl}">
+				<h:outputText value="#{item.seoUrl}" />
+			</p:column>
+            <p:column id="tdProductSupplier_seoH1" headerText="${msg.tdProductSupplier_seoH1}" sortBy="#{item.seoH1}">
+				<h:outputText value="#{item.seoH1}" />
+			</p:column>
+            <p:column id="tdProductSupplier_seoH2" headerText="${msg.tdProductSupplier_seoH2}" sortBy="#{item.seoH2}">
+				<h:outputText value="#{item.seoH2}" />
+			</p:column>
+            <p:column id="tdProductSupplier_metaTitle" headerText="${msg.tdProductSupplier_metaTitle}" sortBy="#{item.metaTitle}">
+				<h:outputText value="#{item.metaTitle}" />
+			</p:column>
+            <p:column id="tdProductSupplier_metaKeyword" headerText="${msg.tdProductSupplier_metaKeyword}" sortBy="#{item.metaKeyword}">
+				<h:outputText value="#{item.metaKeyword}" />
+			</p:column>
+            <p:column id="tdProductSupplier_metaDescription" headerText="${msg.tdProductSupplier_metaDescription}" sortBy="#{item.metaDescription}">
+				<h:outputText value="#{item.metaDescription}" />
+			</p:column>
+            <p:column id="tdProductSupplier_creationDate" headerText="${msg.tdProductSupplier_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
+            <p:column id="tdProductSupplier_updationDate" headerText="${msg.tdProductSupplier_updationDate}" sortBy="#{item.updationDate}">
+				<h:outputText value="#{item.updationDate}" />
 			</p:column>
 			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdProductSupplierConverter.print(item)}">

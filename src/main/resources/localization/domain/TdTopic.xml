@@ -26,6 +26,7 @@
 	<entry key="tdTopic_facebookCount">Facebook Count</entry>
 	<entry key="tdTopic_metaDesc">Meta Desc</entry>
 	<entry key="tdTopic_updationDate">Updation Date</entry>
+    <entry key="tdTopic_creationDate">Creation Date</entry>
 	<entry key="tdTopic_isActive">Is Active?</entry>
 	<entry key="tdTopic_isFeatured">Is Featured?</entry>
 	<entry key="tdTopic_assignedToUser">Assigned To User</entry>

@@ -32,6 +32,9 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdVote_voteId" headerText="${msg.tdVote_voteId}" sortBy="#{item.voteId}">
+				<h:outputText value="#{item.voteId}" />
+			</p:column>
 			<p:column id="tdVote_user" headerText="${msg.tdVote_user}">
 				<h:outputText value="#{tdUserAuthConverter.print(item.user)}" />
 			</p:column>
@@ -40,6 +43,9 @@
 			</p:column>
 			<p:column id="tdVote_voteType" headerText="${msg.tdVote_voteType}" sortBy="#{item.voteType}">
 				<h:outputText value="#{item.voteType}" />
+			</p:column>
+            <p:column id="tdVote_creationDate" headerText="${msg.tdVote_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
 			</p:column>
 			<p:column id="tdVote_updationDate" headerText="${msg.tdVote_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />

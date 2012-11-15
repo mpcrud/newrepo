@@ -28,8 +28,14 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdRole_roleId" headerText="${msg.tdRole_roleId}" sortBy="#{item.roleId}">
+				<h:outputText value="#{item.roleId}" />
+			</p:column>
 			<p:column id="tdRole_roleName" headerText="${msg.tdRole_roleName}" sortBy="#{item.roleName}">
 				<h:outputText value="#{item.roleName}" />
+			</p:column>
+            <p:column id="tdRole_creationDate" headerText="${msg.tdRole_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
 			</p:column>
 			<p:column id="tdRole_updationDate" headerText="${msg.tdRole_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />

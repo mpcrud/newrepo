@@ -34,4 +34,5 @@
 	<entry key="tdMake_metaKeyword">Meta Keyword</entry>
 	<entry key="tdMake_metaDescription">Meta Description</entry>
 	<entry key="tdMake_updationDate">Updation Date</entry>
+    <entry key="tdMake_creationDate">Creation Date</entry>
 </properties>

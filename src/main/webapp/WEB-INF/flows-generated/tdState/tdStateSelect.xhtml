@@ -31,6 +31,9 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdState_stateId" headerText="${msg.tdState_stateId}" sortBy="#{item.stateId}">
+				<h:outputText value="#{item.stateId}" />
+			</p:column>
 			<p:column id="tdState_stateName" headerText="${msg.tdState_stateName}" sortBy="#{item.stateName}">
 				<h:outputText value="#{item.stateName}" />
 			</p:column>
@@ -45,6 +48,9 @@
 			</p:column>
 			<p:column id="tdState_descLong" headerText="${msg.tdState_descLong}" sortBy="#{item.descLong}">
 				<h:outputText value="#{item.descLong}" />
+			</p:column>
+            <p:column id="tdState_creationDate" headerText="${msg.tdState_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
 			</p:column>
 			<p:column id="tdState_updationDate" headerText="${msg.tdState_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />

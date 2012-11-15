@@ -40,6 +40,9 @@
 			<p:column id="tdTagRelation_parentTag" headerText="${msg.tdTagRelation_parentTag}">
 				<h:outputText value="#{tdTagConverter.print(item.parentTag)}" />
 			</p:column>
+            <p:column id="tdTagRelation_creationDate" headerText="${msg.tdTagRelation_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
 			<p:column id="tdTagRelation_updationDate" headerText="${msg.tdTagRelation_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />
 			</p:column>

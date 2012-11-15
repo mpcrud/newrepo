@@ -19,23 +19,23 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdCity}">
 			<h:panelGrid columns="2" styleClass="aria-role-presentation">
-				<app:input id="cityName" value="#{tdCity.cityName}" size="45" label="${msg.tdCity_cityName}" />
-				<app:input id="cityName2" value="#{tdCity.cityName2}" size="45" label="${msg.tdCity_cityName2}" />
+				<app:input id="cityName" value="#{tdCity.cityName}" size="45" label="${msg.tdCity_cityName}" maxlength="45"/>
+				<app:input id="cityName2" value="#{tdCity.cityName2}" size="45" label="${msg.tdCity_cityName2}" maxlength="45"/>
 				<app:input id="populationRank" value="#{tdCity.populationRank}" label="${msg.tdCity_populationRank}" />
 				<app:input id="destinationRank" value="#{tdCity.destinationRank}" label="${msg.tdCity_destinationRank}" />
 				<app:input id="flag" value="#{tdCity.flag}" label="${msg.tdCity_flag}" />
 				<app:input id="destinationType" value="#{tdCity.destinationType}" label="${msg.tdCity_destinationType}" />
-				<app:input id="isBigcity" value="#{tdCity.isBigcity}" size="1" label="${msg.tdCity_isBigcity}" />
-				<app:input id="isDestination" value="#{tdCity.isDestination}" size="1" label="${msg.tdCity_isDestination}" />
+				<app:input id="isBigcity" value="#{tdCity.isBigcity}" size="1" label="${msg.tdCity_isBigcity}" maxlength="1"/>
+				<app:input id="isDestination" value="#{tdCity.isDestination}" size="1" label="${msg.tdCity_isDestination}" maxlength="1"/>
 				<app:input id="importance" value="#{tdCity.importance}" label="${msg.tdCity_importance}" />
 				<app:input id="metroId" value="#{tdCity.metroId}" label="${msg.tdCity_metroId}" />
-				<app:inputTextArea id="descShort" value="#{tdCity.descShort}" label="${msg.tdCity_descShort}" />
+				<app:inputTextArea id="descShort" value="#{tdCity.descShort}" label="${msg.tdCity_descShort}"  maxlength="200"/>
 				<app:inputTextArea id="descLong" value="#{tdCity.descLong}" label="${msg.tdCity_descLong}" />
 				<app:input id="isResource" value="#{tdCity.isResource}" label="${msg.tdCity_isResource}" />
 				<app:inputTextArea id="resources" value="#{tdCity.resources}" label="${msg.tdCity_resources}" />
 				<app:input id="isSupportedBy" value="#{tdCity.isSupportedBy}" label="${msg.tdCity_isSupportedBy}" />
-				<app:input id="longitude" value="#{tdCity.longitude}" size="10" label="${msg.tdCity_longitude}" />
-				<app:input id="latitude" value="#{tdCity.latitude}" size="10" label="${msg.tdCity_latitude}" />
+				<app:input id="longitude" value="#{tdCity.longitude}" size="10" label="${msg.tdCity_longitude}" maxlength="10"/>
+				<app:input id="latitude" value="#{tdCity.latitude}" size="10" label="${msg.tdCity_latitude}" maxlength="10"/>
 				<app:input id="customtable1" value="#{tdCity.customtable1}" label="${msg.tdCity_customtable1}" />
 				<app:input id="customtable2" value="#{tdCity.customtable2}" label="${msg.tdCity_customtable2}" />
 				<app:input id="customtable3" value="#{tdCity.customtable3}" label="${msg.tdCity_customtable3}" />

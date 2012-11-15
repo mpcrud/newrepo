@@ -34,6 +34,9 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdUserDetail_userDetailsId" headerText="${msg.tdUserDetail_userDetailsId}">
+				<h:outputText value="#{item.userDetailsId}" />
+			</p:column>
 			<p:column id="tdUserDetail_user" headerText="${msg.tdUserDetail_user}">
 				<h:outputText value="#{tdUserAuthConverter.print(item.user)}" />
 			</p:column>
@@ -51,6 +54,18 @@
 			</p:column>
 			<p:column id="tdUserDetail_phone" headerText="${msg.tdUserDetail_phone}" sortBy="#{item.phone}">
 				<h:outputText value="#{item.phone}" />
+			</p:column>
+            <p:column id="tdUserDetail_interest" headerText="${msg.tdUserDetail_interest}" sortBy="#{item.interest}">
+				<h:outputText value="#{item.interest}" />
+			</p:column>
+            <p:column id="tdUserDetail_credit" headerText="${msg.tdUserDetail_credit}" sortBy="#{item.credit}">
+				<h:outputText value="#{item.credit}" />
+			</p:column>
+            <p:column id="tdUserDetail_creationDate" headerText="${msg.tdUserDetail_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
+            <p:column id="tdUserDetail_updationDate" headerText="${msg.tdUserDetail_updationDate}" sortBy="#{item.updationDate}">
+				<h:outputText value="#{item.updationDate}" />
 			</p:column>
 			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdUserDetailConverter.print(item)}">

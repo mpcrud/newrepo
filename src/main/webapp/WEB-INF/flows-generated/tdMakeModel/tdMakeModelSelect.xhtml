@@ -78,6 +78,75 @@
 			<p:column id="tdMakeModel_shortDesc" headerText="${msg.tdMakeModel_shortDesc}" sortBy="#{item.shortDesc}">
 				<h:outputText value="#{item.shortDesc}" />
 			</p:column>
+            <p:column id="tdMakeModel_isActive" headerText="${msg.tdMakeModel_isActive}" sortBy="#{item.isActive}">
+				<h:outputText value="#{item.isActive}" />
+			</p:column>
+            <p:column id="tdMakeModel_modelLaunchYear" headerText="${msg.tdMakeModel_modelLaunchYear}" sortBy="#{item.modelLaunchYear}">
+				<h:outputText value="#{item.modelLaunchYear}" />
+			</p:column>
+            <p:column id="tdMakeModel_fuelType" headerText="${msg.tdMakeModel_fuelType}" sortBy="#{item.fuelType}">
+				<h:outputText value="#{item.fuelType}" />
+			</p:column>
+            <p:column id="tdMakeModel_transmissionType" headerText="${msg.tdMakeModel_transmissionType}" sortBy="#{item.transmissionType}">
+				<h:outputText value="#{item.transmissionType}" />
+			</p:column>
+            <p:column id="tdMakeModel_wheeldriveType" headerText="${msg.tdMakeModel_wheeldriveType}" sortBy="#{item.wheeldriveType}">
+				<h:outputText value="#{item.wheeldriveType}" />
+			</p:column>
+            <p:column id="tdMakeModel_engineCapacity" headerText="${msg.tdMakeModel_engineCapacity}" sortBy="#{item.engineCapacity}">
+				<h:outputText value="#{item.engineCapacity}" />
+			</p:column>
+            <p:column id="tdMakeModel_bodyType" headerText="${msg.tdMakeModel_bodyType}" sortBy="#{item.bodyType}">
+				<h:outputText value="#{item.bodyType}" />
+			</p:column>
+            <p:column id="tdMakeModel_doorCount" headerText="${msg.tdMakeModel_doorCount}" sortBy="#{item.doorCount}">
+				<h:outputText value="#{item.doorCount}" />
+			</p:column>
+            <p:column id="tdMakeModel_gearCount" headerText="${msg.tdMakeModel_gearCount}" sortBy="#{item.gearCount}">
+				<h:outputText value="#{item.gearCount}" />
+			</p:column>
+            <p:column id="tdMakeModel_fuelDelivery" headerText="${msg.tdMakeModel_fuelDelivery}" sortBy="#{item.fuelDelivery}">
+				<h:outputText value="#{item.fuelDelivery}" />
+			</p:column>
+            <p:column id="tdMakeModel_valvesCount" headerText="${msg.tdMakeModel_valvesCount}" sortBy="#{item.valvesCount}">
+				<h:outputText value="#{item.valvesCount}" />
+			</p:column>
+            <p:column id="tdMakeModel_bhp" headerText="${msg.tdMakeModel_bhp}" sortBy="#{item.bhp}">
+				<h:outputText value="#{item.bhp}" />
+			</p:column>
+            <p:column id="tdMakeModel_torque" headerText="${msg.tdMakeModel_torque}" sortBy="#{item.torque}">
+				<h:outputText value="#{item.torque}" />
+			</p:column>
+            <p:column id="tdMakeModel_makemodelStatus" headerText="${msg.tdMakeModel_makemodelStatus}" sortBy="#{item.makemodelStatus}">
+				<h:outputText value="#{item.makemodelStatus}" />
+			</p:column>
+            <p:column id="tdMakeModel_seoResources" headerText="${msg.tdMakeModel_seoResources}" sortBy="#{item.seoResources}">
+				<h:outputText value="#{item.seoResources}" />
+			</p:column>
+            <p:column id="tdMakeModel_seoUrl" headerText="${msg.tdMakeModel_seoUrl}" sortBy="#{item.seoUrl}">
+				<h:outputText value="#{item.seoUrl}" />
+			</p:column>
+            <p:column id="tdMakeModel_seoH1" headerText="${msg.tdMakeModel_seoH1}" sortBy="#{item.seoH1}">
+				<h:outputText value="#{item.seoH1}" />
+			</p:column>
+            <p:column id="tdMakeModel_seoH2" headerText="${msg.tdMakeModel_seoH2}" sortBy="#{item.seoH2}">
+				<h:outputText value="#{item.seoH2}" />
+			</p:column>
+            <p:column id="tdMakeModel_metaTitle" headerText="${msg.tdMakeModel_metaTitle}" sortBy="#{item.metaTitle}">
+				<h:outputText value="#{item.metaTitle}" />
+			</p:column>
+            <p:column id="tdMakeModel_metaKeyword" headerText="${msg.tdMakeModel_metaKeyword}" sortBy="#{item.metaKeyword}">
+				<h:outputText value="#{item.metaKeyword}" />
+			</p:column>
+            <p:column id="tdMakeModel_metaDescription" headerText="${msg.tdMakeModel_metaDescription}" sortBy="#{item.metaDescription}">
+				<h:outputText value="#{item.metaDescription}" />
+			</p:column>
+            <p:column id="tdMakeModel_creationDate" headerText="${msg.tdMakeModel_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
+            <p:column id="tdMakeModel_updationDate" headerText="${msg.tdMakeModel_updationDate}" sortBy="#{item.updationDate}">
+				<h:outputText value="#{item.updationDate}" />
+			</p:column>
 			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdMakeModelConverter.print(item)}">
 					<f:setPropertyActionListener value="#{item}" target="#{tdMakeModelLazyDataModel.selectedRow}" />

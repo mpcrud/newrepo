@@ -33,6 +33,9 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdTag_tagId" headerText="${msg.tdTag_tagId}" sortBy="#{item.tagId}">
+				<h:outputText value="#{item.tagId}" />
+			</p:column>
 			<p:column id="tdTag_tagTitle" headerText="${msg.tdTag_tagTitle}" sortBy="#{item.tagTitle}">
 				<h:outputText value="#{item.tagTitle}" />
 			</p:column>
@@ -48,8 +51,17 @@
 			<p:column id="tdTag_tagUrl" headerText="${msg.tdTag_tagUrl}" sortBy="#{item.tagUrl}">
 				<h:outputText value="#{item.tagUrl}" />
 			</p:column>
+            <p:column id="tdTag_creationDate" headerText="${msg.tdTag_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
 			<p:column id="tdTag_updationDate" headerText="${msg.tdTag_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />
+			</p:column>
+            <p:column id="tdTag_isActive" headerText="${msg.tdTag_isActive}" sortBy="#{item.isActive}">
+				<h:outputText value="#{item.isActive}" />
+			</p:column>
+            <p:column id="tdTag_tagStatus" headerText="${msg.tdTag_tagStatus}" sortBy="#{item.tagStatus}">
+				<h:outputText value="#{item.tagStatus}" />
 			</p:column>
 			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdTagConverter.print(item)}">

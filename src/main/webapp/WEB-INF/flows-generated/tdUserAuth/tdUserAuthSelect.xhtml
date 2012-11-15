@@ -29,9 +29,11 @@
 				</h:panelGrid>
 			</f:validateBean>
 		</ui:define>
-
-		<ui:define name="result">
-			<p:column id="tdUserAuth_username" headerText="${msg.tdUserAuth_username}" sortBy="#{item.username}">
+         <ui:define name="result">
+             <p:column id="tdUserAuth_userId" headerText="${msg.tdUserAuth_userId}" sortBy="#{item.userId}">
+				<h:outputText value="#{item.userId}" />
+			</p:column>
+            <p:column id="tdUserAuth_username" headerText="${msg.tdUserAuth_username}" sortBy="#{item.username}">
 				<h:outputText value="#{item.username}" />
 			</p:column>
 			<p:column id="tdUserAuth_email" headerText="${msg.tdUserAuth_email}" sortBy="#{item.email}">
@@ -42,6 +44,9 @@
 			</p:column>
 			<p:column id="tdUserAuth_isActive" headerText="${msg.tdUserAuth_isActive}" sortBy="#{item.isActive}">
 				<h:outputText value="#{item.isActive}" />
+			</p:column>
+             <p:column id="tdUserAuth_creationDate" headerText="${msg.tdUserAuth_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
 			</p:column>
 			<p:column id="tdUserAuth_updationDate" headerText="${msg.tdUserAuth_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />
@@ -60,7 +65,9 @@
                        <f:setPropertyActionListener value="#{item}" target="#{tdUserAuthLazyDataModel.selectedRow}" />					
 				</app:iconDelete>					
 			</p:column>
+
 		</ui:define>
+
 	</app:search>
 </ui:define>
 <ui:define name="dialogs">

@@ -24,6 +24,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.URL;
 import com.app.mpadmin.domain.PersistableHashBuilder;
 import com.google.common.base.Objects;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.UploadedFile;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "td_picture")
@@ -43,6 +46,8 @@ public class TdPicture implements Identifiable<Integer>, Serializable {
     private Integer pictureType; // not null
     private Integer pictureRefId; // not null
     private Integer status; // not null
+
+   private UploadedFile file;
 
     // ---------------------------
     // Constructors
@@ -77,7 +82,6 @@ public class TdPicture implements Identifiable<Integer>, Serializable {
     public boolean isIdSet() {
         return isPictureIdSet();
     }
-
     // -------------------------------
     // Getter & Setter
     // -------------------------------
@@ -208,6 +212,15 @@ public class TdPicture implements Identifiable<Integer>, Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    @Transient
+    public UploadedFile getFile() {
+        return file;
+    }
+
+    public void setFile(UploadedFile file) {
+        this.file = file;
     }
 
     /**

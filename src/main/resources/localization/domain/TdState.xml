@@ -20,6 +20,7 @@
 	<entry key="tdState_descShort">Desc Short</entry>
 	<entry key="tdState_descLong">Desc Long</entry>
 	<entry key="tdState_updationDate">Updation Date</entry>
+    <entry key="tdState_creationDate">Creation Date</entry>
 
 	<!-- x-to-one -->
 	<entry key="tdState_country">Country</entry>

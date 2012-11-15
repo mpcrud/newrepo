@@ -31,6 +31,9 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdMetro_metroId" headerText="${msg.tdMetro_metroId}" sortBy="#{item.metroId}">
+				<h:outputText value="#{item.metroId}" />
+			</p:column>
 			<p:column id="tdMetro_metroName" headerText="${msg.tdMetro_metroName}" sortBy="#{item.metroName}">
 				<h:outputText value="#{item.metroName}" />
 			</p:column>
@@ -45,6 +48,9 @@
 			</p:column>
 			<p:column id="tdMetro_flag" headerText="${msg.tdMetro_flag}" sortBy="#{item.flag}">
 				<h:outputText value="#{item.flag}" />
+			</p:column>
+            <p:column id="tdMetro_creationDate" headerText="${msg.tdMetro_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
 			</p:column>
 			<p:column id="tdMetro_updationDate" headerText="${msg.tdMetro_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />

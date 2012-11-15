@@ -19,12 +19,12 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdUserDetail}">
 			<h:panelGrid columns="2" styleClass="aria-role-presentation">
-				<app:input id="firstname" value="#{tdUserDetail.firstname}" size="45" label="${msg.tdUserDetail_firstname}" />
-				<app:input id="lastname" value="#{tdUserDetail.lastname}" size="45" label="${msg.tdUserDetail_lastname}" />
+				<app:input id="firstname" value="#{tdUserDetail.firstname}" size="45" label="${msg.tdUserDetail_firstname}" maxlength="45"/>
+				<app:input id="lastname" value="#{tdUserDetail.lastname}" size="45" label="${msg.tdUserDetail_lastname}" maxlength="45"/>
 				<app:input id="isActive" value="#{tdUserDetail.isActive}" label="${msg.tdUserDetail_isActive}" />
 				<app:inputDate id="dob" value="#{tdUserDetail.dob}" label="${msg.tdUserDetail_dob}" />
 				<app:input id="phone" value="#{tdUserDetail.phone}" label="${msg.tdUserDetail_phone}" />
-				<app:input id="interest" value="#{tdUserDetail.interest}" size="45" label="${msg.tdUserDetail_interest}" />
+				<app:input id="interest" value="#{tdUserDetail.interest}" size="45" label="${msg.tdUserDetail_interest}" maxlength="45"/>
 				<app:inputDateTime id="updationDate" value="#{tdUserDetail.updationDate}" label="${msg.tdUserDetail_updationDate}" />
 				<app:input id="credit" value="#{tdUserDetail.credit}" label="${msg.tdUserDetail_credit}" />
 				<app:tdUserAuthAutoComplete id="user" value="#{tdUserDetail.user}" required="false" label="${msg.tdUserDetail_user}">

@@ -38,6 +38,9 @@
 			<p:column id="tdUserTagPreference_tag" headerText="${msg.tdUserTagPreference_tag}">
 				<h:outputText value="#{tdTagConverter.print(item.tag)}" />
 			</p:column>
+            <p:column id="tdUserTagPreference_creationDate" headerText="${msg.tdUserTagPreference_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
 			<p:column id="tdUserTagPreference_updationDate" headerText="${msg.tdUserTagPreference_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />
 			</p:column>

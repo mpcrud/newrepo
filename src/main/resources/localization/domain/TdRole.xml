@@ -15,6 +15,7 @@
 	<!-- Attributes -->
 	<entry key="tdRole_roleId">Role Id</entry>
 	<entry key="tdRole_roleName">Role Name</entry>
+    <entry key="tdRole_creationDate">Creation Date</entry>
 	<entry key="tdRole_updationDate">Updation Date</entry>
 	<entry key="tdRole_isActive">Is Active?</entry>
 </properties>

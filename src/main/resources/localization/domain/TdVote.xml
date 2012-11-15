@@ -17,6 +17,7 @@
 	<entry key="tdVote_userId">User Id</entry>
 	<entry key="tdVote_topicId">Topic Id</entry>
 	<entry key="tdVote_voteType">Vote Type</entry>
+    <entry key="tdVote_creationDate">Creation Date</entry>
 	<entry key="tdVote_updationDate">Updation Date</entry>
 	<entry key="tdVote_isActive">Is Active?</entry>
 	<entry key="tdVote_voteStatus">Vote Status</entry>

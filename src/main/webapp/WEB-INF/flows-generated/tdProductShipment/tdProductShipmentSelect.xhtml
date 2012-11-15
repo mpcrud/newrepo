@@ -36,6 +36,9 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdProductShipment_productShipmentId" headerText="${msg.tdProductShipment_productShipmentId}" sortBy="#{item.productShipmentId}">
+				<h:outputText value="#{item.productShipmentId}" />
+			</p:column>
 			<p:column id="tdProductShipment_shipmentVendor" headerText="${msg.tdProductShipment_shipmentVendor}">
 				<h:outputText value="#{tdShipmentVendorConverter.print(item.shipmentVendor)}" />
 			</p:column>
@@ -53,6 +56,18 @@
 			</p:column>
 			<p:column id="tdProductShipment_shipmentDuration" headerText="${msg.tdProductShipment_shipmentDuration}" sortBy="#{item.shipmentDuration}">
 				<h:outputText value="#{item.shipmentDuration}" />
+			</p:column>
+            <p:column id="tdProductShipment_shipmentType" headerText="${msg.tdProductShipment_shipmentType}" sortBy="#{item.shipmentType}">
+				<h:outputText value="#{item.shipmentType}" />
+			</p:column>
+            <p:column id="tdProductShipment_shipmentStatus" headerText="${msg.tdProductShipment_shipmentStatus}" sortBy="#{item.shipmentStatus}">
+				<h:outputText value="#{item.shipmentStatus}" />
+			</p:column>
+            <p:column id="tdProductShipment_creationDate" headerText="${msg.tdProductShipment_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
+            <p:column id="tdProductShipment_updationDate" headerText="${msg.tdProductShipment_updationDate}" sortBy="#{item.updationDate}">
+				<h:outputText value="#{item.updationDate}" />
 			</p:column>
 			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdProductShipmentConverter.print(item)}">

@@ -22,6 +22,7 @@
 	<entry key="tdUserActivity_ipaddress">Ipaddress</entry>
 	<entry key="tdUserActivity_currentStatus">Current Status</entry>
 	<entry key="tdUserActivity_updationDate">Updation Date</entry>
+    <entry key="tdUserActivity_creationDate">Creation Date</entry>
 	<entry key="tdUserActivity_isActive">Is Active?</entry>
 	<entry key="tdUserActivity_sessionPage">Session Page</entry>
 

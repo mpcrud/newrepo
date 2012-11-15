@@ -34,6 +34,9 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdPicture_pictureId" headerText="${msg.tdPicture_pictureId}" sortBy="#{item.pictureId}">
+				<h:outputText value="#{item.pictureId}" />
+			</p:column>
 			<p:column id="tdPicture_pictureName" headerText="${msg.tdPicture_pictureName}" sortBy="#{item.pictureName}">
 				<h:outputText value="#{item.pictureName}" />
 			</p:column>
@@ -51,6 +54,15 @@
 			</p:column>
 			<p:column id="tdPicture_pictureOwner" headerText="${msg.tdPicture_pictureOwner}" sortBy="#{item.pictureOwner}">
 				<h:outputText value="#{item.pictureOwner}" />
+			</p:column>
+            <p:column id="tdPicture_pictureType" headerText="${msg.tdPicture_pictureType}" sortBy="#{item.pictureType}">
+				<h:outputText value="#{item.pictureType}" />
+			</p:column>
+            <p:column id="tdPicture_pictureRefId" headerText="${msg.tdPicture_pictureRefId}" sortBy="#{item.pictureRefId}">
+				<h:outputText value="#{item.pictureRefId}" />
+			</p:column>
+            <p:column id="tdPicture_status" headerText="${msg.tdPicture_status}" sortBy="#{item.status}">
+				<h:outputText value="#{item.status}" />
 			</p:column>
 			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdPictureConverter.print(item)}">

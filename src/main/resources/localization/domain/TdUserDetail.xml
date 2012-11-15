@@ -21,6 +21,7 @@
 	<entry key="tdUserDetail_dob">Dob</entry>
 	<entry key="tdUserDetail_phone">Phone</entry>
 	<entry key="tdUserDetail_interest">Interest</entry>
+    <entry key="tdUserDetail_creationDate">Creation Date</entry>
 	<entry key="tdUserDetail_updationDate">Updation Date</entry>
 	<entry key="tdUserDetail_credit">Credit</entry>
 

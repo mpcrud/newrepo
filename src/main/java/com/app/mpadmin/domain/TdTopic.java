@@ -507,6 +507,11 @@ public class TdTopic implements Identifiable<Integer>, Serializable {
      * Set the default values.
      */
     public void initDefaultValues() {
+        setCommentCount(0);
+        setViewCount(0);
+        setVoteCount(0);
+        setIsActive(1);
+        setTopicStatus(1);
     }
 
     /**

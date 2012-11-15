@@ -26,4 +26,5 @@
 	<entry key="tdShipmentVendor_custom1">Custom1</entry>
 	<entry key="tdShipmentVendor_custom2">Custom2</entry>
 	<entry key="tdShipmentVendor_updationDate">Updation Date</entry>
+    <entry key="tdShipmentVendor_creationDate">Creation Date</entry>
 </properties>

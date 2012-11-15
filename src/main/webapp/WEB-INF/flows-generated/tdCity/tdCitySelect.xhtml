@@ -47,6 +47,9 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdCity_cityId" headerText="${msg.tdCity_cityId}" sortBy="#{item.cityId}">
+				<h:outputText value="#{item.cityId}" />
+			</p:column>
 			<p:column id="tdCity_cityName" headerText="${msg.tdCity_cityName}" sortBy="#{item.cityName}">
 				<h:outputText value="#{item.cityName}" />
 			</p:column>
@@ -64,6 +67,45 @@
 			</p:column>
 			<p:column id="tdCity_destinationType" headerText="${msg.tdCity_destinationType}" sortBy="#{item.destinationType}">
 				<h:outputText value="#{item.destinationType}" />
+			</p:column>
+            <p:column id="tdCity_isBigcity" headerText="${msg.tdCity_isBigcity}" sortBy="#{item.isBigcity}">
+				<h:outputText value="#{item.isBigcity}" />
+			</p:column>
+            <p:column id="tdCity_isDestination" headerText="${msg.tdCity_isDestination}" sortBy="#{item.isDestination}">
+				<h:outputText value="#{item.isDestination}" />
+			</p:column>
+            <p:column id="tdCity_importance" headerText="${msg.tdCity_importance}" sortBy="#{item.importance}">
+				<h:outputText value="#{item.importance}" />
+			</p:column>
+            <p:column id="tdCity_metroId" headerText="${msg.tdCity_metroId}" sortBy="#{item.metroId}">
+				<h:outputText value="#{item.metroId}" />
+			</p:column>
+            <p:column id="tdCity_descShort" headerText="${msg.tdCity_descShort}" sortBy="#{item.descShort}">
+				<h:outputText value="#{item.descShort}" />
+			</p:column>
+            <p:column id="tdCity_descLong" headerText="${msg.tdCity_descLong}" sortBy="#{item.descLong}">
+				<h:outputText value="#{item.descLong}" />
+			</p:column>
+            <p:column id="tdCity_isResource" headerText="${msg.tdCity_isResource}" sortBy="#{item.isResource}">
+				<h:outputText value="#{item.isResource}" />
+			</p:column>
+            <p:column id="tdCity_resources" headerText="${msg.tdCity_resources}" sortBy="#{item.resources}">
+				<h:outputText value="#{item.resources}" />
+			</p:column>
+            <p:column id="tdCity_isSupportedBy" headerText="${msg.tdCity_isSupportedBy}" sortBy="#{item.isSupportedBy}">
+				<h:outputText value="#{item.isSupportedBy}" />
+			</p:column>
+            <p:column id="tdCity_longitude" headerText="${msg.tdCity_longitude}" sortBy="#{item.longitude}">
+				<h:outputText value="#{item.longitude}" />
+			</p:column>
+            <p:column id="tdCity_latitude" headerText="${msg.tdCity_latitude}" sortBy="#{item.latitude}">
+				<h:outputText value="#{item.latitude}" />
+			</p:column>
+            <p:column id="tdCity_creationDate" headerText="${msg.tdCity_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
+            <p:column id="tdCity_updationDate" headerText="${msg.tdCity_updationDate}" sortBy="#{item.updationDate}">
+				<h:outputText value="#{item.updationDate}" />
 			</p:column>
 			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdCityConverter.print(item)}">

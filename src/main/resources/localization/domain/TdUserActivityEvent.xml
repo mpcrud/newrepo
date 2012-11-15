@@ -19,6 +19,7 @@
 	<entry key="tdUserActivityEvent_userEventName">User Event Name</entry>
 	<entry key="tdUserActivityEvent_userEventDesc">User Event Desc</entry>
 	<entry key="tdUserActivityEvent_updationDate">Updation Date</entry>
+    <entry key="tdUserActivityEvent_creationDate">Creation Date</entry>
 
 	<!-- x-to-one -->
 	<entry key="tdUserActivityEvent_userActivity">User Activity</entry>

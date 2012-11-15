@@ -35,6 +35,9 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdUserActivity_userActivityId" headerText="${msg.tdUserActivity_userActivityId}">
+				<h:outputText value="#{item.userActivityId}" />
+			</p:column>
 			<p:column id="tdUserActivity_user" headerText="${msg.tdUserActivity_user}">
 				<h:outputText value="#{tdUserAuthConverter.print(item.user)}" />
 			</p:column>
@@ -52,6 +55,21 @@
 			</p:column>
 			<p:column id="tdUserActivity_ipaddress" headerText="${msg.tdUserActivity_ipaddress}" sortBy="#{item.ipaddress}">
 				<h:outputText value="#{item.ipaddress}" />
+			</p:column>
+            <p:column id="tdUserActivity_currentStatus" headerText="${msg.tdUserActivity_currentStatus}" sortBy="#{item.currentStatus}">
+				<h:outputText value="#{item.currentStatus}" />
+			</p:column>
+            <p:column id="tdUserActivity_creationDate" headerText="${msg.tdUserActivity_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
+            <p:column id="tdUserActivity_updationDate" headerText="${msg.tdUserActivity_updationDate}" sortBy="#{item.updationDate}">
+				<h:outputText value="#{item.updationDate}" />
+			</p:column>
+            <p:column id="tdUserActivity_isActive" headerText="${msg.tdUserActivity_isActive}" sortBy="#{item.isActive}">
+				<h:outputText value="#{item.isActive}" />
+			</p:column>
+            <p:column id="tdUserActivity_sessionPage" headerText="${msg.tdUserActivity_sessionPage}" sortBy="#{item.sessionPage}">
+				<h:outputText value="#{item.sessionPage}" />
 			</p:column>
 			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdUserActivityConverter.print(item)}">

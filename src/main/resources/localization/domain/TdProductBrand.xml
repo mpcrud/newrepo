@@ -33,6 +33,7 @@
 	<entry key="tdProductBrand_metaKeyword">Meta Keyword</entry>
 	<entry key="tdProductBrand_metaDescription">Meta Description</entry>
 	<entry key="tdProductBrand_updationDate">Updation Date</entry>
+    <entry key="tdProductBrand_creationDate">Creation Date</entry>
 	<entry key="tdProductBrand_isActive">Is Active?</entry>
 
 	<!-- Uniques -->

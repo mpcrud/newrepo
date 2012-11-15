@@ -35,6 +35,9 @@
 			<p:column id="tdTagGrpTagMapping_tagId" headerText="${msg.tdTagGrpTagMapping_tagId}" sortBy="#{item.tagId}">
 				<h:outputText value="#{item.tagId}" />
 			</p:column> -->
+            <p:column id="tdTagGrpTagMapping_grpTagMappingId" headerText="${msg.tdTagGrpTagMapping_grpTagMappingId}">
+				<h:outputText value="#{item.grpTagMappingId}" />
+			</p:column>
 			<p:column id="tdTagGrpTagMapping_tagGrp" headerText="${msg.tdTagGrpTagMapping_tagGrp}">
 				<h:outputText value="#{tdTagGrpConverter.print(item.tagGrp)}" />
 			</p:column>

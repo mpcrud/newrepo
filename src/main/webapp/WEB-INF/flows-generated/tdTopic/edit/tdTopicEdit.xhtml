@@ -28,7 +28,7 @@
 				<app:input id="parentTopicId" value="#{tdTopic.parentTopicId}" label="${msg.tdTopic_parentTopicId}" />
 				<app:input id="twitterCount" value="#{tdTopic.twitterCount}" label="${msg.tdTopic_twitterCount}" />
 				<app:input id="facebookCount" value="#{tdTopic.facebookCount}" label="${msg.tdTopic_facebookCount}" />
-				<app:input id="metaDesc" value="#{tdTopic.metaDesc}" size="200" label="${msg.tdTopic_metaDesc}" />
+				<app:input id="metaDesc" value="#{tdTopic.metaDesc}" size="200" label="${msg.tdTopic_metaDesc}" maxlength="200"/>
 				<app:inputDateTime id="updationDate" value="#{tdTopic.updationDate}" label="${msg.tdTopic_updationDate}" />
 				<app:input id="isActive" value="#{tdTopic.isActive}" label="${msg.tdTopic_isActive}" />
 				<app:input id="isFeatured" value="#{tdTopic.isFeatured}" label="${msg.tdTopic_isFeatured}" />
@@ -38,8 +38,8 @@
 				<app:input id="voteCount" value="#{tdTopic.voteCount}" label="${msg.tdTopic_voteCount}" />
 				<app:input id="customInt1" value="#{tdTopic.customInt1}" label="${msg.tdTopic_customInt1}" />
 				<app:input id="customInt2" value="#{tdTopic.customInt2}" label="${msg.tdTopic_customInt2}" />
-				<app:input id="customVarchar1" value="#{tdTopic.customVarchar1}" size="45" label="${msg.tdTopic_customVarchar1}" />
-				<app:input id="customVarchar2" value="#{tdTopic.customVarchar2}" size="45" label="${msg.tdTopic_customVarchar2}" />
+				<app:input id="customVarchar1" value="#{tdTopic.customVarchar1}" size="45" label="${msg.tdTopic_customVarchar1}" maxlength="45"/>
+				<app:input id="customVarchar2" value="#{tdTopic.customVarchar2}" size="45" label="${msg.tdTopic_customVarchar2}" maxlength="45"/>
 				<app:inputTextArea id="seoResources" value="#{tdTopic.seoResources}" label="${msg.tdTopic_seoResources}" />
 				<app:inputTextArea id="metaTitle" value="#{tdTopic.metaTitle}" label="${msg.tdTopic_metaTitle}" />
 				<app:inputTextArea id="metaKeyword" value="#{tdTopic.metaKeyword}" label="${msg.tdTopic_metaKeyword}" />

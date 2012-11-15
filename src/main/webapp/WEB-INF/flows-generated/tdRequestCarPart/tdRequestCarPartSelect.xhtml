@@ -44,6 +44,9 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdRequestCarPart_requestId" headerText="${msg.tdRequestCarPart_requestId}" sortBy="#{item.requestId}">
+				<h:outputText value="#{item.requestId}" />
+			</p:column>
 			<p:column id="tdRequestCarPart_requestSource" headerText="${msg.tdRequestCarPart_requestSource}" sortBy="#{item.requestSource}">
 				<h:outputText value="#{item.requestSource}" />
 			</p:column>
@@ -61,6 +64,48 @@
 			</p:column>
 			<p:column id="tdRequestCarPart_fuelType" headerText="${msg.tdRequestCarPart_fuelType}" sortBy="#{item.fuelType}">
 				<h:outputText value="#{item.fuelType}" />
+			</p:column>
+            <p:column id="tdRequestCarPart_creationDate" headerText="${msg.tdRequestCarPart_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
+            <p:column id="tdRequestCarPart_productName" headerText="${msg.tdRequestCarPart_productName}" sortBy="#{item.productName}">
+				<h:outputText value="#{item.productName}" />
+			</p:column>
+            <p:column id="tdRequestCarPart_billingFirstname" headerText="${msg.tdRequestCarPart_billingFirstname}" sortBy="#{item.billingFirstname}">
+				<h:outputText value="#{item.billingFirstname}" />
+			</p:column>
+            <p:column id="tdRequestCarPart_billingLastname" headerText="${msg.tdRequestCarPart_billingLastname}" sortBy="#{item.billingLastname}">
+				<h:outputText value="#{item.billingLastname}" />
+			</p:column>
+            <p:column id="tdRequestCarPart_billingEmail" headerText="${msg.tdRequestCarPart_billingEmail}" sortBy="#{item.billingEmail}">
+				<h:outputText value="#{item.billingEmail}" />
+			</p:column>
+            <p:column id="tdRequestCarPart_billingPhone" headerText="${msg.tdRequestCarPart_billingPhone}" sortBy="#{item.billingPhone}">
+				<h:outputText value="#{item.billingPhone}" />
+			</p:column>
+            <p:column id="tdRequestCarPart_billingAddressline1" headerText="${msg.tdRequestCarPart_billingAddressline1}" sortBy="#{item.billingAddressline1}">
+				<h:outputText value="#{item.billingAddressline1}" />
+			</p:column>
+            <p:column id="tdRequestCarPart_billingAddressline2" headerText="${msg.tdRequestCarPart_billingAddressline2}" sortBy="#{item.billingAddressline2}">
+				<h:outputText value="#{item.billingAddressline2}" />
+			</p:column>
+            <p:column id="tdRequestCarPart_billingCityId" headerText="${msg.tdRequestCarPart_billingCityId}" sortBy="#{item.billingCityId}">
+				<h:outputText value="#{item.billingCityId}" />
+			</p:column>
+            <p:column id="tdRequestCarPart_billingStateId" headerText="${msg.tdRequestCarPart_billingStateId}" sortBy="#{item.billingStateId}">
+				<h:outputText value="#{item.billingStateId}" />
+			</p:column>
+            <p:column id="tdRequestCarPart_billingCountryId" headerText="${msg.tdRequestCarPart_billingCountryId}" sortBy="#{item.billingCountryId}">
+				<h:outputText value="#{item.billingCountryId}" />
+			</p:column>
+            <p:column id="tdRequestCarPart_billingZip" headerText="${msg.tdRequestCarPart_billingZip}" sortBy="#{item.billingZip}">
+				<h:outputText value="#{item.billingZip}" />
+			</p:column>
+            <p:column id="tdRequestCarPart_requestStatus" headerText="${msg.tdRequestCarPart_requestStatus}" sortBy="#{item.requestStatus}">
+				<h:outputText value="#{item.requestStatus}" />
+			</p:column>
+            <p:column id="tdRequestCarPart_requestComments" headerText="${msg.tdRequestCarPart_requestComments}" sortBy="#{item.requestComments}">
+				<h:outputText value="#{item.requestComments}" />
 			</p:column>
 			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdRequestCarPartConverter.print(item)}">

@@ -27,8 +27,14 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdPermission_permissionId" headerText="${msg.tdPermission_permissionId}" sortBy="#{item.permissionId}">
+				<h:outputText value="#{item.permissionId}" />
+			</p:column>
 			<p:column id="tdPermission_permissionName" headerText="${msg.tdPermission_permissionName}" sortBy="#{item.permissionName}">
 				<h:outputText value="#{item.permissionName}" />
+			</p:column>
+            <p:column id="tdPermission_creationDate" headerText="${msg.tdPermission_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
 			</p:column>
 			<p:column id="tdPermission_updationDate" headerText="${msg.tdPermission_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />

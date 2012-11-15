@@ -32,16 +32,16 @@
 					<app:iconEdit action="editproductShipment" title="${msg.tdProduct_productShipment}" />
 					<app:iconView action="viewproductShipment" title="${msg.tdProduct_productShipment}" />
 				</app:tdProductShipmentAutoComplete>
-				<app:input id="supplierProductCode" value="#{tdProduct.supplierProductCode}" size="128" label="${msg.tdProduct_supplierProductCode}" />
+				<app:input id="supplierProductCode" value="#{tdProduct.supplierProductCode}" size="128" label="${msg.tdProduct_supplierProductCode}" maxlength="128"/>
 				<app:inputTextArea id="productDisplayName" value="#{tdProduct.productDisplayName}" label="${msg.tdProduct_productDisplayName}" required="true" />
 				<app:inputTextArea id="productTechnicalName" value="#{tdProduct.productTechnicalName}" label="${msg.tdProduct_productTechnicalName}" />
 				<app:inputTextArea id="productAlternateName" value="#{tdProduct.productAlternateName}" label="${msg.tdProduct_productAlternateName}" />
-				<app:input id="microDescription" value="#{tdProduct.microDescription}" size="128" label="${msg.tdProduct_microDescription}" />
+				<app:input id="microDescription" value="#{tdProduct.microDescription}" size="128" label="${msg.tdProduct_microDescription}" maxlength="128"/>
 				<app:inputTextArea id="shortDesc" value="#{tdProduct.shortDesc}" label="${msg.tdProduct_shortDesc}" />
 				<app:inputTextArea id="longDesc" value="#{tdProduct.longDesc}" label="${msg.tdProduct_longDesc}" />
 				<app:input id="productAgeTime" value="#{tdProduct.productAgeTime}" label="${msg.tdProduct_productAgeTime}" />
 				<app:input id="productAgeDistance" value="#{tdProduct.productAgeDistance}" label="${msg.tdProduct_productAgeDistance}" />
-				<app:input id="productMeasurementUnit" value="#{tdProduct.productMeasurementUnit}" size="128" label="${msg.tdProduct_productMeasurementUnit}" />
+				<app:input id="productMeasurementUnit" value="#{tdProduct.productMeasurementUnit}" size="128" label="${msg.tdProduct_productMeasurementUnit}" maxlength="128"/>
 				<app:input id="innerDia1" value="#{tdProduct.innerDia1}" label="${msg.tdProduct_innerDia1}" />
 				<app:input id="innerDia2" value="#{tdProduct.innerDia2}" label="${msg.tdProduct_innerDia2}" />
 				<app:input id="outerDia1" value="#{tdProduct.outerDia1}" label="${msg.tdProduct_outerDia1}" />
@@ -63,11 +63,11 @@
 				<app:inputTextArea id="engineVersion" value="#{tdProduct.engineVersion}" label="${msg.tdProduct_engineVersion}" />
 				<app:inputTextArea id="material" value="#{tdProduct.material}" label="${msg.tdProduct_material}" />
 				<app:inputTextArea id="dimensions" value="#{tdProduct.dimensions}" label="${msg.tdProduct_dimensions}" />
-				<app:input id="maxFreeplay" value="#{tdProduct.maxFreeplay}" size="128" label="${msg.tdProduct_maxFreeplay}" />
-				<app:input id="maxRock" value="#{tdProduct.maxRock}" size="128" label="${msg.tdProduct_maxRock}" />
-				<app:input id="wearWarning" value="#{tdProduct.wearWarning}" size="128" label="${msg.tdProduct_wearWarning}" />
+				<app:input id="maxFreeplay" value="#{tdProduct.maxFreeplay}" size="128" label="${msg.tdProduct_maxFreeplay}" maxlength="128"/>
+				<app:input id="maxRock" value="#{tdProduct.maxRock}" size="128" label="${msg.tdProduct_maxRock}" maxlength="128"/>
+				<app:input id="wearWarning" value="#{tdProduct.wearWarning}" size="128" label="${msg.tdProduct_wearWarning}" maxlength="128"/>
 				<app:input id="brakeSystemType" value="#{tdProduct.brakeSystemType}" size="128" label="${msg.tdProduct_brakeSystemType}" />
-				<app:input id="frictionControlPlate" value="#{tdProduct.frictionControlPlate}" size="128" label="${msg.tdProduct_frictionControlPlate}" />
+				<app:input id="frictionControlPlate" value="#{tdProduct.frictionControlPlate}" size="128" label="${msg.tdProduct_frictionControlPlate}" maxlength="128"/>
 				<app:inputTextArea id="adjustment" value="#{tdProduct.adjustment}" label="${msg.tdProduct_adjustment}" />
 				<app:inputTextArea id="applicationInformation" value="#{tdProduct.applicationInformation}" label="${msg.tdProduct_applicationInformation}" />
 				<app:inputTextArea id="fittingPosition" value="#{tdProduct.fittingPosition}" label="${msg.tdProduct_fittingPosition}" />

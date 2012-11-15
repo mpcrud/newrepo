@@ -35,11 +35,26 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdUserAddress_userAddressId" headerText="${msg.tdUserAddress_userAddressId}" sortBy="#{item.userAddressId}">
+				<h:outputText value="#{item.userAddressId}" />
+			</p:column>
 			<p:column id="tdUserAddress_address1" headerText="${msg.tdUserAddress_address1}" sortBy="#{item.address1}">
 				<h:outputText value="#{item.address1}" />
 			</p:column>
 			<p:column id="tdUserAddress_address2" headerText="${msg.tdUserAddress_address2}" sortBy="#{item.address2}">
 				<h:outputText value="#{item.address2}" />
+			</p:column>
+            <p:column id="tdUserAddress_userDetailsId" headerText="${msg.tdUserAddress_userDetailsId}" sortBy="#{item.userDetailsId}">
+				<h:outputText value="#{item.userDetailsId}" />
+			</p:column>
+            <p:column id="tdUserAddress_creationDate" headerText="${msg.tdUserAddress_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
+            <p:column id="tdUserAddress_updationDate" headerText="${msg.tdUserAddress_updationDate}" sortBy="#{item.updationDate}">
+				<h:outputText value="#{item.updationDate}" />
+			</p:column>
+            <p:column id="tdUserAddress_isActive" headerText="${msg.tdUserAddress_isActive}" sortBy="#{item.isActive}">
+				<h:outputText value="#{item.isActive}" />
 			</p:column>
 			<p:column id="tdUserAddress_city" headerText="${msg.tdUserAddress_city}">
 				<h:outputText value="#{tdCityConverter.print(item.city)}" />
@@ -52,6 +67,9 @@
 			</p:column>
 			<p:column id="tdUserAddress_state" headerText="${msg.tdUserAddress_state}">
 				<h:outputText value="#{tdStateConverter.print(item.state)}" />
+			</p:column>
+            <p:column id="tdUserAddress_metro" headerText="${msg.tdUserAddress_metro}">
+				<h:outputText value="#{tdMetroConverter.print(item.metro)}" />
 			</p:column>
 			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdUserAddressConverter.print(item)}">

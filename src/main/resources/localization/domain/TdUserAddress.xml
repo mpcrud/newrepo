@@ -23,6 +23,7 @@
 	<entry key="tdUserAddress_userDetailsId">User Details Id</entry>
 	<entry key="tdUserAddress_metroId">Metro Id</entry>
 	<entry key="tdUserAddress_updationDate">Updation Date</entry>
+    <entry key="tdUserAddress_creationDate">Creation Date</entry>
 	<entry key="tdUserAddress_isActive">Is Active?</entry>
 
 	<!-- x-to-one -->

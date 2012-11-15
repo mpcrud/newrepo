@@ -36,6 +36,9 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdComment_commentId" headerText="${msg.tdComment_commentId}">
+				<h:outputText value="#{item.commentId}" />
+			</p:column>
 	       <p:column id="tdComment_user" headerText="${msg.tdComment_user}">
 				<h:outputText value="#{tdUserAuthConverter.print(item.user)}" />
 			</p:column>
@@ -54,11 +57,23 @@
 		<!-- 	<p:column id="tdComment_userId" headerText="${msg.tdComment_userId}" sortBy="#{item.userId}">
 				<h:outputText value="#{item.userId}" />
 			 -->
+            <p:column id="tdComment_creationDate" headerText="${msg.tdComment_updationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
 			<p:column id="tdComment_updationDate" headerText="${msg.tdComment_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />
 			</p:column>
 			<p:column id="tdComment_isActive" headerText="${msg.tdComment_isActive}" sortBy="#{item.isActive}">
 				<h:outputText value="#{item.isActive}" />
+			</p:column>
+            <p:column id="tdComment_commentDesc" headerText="${msg.tdComment_commentDesc}" sortBy="#{item.commentDesc}">
+				<h:outputText value="#{item.commentDesc}" />
+			</p:column>
+            <p:column id="tdComment_shortDesc" headerText="${msg.tdComment_shortDesc}" sortBy="#{item.shortDesc}">
+				<h:outputText value="#{item.shortDesc}" />
+			</p:column>
+            <p:column id="tdComment_commentStatus" headerText="${msg.tdComment_commentStatus}" sortBy="#{item.commentStatus}">
+				<h:outputText value="#{item.commentStatus}" />
 			</p:column>
 			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdCommentConverter.print(item)}">

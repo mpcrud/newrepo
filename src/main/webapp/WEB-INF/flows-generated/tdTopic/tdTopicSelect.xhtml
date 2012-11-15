@@ -53,6 +53,9 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdTopic_topicId" headerText="${msg.tdTopic_topicId}" sortBy="#{item.topicId}">
+				<h:outputText value="#{item.topicId}" />
+			</p:column>
 			<p:column id="tdTopic_topicTitle" headerText="${msg.tdTopic_topicTitle}" sortBy="#{item.topicTitle}">
 				<h:outputText value="#{item.topicTitle}" />
 			</p:column>
@@ -71,7 +74,61 @@
 			<p:column id="tdTopic_descLong" headerText="${msg.tdTopic_descLong}" sortBy="#{item.descLong}">
 				<h:outputText value="#{item.descLong}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+            <p:column id="tdTopic_parentTopicId" headerText="${msg.tdTopic_parentTopicId}" sortBy="#{item.parentTopicId}">
+				<h:outputText value="#{item.parentTopicId}" />
+			</p:column>
+            <p:column id="tdTopic_twitterCount" headerText="${msg.tdTopic_twitterCount}" sortBy="#{item.twitterCount}">
+				<h:outputText value="#{item.twitterCount}" />
+			</p:column>
+            <p:column id="tdTopic_facebookCount" headerText="${msg.tdTopic_facebookCount}" sortBy="#{item.facebookCount}">
+				<h:outputText value="#{item.facebookCount}" />
+			</p:column>
+            <p:column id="tdTopic_metaDesc" headerText="${msg.tdTopic_metaDesc}" sortBy="#{item.metaDesc}">
+				<h:outputText value="#{item.metaDesc}" />
+			</p:column>
+            <p:column id="tdTopic_creationDate" headerText="${msg.tdTopic_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
+            <p:column id="tdTopic_updationDate" headerText="${msg.tdTopic_updationDate}" sortBy="#{item.updationDate}">
+				<h:outputText value="#{item.updationDate}" />
+			</p:column>
+            <p:column id="tdTopic_isActive" headerText="${msg.tdTopic_isActive}" sortBy="#{item.isActive}">
+				<h:outputText value="#{item.isActive}" />
+			</p:column>
+            <p:column id="tdTopic_isFeatured" headerText="${msg.tdTopic_isFeatured}" sortBy="#{item.isFeatured}">
+				<h:outputText value="#{item.isFeatured}" />
+			</p:column>
+            <p:column id="tdTopic_assignedToUser" headerText="${msg.tdTopic_assignedToUser}" sortBy="#{item.assignedToUser}">
+				<h:outputText value="#{item.assignedToUser}" />
+			</p:column>
+            <p:column id="tdTopic_expiryDate" headerText="${msg.tdTopic_expiryDate}" sortBy="#{item.expiryDate}">
+				<h:outputText value="#{item.expiryDate}" />
+			</p:column>
+            <p:column id="tdTopic_topicStatus" headerText="${msg.tdTopic_topicStatus}" sortBy="#{item.topicStatus}">
+				<h:outputText value="#{item.topicStatus}" />
+			</p:column>
+            <p:column id="tdTopic_voteCount" headerText="${msg.tdTopic_voteCount}" sortBy="#{item.voteCount}">
+				<h:outputText value="#{item.voteCount}" />
+			</p:column>
+            <p:column id="tdTopic_seoResources" headerText="${msg.tdTopic_seoResources}" sortBy="#{item.seoResources}">
+				<h:outputText value="#{item.seoResources}" />
+			</p:column>
+            <p:column id="tdTopic_metaTitle" headerText="${msg.tdTopic_metaTitle}" sortBy="#{item.metaTitle}">
+				<h:outputText value="#{item.metaTitle}" />
+			</p:column>
+            <p:column id="tdTopic_metaKeyword" headerText="${msg.tdTopic_metaKeyword}" sortBy="#{item.metaKeyword}">
+				<h:outputText value="#{item.metaKeyword}" />
+			</p:column>
+            <p:column id="tdTopic_seoUrl" headerText="${msg.tdTopic_seoUrl}" sortBy="#{item.seoUrl}">
+				<h:outputText value="#{item.descLong}" />
+			</p:column>
+            <p:column id="tdTopic_h1" headerText="${msg.tdTopic_h1}" sortBy="#{item.h1}">
+				<h:outputText value="#{item.h1}" />
+			</p:column>
+            <p:column id="tdTopic_h2" headerText="${msg.tdTopic_h2}" sortBy="#{item.h2}">
+				<h:outputText value="#{item.h2}" />
+			</p:column>
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdTopicConverter.print(item)}">
 					<f:setPropertyActionListener value="#{item}" target="#{tdTopicLazyDataModel.selectedRow}" />
 				</app:iconSelect>

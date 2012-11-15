@@ -56,6 +56,24 @@
 			<p:column id="tdShipmentVendor_shipmentVendorPolicy" headerText="${msg.tdShipmentVendor_shipmentVendorPolicy}" sortBy="#{item.shipmentVendorPolicy}">
 				<h:outputText value="#{item.shipmentVendorPolicy}" />
 			</p:column>
+            <p:column id="tdShipmentVendor_shipmentVendorSpecialNote" headerText="${msg.tdShipmentVendor_shipmentVendorSpecialNote}" sortBy="#{item.shipmentVendorSpecialNote}">
+				<h:outputText value="#{item.shipmentVendorSpecialNote}" />
+			</p:column>
+            <p:column id="tdShipmentVendor_shipmentDuration" headerText="${msg.tdShipmentVendor_shipmentDuration}" sortBy="#{item.shipmentDuration}">
+				<h:outputText value="#{item.shipmentDuration}" />
+			</p:column>
+            <p:column id="tdShipmentVendor_shipmentVendorType" headerText="${msg.tdShipmentVendor_shipmentVendorType}" sortBy="#{item.shipmentVendorType}">
+				<h:outputText value="#{item.shipmentVendorType}" />
+			</p:column>
+            <p:column id="tdShipmentVendor_shipmentVendorStatus" headerText="${msg.tdShipmentVendor_shipmentVendorStatus}" sortBy="#{item.shipmentVendorStatus}">
+				<h:outputText value="#{item.shipmentVendorStatus}" />
+			</p:column>
+            <p:column id="tdShipmentVendor_creationDate" headerText="${msg.tdShipmentVendor_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
+            <p:column id="tdShipmentVendor_updationDate" headerText="${msg.tdShipmentVendor_updationDate}" sortBy="#{item.updationDate}">
+				<h:outputText value="#{item.updationDate}" />
+			</p:column>
 			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdShipmentVendorConverter.print(item)}">
 					<f:setPropertyActionListener value="#{item}" target="#{tdShipmentVendorLazyDataModel.selectedRow}" />

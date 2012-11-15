@@ -63,6 +63,46 @@
 			<p:column id="tdMake_longDesc" headerText="${msg.tdMake_longDesc}" sortBy="#{item.longDesc}">
 				<h:outputText value="#{item.longDesc}" />
 			</p:column>
+            <p:column id="tdMake_isActive" headerText="${msg.tdMake_isActive}" sortBy="#{item.isActive}">
+				<h:outputText value="#{item.isActive}" />
+			</p:column>
+            <p:column id="tdMake_startingYearOps" headerText="${msg.tdMake_startingYearOps}" sortBy="#{item.startingYearOps}">
+				<h:outputText value="#{item.startingYearOps}" />
+			</p:column>
+            <p:column id="tdMake_representCountryId" headerText="${msg.tdMake_representCountryId}" sortBy="#{item.representCountryId}">
+				<h:outputText value="#{item.representCountryId}" />
+			</p:column>
+            <p:column id="tdMake_makeStatus" headerText="${msg.tdMake_makeStatus}" sortBy="#{item.makeStatus}">
+				<h:outputText value="#{item.makeStatus}" />
+			</p:column>
+            <p:column id="tdMake_seoResources" headerText="${msg.tdMake_seoResources}" sortBy="#{item.seoResources}">
+				<h:outputText value="#{item.seoResources}" />
+			</p:column>
+            <p:column id="tdMake_seoUrl" headerText="${msg.tdMake_seoUrl}" sortBy="#{item.seoUrl}">
+				<h:outputText value="#{item.seoUrl}" />
+			</p:column>
+            <p:column id="tdMake_seoH1" headerText="${msg.tdMake_seoH1}" sortBy="#{item.seoH1}">
+				<h:outputText value="#{item.seoH1}" />
+			</p:column>
+            <p:column id="tdMake_seoH2" headerText="${msg.tdMake_seoH2}" sortBy="#{item.seoH2}">
+				<h:outputText value="#{item.seoH2}" />
+			</p:column>
+            <p:column id="tdMake_metaTitle" headerText="${msg.tdMake_metaTitle}" sortBy="#{item.metaTitle}">
+				<h:outputText value="#{item.metaTitle}" />
+			</p:column>
+            <p:column id="tdMake_metaDescription" headerText="${msg.tdMake_metaDescription}" sortBy="#{item.metaDescription}">
+				<h:outputText value="#{item.metaDescription}" />
+			</p:column>
+            <p:column id="tdMake_metaKeyword" headerText="${msg.tdMake_metaKeyword}" sortBy="#{item.metaKeyword}">
+				<h:outputText value="#{item.metaKeyword}" />
+			</p:column>
+            <p:column id="tdMake_creationDate" headerText="${msg.tdMake_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
+            <p:column id="tdMake_updationDate" headerText="${msg.tdMake_updationDate}" sortBy="#{item.updationDate}">
+				<h:outputText value="#{item.updationDate}" />
+			</p:column>
+
 			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdMakeConverter.print(item)}">
 					<f:setPropertyActionListener value="#{item}" target="#{tdMakeLazyDataModel.selectedRow}" />

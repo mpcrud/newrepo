@@ -19,8 +19,8 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdUserAddress}">
 			<h:panelGrid columns="2" styleClass="aria-role-presentation">
-				<app:input id="address1" value="#{tdUserAddress.address1}" size="90" label="${msg.tdUserAddress_address1}" />
-				<app:input id="address2" value="#{tdUserAddress.address2}" size="90" label="${msg.tdUserAddress_address2}" />
+				<app:input id="address1" value="#{tdUserAddress.address1}" size="90" label="${msg.tdUserAddress_address1}" maxlength="90"/>
+				<app:input id="address2" value="#{tdUserAddress.address2}" size="90" label="${msg.tdUserAddress_address2}" maxlength="90"/>
 				<app:input id="zipCode" value="#{tdUserAddress.zipCode}" label="${msg.tdUserAddress_zipCode}" />
 				<app:input id="userDetailsId" value="#{tdUserAddress.userDetailsId}" label="${msg.tdUserAddress_userDetailsId}" />
 				<app:inputDateTime id="updationDate" value="#{tdUserAddress.updationDate}" label="${msg.tdUserAddress_updationDate}" />

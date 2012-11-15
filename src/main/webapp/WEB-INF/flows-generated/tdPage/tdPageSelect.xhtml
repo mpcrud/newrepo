@@ -20,7 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
-					<app:input id="pageHeading" value="#{tdPageSearchForm.tdPage.pageHeading}" label="${msg.tdPage_pageHeading}"/>
+                    <app:input id="pageHeading" value="#{tdPageSearchForm.tdPage.pageHeading}" label="${msg.tdPage_pageHeading}"/>
 					<app:input id="pageShortDesc" value="#{tdPageSearchForm.tdPage.pageShortDesc}" label="${msg.tdPage_pageShortDesc}"/>
 					<app:inputTextArea id="pageLongDesc" value="#{tdPageSearchForm.tdPage.pageLongDesc}" label="${msg.tdPage_pageLongDesc}"/>
 					<app:rangeInt id="pageType" value="#{tdPageSearchForm.pageTypeRange}" label="${msg.tdPage_pageType}"/>
@@ -35,7 +35,7 @@
 					<app:input id="pageBackLink2" value="#{tdPageSearchForm.tdPage.pageBackLink2}" label="${msg.tdPage_pageBackLink2}"/>
 					<app:rangeInt id="pageIsActive" value="#{tdPageSearchForm.pageIsActiveRange}" label="${msg.tdPage_pageIsActive}"/>
 					<app:rangeInt id="pagePriority" value="#{tdPageSearchForm.pagePriorityRange}" label="${msg.tdPage_pagePriority}"/>
-					<app:rangeDateTime id="updationDate" value="#{tdPageSearchForm.updationDateRange}" label="${msg.tdPage_updationDate}" />
+                    <app:rangeDateTime id="updationDate" value="#{tdPageSearchForm.updationDateRange}" label="${msg.tdPage_updationDate}" />
 					<app:rangeInt id="pageUserId" value="#{tdPageSearchForm.pageUserIdRange}" label="${msg.tdPage_pageUserId}"/>
 					<app:input id="pageCustom1" value="#{tdPageSearchForm.tdPage.pageCustom1}" label="${msg.tdPage_pageCustom1}"/>
 					<app:input id="pageCustom2" value="#{tdPageSearchForm.tdPage.pageCustom2}" label="${msg.tdPage_pageCustom2}"/>
@@ -46,6 +46,9 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="tdPage_pageId" headerText="${msg.tdPage_pageId}" sortBy="#{item.pageId}">
+                <h:outputText value="#{item.pageId}" />
+            </p:column>
 			<p:column id="tdPage_pageHeading" headerText="${msg.tdPage_pageHeading}" sortBy="#{item.pageHeading}">
 				<h:outputText value="#{item.pageHeading}" />
 			</p:column>
@@ -63,6 +66,39 @@
 			</p:column>
 			<p:column id="tdPage_pageSeoUrl" headerText="${msg.tdPage_pageSeoUrl}" sortBy="#{item.pageSeoUrl}">
 				<h:outputText value="#{item.pageSeoUrl}" />
+			</p:column>
+            <p:column id="tdPage_pageSeoKeyword" headerText="${msg.tdPage_pageSeoKeyword}" sortBy="#{item.pageSeoKeyword}">
+				<h:outputText value="#{item.pageSeoKeyword}" />
+			</p:column>
+            <p:column id="tdPage_pageSeoMetaDesc" headerText="${msg.tdPage_pageSeoMetaDesc}" sortBy="#{item.pageSeoMetaDesc}">
+				<h:outputText value="#{item.pageSeoMetaDesc}" />
+			</p:column>
+            <p:column id="tdPage_pageSeoTitle" headerText="${msg.tdPage_pageSeoTitle}" sortBy="#{item.pageSeoTitle}">
+				<h:outputText value="#{item.pageSeoTitle}" />
+			</p:column>
+            <p:column id="tdPage_pageH1" headerText="${msg.tdPage_pageH1}" sortBy="#{item.pageH1}">
+				<h:outputText value="#{item.pageH1}" />
+			</p:column>
+            <p:column id="tdPage_pageH2" headerText="${msg.tdPage_pageH2}" sortBy="#{item.pageH2}">
+				<h:outputText value="#{item.pageH2}" />
+			</p:column>
+            <p:column id="tdPage_pageBackLink1" headerText="${msg.tdPage_pageBackLink1}" sortBy="#{item.pageBackLink1}">
+				<h:outputText value="#{item.pageBackLink1}" />
+			</p:column>
+            <p:column id="tdPage_pageBackLink2" headerText="${msg.tdPage_pageBackLink2}" sortBy="#{item.pageBackLink2}">
+				<h:outputText value="#{item.pageBackLink2}" />
+			</p:column>
+            <p:column id="tdPage_pageisActive" headerText="${msg.tdPage_pageisActive}" sortBy="#{item.pageisActive}">
+				<h:outputText value="#{item.pageisActive}" />
+			</p:column>
+            <p:column id="tdPage_creationDate" headerText="${msg.tdPage_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
+            <p:column id="tdPage_updationDate" headerText="${msg.tdPage_updationDate}" sortBy="#{item.updationDate}">
+				<h:outputText value="#{item.updationDate}" />
+			</p:column>
+            <p:column id="tdPage_userId" headerText="${msg.tdPage_userId}" sortBy="#{item.userId}">
+				<h:outputText value="#{item.userId}" />
 			</p:column>
 			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdPageConverter.print(item)}">
