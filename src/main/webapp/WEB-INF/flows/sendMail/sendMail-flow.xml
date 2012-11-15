@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+    <persistence-context />
+
+    <input name="editor" required="false" value="flowScope.editor"/>
+    	<on-start>
+    		<evaluate expression="editorController.newIfNull(editor)" result="flowScope.editor" />
+    	</on-start>
+
+
+
+    	<view-state id="sendMail">
+    		<on-entry>
+    			<evaluate expression="messageUtil.displayDelayedMessages()" />
+    			<evaluate expression="persistenceContext.clear()" />
+    		</on-entry>
+    		<on-render>
+    			<evaluate expression="flowsMenuHandler.updateMenu(flowRequestContext,'select')" />
+    		</on-render>
+
+            <transition on="submitMail" to="quitChoice"><evaluate expression="editorController.sendMail(editor)"/></transition>
+
+    	</view-state>
+
+
+
+    	<decision-state id="quitChoice">
+    		<if test="create" then="quit" else="sendMail"/>
+    	</decision-state>
+
+    	<end-state id="endSwitchToAlreadyOpenFlow"
+    		view="externalRedirect:contextRelative:#{flowsMenuHandler.endStateRedirectToAlreadyOpenFlow(flowRequestContext,authGroupLazyDataModel.selectedRow)}" />
+
+    	<end-state id="authGroupSelected">
+    		<output name="authGroupSelected" value="authGroupLazyDataModel.selectedRow" />
+    	</end-state>
+
+
+</flow>
