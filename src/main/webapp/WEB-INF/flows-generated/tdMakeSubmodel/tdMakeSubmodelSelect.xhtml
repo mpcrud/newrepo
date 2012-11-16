@@ -60,6 +60,17 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdMakeSubmodelConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdMakeSubmodelLazyDataModel.selectedRow}" />
+				</app:iconSelect>
+				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdMakeSubmodelConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdMakeSubmodelLazyDataModel.selectedRow}" />
+				</app:iconEdit>
+				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdMakeSubmodelConverter.print(item)}">
+                       <f:setPropertyActionListener value="#{item}" target="#{tdMakeSubmodelLazyDataModel.selectedRow}" />
+				</app:iconDelete>
+			</p:column>
 			<p:column id="tdMakeSubmodel_makeSubmodelId" headerText="${msg.tdMakeSubmodel_makeSubmodelId}" sortBy="#{item.makeSubmodelId}">
 				<h:outputText value="#{item.makeSubmodelId}" />
 			</p:column>
@@ -159,17 +170,7 @@
             <p:column id="tdMakeSubmodel_updationDate" headerText="${msg.tdMakeSubmodel_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdMakeSubmodelConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdMakeSubmodelLazyDataModel.selectedRow}" />
-				</app:iconSelect>
-				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdMakeSubmodelConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdMakeSubmodelLazyDataModel.selectedRow}" />
-				</app:iconEdit>
-				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdMakeSubmodelConverter.print(item)}">
-                       <f:setPropertyActionListener value="#{item}" target="#{tdMakeSubmodelLazyDataModel.selectedRow}" />					
-				</app:iconDelete>					
-			</p:column>
+
 		</ui:define>
 	</app:search>
 </ui:define>

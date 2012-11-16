@@ -96,7 +96,7 @@ APP.focusTo = function(jsfId) {
 //---------------------------------------
 /* todo: localization */
 APP.updateSearchResultsRegion = function(xhr, status, args) {
-	jQuery("#searchResultsRegion").text('' + args.totalRecords + ' résultats');
+	jQuery("#searchResultsRegion").text('' + args.totalRecords + ' results');
 };	
 
 //-------------------------------------
@@ -121,4 +121,8 @@ APP.menu.cancel = function() {
 };
 APP.menu.forceClose = function() {
 	return APP.menu.call('form:forceClose');
+};
+APP.menu.refresh = function() {
+    window.location.reload(true);
+	return;
 };

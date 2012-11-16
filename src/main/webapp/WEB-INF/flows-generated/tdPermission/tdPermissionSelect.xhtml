@@ -27,6 +27,17 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdPermissionConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdPermissionLazyDataModel.selectedRow}" />
+				</app:iconSelect>
+				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdPermissionConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdPermissionLazyDataModel.selectedRow}" />
+				</app:iconEdit>
+				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdPermissionConverter.print(item)}">
+                       <f:setPropertyActionListener value="#{item}" target="#{tdPermissionLazyDataModel.selectedRow}" />
+				</app:iconDelete>
+			</p:column>
             <p:column id="tdPermission_permissionId" headerText="${msg.tdPermission_permissionId}" sortBy="#{item.permissionId}">
 				<h:outputText value="#{item.permissionId}" />
 			</p:column>
@@ -39,17 +50,7 @@
 			<p:column id="tdPermission_updationDate" headerText="${msg.tdPermission_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdPermissionConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdPermissionLazyDataModel.selectedRow}" />
-				</app:iconSelect>
-				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdPermissionConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdPermissionLazyDataModel.selectedRow}" />
-				</app:iconEdit>
-				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdPermissionConverter.print(item)}">
-                       <f:setPropertyActionListener value="#{item}" target="#{tdPermissionLazyDataModel.selectedRow}" />					
-				</app:iconDelete>					
-			</p:column>
+
 		</ui:define>
 	</app:search>
 </ui:define>

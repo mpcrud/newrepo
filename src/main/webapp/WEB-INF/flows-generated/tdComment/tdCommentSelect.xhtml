@@ -36,6 +36,17 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdCommentConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdCommentLazyDataModel.selectedRow}" />
+				</app:iconSelect>
+				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdCommentConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdCommentLazyDataModel.selectedRow}" />
+				</app:iconEdit>
+				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdCommentConverter.print(item)}">
+                       <f:setPropertyActionListener value="#{item}" target="#{tdCommentLazyDataModel.selectedRow}" />
+				</app:iconDelete>
+			</p:column>
             <p:column id="tdComment_commentId" headerText="${msg.tdComment_commentId}">
 				<h:outputText value="#{item.commentId}" />
 			</p:column>
@@ -75,17 +86,7 @@
             <p:column id="tdComment_commentStatus" headerText="${msg.tdComment_commentStatus}" sortBy="#{item.commentStatus}">
 				<h:outputText value="#{item.commentStatus}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdCommentConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdCommentLazyDataModel.selectedRow}" />
-				</app:iconSelect>
-				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdCommentConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdCommentLazyDataModel.selectedRow}" />
-				</app:iconEdit>
-				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdCommentConverter.print(item)}">
-                       <f:setPropertyActionListener value="#{item}" target="#{tdCommentLazyDataModel.selectedRow}" />					
-				</app:iconDelete>					
-			</p:column>
+
 		</ui:define>
 	</app:search>
 </ui:define>

@@ -34,6 +34,17 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdPictureConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdPictureLazyDataModel.selectedRow}" />
+				</app:iconSelect>
+				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdPictureConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdPictureLazyDataModel.selectedRow}" />
+				</app:iconEdit>
+				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdPictureConverter.print(item)}">
+                       <f:setPropertyActionListener value="#{item}" target="#{tdPictureLazyDataModel.selectedRow}" />
+				</app:iconDelete>
+			</p:column>
             <p:column id="tdPicture_pictureId" headerText="${msg.tdPicture_pictureId}" sortBy="#{item.pictureId}">
 				<h:outputText value="#{item.pictureId}" />
 			</p:column>
@@ -64,17 +75,7 @@
             <p:column id="tdPicture_status" headerText="${msg.tdPicture_status}" sortBy="#{item.status}">
 				<h:outputText value="#{item.status}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdPictureConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdPictureLazyDataModel.selectedRow}" />
-				</app:iconSelect>
-				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdPictureConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdPictureLazyDataModel.selectedRow}" />
-				</app:iconEdit>
-				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdPictureConverter.print(item)}">
-                       <f:setPropertyActionListener value="#{item}" target="#{tdPictureLazyDataModel.selectedRow}" />					
-				</app:iconDelete>					
-			</p:column>
+
 		</ui:define>
 	</app:search>
 </ui:define>

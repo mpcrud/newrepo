@@ -11,13 +11,7 @@ import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.FetchType.LAZY;
 import static org.hibernate.annotations.CacheConcurrencyStrategy.NONSTRICT_READ_WRITE;
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlTransient;
 import org.apache.log4j.Logger;
@@ -81,8 +75,8 @@ public class TdProductModel implements Identifiable<Integer>, Serializable {
 
     // -- [productModelId] ------------------------
 
-    @NotNull
     @Column(name = "product_model_id", precision = 10)
+    @GeneratedValue
     @Id
     public Integer getProductModelId() {
         return productModelId;

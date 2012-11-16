@@ -44,6 +44,17 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdRequestCarPartConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdRequestCarPartLazyDataModel.selectedRow}" />
+				</app:iconSelect>
+				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdRequestCarPartConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdRequestCarPartLazyDataModel.selectedRow}" />
+				</app:iconEdit>
+				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdRequestCarPartConverter.print(item)}">
+                       <f:setPropertyActionListener value="#{item}" target="#{tdRequestCarPartLazyDataModel.selectedRow}" />
+				</app:iconDelete>
+			</p:column>
             <p:column id="tdRequestCarPart_requestId" headerText="${msg.tdRequestCarPart_requestId}" sortBy="#{item.requestId}">
 				<h:outputText value="#{item.requestId}" />
 			</p:column>
@@ -107,17 +118,7 @@
             <p:column id="tdRequestCarPart_requestComments" headerText="${msg.tdRequestCarPart_requestComments}" sortBy="#{item.requestComments}">
 				<h:outputText value="#{item.requestComments}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdRequestCarPartConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdRequestCarPartLazyDataModel.selectedRow}" />
-				</app:iconSelect>
-				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdRequestCarPartConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdRequestCarPartLazyDataModel.selectedRow}" />
-				</app:iconEdit>
-				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdRequestCarPartConverter.print(item)}">
-                       <f:setPropertyActionListener value="#{item}" target="#{tdRequestCarPartLazyDataModel.selectedRow}" />					
-				</app:iconDelete>					
-			</p:column>
+
 		</ui:define>
 	</app:search>
 </ui:define>

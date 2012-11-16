@@ -19,8 +19,6 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdPicture}">
 			<h:panelGrid columns="2" styleClass="aria-role-presentation">
-                <h:outputText value="Image"/>
-                <p:fileUpload mode="advanced" fileUploadListener="#{fileUploadController.upload}"/>
                 <app:input id="pictureName" value="#{tdPicture.pictureName}" size="48" label="${msg.tdPicture_pictureName}" required="true" />
 				<app:inputTextArea id="pictureShortDesc" value="#{tdPicture.pictureShortDesc}" label="${msg.tdPicture_pictureShortDesc}" maxlength="45"/>
 				<app:inputTextArea id="pictureLongDesc" value="#{tdPicture.pictureLongDesc}" label="${msg.tdPicture_pictureLongDesc}" />
@@ -30,6 +28,8 @@
 				<app:input id="pictureType" value="#{tdPicture.pictureType}" label="${msg.tdPicture_pictureType}" required="true" />
 				<app:input id="pictureRefId" value="#{tdPicture.pictureRefId}" label="${msg.tdPicture_pictureRefId}" required="true" />
 				<app:input id="status" value="#{tdPicture.status}" label="${msg.tdPicture_status}" required="true" maxlength="1"/>
+                <h:outputText value="Image"/>
+                <p:fileUpload mode="simple" value="#{tdPicture.file}" required="true"/>
 			</h:panelGrid>
 		</p:fieldset>
 		<app:saveButton title="${msg.tdPicture}"/>

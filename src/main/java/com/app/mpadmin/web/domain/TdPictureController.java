@@ -18,6 +18,7 @@ import com.app.mpadmin.repository.TdPictureRepository;
 import com.app.mpadmin.web.converter.domain.TdPictureConverter;
 import com.app.mpadmin.web.util.MessageUtil;
 import com.app.mpadmin.web.util.FileUploadController;
+import org.primefaces.model.UploadedFile;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -57,9 +58,9 @@ public class TdPictureController {
     }
 
     public boolean saveAndClose(TdPicture tdPicture) {
-        //MultipartFile file = tdPicture.getFile();
+        UploadedFile file = tdPicture.getFile();
         //tdPicture.setFile(fileUploadController.getFile());
-        /*    tdPicture.setPictureName(file.getFileName());
+        tdPicture.setPictureName(file.getFileName());
         try{
             InputStream inputStream = null;
             OutputStream outputStream = null;
@@ -79,7 +80,7 @@ public class TdPictureController {
         catch (Exception ex)
         {
             ex.printStackTrace();
-        }     */
+        }
         tdPictureRepository.save(tdPicture);
         messageUtil.infoDelayed("status_saved_ok", tdPictureConverter.print(tdPicture));
         forceClose();

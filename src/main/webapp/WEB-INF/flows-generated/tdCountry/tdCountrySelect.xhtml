@@ -32,6 +32,17 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdCountryConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdCountryLazyDataModel.selectedRow}" />
+				</app:iconSelect>
+				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdCountryConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdCountryLazyDataModel.selectedRow}" />
+				</app:iconEdit>
+				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdCountryConverter.print(item)}">
+                       <f:setPropertyActionListener value="#{item}" target="#{tdCountryLazyDataModel.selectedRow}" />
+				</app:iconDelete>
+			</p:column>
 			<p:column id="tdCountry_countryId" headerText="${msg.tdCountry_countryId}" sortBy="#{item.countryId}">
 				<h:outputText value="#{item.countryId}" />
 			</p:column>
@@ -56,18 +67,7 @@
             <p:column id="tdCountry_updationDate" headerText="${msg.tdCountry_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdCountryConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdCountryLazyDataModel.selectedRow}" />
-				</app:iconSelect>
-				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdCountryConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdCountryLazyDataModel.selectedRow}" />
-				</app:iconEdit>
-				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdCountryConverter.print(item)}">
-                       <f:setPropertyActionListener value="#{item}" target="#{tdCountryLazyDataModel.selectedRow}" />					
-				</app:iconDelete>					
-			</p:column>
-		</ui:define>
+			</ui:define>
 	</app:search>
 </ui:define>
 <ui:define name="dialogs">

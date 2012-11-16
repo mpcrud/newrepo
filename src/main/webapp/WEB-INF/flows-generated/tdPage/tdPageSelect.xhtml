@@ -46,6 +46,17 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdPageConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdPageLazyDataModel.selectedRow}" />
+				</app:iconSelect>
+				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdPageConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdPageLazyDataModel.selectedRow}" />
+				</app:iconEdit>
+				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdPageConverter.print(item)}">
+                       <f:setPropertyActionListener value="#{item}" target="#{tdPageLazyDataModel.selectedRow}" />
+				</app:iconDelete>
+			</p:column>
             <p:column id="tdPage_pageId" headerText="${msg.tdPage_pageId}" sortBy="#{item.pageId}">
                 <h:outputText value="#{item.pageId}" />
             </p:column>
@@ -88,8 +99,8 @@
             <p:column id="tdPage_pageBackLink2" headerText="${msg.tdPage_pageBackLink2}" sortBy="#{item.pageBackLink2}">
 				<h:outputText value="#{item.pageBackLink2}" />
 			</p:column>
-            <p:column id="tdPage_pageisActive" headerText="${msg.tdPage_pageisActive}" sortBy="#{item.pageisActive}">
-				<h:outputText value="#{item.pageisActive}" />
+            <p:column id="tdPage_pageIsActive" headerText="${msg.tdPage_pageIsActive}" sortBy="#{item.pageIsActive}">
+				<h:outputText value="#{item.pageIsActive}" />
 			</p:column>
             <p:column id="tdPage_creationDate" headerText="${msg.tdPage_creationDate}" sortBy="#{item.creationDate}">
 				<h:outputText value="#{item.creationDate}" />
@@ -100,17 +111,7 @@
             <p:column id="tdPage_userId" headerText="${msg.tdPage_userId}" sortBy="#{item.userId}">
 				<h:outputText value="#{item.userId}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdPageConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdPageLazyDataModel.selectedRow}" />
-				</app:iconSelect>
-				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdPageConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdPageLazyDataModel.selectedRow}" />
-				</app:iconEdit>
-				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdPageConverter.print(item)}">
-                       <f:setPropertyActionListener value="#{item}" target="#{tdPageLazyDataModel.selectedRow}" />					
-				</app:iconDelete>					
-			</p:column>
+
 		</ui:define>
 	</app:search>
 </ui:define>

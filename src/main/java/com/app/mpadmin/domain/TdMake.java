@@ -395,7 +395,7 @@ public class TdMake implements Identifiable<Integer>, Serializable {
         return Objects.toStringHelper(this) //
                 .add("makeId", getMakeId()) //
                 .add("makeDisplayName", getMakeDisplayName()) //
-                .add("makeTechnicalName", getMakeTechnicalName()) //
+            /*    .add("makeTechnicalName", getMakeTechnicalName()) //
                 .add("makeAlternateName", getMakeAlternateName()) //
                 .add("shortDesc", getShortDesc()) //
                 .add("longDesc", getLongDesc()) //
@@ -415,7 +415,7 @@ public class TdMake implements Identifiable<Integer>, Serializable {
                 .add("metaDescription", getMetaDescription()) //
                 .add("creationDate", getCreationDate()) //
                 .add("updationDate", getUpdationDate()) //
-                .toString();
+             */   .toString();
     }
 
     @PrePersist

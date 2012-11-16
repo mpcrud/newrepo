@@ -16,14 +16,41 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">
 <app:panelMenu title="Products Unmapped To Any Car">
 <ui:define name="content">
-	<app:search data="#{tdProductLazyDataModel}" title="${msg.tdProduct}">
+    <f:validateBean disabled="true">
+		<p:fieldset legend="${msg.tdProductModel}">
+			<h:panelGrid columns="2" styleClass="aria-role-presentation">
+			 	 <app:tdMakeModelAutoComplete id="makeModel" value="#{tdProductModel.makeModel}" required="true" label="${msg.tdProductModel_makeModel}">
+					<app:iconSearch action="selectMakeModel" title="${msg.tdProductModel_makeModel} " />
+					<app:iconEdit action="editMakeModel" title="${msg.tdProductModel_makeModel}" />
+					<app:iconView action="viewMakeModel" title="${msg.tdProductModel_makeModel}" />
+				</app:tdMakeModelAutoComplete>
+				<app:tdProductAutoComplete id="product" value="#{tdProductModel.product}" required="true" label="${msg.tdProductModel_product}">
+					<app:iconSearch action="selectProduct" title="${msg.tdProductModel_product} " />
+					<app:iconEdit action="editProduct" title="${msg.tdProductModel_product}" />
+					<app:iconView action="viewProduct" title="${msg.tdProductModel_product}" />
+				</app:tdProductAutoComplete>
+			</h:panelGrid>
+		</p:fieldset>
+		<app:saveButton title="${msg.tdProductModel}"/>
+	</f:validateBean>
+    <p:dataTable id="searchResults"
+        		value="#{tdProductLazyDataModel}"
+        		var="item"
+        		rows="20"
+        		lazy="true"
+        		paginator="true"
+        		paginatorAlwaysVisible="true"
+        		paginatorPosition="bottom"
+        		currentPageReportTemplate="{currentPage} / {totalPages}"
+        		paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}"
+        		rowKey="#{item}"
+        		height="500px">
+<!--	<app:search data="#{tdProductLazyDataModel}" title="${msg.tdProduct}">
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
                    <app:tdProductShipmentMultiAutoComplete id="productShipmentSelector" value="#{tdProductSearchForm.productShipmentSelector.selected}" label="${msg.tdProduct_productShipment}" />
 				    <app:tdProductSupplierMultiAutoComplete id="productSupplierSelector" value="#{tdProductSearchForm.productSupplierSelector.selected}" label="${msg.tdProduct_productSupplier}" />
-				<!-- 	<app:rangeInt id="productSupplierId" value="#{tdProductSearchForm.productSupplierIdRange}" label="${msg.tdProduct_productSupplierId}"/> -->
-				<!-- 	<app:rangeInt id="productShipmentId" value="#{tdProductSearchForm.productShipmentIdRange}" label="${msg.tdProduct_productShipmentId}"/> -->
 					<app:input id="supplierProductCode" value="#{tdProductSearchForm.tdProduct.supplierProductCode}" label="${msg.tdProduct_supplierProductCode}"/>
 					<app:input id="productDisplayName" value="#{tdProductSearchForm.tdProduct.productDisplayName}" label="${msg.tdProduct_productDisplayName}"/>
 					<app:input id="productTechnicalName" value="#{tdProductSearchForm.tdProduct.productTechnicalName}" label="${msg.tdProduct_productTechnicalName}"/>
@@ -109,7 +136,10 @@
 			</f:validateBean>
 		</ui:define>
 
-		<ui:define name="result">
+		<ui:define name="result">     -->
+		    <p:column id="tdProduct_productId" headerText="${msg.tdProduct_productId}">
+				<h:outputText value="#{item.productId}" />
+			</p:column>
 		    <p:column id="tdProduct_productSupplier" headerText="${msg.tdProduct_productSupplier}">
 				<h:outputText value="#{tdProductSupplierConverter.print(item.productSupplier)}" />
 			</p:column>
@@ -134,19 +164,215 @@
 			<p:column id="tdProduct_productAlternateName" headerText="${msg.tdProduct_productAlternateName}" sortBy="#{item.productAlternateName}">
 				<h:outputText value="#{item.productAlternateName}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdProductConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdProductLazyDataModel.selectedRow}" />
-				</app:iconSelect>
-				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdProductConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdProductLazyDataModel.selectedRow}" />
-				</app:iconEdit>
-				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdProductConverter.print(item)}">
-                       <f:setPropertyActionListener value="#{item}" target="#{tdProductLazyDataModel.selectedRow}" />
-				</app:iconDelete>
+            <p:column id="tdProduct_microDescription" headerText="${msg.tdProduct_microDescription}" sortBy="#{item.microDescription}">
+				<h:outputText value="#{item.microDescription}" />
 			</p:column>
-		</ui:define>
-	</app:search>
+            <p:column id="tdProduct_shortDesc" headerText="${msg.tdProduct_shortDesc}" sortBy="#{item.shortDesc}">
+				<h:outputText value="#{item.shortDesc}" />
+			</p:column>
+            <p:column id="tdProduct_longDesc" headerText="${msg.tdProduct_longDesc}" sortBy="#{item.longDesc}">
+				<h:outputText value="#{item.longDesc}" />
+			</p:column>
+            <p:column id="tdProduct_productAgeTime" headerText="${msg.tdProduct_productAgeTime}" sortBy="#{item.productAgeTime}">
+				<h:outputText value="#{item.productAgeTime}" />
+			</p:column>
+            <p:column id="tdProduct_productAgeDistance" headerText="${msg.tdProduct_productAgeDistance}" sortBy="#{item.productAgeDistance}">
+				<h:outputText value="#{item.productAgeDistance}" />
+			</p:column>
+            <p:column id="tdProduct_productMeasurementUnit" headerText="${msg.tdProduct_productMeasurementUnit}" sortBy="#{item.productMeasurementUnit}">
+				<h:outputText value="#{item.productMeasurementUnit}" />
+			</p:column>
+            <p:column id="tdProduct_innerDia1" headerText="${msg.tdProduct_innerDia1}" sortBy="#{item.innerDia1}">
+				<h:outputText value="#{item.innerDia1}" />
+			</p:column>
+            <p:column id="tdProduct_innerDia2" headerText="${msg.tdProduct_innerDia1}" sortBy="#{item.innerDia1}">
+				<h:outputText value="#{item.innerDia1}" />
+			</p:column>
+            <p:column id="tdProduct_outerDia1" headerText="${msg.tdProduct_outerDia1}" sortBy="#{item.outerDia1}">
+				<h:outputText value="#{item.outerDia1}" />
+			</p:column>
+            <p:column id="tdProduct_outerDia2" headerText="${msg.tdProduct_outerDia2}" sortBy="#{item.outerDia2}">
+				<h:outputText value="#{item.outerDia2}" />
+			</p:column>
+            <p:column id="tdProduct_height1" headerText="${msg.tdProduct_height1}" sortBy="#{item.height1}">
+				<h:outputText value="#{item.height1}" />
+			</p:column>
+            <p:column id="tdProduct_height2" headerText="${msg.tdProduct_height2}" sortBy="#{item.height2}">
+				<h:outputText value="#{item.height2}" />
+			</p:column>
+            <p:column id="tdProduct_width1" headerText="${msg.tdProduct_width1}" sortBy="#{item.width1}">
+				<h:outputText value="#{item.width1}" />
+			</p:column>
+            <p:column id="tdProduct_width2" headerText="${msg.tdProduct_width2}" sortBy="#{item.width2}">
+				<h:outputText value="#{item.width2}" />
+			</p:column>
+            <p:column id="tdProduct_thickness1" headerText="${msg.tdProduct_thickness1}" sortBy="#{item.thickness1}">
+				<h:outputText value="#{item.thickness1}" />
+			</p:column>
+            <p:column id="tdProduct_thickness2" headerText="${msg.tdProduct_thickness2}" sortBy="#{item.thickness2}">
+				<h:outputText value="#{item.thickness2}" />
+			</p:column>
+            <p:column id="tdProduct_noOfOuterThread1" headerText="${msg.tdProduct_noOfOuterThread1}" sortBy="#{item.noOfOuterThread1}">
+				<h:outputText value="#{item.noOfOuterThread1}" />
+			</p:column>
+            <p:column id="tdProduct_noOfOuterThread2" headerText="${msg.tdProduct_noOfOuterThread2}" sortBy="#{item.noOfOuterThread2}">
+				<h:outputText value="#{item.noOfOuterThread2}" />
+			</p:column>
+            <p:column id="tdProduct_noOfHoles1" headerText="${msg.tdProduct_noOfHoles1}" sortBy="#{item.noOfHoles1}">
+				<h:outputText value="#{item.noOfHoles1}" />
+			</p:column>
+            <p:column id="tdProduct_noOfHoles2" headerText="${msg.tdProduct_noOfHoles2}" sortBy="#{item.noOfHoles2}">
+				<h:outputText value="#{item.noOfHoles2}" />
+			</p:column>
+            <p:column id="tdProduct_noOfTeeth1" headerText="${msg.tdProduct_noOfTeeth1}" sortBy="#{item.noOfTeeth1}">
+				<h:outputText value="#{item.noOfTeeth1}" />
+			</p:column>
+            <p:column id="tdProduct_noOfTeeth2" headerText="${msg.tdProduct_noOfTeeth2}" sortBy="#{item.noOfTeeth2}">
+				<h:outputText value="#{item.noOfTeeth2}" />
+			</p:column>
+            <p:column id="tdProduct_pitchCircle" headerText="${msg.tdProduct_pitchCircle}" sortBy="#{item.pitchCircle}">
+				<h:outputText value="#{item.pitchCircle}" />
+			</p:column>
+            <p:column id="tdProduct_plateDiameter" headerText="${msg.tdProduct_plateDiameter}" sortBy="#{item.plateDiameter}">
+				<h:outputText value="#{item.plateDiameter}" />
+			</p:column>
+            <p:column id="tdProduct_engineVersion" headerText="${msg.tdProduct_engineVersion}" sortBy="#{item.engineVersion}">
+				<h:outputText value="#{item.engineVersion}" />
+			</p:column>
+            <p:column id="tdProduct_material" headerText="${msg.tdProduct_material}" sortBy="#{item.material}">
+				<h:outputText value="#{item.material}" />
+			</p:column>
+            <p:column id="tdProduct_dimensions" headerText="${msg.tdProduct_dimensions}" sortBy="#{item.dimensions}">
+				<h:outputText value="#{item.dimensions}" />
+			</p:column>
+            <p:column id="tdProduct_maxFreeplay" headerText="${msg.tdProduct_maxFreeplay}" sortBy="#{item.maxFreeplay}">
+				<h:outputText value="#{item.maxFreeplay}" />
+			</p:column>
+            <p:column id="tdProduct_maxRock" headerText="${msg.tdProduct_maxRock}" sortBy="#{item.maxRock}">
+				<h:outputText value="#{item.maxRock}" />
+			</p:column>
+            <p:column id="tdProduct_wearWarning" headerText="${msg.tdProduct_wearWarning}" sortBy="#{item.wearWarning}">
+				<h:outputText value="#{item.wearWarning}" />
+			</p:column>
+            <p:column id="tdProduct_brakeSystemType" headerText="${msg.tdProduct_brakeSystemType}" sortBy="#{item.brakeSystemType}">
+				<h:outputText value="#{item.brakeSystemType}" />
+			</p:column>
+            <p:column id="tdProduct_frictionControlPlate" headerText="${msg.tdProduct_frictionControlPlate}" sortBy="#{item.frictionControlPlate}">
+				<h:outputText value="#{item.frictionControlPlate}" />
+			</p:column>
+            <p:column id="tdProduct_adjustment" headerText="${msg.tdProduct_adjustment}" sortBy="#{item.adjustment}">
+				<h:outputText value="#{item.adjustment}" />
+			</p:column>
+            <p:column id="tdProduct_applicationInformation" headerText="${msg.tdProduct_applicationInformation}" sortBy="#{item.applicationInformation}">
+				<h:outputText value="#{item.applicationInformation}" />
+			</p:column>
+            <p:column id="tdProduct_fittingPosition" headerText="${msg.tdProduct_fittingPosition}" sortBy="#{item.fittingPosition}">
+				<h:outputText value="#{item.fittingPosition}" />
+			</p:column>
+            <p:column id="tdProduct_quantityOfFit" headerText="${msg.tdProduct_quantityOfFit}" sortBy="#{item.quantityOfFit}">
+				<h:outputText value="#{item.quantityOfFit}" />
+			</p:column>
+            <p:column id="tdProduct_requiredQuantity" headerText="${msg.tdProduct_requiredQuantity}" sortBy="#{item.requiredQuantity}">
+				<h:outputText value="#{item.requiredQuantity}" />
+			</p:column>
+            <p:column id="tdProduct_supplementaryInfo" headerText="${msg.tdProduct_supplementaryInfo}" sortBy="#{item.supplementaryInfo}">
+				<h:outputText value="#{item.supplementaryInfo}" />
+			</p:column>
+            <p:column id="tdProduct_extraInfo" headerText="${msg.tdProduct_extraInfo}" sortBy="#{item.extraInfo}">
+				<h:outputText value="#{item.extraInfo}" />
+			</p:column>
+            <p:column id="tdProduct_mrpPrice" headerText="${msg.tdProduct_mrpPrice}" sortBy="#{item.mrpPrice}">
+				<h:outputText value="#{item.mrpPrice}" />
+			</p:column>
+            <p:column id="tdProduct_discount" headerText="${msg.tdProduct_discount}" sortBy="#{item.discount}">
+				<h:outputText value="#{item.discount}" />
+			</p:column>
+            <p:column id="tdProduct_dealerPrice" headerText="${msg.tdProduct_dealerPrice}" sortBy="#{item.dealerPrice}">
+				<h:outputText value="#{item.dealerPrice}" />
+			</p:column>
+            <p:column id="tdProduct_internalRating" headerText="${msg.tdProduct_internalRating}" sortBy="#{item.internalRating}">
+				<h:outputText value="#{item.internalRating}" />
+			</p:column>
+            <p:column id="tdProduct_recommendedProduct" headerText="${msg.tdProduct_recommendedProduct}" sortBy="#{item.recommendedProduct}">
+				<h:outputText value="#{item.recommendedProduct}" />
+			</p:column>
+            <p:column id="tdProduct_bestSeller" headerText="${msg.tdProduct_bestSeller}" sortBy="#{item.bestSeller}">
+				<h:outputText value="#{item.bestSeller}" />
+			</p:column>
+            <p:column id="tdProduct_specifications" headerText="${msg.tdProduct_specifications}" sortBy="#{item.specifications}">
+				<h:outputText value="#{item.specifications}" />
+			</p:column>
+            <p:column id="tdProduct_refLink1" headerText="${msg.tdProduct_refLink1}" sortBy="#{item.refLink1}">
+				<h:outputText value="#{item.refLink1}" />
+			</p:column>
+            <p:column id="tdProduct_refLink2" headerText="${msg.tdProduct_refLink2}" sortBy="#{item.refLink2}">
+				<h:outputText value="#{item.refLink2}" />
+			</p:column>
+            <p:column id="tdProduct_productSegmentType" headerText="${msg.tdProduct_productSegmentType}" sortBy="#{item.productSegmentType}">
+				<h:outputText value="#{item.productSegmentType}" />
+			</p:column>
+            <p:column id="tdProduct_comparison" headerText="${msg.tdProduct_comparison}" sortBy="#{item.comparison}">
+				<h:outputText value="#{item.comparison}" />
+			</p:column>
+            <p:column id="tdProduct_bookableOnline" headerText="${msg.tdProduct_bookableOnline}" sortBy="#{item.bookableOnline}">
+				<h:outputText value="#{item.bookableOnline}" />
+			</p:column>
+            <p:column id="tdProduct_bookableOffline" headerText="${msg.tdProduct_bookableOffline}" sortBy="#{item.bookableOffline}">
+				<h:outputText value="#{item.bookableOffline}" />
+			</p:column>
+            <p:column id="tdProduct_uniformAcrossYear" headerText="${msg.tdProduct_uniformAcrossYear}" sortBy="#{item.uniformAcrossYear}">
+				<h:outputText value="#{item.uniformAcrossYear}" />
+			</p:column>
+            <p:column id="tdProduct_uniformAcrossSubmodel" headerText="${msg.tdProduct_uniformAcrossSubmodel}" sortBy="#{item.uniformAcrossSubmodel}">
+				<h:outputText value="#{item.uniformAcrossSubmodel}" />
+			</p:column>
+            <p:column id="tdProduct_uniformAcrossModel" headerText="${msg.tdProduct_uniformAcrossModel}" sortBy="#{item.uniformAcrossModel}">
+				<h:outputText value="#{item.uniformAcrossModel}" />
+			</p:column>
+            <p:column id="tdProduct_uniformAcrossMake" headerText="${msg.tdProduct_uniformAcrossMake}" sortBy="#{item.uniformAcrossMake}">
+				<h:outputText value="#{item.uniformAcrossMake}" />
+			</p:column>
+            <p:column id="tdProduct_deliveryType" headerText="${msg.tdProduct_deliveryType}" sortBy="#{item.deliveryType}">
+				<h:outputText value="#{item.deliveryType}" />
+			</p:column>
+            <p:column id="tdProduct_productStatus" headerText="${msg.tdProduct_productStatus}" sortBy="#{item.productStatus}">
+				<h:outputText value="#{item.productStatus}" />
+			</p:column>
+            <p:column id="tdProduct_seoResources" headerText="${msg.tdProduct_seoResources}" sortBy="#{item.seoResources}">
+				<h:outputText value="#{item.seoResources}" />
+			</p:column>
+            <p:column id="tdProduct_seoUrl" headerText="${msg.tdProduct_seoUrl}" sortBy="#{item.seoUrl}">
+				<h:outputText value="#{item.seoUrl}" />
+			</p:column>
+            <p:column id="tdProduct_seoH1" headerText="${msg.tdProduct_seoH1}" sortBy="#{item.seoH1}">
+				<h:outputText value="#{item.seoH1}" />
+			</p:column>
+            <p:column id="tdProduct_seoH2" headerText="${msg.tdProduct_seoH2}" sortBy="#{item.seoH2}">
+				<h:outputText value="#{item.seoH2}" />
+			</p:column>
+            <p:column id="tdProduct_metaTitle" headerText="${msg.tdProduct_metaTitle}" sortBy="#{item.metaTitle}">
+				<h:outputText value="#{item.metaTitle}" />
+			</p:column>
+            <p:column id="tdProduct_metaKeyword" headerText="${msg.tdProduct_metaKeyword}" sortBy="#{item.metaKeyword}">
+				<h:outputText value="#{item.metaKeyword}" />
+			</p:column>
+            <p:column id="tdProduct_metaDescription" headerText="${msg.tdProduct_metaDescription}" sortBy="#{item.metaDescription}">
+				<h:outputText value="#{item.metaDescription}" />
+			</p:column>
+            <p:column id="tdProduct_creationDate" headerText="${msg.tdProduct_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
+            <p:column id="tdProduct_updationDate" headerText="${msg.tdProduct_updationDate}" sortBy="#{item.updationDate}">
+				<h:outputText value="#{item.updationDate}" />
+			</p:column>
+			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="selectProduct" process="@this" title="${tdProductConverter.print(item)}" rendered="true">
+            			<f:setPropertyActionListener value="#{item}" target="#{tdProductLazyDataModel.selectedRow}" />
+            	</app:iconSelect>
+			</p:column>
+    </p:dataTable>
+	<!--	</ui:define>
+	</app:search>  -->
 </ui:define>
 <ui:define name="dialogs">
     <p:confirmDialog widgetVar="askForDeleteItemDialog" header="${msg.menu_delete}?" message="${msg.dialog_delete_confirm}">

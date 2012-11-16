@@ -35,6 +35,17 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdUserActivityConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdUserActivityLazyDataModel.selectedRow}" />
+				</app:iconSelect>
+				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdUserActivityConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdUserActivityLazyDataModel.selectedRow}" />
+				</app:iconEdit>
+				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdUserActivityConverter.print(item)}">
+                       <f:setPropertyActionListener value="#{item}" target="#{tdUserActivityLazyDataModel.selectedRow}" />
+				</app:iconDelete>
+			</p:column>
             <p:column id="tdUserActivity_userActivityId" headerText="${msg.tdUserActivity_userActivityId}">
 				<h:outputText value="#{item.userActivityId}" />
 			</p:column>
@@ -71,17 +82,7 @@
             <p:column id="tdUserActivity_sessionPage" headerText="${msg.tdUserActivity_sessionPage}" sortBy="#{item.sessionPage}">
 				<h:outputText value="#{item.sessionPage}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdUserActivityConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdUserActivityLazyDataModel.selectedRow}" />
-				</app:iconSelect>
-				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdUserActivityConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdUserActivityLazyDataModel.selectedRow}" />
-				</app:iconEdit>
-				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdUserActivityConverter.print(item)}">
-                       <f:setPropertyActionListener value="#{item}" target="#{tdUserActivityLazyDataModel.selectedRow}" />					
-				</app:iconDelete>					
-			</p:column>
+
 		</ui:define>
 	</app:search>
 </ui:define>

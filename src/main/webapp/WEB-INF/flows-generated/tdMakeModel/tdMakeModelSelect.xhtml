@@ -57,6 +57,17 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdMakeModelConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdMakeModelLazyDataModel.selectedRow}" />
+				</app:iconSelect>
+				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdMakeModelConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdMakeModelLazyDataModel.selectedRow}" />
+				</app:iconEdit>
+				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdMakeModelConverter.print(item)}">
+                       <f:setPropertyActionListener value="#{item}" target="#{tdMakeModelLazyDataModel.selectedRow}" />
+				</app:iconDelete>
+			</p:column>
 			<p:column id="tdMakeModel_makeModelId" headerText="${msg.tdMakeModel_makeModelId}" sortBy="#{item.makeModelId}">
 				<h:outputText value="#{item.makeModelId}" />
 			</p:column>
@@ -147,17 +158,7 @@
             <p:column id="tdMakeModel_updationDate" headerText="${msg.tdMakeModel_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdMakeModelConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdMakeModelLazyDataModel.selectedRow}" />
-				</app:iconSelect>
-				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdMakeModelConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdMakeModelLazyDataModel.selectedRow}" />
-				</app:iconEdit>
-				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdMakeModelConverter.print(item)}">
-                       <f:setPropertyActionListener value="#{item}" target="#{tdMakeModelLazyDataModel.selectedRow}" />					
-				</app:iconDelete>					
-			</p:column>
+
 		</ui:define>
 	</app:search>
 </ui:define>

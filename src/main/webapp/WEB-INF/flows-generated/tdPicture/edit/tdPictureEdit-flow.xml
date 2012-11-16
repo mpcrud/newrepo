@@ -40,8 +40,8 @@
 		</transition>
 
 		<transition on="saveAndClose">
-			<evaluate expression="tdPictureController.saveAndClose(tdPicture)" />
-		</transition>
+			<evaluate expression="tdPictureController.saveAndClose(tdPicture)"/>
+        </transition>
 
 		<transition on="close">
 			<evaluate expression="primeFacesUtil.showAskForSaveDialog(persistenceContext,tdPicture)"/>

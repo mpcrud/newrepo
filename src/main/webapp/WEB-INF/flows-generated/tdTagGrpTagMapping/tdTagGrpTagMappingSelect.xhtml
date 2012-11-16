@@ -35,6 +35,17 @@
 			<p:column id="tdTagGrpTagMapping_tagId" headerText="${msg.tdTagGrpTagMapping_tagId}" sortBy="#{item.tagId}">
 				<h:outputText value="#{item.tagId}" />
 			</p:column> -->
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdTagGrpTagMappingConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdTagGrpTagMappingLazyDataModel.selectedRow}" />
+				</app:iconSelect>
+				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdTagGrpTagMappingConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdTagGrpTagMappingLazyDataModel.selectedRow}" />
+				</app:iconEdit>
+				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdTagGrpTagMappingConverter.print(item)}">
+                       <f:setPropertyActionListener value="#{item}" target="#{tdTagGrpTagMappingLazyDataModel.selectedRow}" />
+				</app:iconDelete>
+			</p:column>
             <p:column id="tdTagGrpTagMapping_grpTagMappingId" headerText="${msg.tdTagGrpTagMapping_grpTagMappingId}">
 				<h:outputText value="#{item.grpTagMappingId}" />
 			</p:column>
@@ -51,17 +62,7 @@
                 <h:outputText value="#{tdTopicConverter.print(item.tagGrp.topic)}" />
              </p:column>
 			
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdTagGrpTagMappingConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdTagGrpTagMappingLazyDataModel.selectedRow}" />
-				</app:iconSelect>
-				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdTagGrpTagMappingConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdTagGrpTagMappingLazyDataModel.selectedRow}" />
-				</app:iconEdit>
-				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdTagGrpTagMappingConverter.print(item)}">
-                       <f:setPropertyActionListener value="#{item}" target="#{tdTagGrpTagMappingLazyDataModel.selectedRow}" />					
-				</app:iconDelete>					
-			</p:column>
+
 		</ui:define>
 	</app:search>
 </ui:define>

@@ -140,6 +140,17 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdOrderConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdOrderLazyDataModel.selectedRow}" />
+				</app:iconSelect>
+				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdOrderConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdOrderLazyDataModel.selectedRow}" />
+				</app:iconEdit>
+				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdOrderConverter.print(item)}">
+                       <f:setPropertyActionListener value="#{item}" target="#{tdOrderLazyDataModel.selectedRow}" />
+				</app:iconDelete>
+			</p:column>
             <p:column id="tdOrder_orderId" headerText="${msg.tdOrder_orderId}" sortBy="#{item.orderId}">
 				<h:outputText value="#{item.orderId}" />
 			</p:column>
@@ -452,17 +463,7 @@
             <p:column id="tdOrder_orderOriginRegion" headerText="${msg.tdOrder_orderOriginRegion}" sortBy="#{item.orderOriginRegion}">
 				<h:outputText value="#{item.orderOriginRegion}" />
             </p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdOrderConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdOrderLazyDataModel.selectedRow}" />
-				</app:iconSelect>
-				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdOrderConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdOrderLazyDataModel.selectedRow}" />
-				</app:iconEdit>
-				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdOrderConverter.print(item)}">
-                       <f:setPropertyActionListener value="#{item}" target="#{tdOrderLazyDataModel.selectedRow}" />					
-				</app:iconDelete>					
-			</p:column>
+
 		</ui:define>
 	</app:search>
 </ui:define>

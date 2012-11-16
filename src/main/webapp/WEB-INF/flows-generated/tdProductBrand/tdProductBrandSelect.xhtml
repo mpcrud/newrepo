@@ -45,6 +45,17 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdProductBrandConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdProductBrandLazyDataModel.selectedRow}" />
+				</app:iconSelect>
+				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdProductBrandConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdProductBrandLazyDataModel.selectedRow}" />
+				</app:iconEdit>
+				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdProductBrandConverter.print(item)}">
+                       <f:setPropertyActionListener value="#{item}" target="#{tdProductBrandLazyDataModel.selectedRow}" />
+				</app:iconDelete>
+			</p:column>
             <p:column id="tdProductBrand_brandId" headerText="${msg.tdProductBrand_brandId}" sortBy="#{item.brandId}">
 				<h:outputText value="#{item.brandId}" />
 			</p:column>
@@ -102,17 +113,7 @@
             <p:column id="tdProductBrand_updationDate" headerText="${msg.tdProductBrand_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdProductBrandConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdProductBrandLazyDataModel.selectedRow}" />
-				</app:iconSelect>
-				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdProductBrandConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdProductBrandLazyDataModel.selectedRow}" />
-				</app:iconEdit>
-				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdProductBrandConverter.print(item)}">
-                       <f:setPropertyActionListener value="#{item}" target="#{tdProductBrandLazyDataModel.selectedRow}" />					
-				</app:iconDelete>					
-			</p:column>
+
 		</ui:define>
 	</app:search>
 </ui:define>

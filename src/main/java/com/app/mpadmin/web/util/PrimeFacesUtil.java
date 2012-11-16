@@ -49,4 +49,8 @@ public class PrimeFacesUtil {
     static public void forceClose() {
         RequestContext.getCurrentInstance().execute("APP.menu.forceClose()");
     }
+
+    static public void refresh() {
+        RequestContext.getCurrentInstance().execute("APP.menu.refresh()");
+    }
 }

@@ -16,7 +16,34 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">
 <app:panelMenu title="Topics Without Tag">
 <ui:define name="content">
-	<app:search data="#{tdTopicLazyDataModel}" title="${msg.tdTopic}">
+    <f:validateBean disabled="true">
+		<p:fieldset legend="${msg.tdTagGrp}">
+			<h:panelGrid columns="2" styleClass="aria-role-presentation">
+			 	 <app:tdTopicAutoComplete id="topic" value="#{tdTagGrp.topic}" required="true" label="${msg.tdTagGrp_topic}">
+                    <app:iconSearch action="selectTopic" title="${msg.tdTagGrp_topic} " />
+					<app:iconEdit action="editTopic" title="${msg.tdTagGrp_topic}" />
+					<app:iconView action="viewTopic" title="${msg.tdTagGrp_topic}" />
+                </app:tdTopicAutoComplete>
+                <app:inputDateTime id="updationDate" value="#{tdTagGrp.updationDate}" label="${msg.tdTagGrp_updationDate}" />
+				<app:input id="isActive" value="#{tdTagGrp.isActive}" label="${msg.tdTagGrp_isActive}" maxlength="1"/>
+				<app:input id="tagGrpStatus" value="#{tdTagGrp.tagGrpStatus}" label="${msg.tdTagGrp_tagGrpStatus}" maxlength="1"/>
+			</h:panelGrid>
+		</p:fieldset>
+		<app:saveButton title="${msg.tdTagGrp}"/>
+	</f:validateBean>
+    <p:dataTable id="searchResults"
+        		value="#{tdTopicLazyDataModel}"
+        		var="item"
+        		rows="20"
+        		lazy="true"
+        		paginator="true"
+        		paginatorAlwaysVisible="true"
+        		paginatorPosition="bottom"
+        		currentPageReportTemplate="{currentPage} / {totalPages}"
+        		paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}"
+        		rowKey="#{item}"
+        		height="500px">
+ <!--	<app:search data="#{tdTopicLazyDataModel}" title="${msg.tdTopic}">
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
@@ -52,7 +79,10 @@
 			</f:validateBean>
 		</ui:define>
 
-		<ui:define name="result">
+		<ui:define name="result">    -->
+			<p:column id="tdTopic_topicId" headerText="${msg.tdTopic_topicId}" sortBy="#{item.topicId}">
+				<h:outputText value="#{item.topicId}" />
+			</p:column>
 			<p:column id="tdTopic_topicTitle" headerText="${msg.tdTopic_topicTitle}" sortBy="#{item.topicTitle}">
 				<h:outputText value="#{item.topicTitle}" />
 			</p:column>
@@ -71,19 +101,68 @@
 			<p:column id="tdTopic_descLong" headerText="${msg.tdTopic_descLong}" sortBy="#{item.descLong}">
 				<h:outputText value="#{item.descLong}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdTopicConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdTopicLazyDataModel.selectedRow}" />
-				</app:iconSelect>
-				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdTopicConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdTopicLazyDataModel.selectedRow}" />
-				</app:iconEdit>
-				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdTopicConverter.print(item)}">
-                       <f:setPropertyActionListener value="#{item}" target="#{tdTopicLazyDataModel.selectedRow}" />
-				</app:iconDelete>
+            <p:column id="tdTopic_parentTopicId" headerText="${msg.tdTopic_parentTopicId}" sortBy="#{item.parentTopicId}">
+				<h:outputText value="#{item.parentTopicId}" />
 			</p:column>
-		</ui:define>
-	</app:search>
+            <p:column id="tdTopic_twitterCount" headerText="${msg.tdTopic_twitterCount}" sortBy="#{item.twitterCount}">
+				<h:outputText value="#{item.twitterCount}" />
+			</p:column>
+            <p:column id="tdTopic_facebookCount" headerText="${msg.tdTopic_facebookCount}" sortBy="#{item.facebookCount}">
+				<h:outputText value="#{item.facebookCount}" />
+			</p:column>
+            <p:column id="tdTopic_metaDesc" headerText="${msg.tdTopic_metaDesc}" sortBy="#{item.metaDesc}">
+				<h:outputText value="#{item.metaDesc}" />
+			</p:column>
+            <p:column id="tdTopic_creationDate" headerText="${msg.tdTopic_creationDate}" sortBy="#{item.creationDate}">
+				<h:outputText value="#{item.creationDate}" />
+			</p:column>
+            <p:column id="tdTopic_updationDate" headerText="${msg.tdTopic_updationDate}" sortBy="#{item.updationDate}">
+				<h:outputText value="#{item.updationDate}" />
+			</p:column>
+            <p:column id="tdTopic_isActive" headerText="${msg.tdTopic_isActive}" sortBy="#{item.isActive}">
+				<h:outputText value="#{item.isActive}" />
+			</p:column>
+            <p:column id="tdTopic_isFeatured" headerText="${msg.tdTopic_isFeatured}" sortBy="#{item.isFeatured}">
+				<h:outputText value="#{item.isFeatured}" />
+			</p:column>
+            <p:column id="tdTopic_assignedToUser" headerText="${msg.tdTopic_assignedToUser}" sortBy="#{item.assignedToUser}">
+				<h:outputText value="#{item.assignedToUser}" />
+			</p:column>
+            <p:column id="tdTopic_expiryDate" headerText="${msg.tdTopic_expiryDate}" sortBy="#{item.expiryDate}">
+				<h:outputText value="#{item.expiryDate}" />
+			</p:column>
+            <p:column id="tdTopic_topicStatus" headerText="${msg.tdTopic_topicStatus}" sortBy="#{item.topicStatus}">
+				<h:outputText value="#{item.topicStatus}" />
+			</p:column>
+            <p:column id="tdTopic_voteCount" headerText="${msg.tdTopic_voteCount}" sortBy="#{item.voteCount}">
+				<h:outputText value="#{item.voteCount}" />
+			</p:column>
+            <p:column id="tdTopic_seoResources" headerText="${msg.tdTopic_seoResources}" sortBy="#{item.seoResources}">
+				<h:outputText value="#{item.seoResources}" />
+			</p:column>
+            <p:column id="tdTopic_metaTitle" headerText="${msg.tdTopic_metaTitle}" sortBy="#{item.metaTitle}">
+				<h:outputText value="#{item.metaTitle}" />
+			</p:column>
+            <p:column id="tdTopic_metaKeyword" headerText="${msg.tdTopic_metaKeyword}" sortBy="#{item.metaKeyword}">
+				<h:outputText value="#{item.metaKeyword}" />
+			</p:column>
+            <p:column id="tdTopic_seoUrl" headerText="${msg.tdTopic_seoUrl}" sortBy="#{item.seoUrl}">
+				<h:outputText value="#{item.descLong}" />
+			</p:column>
+            <p:column id="tdTopic_h1" headerText="${msg.tdTopic_h1}" sortBy="#{item.h1}">
+				<h:outputText value="#{item.h1}" />
+			</p:column>
+            <p:column id="tdTopic_h2" headerText="${msg.tdTopic_h2}" sortBy="#{item.h2}">
+				<h:outputText value="#{item.h2}" />
+			</p:column>
+			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="selectTopic" process="@this" title="${tdTopicConverter.print(item)}" rendered="true">
+            			<f:setPropertyActionListener value="#{item}" target="#{tdTopicLazyDataModel.selectedRow}" />
+            	</app:iconSelect>
+			</p:column>
+	<!--	</ui:define>
+	</app:search> -->
+    </p:dataTable>
 </ui:define>
 <ui:define name="dialogs">
     <p:confirmDialog widgetVar="askForDeleteItemDialog" header="${msg.menu_delete}?" message="${msg.dialog_delete_confirm}">

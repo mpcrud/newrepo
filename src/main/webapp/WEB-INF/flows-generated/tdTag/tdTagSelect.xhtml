@@ -33,6 +33,17 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdTagConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdTagLazyDataModel.selectedRow}" />
+				</app:iconSelect>
+				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdTagConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdTagLazyDataModel.selectedRow}" />
+				</app:iconEdit>
+				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdTagConverter.print(item)}">
+                       <f:setPropertyActionListener value="#{item}" target="#{tdTagLazyDataModel.selectedRow}" />
+				</app:iconDelete>
+			</p:column>
             <p:column id="tdTag_tagId" headerText="${msg.tdTag_tagId}" sortBy="#{item.tagId}">
 				<h:outputText value="#{item.tagId}" />
 			</p:column>
@@ -63,17 +74,7 @@
             <p:column id="tdTag_tagStatus" headerText="${msg.tdTag_tagStatus}" sortBy="#{item.tagStatus}">
 				<h:outputText value="#{item.tagStatus}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdTagConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdTagLazyDataModel.selectedRow}" />
-				</app:iconSelect>
-				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdTagConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdTagLazyDataModel.selectedRow}" />
-				</app:iconEdit>
-				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdTagConverter.print(item)}">
-                       <f:setPropertyActionListener value="#{item}" target="#{tdTagLazyDataModel.selectedRow}" />					
-				</app:iconDelete>					
-			</p:column>
+
 		</ui:define>
 	</app:search>
 </ui:define>

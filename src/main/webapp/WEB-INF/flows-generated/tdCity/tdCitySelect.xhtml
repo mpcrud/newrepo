@@ -47,6 +47,17 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdCityConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdCityLazyDataModel.selectedRow}" />
+				</app:iconSelect>
+				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdCityConverter.print(item)}">
+					<f:setPropertyActionListener value="#{item}" target="#{tdCityLazyDataModel.selectedRow}" />
+				</app:iconEdit>
+				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdCityConverter.print(item)}">
+                       <f:setPropertyActionListener value="#{item}" target="#{tdCityLazyDataModel.selectedRow}" />
+				</app:iconDelete>
+			</p:column>
             <p:column id="tdCity_cityId" headerText="${msg.tdCity_cityId}" sortBy="#{item.cityId}">
 				<h:outputText value="#{item.cityId}" />
 			</p:column>
@@ -107,17 +118,7 @@
             <p:column id="tdCity_updationDate" headerText="${msg.tdCity_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdCityConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdCityLazyDataModel.selectedRow}" />
-				</app:iconSelect>
-				<app:iconEdit action="select" process="@this" rendered="#{not sub}" title="${tdCityConverter.print(item)}">
-					<f:setPropertyActionListener value="#{item}" target="#{tdCityLazyDataModel.selectedRow}" />
-				</app:iconEdit>
-				<app:iconDelete rendered="#{not sub}" oncomplete="askForDeleteItemDialog.show(); APP.focusTo('form:askForDeleteItemDialogNo');" title="${tdCityConverter.print(item)}">
-                       <f:setPropertyActionListener value="#{item}" target="#{tdCityLazyDataModel.selectedRow}" />					
-				</app:iconDelete>					
-			</p:column>
+
 		</ui:define>
 	</app:search>
 </ui:define>

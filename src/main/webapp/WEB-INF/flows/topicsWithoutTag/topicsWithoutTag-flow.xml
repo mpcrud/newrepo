@@ -15,6 +15,12 @@
 
 	<var name="tdTopicLazyDataModel" class="com.app.mpadmin.web.domain.TopicWithoutTagLazyDataModel" />
 
+    <input name="tdTagGrp" required="false" value="flowScope.tdTagGrp"/>
+
+    <on-start>
+		<evaluate expression="tdTagGrpController.newIfNull(tdTagGrp)" result="flowScope.tdTagGrp" />
+	</on-start>
+
 	<decision-state id="selectChoice">
 		<if test="create" then="edit" />
 		<if test="sub" then="tdTopicSubSelect" else="topicsWithoutTag" />
@@ -33,6 +39,19 @@
 			<evaluate expression="tdTopicController.delete(tdTopicLazyDataModel.selectedRow)" />
 		</transition>
 		<transition on="sendNew" to="edit" validate="false" />
+
+        <transition on="selectTopic">
+            <evaluate expression="tdTagGrp.setTopic(tdTopicLazyDataModel.selectedRow)" />
+            <evaluate expression="messageUtil.info('status_selected_ok',resourceBundle.tdTagGrpTag_topic)" />
+            <evaluate expression="primeFacesUtil.refresh()"/>
+        </transition>
+        <transition on="save">
+			<evaluate expression="tdTagGrpController.save(tdTagGrp)" />
+		</transition>
+
+		<transition on="saveAndClose">
+			<evaluate expression="tdTagGrpController.saveAndClose(tdTagGrp)" />
+		</transition>
 	</view-state>
 
 	<view-state id="tdTopicSubSelect" view="topicsWithoutTag.xhtml">

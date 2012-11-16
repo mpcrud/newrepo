@@ -143,6 +143,7 @@ public class TdProduct implements Identifiable<Integer>, Serializable {
     
     private TdProductShipment productShipment;
     private TdProductSupplier productSupplier;
+    private TdPicture picture;
     // ---------------------------
     // Constructors
     // ---------------------------
@@ -1263,7 +1264,25 @@ public class TdProduct implements Identifiable<Integer>, Serializable {
             setProductSupplierId(null);
         }
     }
-    
+
+  /*  @Cache(usage = NONSTRICT_READ_WRITE)
+    @JoinColumn(name = "product_id",referencedColumnName = "picture_ref_id",insertable = true)
+    @ManyToOne(cascade = PERSIST, fetch = LAZY)
+    public TdPicture getPicture() {
+        if (picture!=null&&(picture.getPictureType()==800 || picture.getPictureType()==1000))
+            return picture;
+        return null;
+    }
+
+    /**
+     * Set the productSupplier without adding this TdProduct instance on the passed ProductSupplier
+     * If you want to preserve referential integrity we recommend to use
+     * instead the corresponding adder method provided by {@link TdProductSupplier}
+     */
+  /*  public void setPicture(TdPicture picture) {
+        this.picture = picture;
+      }  */
+
     /**
      * Set the default values.
      */

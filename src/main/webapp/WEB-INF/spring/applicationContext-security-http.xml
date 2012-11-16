@@ -21,7 +21,7 @@
 		<intercept-url pattern="/app/logout*" access="isAuthenticated()" />
 
 		<intercept-url pattern="/app/login" access="permitAll()" />
-		<intercept-url pattern="/app/home" access="permitAll()" />
+		<intercept-url pattern="/app/home" access="isAuthenticated()" />
 		<intercept-url pattern="/app/error" access="permitAll()" />
 		<intercept-url pattern="/app/accessdenied" access="permitAll()" />
 

@@ -26,7 +26,6 @@ public class TdMakeModelConverter extends GenericJsfConverter<TdMakeModel, Integ
 
     @Override
     public String print(TdMakeModel tdMakeModel) {
-        return tdMakeModel == null ? "" : "" + tdMakeModel.getMakemodelDisplayName() + "/" + tdMakeModel.getMakemodelTechnicalName() + "/"
-                + tdMakeModel.getMakemodelAlternateName();
+        return tdMakeModel == null ? "" : "" + tdMakeModel.getMakeModelId()+ "/"+tdMakeModel.getMakemodelDisplayName() + "/" + tdMakeModel.getMake()  ;
     }
 }
