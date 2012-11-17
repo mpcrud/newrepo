@@ -18,7 +18,7 @@
 	<ui:define name="content">
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdRequestCarPart}">
-			<h:panelGrid columns="2" styleClass="aria-role-presentation">
+			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:inputTextArea id="requestSource" value="#{tdRequestCarPart.requestSource}" label="${msg.tdRequestCarPart_requestSource}" />
 				<app:inputDateTime id="lastUpdateDate" value="#{tdRequestCarPart.lastUpdateDate}" label="${msg.tdRequestCarPart_lastUpdateDate}" />
 				<app:inputTextArea id="carMake" value="#{tdRequestCarPart.carMake}" label="${msg.tdRequestCarPart_carMake}" />

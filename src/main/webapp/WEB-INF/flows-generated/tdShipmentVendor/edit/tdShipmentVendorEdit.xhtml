@@ -18,7 +18,7 @@
 	<ui:define name="content">
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdShipmentVendor}">
-			<h:panelGrid columns="2" styleClass="aria-role-presentation">
+			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:input id="shipmentVendorId" value="#{tdShipmentVendor.shipmentVendorId}" label="${msg.tdShipmentVendor_shipmentVendorId}" required="true" />
 				<app:inputTextArea id="shipmentVendorDisplayName" value="#{tdShipmentVendor.shipmentVendorDisplayName}" label="${msg.tdShipmentVendor_shipmentVendorDisplayName}" required="true" />
 				<app:inputTextArea id="shipmentVendorAlternateName" value="#{tdShipmentVendor.shipmentVendorAlternateName}" label="${msg.tdShipmentVendor_shipmentVendorAlternateName}" />

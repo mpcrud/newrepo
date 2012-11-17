@@ -18,7 +18,7 @@
 	<ui:define name="content">
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdRole}">
-			<h:panelGrid columns="2" styleClass="aria-role-presentation">
+			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:input id="roleName" value="#{tdRole.roleName}" size="45" label="${msg.tdRole_roleName}" />
 				<app:inputDateTime id="updationDate" value="#{tdRole.updationDate}" label="${msg.tdRole_updationDate}" />
 				<app:input id="isActive" value="#{tdRole.isActive}" label="${msg.tdRole_isActive}" />

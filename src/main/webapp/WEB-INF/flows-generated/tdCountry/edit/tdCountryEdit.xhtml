@@ -18,7 +18,7 @@
 	<ui:define name="content">
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdCountry}">
-			<h:panelGrid columns="2" styleClass="aria-role-presentation">
+			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:input id="countryId" value="#{tdCountry.countryId}" label="${msg.tdCountry_countryId}" required="true" />
 				<app:inputTextArea id="countryName" value="#{tdCountry.countryName}" label="${msg.tdCountry_countryName}" />
 				<app:input id="importance" value="#{tdCountry.importance}" label="${msg.tdCountry_importance}" />
