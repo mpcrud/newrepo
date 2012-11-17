@@ -18,7 +18,7 @@
 	<ui:define name="content">
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdUserActivity}">
-			<h:panelGrid columns="2" styleClass="aria-role-presentation">
+			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:inputDateTime id="userLogintime" value="#{tdUserActivity.userLogintime}" label="${msg.tdUserActivity_userLogintime}" />
 				<app:input id="duration" value="#{tdUserActivity.duration}" label="${msg.tdUserActivity_duration}" />
 				<app:input id="viewCount" value="#{tdUserActivity.viewCount}" label="${msg.tdUserActivity_viewCount}" />

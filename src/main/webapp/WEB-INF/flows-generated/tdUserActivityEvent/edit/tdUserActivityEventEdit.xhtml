@@ -18,7 +18,7 @@
 	<ui:define name="content">
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdUserActivityEvent}">
-			<h:panelGrid columns="2" styleClass="aria-role-presentation">
+			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:input id="userActivityName" value="#{tdUserActivityEvent.userActivityName}" size="45" label="${msg.tdUserActivityEvent_userActivityName}" maxlength="45"/>
 				<app:input id="userEventName" value="#{tdUserActivityEvent.userEventName}" size="45" label="${msg.tdUserActivityEvent_userEventName}" maxlength="45"/>
 				<app:inputTextArea id="userEventDesc" value="#{tdUserActivityEvent.userEventDesc}" label="${msg.tdUserActivityEvent_userEventDesc}" />

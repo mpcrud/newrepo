@@ -18,7 +18,7 @@
 	<ui:define name="content">
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdUserTagPreference}">
-			<h:panelGrid columns="2" styleClass="aria-role-presentation">
+			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:input id="userTagPreferenceId" value="#{tdUserTagPreference.userTagPreferenceId}" label="${msg.tdUserTagPreference_userTagPreferenceId}" required="true" />
 				<app:inputDateTime id="updationDate" value="#{tdUserTagPreference.updationDate}" label="${msg.tdUserTagPreference_updationDate}" required="true" />
 				<app:tdUserAuthAutoComplete id="user" value="#{tdUserTagPreference.user}" required="false" label="${msg.tdUserTagPreference_user}">
