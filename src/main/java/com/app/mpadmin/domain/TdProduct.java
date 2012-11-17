@@ -1109,8 +1109,9 @@ public class TdProduct implements Identifiable<Integer>, Serializable {
 
     // -- [seoUrl] ------------------------
 
+
+    //@URL
     @Size(max = 512)
-    @URL
     @Column(name = "seo_url", length = 512)
     public String getSeoUrl() {
         return seoUrl;

@@ -436,9 +436,8 @@ public class TdTopic implements Identifiable<Integer>, Serializable {
     }
 
     // -- [seoUrl] ------------------------
-
+    //@URL
     @Size(max = 256)
-    @URL
     @Column(name = "seo_url", length = 256)
     public String getSeoUrl() {
         return seoUrl;

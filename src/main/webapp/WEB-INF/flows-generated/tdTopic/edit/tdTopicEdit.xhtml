@@ -18,7 +18,7 @@
 	<ui:define name="content">
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdTopic}">
-			<h:panelGrid columns="2" styleClass="aria-role-presentation">
+			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:inputTextArea id="topicTitle" value="#{tdTopic.topicTitle}" label="${msg.tdTopic_topicTitle}" />
 				<app:input id="viewCount" value="#{tdTopic.viewCount}" label="${msg.tdTopic_viewCount}" />
 				<app:input id="commentCount" value="#{tdTopic.commentCount}" label="${msg.tdTopic_commentCount}" />

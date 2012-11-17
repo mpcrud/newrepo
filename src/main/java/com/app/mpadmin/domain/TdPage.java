@@ -176,7 +176,7 @@ public class TdPage implements Identifiable<Integer>, Serializable {
     // -- [pageSeoUrl] ------------------------
 
     @Size(max = 256)
-    @URL
+    //@URL
     @Column(name = "page_seo_url", length = 256)
     public String getPageSeoUrl() {
         return pageSeoUrl;

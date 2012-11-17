@@ -137,6 +137,11 @@
 		</ui:define>
 
 		<ui:define name="result">     -->
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="selectProduct" process="@this" title="${tdProductConverter.print(item)}" rendered="true">
+            			<f:setPropertyActionListener value="#{item}" target="#{tdProductLazyDataModel.selectedRow}" />
+            	</app:iconSelect>
+			</p:column>
 		    <p:column id="tdProduct_productId" headerText="${msg.tdProduct_productId}">
 				<h:outputText value="#{item.productId}" />
 			</p:column>
@@ -365,11 +370,7 @@
             <p:column id="tdProduct_updationDate" headerText="${msg.tdProduct_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="selectProduct" process="@this" title="${tdProductConverter.print(item)}" rendered="true">
-            			<f:setPropertyActionListener value="#{item}" target="#{tdProductLazyDataModel.selectedRow}" />
-            	</app:iconSelect>
-			</p:column>
+
     </p:dataTable>
 	<!--	</ui:define>
 	</app:search>  -->

@@ -156,7 +156,6 @@ public class TdPicture implements Identifiable<Integer>, Serializable {
     // -- [pictureUrl] ------------------------
 
     @Size(max = 512)
-    @URL
     @Column(name = "picture_url", length = 512)
     public String getPictureUrl() {
         return pictureUrl;
