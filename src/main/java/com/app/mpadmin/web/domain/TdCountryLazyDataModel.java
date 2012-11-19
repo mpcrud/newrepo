@@ -31,6 +31,24 @@ public class TdCountryLazyDataModel extends GenericLazyDataModel<TdCountry> {
     @Inject
     transient private TdCountrySearchForm tdCountrySearchForm;
 
+    List<TdCountry> datasource;
+
+        @Override
+        public TdCountry getRowData(String rowKey) {
+            for(TdCountry tdCountry : datasource) {
+                if(tdCountry.getCountryId().equals(rowKey))
+                    return tdCountry;
+            }
+
+            return null;
+        }
+
+        @Override
+        public Object getRowKey(TdCountry tdCountry)
+        {
+             return tdCountry.getCountryId();
+        }
+
     /**
      * Prepare the search parameters and call the tdCountryRepository finder.
      * Automatically called by PrimeFaces component.
@@ -50,7 +68,7 @@ public class TdCountryLazyDataModel extends GenericLazyDataModel<TdCountry> {
         TdCountry tdCountry = tdCountrySearchForm.getTdCountry();
         setRowCount(tdCountryRepository.findCount(tdCountry, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdCountryRepository.find(tdCountry, sp);
+        datasource = tdCountryRepository.find(tdCountry, sp);
+        return  datasource;
     }
 }

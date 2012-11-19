@@ -52,35 +52,15 @@ public class TdPictureController {
     }
 
     public boolean save(TdPicture tdPicture) {
+        tdPicture.setPictureLongDesc(tdPicture.getPictureName());
+        tdPicture.setPictureShortDesc(tdPicture.getPictureName());
+      //  tdPicture.setPictureUrl(tdPicture.getPicturePath());
         tdPictureRepository.save(tdPicture);
         messageUtil.info("status_saved_ok", tdPictureConverter.print(tdPicture));
         return true;
     }
 
     public boolean saveAndClose(TdPicture tdPicture) {
-        UploadedFile file = tdPicture.getFile();
-        //tdPicture.setFile(fileUploadController.getFile());
-        tdPicture.setPictureName(file.getFileName());
-        try{
-            InputStream inputStream = null;
-            OutputStream outputStream = null;
-            if (file.getSize() > 0) {
-            inputStream = file.getInputstream();
-            outputStream = new FileOutputStream("C:/"+file.getFileName());
-            int readBytes = 0;
-            byte[] buffer = new byte[8192];
-            while ((readBytes = inputStream.read(buffer, 0 , 8192))!=-1){
-                outputStream.write(buffer, 0, readBytes);
-                }
-            }
-             outputStream.close();
-             inputStream.close();
-
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
         tdPictureRepository.save(tdPicture);
         messageUtil.infoDelayed("status_saved_ok", tdPictureConverter.print(tdPicture));
         forceClose();

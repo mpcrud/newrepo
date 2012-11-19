@@ -31,6 +31,25 @@ public class TdProductSupplierLazyDataModel extends GenericLazyDataModel<TdProdu
     @Inject
     transient private TdProductSupplierSearchForm tdProductSupplierSearchForm;
 
+    List<TdProductSupplier> datasource;
+
+    @Override
+    public TdProductSupplier getRowData(String rowKey) {
+        for(TdProductSupplier tdProductSupplier : datasource) {
+            if(tdProductSupplier.getProductSupplierId().equals(rowKey))
+                return tdProductSupplier;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdProductSupplier tdProductSupplier)
+    {
+         return tdProductSupplier.getProductSupplierId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdProductSupplierRepository finder.
      * Automatically called by PrimeFaces component.
@@ -52,7 +71,7 @@ public class TdProductSupplierLazyDataModel extends GenericLazyDataModel<TdProdu
         TdProductSupplier tdProductSupplier = tdProductSupplierSearchForm.getTdProductSupplier();
         setRowCount(tdProductSupplierRepository.findCount(tdProductSupplier, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdProductSupplierRepository.find(tdProductSupplier, sp);
+        datasource = tdProductSupplierRepository.find(tdProductSupplier, sp);
+        return datasource;
     }
 }

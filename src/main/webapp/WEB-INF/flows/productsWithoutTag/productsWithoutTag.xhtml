@@ -136,7 +136,7 @@
 
 		<ui:define name="result"> -->
             <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" title="${tdProductConverter.print(item)}" rendered="true">
+				<app:iconSelect action="selectProduct" process="@this" title="${tdProductConverter.print(item)}" rendered="true">
             			<f:setPropertyActionListener value="#{item}" target="#{tdProductLazyDataModel.selectedRow}" />
             	</app:iconSelect>
 			</p:column>
@@ -377,6 +377,10 @@
     <p:confirmDialog widgetVar="askForDeleteItemDialog" header="${msg.menu_delete}?" message="${msg.dialog_delete_confirm}">
         <p:commandButton id="askForDeleteItemDialogYes" action="delete" ajax="true" update=":form:searchResults :form:messages" oncomplete="askForDeleteItemDialog.hide(); APP.updateSearchResultsRegion(xhr,status,args)" immediate="true" process="@this" value="${msg.yes}" title="${msg.dialog_delete_confirm} ${msg.yes}" icon="ui-icon-check" />
         <p:commandButton id="askForDeleteItemDialogNo" value="${msg.no}" title="${msg.dialog_delete_confirm} ${msg.no}" onclick="askForDeleteItemDialog.hide(); return false;" icon="ui-icon-cancel"/>
+        </p:confirmDialog>
+    <p:confirmDialog widgetVar="askForMapTagGrpToTagDialog" header="${msg.menu_map}?" message="${msg.dialog_map_confirm}">
+      <p:commandButton id="askForMapTagGrpToTagDialogYes" action="editTagGrpTagMapping" ajax="true" oncomplete="askForMapTagGrpToTagDialog.hide();" immediate="true" process="@this" value="${msg.yes}" title="${msg.dialog_map_confirm} ${msg.yes}" icon="ui-icon-check" />
+      <p:commandButton id="askForMapTagGrpToTagDialogNo" value="${msg.no}" title="${msg.dialog_map_confirm} ${msg.no}" onclick="askForMapTagGrpToTagDialog.hide(); APP.menu.forceClose();return false;" icon="ui-icon-cancel"/>
     </p:confirmDialog>
 </ui:define>
 </app:panelMenu>

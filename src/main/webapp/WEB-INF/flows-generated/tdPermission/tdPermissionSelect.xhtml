@@ -16,7 +16,7 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">	
 <app:panelMenu title="${msg.tdPermission}">
 <ui:define name="content">
-	<app:search data="#{tdPermissionLazyDataModel}" title="${msg.tdPermission}">
+	<app:search data="#{tdPermissionLazyDataModel}" title="${msg.tdPermission}" selection="#{tdPermissionLazyDataModel.selectedList}" rowKey="#{item.permissionId}">
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
@@ -27,6 +27,7 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column selectionMode="multiple" style="width:18px"/>
             <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdPermissionConverter.print(item)}">
 					<f:setPropertyActionListener value="#{item}" target="#{tdPermissionLazyDataModel.selectedRow}" />

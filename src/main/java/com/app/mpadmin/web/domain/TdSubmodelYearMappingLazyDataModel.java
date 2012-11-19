@@ -31,6 +31,25 @@ public class TdSubmodelYearMappingLazyDataModel extends GenericLazyDataModel<TdS
     @Inject
     transient private TdSubmodelYearMappingSearchForm tdSubmodelYearMappingSearchForm;
 
+    List<TdSubmodelYearMapping> datasource;
+
+    @Override
+    public TdSubmodelYearMapping getRowData(String rowKey) {
+        for(TdSubmodelYearMapping tdSubmodelYearMapping : datasource) {
+            if(tdSubmodelYearMapping.getSubmodelYearMappingId().equals(rowKey))
+                return tdSubmodelYearMapping;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdSubmodelYearMapping tdSubmodelYearMapping)
+    {
+         return tdSubmodelYearMapping.getSubmodelYearMappingId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdSubmodelYearMappingRepository finder.
      * Automatically called by PrimeFaces component.
@@ -47,7 +66,7 @@ public class TdSubmodelYearMappingLazyDataModel extends GenericLazyDataModel<TdS
         TdSubmodelYearMapping tdSubmodelYearMapping = tdSubmodelYearMappingSearchForm.getTdSubmodelYearMapping();
         setRowCount(tdSubmodelYearMappingRepository.findCount(tdSubmodelYearMapping, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdSubmodelYearMappingRepository.find(tdSubmodelYearMapping, sp);
+        datasource = tdSubmodelYearMappingRepository.find(tdSubmodelYearMapping, sp);
+        return datasource;
     }
 }

@@ -31,6 +31,25 @@ public class TdUserActivityLazyDataModel extends GenericLazyDataModel<TdUserActi
     @Inject
     transient private TdUserActivitySearchForm tdUserActivitySearchForm;
 
+    List<TdUserActivity> datasource;
+
+    @Override
+    public TdUserActivity getRowData(String rowKey) {
+        for(TdUserActivity tdUserActivity : datasource) {
+            if(tdUserActivity.getUserActivityId().equals(rowKey))
+                return tdUserActivity;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdUserActivity tdUserActivity)
+    {
+         return tdUserActivity.getUserActivityId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdUserActivityRepository finder.
      * Automatically called by PrimeFaces component.
@@ -57,7 +76,7 @@ public class TdUserActivityLazyDataModel extends GenericLazyDataModel<TdUserActi
         TdUserActivity tdUserActivity = tdUserActivitySearchForm.getTdUserActivity();
         setRowCount(tdUserActivityRepository.findCount(tdUserActivity, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdUserActivityRepository.find(tdUserActivity, sp);
+        datasource = tdUserActivityRepository.find(tdUserActivity, sp);
+        return datasource;
     }
 }

@@ -16,7 +16,7 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">	
 <app:panelMenu title="${msg.tdTag}">
 <ui:define name="content">
-	<app:search data="#{tdTagLazyDataModel}" title="${msg.tdTag}">
+	<app:search data="#{tdTagLazyDataModel}" title="${msg.tdTag}" selection="#{tdTagLazyDataModel.selectedList}" rowKey="#{item.tagId}">
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
@@ -33,6 +33,7 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column selectionMode="multiple" style="width:18px"/>
             <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdTagConverter.print(item)}">
 					<f:setPropertyActionListener value="#{item}" target="#{tdTagLazyDataModel.selectedRow}" />
@@ -74,7 +75,12 @@
             <p:column id="tdTag_tagStatus" headerText="${msg.tdTag_tagStatus}" sortBy="#{item.tagStatus}">
 				<h:outputText value="#{item.tagStatus}" />
 			</p:column>
+            <f:facet name="footer">
+         <!--   <p:commandButton id="multiViewButton" value="View" icon="ui-icon-search" action="updateAll"
+                             > <!N-update=":form:displayMulti" oncomplete="multiCarDialog.show()"-->
 
+          <!--  </p:commandButton> -->
+        </f:facet>
 		</ui:define>
 	</app:search>
 </ui:define>
@@ -83,6 +89,16 @@
         <p:commandButton id="askForDeleteItemDialogYes" action="delete" ajax="true" update=":form:searchResults :form:messages" oncomplete="askForDeleteItemDialog.hide(); APP.updateSearchResultsRegion(xhr,status,args)" immediate="true" process="@this" value="${msg.yes}" title="${msg.dialog_delete_confirm} ${msg.yes}" icon="ui-icon-check" />
         <p:commandButton id="askForDeleteItemDialogNo" value="${msg.no}" title="${msg.dialog_delete_confirm} ${msg.no}" onclick="askForDeleteItemDialog.hide(); return false;" icon="ui-icon-cancel"/>
     </p:confirmDialog>
+
+ <!--   <p:dialog id="multiDialog" header="Car Detail" widgetVar="multiCarDialog"
+              height="300" showEffect="fade" hideEffect="explode">
+          Id: #{tdTagLazyDataModel.selectedRow.tagId}, Date:
+        <p:dataList id="displayMulti"
+                value="#{tdTagLazyDataModel.selectedList}" var="selectedCar">
+            Id: #{selectedCar.tagId}, Date: #{selectedCar.creationDate}
+        </p:dataList>
+
+    </p:dialog>     -->
 </ui:define>
 </app:panelMenu>
 </ui:composition>

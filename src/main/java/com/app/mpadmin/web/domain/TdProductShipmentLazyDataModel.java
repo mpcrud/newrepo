@@ -31,6 +31,25 @@ public class TdProductShipmentLazyDataModel extends GenericLazyDataModel<TdProdu
     @Inject
     transient private TdProductShipmentSearchForm tdProductShipmentSearchForm;
 
+List<TdProductShipment> datasource;
+
+    @Override
+    public TdProductShipment getRowData(String rowKey) {
+        for(TdProductShipment tdProductShipment : datasource) {
+            if(tdProductShipment.getProductShipmentId().equals(rowKey))
+                return tdProductShipment;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdProductShipment tdProductShipment)
+    {
+         return tdProductShipment.getProductShipmentId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdProductShipmentRepository finder.
      * Automatically called by PrimeFaces component.
@@ -58,7 +77,7 @@ public class TdProductShipmentLazyDataModel extends GenericLazyDataModel<TdProdu
         TdProductShipment tdProductShipment = tdProductShipmentSearchForm.getTdProductShipment();
         setRowCount(tdProductShipmentRepository.findCount(tdProductShipment, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdProductShipmentRepository.find(tdProductShipment, sp);
+        datasource = tdProductShipmentRepository.find(tdProductShipment, sp);
+        return datasource;
     }
 }

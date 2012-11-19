@@ -31,6 +31,23 @@ public class TdCommentLazyDataModel extends GenericLazyDataModel<TdComment> {
     @Inject
     transient private TdCommentSearchForm tdCommentSearchForm;
 
+    List<TdComment> datasource;
+
+        @Override
+        public TdComment getRowData(String rowKey) {
+            for(TdComment tdComment : datasource) {
+                if(tdComment.getCommentId().equals(rowKey))
+                    return tdComment;
+            }
+
+            return null;
+        }
+
+        @Override
+        public Object getRowKey(TdComment tdTag)
+        {
+             return tdTag.getCommentId();
+        }
     /**
      * Prepare the search parameters and call the tdCommentRepository finder.
      * Automatically called by PrimeFaces component.
@@ -55,7 +72,7 @@ public class TdCommentLazyDataModel extends GenericLazyDataModel<TdComment> {
         TdComment tdComment = tdCommentSearchForm.getTdComment();
         setRowCount(tdCommentRepository.findCount(tdComment, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdCommentRepository.find(tdComment, sp);
+        datasource= tdCommentRepository.find(tdComment, sp);
+        return datasource;
     }
 }

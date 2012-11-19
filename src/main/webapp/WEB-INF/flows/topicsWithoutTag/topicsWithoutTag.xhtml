@@ -42,44 +42,14 @@
         		currentPageReportTemplate="{currentPage} / {totalPages}"
         		paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}"
         		rowKey="#{item}"
-        		height="500px">
- <!--	<app:search data="#{tdTopicLazyDataModel}" title="${msg.tdTopic}">
-		<ui:define name="filters">
-			<f:validateBean disabled="true">
-				<h:panelGrid columns="4">
-					<app:input id="topicTitle" value="#{tdTopicSearchForm.tdTopic.topicTitle}" label="${msg.tdTopic_topicTitle}"/>
-					<app:rangeInt id="viewCount" value="#{tdTopicSearchForm.viewCountRange}" label="${msg.tdTopic_viewCount}"/>
-					<app:rangeInt id="commentCount" value="#{tdTopicSearchForm.commentCountRange}" label="${msg.tdTopic_commentCount}"/>
-					<app:rangeDateTime id="assignedSince" value="#{tdTopicSearchForm.assignedSinceRange}" label="${msg.tdTopic_assignedSince}" />
-					<app:input id="descShort" value="#{tdTopicSearchForm.tdTopic.descShort}" label="${msg.tdTopic_descShort}"/>
-					<app:input id="descLong" value="#{tdTopicSearchForm.tdTopic.descLong}" label="${msg.tdTopic_descLong}"/>
-					<app:tdUserAuthMultiAutoComplete id="userSelector" value="#{tdTopicSearchForm.userSelector.selected}" label="${msg.tdTopic_user}" />
-					<app:rangeInt id="parentTopicId" value="#{tdTopicSearchForm.parentTopicIdRange}" label="${msg.tdTopic_parentTopicId}"/>
-					<app:rangeInt id="twitterCount" value="#{tdTopicSearchForm.twitterCountRange}" label="${msg.tdTopic_twitterCount}"/>
-					<app:rangeInt id="facebookCount" value="#{tdTopicSearchForm.facebookCountRange}" label="${msg.tdTopic_facebookCount}"/>
-					<app:input id="metaDesc" value="#{tdTopicSearchForm.tdTopic.metaDesc}" label="${msg.tdTopic_metaDesc}"/>
-					<app:rangeDateTime id="updationDate" value="#{tdTopicSearchForm.updationDateRange}" label="${msg.tdTopic_updationDate}" />
-					<app:rangeInt id="isActive" value="#{tdTopicSearchForm.isActiveRange}" label="${msg.tdTopic_isActive}"/>
-					<app:rangeInt id="isFeatured" value="#{tdTopicSearchForm.isFeaturedRange}" label="${msg.tdTopic_isFeatured}"/>
-					<app:rangeInt id="assignedToUser" value="#{tdTopicSearchForm.assignedToUserRange}" label="${msg.tdTopic_assignedToUser}"/>
-					<app:rangeDateTime id="expiryDate" value="#{tdTopicSearchForm.expiryDateRange}" label="${msg.tdTopic_expiryDate}" />
-					<app:rangeInt id="topicStatus" value="#{tdTopicSearchForm.topicStatusRange}" label="${msg.tdTopic_topicStatus}"/>
-					<app:rangeInt id="voteCount" value="#{tdTopicSearchForm.voteCountRange}" label="${msg.tdTopic_voteCount}"/>
-					<app:rangeInt id="customInt1" value="#{tdTopicSearchForm.customInt1Range}" label="${msg.tdTopic_customInt1}"/>
-					<app:rangeInt id="customInt2" value="#{tdTopicSearchForm.customInt2Range}" label="${msg.tdTopic_customInt2}"/>
-					<app:input id="customVarchar1" value="#{tdTopicSearchForm.tdTopic.customVarchar1}" label="${msg.tdTopic_customVarchar1}"/>
-					<app:input id="customVarchar2" value="#{tdTopicSearchForm.tdTopic.customVarchar2}" label="${msg.tdTopic_customVarchar2}"/>
-					<app:input id="seoResources" value="#{tdTopicSearchForm.tdTopic.seoResources}" label="${msg.tdTopic_seoResources}"/>
-					<app:input id="metaTitle" value="#{tdTopicSearchForm.tdTopic.metaTitle}" label="${msg.tdTopic_metaTitle}"/>
-					<app:input id="metaKeyword" value="#{tdTopicSearchForm.tdTopic.metaKeyword}" label="${msg.tdTopic_metaKeyword}"/>
-					<app:input id="seoUrl" value="#{tdTopicSearchForm.tdTopic.seoUrl}" label="${msg.tdTopic_seoUrl}"/>
-					<app:input id="h1" value="#{tdTopicSearchForm.tdTopic.h1}" label="${msg.tdTopic_h1}"/>
-					<app:input id="h2" value="#{tdTopicSearchForm.tdTopic.h2}" label="${msg.tdTopic_h2}"/>
-				</h:panelGrid>
-			</f:validateBean>
-		</ui:define>
+        		height="500px"
+                 >
 
-		<ui:define name="result">    -->
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect action="selectTopic" process="@this" title="${tdTopicConverter.print(item)}" rendered="true">
+            			<f:setPropertyActionListener value="#{item}" target="#{tdTopicLazyDataModel.selectedRow}" />
+            	</app:iconSelect>
+			</p:column>
 			<p:column id="tdTopic_topicId" headerText="${msg.tdTopic_topicId}" sortBy="#{item.topicId}">
 				<h:outputText value="#{item.topicId}" />
 			</p:column>
@@ -155,20 +125,25 @@
             <p:column id="tdTopic_h2" headerText="${msg.tdTopic_h2}" sortBy="#{item.h2}">
 				<h:outputText value="#{item.h2}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="selectTopic" process="@this" title="${tdTopicConverter.print(item)}" rendered="true">
-            			<f:setPropertyActionListener value="#{item}" target="#{tdTopicLazyDataModel.selectedRow}" />
-            	</app:iconSelect>
-			</p:column>
+
 	<!--	</ui:define>
 	</app:search> -->
     </p:dataTable>
+    <p:commandButton oncomplete="RowNumber.show()" value="Click Me" update=":form:display"/>
 </ui:define>
 <ui:define name="dialogs">
     <p:confirmDialog widgetVar="askForDeleteItemDialog" header="${msg.menu_delete}?" message="${msg.dialog_delete_confirm}">
         <p:commandButton id="askForDeleteItemDialogYes" action="delete" ajax="true" update=":form:searchResults :form:messages" oncomplete="askForDeleteItemDialog.hide(); APP.updateSearchResultsRegion(xhr,status,args)" immediate="true" process="@this" value="${msg.yes}" title="${msg.dialog_delete_confirm} ${msg.yes}" icon="ui-icon-check" />
         <p:commandButton id="askForDeleteItemDialogNo" value="${msg.no}" title="${msg.dialog_delete_confirm} ${msg.no}" onclick="askForDeleteItemDialog.hide(); return false;" icon="ui-icon-cancel"/>
     </p:confirmDialog>
+  <!--  <p:dialog widgetVar="RowNumber">
+        List
+        <p:dataTable id="display" value="#{tdTopicLazyDataModel.selectedList}" rowKey="selectedCar">
+           <p:column>
+            Model: #{selectedCar.topicId}
+           </p:column>
+       </p:dataTable>
+    </p:dialog>   -->
 </ui:define>
 </app:panelMenu>
 </ui:composition>

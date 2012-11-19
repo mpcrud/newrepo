@@ -33,6 +33,14 @@
 			<evaluate expression="tdTagController.delete(tdTagLazyDataModel.selectedRow)" />
 		</transition>
 		<transition on="sendNew" to="edit" validate="false" />
+        <transition on="updateAll">
+            <evaluate expression="tdTagController.updateAll(tdTagLazyDataModel.selectedList)"/>
+            <evaluate expression="primeFacesUtil.refresh()"/>
+        </transition>
+        <transition on="deleteAll">
+            <evaluate expression="tdTagController.deleteAll(tdTagLazyDataModel.selectedList)"/>
+            <evaluate expression="primeFacesUtil.refresh()"/>
+        </transition>
 	</view-state>
 
 	<view-state id="tdTagSubSelect" view="tdTagSelect.xhtml">

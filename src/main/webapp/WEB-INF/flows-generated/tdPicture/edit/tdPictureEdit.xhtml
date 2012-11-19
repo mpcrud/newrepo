@@ -19,18 +19,33 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdPicture}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-                <app:input id="pictureName" value="#{tdPicture.pictureName}" size="48" label="${msg.tdPicture_pictureName}" required="true" />
-				<app:inputTextArea id="pictureShortDesc" value="#{tdPicture.pictureShortDesc}" label="${msg.tdPicture_pictureShortDesc}" maxlength="45"/>
-				<app:inputTextArea id="pictureLongDesc" value="#{tdPicture.pictureLongDesc}" label="${msg.tdPicture_pictureLongDesc}" />
-				<app:inputTextArea id="picturePath" value="#{tdPicture.picturePath}" label="${msg.tdPicture_picturePath}" />
+                <h:outputText value="Image"/>
+                <p:fileUpload mode="advanced" sizeLimit="2097152" fileUploadListener="#{fileUploadController.upload}"/>
+                 <app:input id="pictureName" value="#{tdPicture.pictureName}" size="48" label="${msg.tdPicture_pictureName}" required="true" />
+			<!--	<app:input id="pictureShortDesc" value="#{tdPicture.pictureShortDesc}" label="${msg.tdPicture_pictureShortDesc}" maxlength="45"/>
+				<app:inputTextArea id="pictureLongDesc" value="#{tdPicture.pictureLongDesc}" label="${msg.tdPicture_pictureLongDesc}" />   -->
+			<!--	<app:input id="picturePath" value="#{tdPicture.picturePath}" label="${msg.tdPicture_picturePath}" />  -->
+                <appcc:outputLabel for="picturePath" value="${msg.tdPicture_picturePath}" required="true" />
+                         <p:selectOneListbox id="picturePath" value="#{tdPicture.picturePath}" style="width:150px">
+                            <f:selectItem itemLabel="/root/img/" itemValue="/root/img/" />
+                            <f:selectItem itemLabel="C:\Geo\" itemValue="C:/Geo/" />
+                         </p:selectOneListbox>
+                  <h:outputText value="#{tdPicture.picturePath}" rendered="${readonly}"/>
 				<app:inputTextArea id="pictureUrl" value="#{tdPicture.pictureUrl}" label="${msg.tdPicture_pictureUrl}" maxlength="512"/>
 				<app:inputTextArea id="pictureOwner" value="#{tdPicture.pictureOwner}" label="${msg.tdPicture_pictureOwner}" maxlength="512"/>
-				<app:input id="pictureType" value="#{tdPicture.pictureType}" label="${msg.tdPicture_pictureType}" required="true" />
+			<!--	<app:input id="pictureType" value="#{tdPicture.pictureType}" label="${msg.tdPicture_pictureType}" required="true" />      -->
+                <appcc:outputLabel for="pictureType" value="${msg.tdPicture_pictureType}" required="true" />
+                         <p:selectOneListbox id="pictureType" value="#{tdPicture.pictureType}" style="width:150px">
+                            <f:selectItem itemLabel="800/Tag Ref Car Part Category Type" itemValue="800" />
+                            <f:selectItem itemLabel="1000/Car Part Product Type" itemValue="1000" />
+                            <f:selectItem itemLabel="500/Coming Soon Type" itemValue="500"/>
+                            <f:selectItem itemLabel="600/Topic Ref" itemValue="600" />
+                            <f:selectItem itemLabel="700/Comment Ref" itemValue="700"/>
+                         </p:selectOneListbox>
+                <h:outputText value="#{tdPicture.pictureType}" rendered="${readonly}"/>
 				<app:input id="pictureRefId" value="#{tdPicture.pictureRefId}" label="${msg.tdPicture_pictureRefId}" required="true" />
 				<app:input id="status" value="#{tdPicture.status}" label="${msg.tdPicture_status}" required="true" maxlength="1"/>
-                <h:outputText value="Image"/>
-                <p:fileUpload mode="simple" value="#{tdPicture.file}" required="true"/>
-			</h:panelGrid>
+            </h:panelGrid>
 		</p:fieldset>
 		<app:saveButton title="${msg.tdPicture}"/>
 	</f:validateBean>

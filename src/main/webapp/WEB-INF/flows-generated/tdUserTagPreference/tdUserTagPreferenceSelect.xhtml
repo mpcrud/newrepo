@@ -16,7 +16,7 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">	
 <app:panelMenu title="${msg.tdUserTagPreference}">
 <ui:define name="content">
-	<app:search data="#{tdUserTagPreferenceLazyDataModel}" title="${msg.tdUserTagPreference}">
+	<app:search data="#{tdUserTagPreferenceLazyDataModel}" title="${msg.tdUserTagPreference}" selection="#{tdUserTagPreferenceLazyDataModel.selectedList}" rowKey="#{item.userTagPreferenceId}">
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
@@ -29,6 +29,7 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column selectionMode="multiple" style="width:18px"/>
 			<p:column id="tdUserTagPreference_userTagPreferenceId" headerText="${msg.tdUserTagPreference_userTagPreferenceId}" sortBy="#{item.userTagPreferenceId}">
 				<h:outputText value="#{item.userTagPreferenceId}" />
 			</p:column>

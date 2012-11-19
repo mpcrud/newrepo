@@ -16,7 +16,7 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">	
 <app:panelMenu title="${msg.tdSubmodelYearMapping}">
 <ui:define name="content">
-	<app:search data="#{tdSubmodelYearMappingLazyDataModel}" title="${msg.tdSubmodelYearMapping}">
+	<app:search data="#{tdSubmodelYearMappingLazyDataModel}" title="${msg.tdSubmodelYearMapping}" selection="#{tdSubmodelYearMappingLazyDataModel.selectedList}" rowKey="#{item.submodelYearMappingId}">
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
@@ -28,6 +28,7 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column selectionMode="multiple" style="width:18px"/>
 			<p:column id="tdSubmodelYearMapping_submodelYearMappingId" headerText="${msg.tdSubmodelYearMapping_submodelYearMappingId}" sortBy="#{item.submodelYearMappingId}">
 				<h:outputText value="#{item.submodelYearMappingId}" />
 			</p:column>

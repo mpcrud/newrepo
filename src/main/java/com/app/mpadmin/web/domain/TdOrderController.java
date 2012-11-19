@@ -63,4 +63,27 @@ public class TdOrderController {
         messageUtil.info("status_deleted_ok", infoArg);
         return true;
     }
+
+    public boolean updateAll(TdOrder[] arr){
+        for(TdOrder order : arr)
+        {
+            switch(order.getOrderStatus())
+            {
+                case 0: order.setOrderStatus(1);break;
+                case 1: order.setOrderStatus(0);break;
+                default: order.setOrderStatus(0);break;
+            }
+            tdOrderRepository.save(order);
+        }
+        messageUtil.info("status_saved_ok", arr.length+" orders updated");
+        return true;
+    }
+
+    public boolean deleteAll(TdOrder[] arr){
+        for (TdOrder order:arr){
+            tdOrderRepository.delete(order);
+        }
+        messageUtil.info("status_deleted_ok", arr.length+" orders deleted");
+        return true;
+    }
 }

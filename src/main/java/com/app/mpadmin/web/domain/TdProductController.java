@@ -26,6 +26,7 @@ import com.app.mpadmin.web.converter.domain.TdProductConverter;
 import com.app.mpadmin.web.converter.domain.TdTagConverter;
 import com.app.mpadmin.web.converter.domain.TdTagGrpConverter;
 import com.app.mpadmin.web.converter.domain.TdTagGrpTagMappingConverter;
+import com.app.mpadmin.web.util.FileUploadController;
 import com.app.mpadmin.web.util.MessageUtil;
 import com.app.mpadmin.repository.TdTagGrpRepository;
 import com.app.mpadmin.domain.TdTag;
@@ -59,6 +60,8 @@ public class TdProductController {
     private TdTagConverter tdTagConverter;
     @Inject
     private TdTagGrpTagMappingConverter tdTagGrpTagMappingConverter;
+
+
 
     public TdProduct newIfNull(TdProduct tdProduct) {
         if (tdProduct != null) {

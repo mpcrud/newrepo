@@ -31,6 +31,25 @@ public class TdOrderLazyDataModel extends GenericLazyDataModel<TdOrder> {
     @Inject
     transient private TdOrderSearchForm tdOrderSearchForm;
 
+List<TdOrder> datasource;
+
+    @Override
+    public TdOrder getRowData(String rowKey) {
+        for(TdOrder tdOrder : datasource) {
+            if(tdOrder.getOrderId().equals(rowKey))
+                return tdOrder;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdOrder tdTag)
+    {
+         return tdTag.getOrderId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdOrderRepository finder.
      * Automatically called by PrimeFaces component.
@@ -112,7 +131,7 @@ public class TdOrderLazyDataModel extends GenericLazyDataModel<TdOrder> {
         TdOrder tdOrder = tdOrderSearchForm.getTdOrder();
         setRowCount(tdOrderRepository.findCount(tdOrder, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdOrderRepository.find(tdOrder, sp);
+        datasource = tdOrderRepository.find(tdOrder, sp);
+        return datasource;
     }
 }

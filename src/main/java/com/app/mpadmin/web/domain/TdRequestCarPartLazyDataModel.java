@@ -31,6 +31,25 @@ public class TdRequestCarPartLazyDataModel extends GenericLazyDataModel<TdReques
     @Inject
     transient private TdRequestCarPartSearchForm tdRequestCarPartSearchForm;
 
+List<TdRequestCarPart> datasource;
+
+    @Override
+    public TdRequestCarPart getRowData(String rowKey) {
+        for(TdRequestCarPart tdRequestCarPart : datasource) {
+            if(tdRequestCarPart.getRequestId().equals(rowKey))
+                return tdRequestCarPart;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdRequestCarPart tdRequestCarPart)
+    {
+         return tdRequestCarPart.getRequestId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdRequestCarPartRepository finder.
      * Automatically called by PrimeFaces component.
@@ -48,7 +67,7 @@ public class TdRequestCarPartLazyDataModel extends GenericLazyDataModel<TdReques
         TdRequestCarPart tdRequestCarPart = tdRequestCarPartSearchForm.getTdRequestCarPart();
         setRowCount(tdRequestCarPartRepository.findCount(tdRequestCarPart, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdRequestCarPartRepository.find(tdRequestCarPart, sp);
+        datasource = tdRequestCarPartRepository.find(tdRequestCarPart, sp);
+        return datasource;
     }
 }

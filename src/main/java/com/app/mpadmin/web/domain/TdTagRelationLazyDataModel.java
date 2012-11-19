@@ -31,6 +31,25 @@ public class TdTagRelationLazyDataModel extends GenericLazyDataModel<TdTagRelati
     @Inject
     transient private TdTagRelationSearchForm tdTagRelationSearchForm;
 
+List<TdTagRelation> datasource;
+
+    @Override
+    public TdTagRelation getRowData(String rowKey) {
+        for(TdTagRelation tdTagRelation : datasource) {
+            if(tdTagRelation.getTagRelationId().equals(rowKey))
+                return tdTagRelation;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdTagRelation tdTagRelation)
+    {
+         return tdTagRelation.getTagRelationId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdTagRelationRepository finder.
      * Automatically called by PrimeFaces component.
@@ -53,7 +72,7 @@ public class TdTagRelationLazyDataModel extends GenericLazyDataModel<TdTagRelati
         TdTagRelation tdTagRelation = tdTagRelationSearchForm.getTdTagRelation();
         setRowCount(tdTagRelationRepository.findCount(tdTagRelation, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdTagRelationRepository.find(tdTagRelation, sp);
+        datasource =tdTagRelationRepository.find(tdTagRelation, sp);
+        return datasource;
     }
 }

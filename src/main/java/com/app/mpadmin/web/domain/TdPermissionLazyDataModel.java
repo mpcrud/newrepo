@@ -31,6 +31,25 @@ public class TdPermissionLazyDataModel extends GenericLazyDataModel<TdPermission
     @Inject
     transient private TdPermissionSearchForm tdPermissionSearchForm;
 
+    List<TdPermission> datasource;
+
+    @Override
+    public TdPermission getRowData(String rowKey) {
+        for(TdPermission tdPermission : datasource) {
+            if(tdPermission.getPermissionId().equals(rowKey))
+                return tdPermission;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdPermission tdPermission)
+    {
+         return tdPermission.getPermissionId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdPermissionRepository finder.
      * Automatically called by PrimeFaces component.
@@ -46,7 +65,7 @@ public class TdPermissionLazyDataModel extends GenericLazyDataModel<TdPermission
         TdPermission tdPermission = tdPermissionSearchForm.getTdPermission();
         setRowCount(tdPermissionRepository.findCount(tdPermission, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdPermissionRepository.find(tdPermission, sp);
+        datasource = tdPermissionRepository.find(tdPermission, sp);
+        return datasource;
     }
 }

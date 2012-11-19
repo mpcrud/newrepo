@@ -31,6 +31,25 @@ public class TdUserTagPreferenceLazyDataModel extends GenericLazyDataModel<TdUse
     @Inject
     transient private TdUserTagPreferenceSearchForm tdUserTagPreferenceSearchForm;
 
+List<TdUserTagPreference> datasource;
+
+    @Override
+    public TdUserTagPreference getRowData(String rowKey) {
+        for(TdUserTagPreference tdUserTagPreference : datasource) {
+            if(tdUserTagPreference.getUserTagPreferenceId().equals(rowKey))
+                return tdUserTagPreference;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdUserTagPreference tdUserTagPreference)
+    {
+         return tdUserTagPreference.getUserTagPreferenceId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdUserTagPreferenceRepository finder.
      * Automatically called by PrimeFaces component.
@@ -51,7 +70,7 @@ public class TdUserTagPreferenceLazyDataModel extends GenericLazyDataModel<TdUse
         TdUserTagPreference tdUserTagPreference = tdUserTagPreferenceSearchForm.getTdUserTagPreference();
         setRowCount(tdUserTagPreferenceRepository.findCount(tdUserTagPreference, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdUserTagPreferenceRepository.find(tdUserTagPreference, sp);
+        datasource = tdUserTagPreferenceRepository.find(tdUserTagPreference, sp);
+        return datasource;
     }
 }

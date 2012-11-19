@@ -63,4 +63,27 @@ public class TdTagController {
         messageUtil.info("status_deleted_ok", infoArg);
         return true;
     }
+
+    public boolean updateAll(TdTag[] arr){
+        for(TdTag tag : arr)
+        {
+            switch(tag.getTagStatus())
+            {
+                case 0: tag.setTagStatus(1);break;
+                case 1: tag.setTagStatus(0);break;
+                default: tag.setTagStatus(0);break;
+            }
+            tdTagRepository.save(tag);
+        }
+        messageUtil.info("status_saved_ok", arr.length+" tags updated");
+        return true;
+    }
+
+    public boolean deleteAll(TdTag[] arr){
+        for (TdTag tag:arr){
+            tdTagRepository.delete(tag);
+        }
+        messageUtil.info("status_deleted_ok", arr.length+" tags deleted");
+        return true;
+    }
 }

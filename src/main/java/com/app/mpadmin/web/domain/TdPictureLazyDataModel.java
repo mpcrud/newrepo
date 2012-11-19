@@ -31,6 +31,25 @@ public class TdPictureLazyDataModel extends GenericLazyDataModel<TdPicture> {
     @Inject
     transient private TdPictureSearchForm tdPictureSearchForm;
 
+List<TdPicture> datasource;
+
+    @Override
+    public TdPicture getRowData(String rowKey) {
+        for(TdPicture tdPicture : datasource) {
+            if(tdPicture.getPictureId().equals(rowKey))
+                return tdPicture;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdPicture tdPicture)
+    {
+         return tdPicture.getPictureId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdPictureRepository finder.
      * Automatically called by PrimeFaces component.
@@ -48,7 +67,7 @@ public class TdPictureLazyDataModel extends GenericLazyDataModel<TdPicture> {
         TdPicture tdPicture = tdPictureSearchForm.getTdPicture();
         setRowCount(tdPictureRepository.findCount(tdPicture, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdPictureRepository.find(tdPicture, sp);
+        datasource = tdPictureRepository.find(tdPicture, sp);
+        return datasource;
     }
 }

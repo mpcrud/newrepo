@@ -16,7 +16,7 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">	
 <app:panelMenu title="${msg.tdVote}">
 <ui:define name="content">
-	<app:search data="#{tdVoteLazyDataModel}" title="${msg.tdVote}">
+	<app:search data="#{tdVoteLazyDataModel}" title="${msg.tdVote}" selection="#{tdVoteLazyDataModel.selectedList}" rowKey="#{item.voteId}">
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
@@ -32,6 +32,7 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column selectionMode="multiple" style="width:18px"/>
             <p:column id="tdVote_voteId" headerText="${msg.tdVote_voteId}" sortBy="#{item.voteId}">
 				<h:outputText value="#{item.voteId}" />
 			</p:column>

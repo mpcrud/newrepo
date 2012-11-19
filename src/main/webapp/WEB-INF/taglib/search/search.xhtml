@@ -28,6 +28,10 @@
 			</f:facet>
 		</p:ajaxStatus>
 	</span>
+    <p:menuButton value="Options">
+        <p:menuitem value="Change Status" icon="ui-icon-arrowrefresh-1-w" action="updateAll"/>
+        <p:menuitem value="Delete" icon="ui-icon-close" ajax="false" action="deleteAll"/>
+    </p:menuButton>
 	<!-- looks like safari/voiceover requires 'span' (not 'div') for live region-->
 	<span id="searchResultsRegion" aria-label="Résultats" aria-live="assertive" aria-relevant="additions">
 	</span>
@@ -42,9 +46,11 @@
 		paginatorPosition="bottom"
 		currentPageReportTemplate="{currentPage} / {totalPages}"
 		paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}"
-		rowKey="#{item}"
-		height="500px">
+		height="500px"
+        rowKey="#{rowKey}"
+        selection="#{selection}"
+        >
 		<ui:insert name="result" />
 	</p:dataTable>
 	<script> jQuery("#searchResultsRegion").text('' + #{data.rowCount} + ' results'); </script>
-</ui:component>
+</ui:component>      <!--"rowKey="#{rowKey}-->

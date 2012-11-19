@@ -16,7 +16,7 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">	
 <app:panelMenu title="${msg.tdPicture}">
 <ui:define name="content">
-	<app:search data="#{tdPictureLazyDataModel}" title="${msg.tdPicture}">
+	<app:search data="#{tdPictureLazyDataModel}" title="${msg.tdPicture}" selection="#{tdPictureLazyDataModel.selectedList}" rowKey="#{item.pictureId}">
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
@@ -34,6 +34,7 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column selectionMode="multiple" style="width:18px"/>
             <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdPictureConverter.print(item)}">
 					<f:setPropertyActionListener value="#{item}" target="#{tdPictureLazyDataModel.selectedRow}" />

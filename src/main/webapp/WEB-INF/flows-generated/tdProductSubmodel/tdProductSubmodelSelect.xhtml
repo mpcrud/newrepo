@@ -16,7 +16,7 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">	
 <app:panelMenu title="${msg.tdProductSubmodel}">
 <ui:define name="content">
-	<app:search data="#{tdProductSubmodelLazyDataModel}" title="${msg.tdProductSubmodel}">
+	<app:search data="#{tdProductSubmodelLazyDataModel}" title="${msg.tdProductSubmodel}" selection="#{tdProductSubmodelLazyDataModel.selectedList}" rowKey="#{item.productSubmodelId}">
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
@@ -32,6 +32,7 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column selectionMode="multiple" style="width:18px"/>
 			<p:column id="tdProductSubmodel_productSubmodelId" headerText="${msg.tdProductSubmodel_productSubmodelId}" sortBy="#{item.productSubmodelId}">
 				<h:outputText value="#{item.productSubmodelId}" />
 			</p:column>

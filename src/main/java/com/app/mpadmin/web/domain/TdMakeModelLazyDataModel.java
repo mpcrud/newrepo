@@ -31,6 +31,25 @@ public class TdMakeModelLazyDataModel extends GenericLazyDataModel<TdMakeModel> 
     @Inject
     transient private TdMakeModelSearchForm tdMakeModelSearchForm;
 
+   List<TdMakeModel> datasource;
+
+    @Override
+    public TdMakeModel getRowData(String rowKey) {
+        for(TdMakeModel tdMakeModel : datasource) {
+            if(tdMakeModel.getMakeModelId().equals(rowKey))
+                return tdMakeModel;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdMakeModel tdMakeModel)
+    {
+         return tdMakeModel.getMakeModelId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdMakeModelRepository finder.
      * Automatically called by PrimeFaces component.
@@ -65,7 +84,7 @@ public class TdMakeModelLazyDataModel extends GenericLazyDataModel<TdMakeModel> 
         TdMakeModel tdMakeModel = tdMakeModelSearchForm.getTdMakeModel();
         setRowCount(tdMakeModelRepository.findCount(tdMakeModel, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdMakeModelRepository.find(tdMakeModel, sp);
+        datasource = tdMakeModelRepository.find(tdMakeModel, sp);
+        return datasource;
     }
 }

@@ -31,6 +31,25 @@ public class TdStateLazyDataModel extends GenericLazyDataModel<TdState> {
     @Inject
     transient private TdStateSearchForm tdStateSearchForm;
 
+    List<TdState> datasource;
+
+    @Override
+    public TdState getRowData(String rowKey) {
+        for(TdState tdState : datasource) {
+            if(tdState.getStateId().equals(rowKey))
+                return tdState;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdState tdState)
+    {
+         return tdState.getStateId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdStateRepository finder.
      * Automatically called by PrimeFaces component.
@@ -51,7 +70,7 @@ public class TdStateLazyDataModel extends GenericLazyDataModel<TdState> {
         TdState tdState = tdStateSearchForm.getTdState();
         setRowCount(tdStateRepository.findCount(tdState, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdStateRepository.find(tdState, sp);
+        datasource = tdStateRepository.find(tdState, sp);
+        return datasource;
     }
 }

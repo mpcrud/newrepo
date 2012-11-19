@@ -40,9 +40,11 @@
 		</transition>
 
 		<transition on="saveAndClose">
-			<evaluate expression="tdPictureController.saveAndClose(tdPicture)"/>
+       <!--     <evaluate expression="tdPictureController.save(tdPicture)"/>   -->
+           <evaluate expression="fileUploadController.copyFile(tdPicture)"/>
+            <evaluate expression="primeFacesUtil.forceClose()"/>
         </transition>
-
+        <!--	<evaluate expression="tdPictureController.save(tdPicture)"/>    -->
 		<transition on="close">
 			<evaluate expression="primeFacesUtil.showAskForSaveDialog(persistenceContext,tdPicture)"/>
 		</transition>

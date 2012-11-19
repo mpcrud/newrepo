@@ -32,6 +32,25 @@ public class TdTagGrpTagMappingLazyDataModel extends GenericLazyDataModel<TdTagG
     @Inject
     transient private TdTagGrpTagMappingSearchForm tdTagGrpTagMappingSearchForm;
 
+    List<TdTagGrpTagMapping> datasource;
+
+    @Override
+    public TdTagGrpTagMapping getRowData(String rowKey) {
+        for(TdTagGrpTagMapping tdTagGrpTagMapping : datasource) {
+            if(tdTagGrpTagMapping.getGrpTagMappingId().equals(rowKey))
+                return tdTagGrpTagMapping;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdTagGrpTagMapping tdTagGrpTagMapping)
+    {
+         return tdTagGrpTagMapping.getGrpTagMappingId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdTagGrpTagMappingRepository finder.
      * Automatically called by PrimeFaces component.
@@ -51,8 +70,8 @@ public class TdTagGrpTagMappingLazyDataModel extends GenericLazyDataModel<TdTagG
         TdTagGrpTagMapping tdTagGrpTagMapping = tdTagGrpTagMappingSearchForm.getTdTagGrpTagMapping();
         setRowCount(tdTagGrpTagMappingRepository.findCount(tdTagGrpTagMapping, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdTagGrpTagMappingRepository.find(tdTagGrpTagMapping, sp);
+        datasource = tdTagGrpTagMappingRepository.find(tdTagGrpTagMapping, sp);
+        return datasource;
     }
 
 }

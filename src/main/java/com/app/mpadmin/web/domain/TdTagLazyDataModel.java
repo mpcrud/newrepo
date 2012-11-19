@@ -35,6 +35,24 @@ public class TdTagLazyDataModel extends GenericLazyDataModel<TdTag> {
      * Prepare the search parameters and call the tdTagRepository finder.
      * Automatically called by PrimeFaces component.
      */
+    List<TdTag> datasource;
+
+    @Override
+    public TdTag getRowData(String rowKey) {
+        for(TdTag tdTag : datasource) {
+            if(tdTag.getTagId().equals(rowKey))
+                return tdTag;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdTag tdTag)
+    {
+         return tdTag.getTagId();
+    }
+
     @Override
     public List<TdTag> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, String> filters) {
         SearchParameters sp = tdTagSearchForm.getSearchParameters();
@@ -50,7 +68,7 @@ public class TdTagLazyDataModel extends GenericLazyDataModel<TdTag> {
         TdTag tdTag = tdTagSearchForm.getTdTag();
         setRowCount(tdTagRepository.findCount(tdTag, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdTagRepository.find(tdTag, sp);
+        datasource = tdTagRepository.find(tdTag, sp);
+        return  datasource;
     }
 }

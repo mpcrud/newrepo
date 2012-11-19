@@ -31,6 +31,25 @@ public class TdUserActivityEventLazyDataModel extends GenericLazyDataModel<TdUse
     @Inject
     transient private TdUserActivityEventSearchForm tdUserActivityEventSearchForm;
 
+    List<TdUserActivityEvent> datasource;
+
+    @Override
+    public TdUserActivityEvent getRowData(String rowKey) {
+        for(TdUserActivityEvent tdUserActivityEvent : datasource) {
+            if(tdUserActivityEvent.getUserActivityEventId().equals(rowKey))
+                return tdUserActivityEvent;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdUserActivityEvent tdUserActivityEvent)
+    {
+         return tdUserActivityEvent.getUserActivityEventId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdUserActivityEventRepository finder.
      * Automatically called by PrimeFaces component.
@@ -50,7 +69,7 @@ public class TdUserActivityEventLazyDataModel extends GenericLazyDataModel<TdUse
         TdUserActivityEvent tdUserActivityEvent = tdUserActivityEventSearchForm.getTdUserActivityEvent();
         setRowCount(tdUserActivityEventRepository.findCount(tdUserActivityEvent, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdUserActivityEventRepository.find(tdUserActivityEvent, sp);
+        datasource = tdUserActivityEventRepository.find(tdUserActivityEvent, sp);
+        return datasource;
     }
 }

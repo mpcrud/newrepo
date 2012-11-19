@@ -31,6 +31,25 @@ public class TdRoleLazyDataModel extends GenericLazyDataModel<TdRole> {
     @Inject
     transient private TdRoleSearchForm tdRoleSearchForm;
 
+List<TdRole> datasource;
+
+    @Override
+    public TdRole getRowData(String rowKey) {
+        for(TdRole tdRole : datasource) {
+            if(tdRole.getRoleId().equals(rowKey))
+                return tdRole;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdRole tdRole)
+    {
+         return tdRole.getRoleId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdRoleRepository finder.
      * Automatically called by PrimeFaces component.
@@ -47,7 +66,7 @@ public class TdRoleLazyDataModel extends GenericLazyDataModel<TdRole> {
         TdRole tdRole = tdRoleSearchForm.getTdRole();
         setRowCount(tdRoleRepository.findCount(tdRole, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdRoleRepository.find(tdRole, sp);
+        datasource = tdRoleRepository.find(tdRole, sp);
+        return datasource;
     }
 }

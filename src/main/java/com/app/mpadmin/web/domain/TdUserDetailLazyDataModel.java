@@ -31,6 +31,25 @@ public class TdUserDetailLazyDataModel extends GenericLazyDataModel<TdUserDetail
     @Inject
     transient private TdUserDetailSearchForm tdUserDetailSearchForm;
 
+    List<TdUserDetail> datasource;
+
+    @Override
+    public TdUserDetail getRowData(String rowKey) {
+        for(TdUserDetail tdUserDetail : datasource) {
+            if(tdUserDetail.getUserDetailsId().equals(rowKey))
+                return tdUserDetail;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdUserDetail tdUserDetail)
+    {
+         return tdUserDetail.getUserDetailsId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdUserDetailRepository finder.
      * Automatically called by PrimeFaces component.
@@ -54,7 +73,7 @@ public class TdUserDetailLazyDataModel extends GenericLazyDataModel<TdUserDetail
         TdUserDetail tdUserDetail = tdUserDetailSearchForm.getTdUserDetail();
         setRowCount(tdUserDetailRepository.findCount(tdUserDetail, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdUserDetailRepository.find(tdUserDetail, sp);
+        datasource = tdUserDetailRepository.find(tdUserDetail, sp);
+        return datasource;
     }
 }

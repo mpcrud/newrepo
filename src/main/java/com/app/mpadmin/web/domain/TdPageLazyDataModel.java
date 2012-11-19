@@ -31,6 +31,26 @@ public class TdPageLazyDataModel extends GenericLazyDataModel<TdPage> {
     @Inject
     transient private TdPageSearchForm tdPageSearchForm;
 
+
+    List<TdPage> datasource;
+
+    @Override
+    public TdPage getRowData(String rowKey) {
+        for(TdPage tdPage : datasource) {
+            if(tdPage.getPageId().equals(rowKey))
+                return tdPage;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdPage tdPage)
+    {
+         return tdPage.getPageId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdPageRepository finder.
      * Automatically called by PrimeFaces component.
@@ -54,6 +74,7 @@ public class TdPageLazyDataModel extends GenericLazyDataModel<TdPage> {
         setRowCount(tdPageRepository.findCount(tdPage, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
 
-        return tdPageRepository.find(tdPage, sp);
+        datasource = tdPageRepository.find(tdPage, sp);
+        return datasource;
     }
 }

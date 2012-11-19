@@ -49,8 +49,8 @@
 		</transition>
 
 		<transition on="saveAndClose">
-			<evaluate expression="tdTagGrpController.saveAndClose(tdTagGrp)" />
-		</transition>
+			<evaluate expression="tdTagGrpController.save(tdTagGrp)" />
+        </transition>
 	</view-state>
 
 	<view-state id="tdProductSubSelect" view="productsWithoutTag.xhtml">
@@ -67,6 +67,13 @@
 		<input name="tdProduct" value="tdProductLazyDataModel.selectedRow" />
 		<transition on="endEdit" to="quitChoice" />
 		<transition on="deleteAndClose" to="productsWithoutTag" />
+	</subflow-state>
+
+    <subflow-state id="editTagGrpTagMapping" subflow="tdTagGrpTagMapping/edit">
+		<input name="sub" value="false" />
+		<input name="readonly" value="requestScope.paramReadonly" />
+		<transition on="endEdit" to="quitChoice"/>
+		<transition on="cancelEdit" to="quitChoice" />
 	</subflow-state>
 
 	<decision-state id="quitChoice">

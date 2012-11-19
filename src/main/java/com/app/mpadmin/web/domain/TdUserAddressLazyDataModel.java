@@ -31,6 +31,25 @@ public class TdUserAddressLazyDataModel extends GenericLazyDataModel<TdUserAddre
     @Inject
     transient private TdUserAddressSearchForm tdUserAddressSearchForm;
 
+    List<TdUserAddress> datasource;
+
+    @Override
+    public TdUserAddress getRowData(String rowKey) {
+        for(TdUserAddress tdUserAddress : datasource) {
+            if(tdUserAddress.getUserAddressId().equals(rowKey))
+                return tdUserAddress;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdUserAddress tdUserAddress)
+    {
+         return tdUserAddress.getUserAddressId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdUserAddressRepository finder.
      * Automatically called by PrimeFaces component.
@@ -56,7 +75,7 @@ public class TdUserAddressLazyDataModel extends GenericLazyDataModel<TdUserAddre
         TdUserAddress tdUserAddress = tdUserAddressSearchForm.getTdUserAddress();
         setRowCount(tdUserAddressRepository.findCount(tdUserAddress, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdUserAddressRepository.find(tdUserAddress, sp);
+        datasource = tdUserAddressRepository.find(tdUserAddress, sp);
+        return datasource;
     }
 }

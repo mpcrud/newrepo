@@ -16,7 +16,7 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">	
 <app:panelMenu title="${msg.tdRole}">
 <ui:define name="content">
-	<app:search data="#{tdRoleLazyDataModel}" title="${msg.tdRole}">
+	<app:search data="#{tdRoleLazyDataModel}" title="${msg.tdRole}" selection="#{tdRoleLazyDataModel.selectedList}" rowKey="#{item.roleId}">
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
@@ -28,6 +28,7 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column selectionMode="multiple" style="width:18px"/>
             <p:column id="tdRole_roleId" headerText="${msg.tdRole_roleId}" sortBy="#{item.roleId}">
 				<h:outputText value="#{item.roleId}" />
 			</p:column>

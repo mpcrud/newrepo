@@ -35,6 +35,25 @@ public class TdChangePasswordLazyDataModel extends GenericLazyDataModel<TdChange
      * Prepare the search parameters and call the tdChangePasswordRepository finder.
      * Automatically called by PrimeFaces component.
      */
+
+    List<TdChangePassword> datasource;
+
+     @Override
+    public TdChangePassword getRowData(String rowKey) {
+        for(TdChangePassword tdTag : datasource) {
+            if(tdTag.getGuidInt().equals(rowKey))
+                return tdTag;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdChangePassword tdChangePassword)
+    {
+         return tdChangePassword.getGuidInt();
+    }
+
     @Override
     public List<TdChangePassword> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, String> filters) {
         SearchParameters sp = tdChangePasswordSearchForm.getSearchParameters();
@@ -47,7 +66,7 @@ public class TdChangePasswordLazyDataModel extends GenericLazyDataModel<TdChange
         TdChangePassword tdChangePassword = tdChangePasswordSearchForm.getTdChangePassword();
         setRowCount(tdChangePasswordRepository.findCount(tdChangePassword, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdChangePasswordRepository.find(tdChangePassword, sp);
+        datasource = tdChangePasswordRepository.find(tdChangePassword, sp);
+        return datasource;
     }
 }

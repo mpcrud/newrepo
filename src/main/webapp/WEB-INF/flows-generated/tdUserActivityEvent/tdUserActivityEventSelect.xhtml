@@ -16,7 +16,7 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">	
 <app:panelMenu title="${msg.tdUserActivityEvent}">
 <ui:define name="content">
-	<app:search data="#{tdUserActivityEventLazyDataModel}" title="${msg.tdUserActivityEvent}">
+	<app:search data="#{tdUserActivityEventLazyDataModel}" title="${msg.tdUserActivityEvent}" selection="#{tdUserActivityEventLazyDataModel.selectedList}" rowKey="#{item.userActivityEventId}">
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
@@ -30,6 +30,7 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column selectionMode="multiple" style="width:18px"/>
             <p:column id="tdUserActivityEvent_userActivityEventId" headerText="${msg.tdUserActivityEvent_userActivityEventId}">
 				<h:outputText value="#{item.userActivityEventId}" />
 			</p:column>

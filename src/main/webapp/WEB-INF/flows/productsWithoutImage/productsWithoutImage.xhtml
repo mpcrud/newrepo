@@ -16,6 +16,30 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">
 <app:panelMenu title="Products Without Image">
 <ui:define name="content">
+   <f:validateBean disabled="true">
+		<p:fieldset legend="${msg.tdPicture}">
+			<h:panelGrid columns="4" styleClass="aria-role-presentation">
+                <h:outputText value="Image"/>
+                <p:fileUpload id="fileUploader" mode="advanced" sizeLimit="2097152" fileUploadListener="#{fileUploadController.upload}"/>
+			 	 <app:input id="pictureName" value="#{tdPicture.pictureName}.jpg" size="48" label="${msg.tdPicture_pictureName}" required="true" />
+			     <appcc:outputLabel for="picturePath" value="${msg.tdPicture_picturePath}" required="true" />
+                 <p:selectOneListbox id="picturePath" value="#{tdPicture.picturePath}" style="width:150px">
+                       <f:selectItem itemLabel="/root/img/" itemValue="/root/img/" />
+                       <f:selectItem itemLabel="C:\Geo\" itemValue="C:/Geo/" />
+                 </p:selectOneListbox>
+                 <h:outputText value="#{tdPicture.picturePath}" rendered="${readonly}"/>
+				 <app:inputTextArea id="pictureUrl" value="#{tdPicture.pictureUrl}" label="${msg.tdPicture_pictureUrl}" maxlength="512"/>
+				 <app:inputTextArea id="pictureOwner" value="#{tdPicture.pictureOwner}" label="${msg.tdPicture_pictureOwner}" maxlength="512"/>
+			     <app:input id="pictureType" value="#{tdPicture.pictureType}" label="${msg.tdPicture_pictureType}" required="true" />
+                 <h:outputText value="#{tdPicture.pictureType}" rendered="${readonly}"/>
+				 <app:input id="pictureRefId" value="#{tdPicture.pictureRefId}" label="${msg.tdPicture_pictureRefId}" required="true" />
+				 <app:input id="status" value="#{tdPicture.status}" label="${msg.tdPicture_status}" required="true" maxlength="1"/>
+			</h:panelGrid>
+		</p:fieldset>
+		<app:saveButton title="${msg.tdPicture}"/>
+	</f:validateBean>
+ <!--    <p:commandButton id="multiViewButton" value="View" icon="ui-icon-search" oncomplete="multiCarDialog.show()">
+           </p:commandButton>     -->
     <p:dataTable id="searchResults"
         		value="#{tdProductLazyDataModel}"
         		var="item"
@@ -28,98 +52,12 @@
         		paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}"
         		rowKey="#{item}"
         		height="500px">
-<!--	<app:search data="#{tdProductLazyDataModel}" title="${msg.tdProduct}">
-		<ui:define name="filters">
-			<f:validateBean disabled="true">
-				<h:panelGrid columns="4">
-                   <app:tdProductShipmentMultiAutoComplete id="productShipmentSelector" value="#{tdProductSearchForm.productShipmentSelector.selected}" label="${msg.tdProduct_productShipment}" />
-				    <app:tdProductSupplierMultiAutoComplete id="productSupplierSelector" value="#{tdProductSearchForm.productSupplierSelector.selected}" label="${msg.tdProduct_productSupplier}" />
-					<app:input id="supplierProductCode" value="#{tdProductSearchForm.tdProduct.supplierProductCode}" label="${msg.tdProduct_supplierProductCode}"/>
-					<app:input id="productDisplayName" value="#{tdProductSearchForm.tdProduct.productDisplayName}" label="${msg.tdProduct_productDisplayName}"/>
-					<app:input id="productTechnicalName" value="#{tdProductSearchForm.tdProduct.productTechnicalName}" label="${msg.tdProduct_productTechnicalName}"/>
-					<app:input id="productAlternateName" value="#{tdProductSearchForm.tdProduct.productAlternateName}" label="${msg.tdProduct_productAlternateName}"/>
-					<app:input id="microDescription" value="#{tdProductSearchForm.tdProduct.microDescription}" label="${msg.tdProduct_microDescription}"/>
-					<app:input id="shortDesc" value="#{tdProductSearchForm.tdProduct.shortDesc}" label="${msg.tdProduct_shortDesc}"/>
-					<app:input id="longDesc" value="#{tdProductSearchForm.tdProduct.longDesc}" label="${msg.tdProduct_longDesc}"/>
-					<app:rangeInt id="productAgeTime" value="#{tdProductSearchForm.productAgeTimeRange}" label="${msg.tdProduct_productAgeTime}"/>
-					<app:rangeInt id="productAgeDistance" value="#{tdProductSearchForm.productAgeDistanceRange}" label="${msg.tdProduct_productAgeDistance}"/>
-					<app:input id="productMeasurementUnit" value="#{tdProductSearchForm.tdProduct.productMeasurementUnit}" label="${msg.tdProduct_productMeasurementUnit}"/>
-					<app:rangeInt id="innerDia1" value="#{tdProductSearchForm.innerDia1Range}" label="${msg.tdProduct_innerDia1}"/>
-					<app:rangeInt id="innerDia2" value="#{tdProductSearchForm.innerDia2Range}" label="${msg.tdProduct_innerDia2}"/>
-					<app:rangeInt id="outerDia1" value="#{tdProductSearchForm.outerDia1Range}" label="${msg.tdProduct_outerDia1}"/>
-					<app:rangeInt id="outerDia2" value="#{tdProductSearchForm.outerDia2Range}" label="${msg.tdProduct_outerDia2}"/>
-					<app:rangeInt id="height1" value="#{tdProductSearchForm.height1Range}" label="${msg.tdProduct_height1}"/>
-					<app:rangeInt id="height2" value="#{tdProductSearchForm.height2Range}" label="${msg.tdProduct_height2}"/>
-					<app:rangeInt id="width1" value="#{tdProductSearchForm.width1Range}" label="${msg.tdProduct_width1}"/>
-					<app:rangeInt id="width2" value="#{tdProductSearchForm.width2Range}" label="${msg.tdProduct_width2}"/>
-					<app:rangeInt id="thickness1" value="#{tdProductSearchForm.thickness1Range}" label="${msg.tdProduct_thickness1}"/>
-					<app:rangeInt id="thickness2" value="#{tdProductSearchForm.thickness2Range}" label="${msg.tdProduct_thickness2}"/>
-					<app:rangeInt id="noOfOuterThread1" value="#{tdProductSearchForm.noOfOuterThread1Range}" label="${msg.tdProduct_noOfOuterThread1}"/>
-					<app:rangeInt id="noOfOuterThread2" value="#{tdProductSearchForm.noOfOuterThread2Range}" label="${msg.tdProduct_noOfOuterThread2}"/>
-					<app:rangeInt id="noOfHoles1" value="#{tdProductSearchForm.noOfHoles1Range}" label="${msg.tdProduct_noOfHoles1}"/>
-					<app:rangeInt id="noOfHoles2" value="#{tdProductSearchForm.noOfHoles2Range}" label="${msg.tdProduct_noOfHoles2}"/>
-					<app:rangeInt id="noOfTeeth1" value="#{tdProductSearchForm.noOfTeeth1Range}" label="${msg.tdProduct_noOfTeeth1}"/>
-					<app:rangeInt id="noOfTeeth2" value="#{tdProductSearchForm.noOfTeeth2Range}" label="${msg.tdProduct_noOfTeeth2}"/>
-					<app:input id="pitchCircle" value="#{tdProductSearchForm.tdProduct.pitchCircle}" label="${msg.tdProduct_pitchCircle}"/>
-					<app:rangeInt id="plateDiameter" value="#{tdProductSearchForm.plateDiameterRange}" label="${msg.tdProduct_plateDiameter}"/>
-					<app:input id="engineVersion" value="#{tdProductSearchForm.tdProduct.engineVersion}" label="${msg.tdProduct_engineVersion}"/>
-					<app:input id="material" value="#{tdProductSearchForm.tdProduct.material}" label="${msg.tdProduct_material}"/>
-					<app:input id="dimensions" value="#{tdProductSearchForm.tdProduct.dimensions}" label="${msg.tdProduct_dimensions}"/>
-					<app:input id="maxFreeplay" value="#{tdProductSearchForm.tdProduct.maxFreeplay}" label="${msg.tdProduct_maxFreeplay}"/>
-					<app:input id="maxRock" value="#{tdProductSearchForm.tdProduct.maxRock}" label="${msg.tdProduct_maxRock}"/>
-					<app:input id="wearWarning" value="#{tdProductSearchForm.tdProduct.wearWarning}" label="${msg.tdProduct_wearWarning}"/>
-					<app:input id="brakeSystemType" value="#{tdProductSearchForm.tdProduct.brakeSystemType}" label="${msg.tdProduct_brakeSystemType}"/>
-					<app:input id="frictionControlPlate" value="#{tdProductSearchForm.tdProduct.frictionControlPlate}" label="${msg.tdProduct_frictionControlPlate}"/>
-					<app:input id="adjustment" value="#{tdProductSearchForm.tdProduct.adjustment}" label="${msg.tdProduct_adjustment}"/>
-					<app:input id="applicationInformation" value="#{tdProductSearchForm.tdProduct.applicationInformation}" label="${msg.tdProduct_applicationInformation}"/>
-					<app:input id="fittingPosition" value="#{tdProductSearchForm.tdProduct.fittingPosition}" label="${msg.tdProduct_fittingPosition}"/>
-					<app:rangeInt id="quantityOfFit" value="#{tdProductSearchForm.quantityOfFitRange}" label="${msg.tdProduct_quantityOfFit}"/>
-					<app:rangeInt id="requiredQuantity" value="#{tdProductSearchForm.requiredQuantityRange}" label="${msg.tdProduct_requiredQuantity}"/>
-					<app:input id="supplementaryInfo" value="#{tdProductSearchForm.tdProduct.supplementaryInfo}" label="${msg.tdProduct_supplementaryInfo}"/>
-					<app:input id="extraInfo" value="#{tdProductSearchForm.tdProduct.extraInfo}" label="${msg.tdProduct_extraInfo}"/>
-					<app:input id="customName1" value="#{tdProductSearchForm.tdProduct.customName1}" label="${msg.tdProduct_customName1}"/>
-					<app:input id="customValue1" value="#{tdProductSearchForm.tdProduct.customValue1}" label="${msg.tdProduct_customValue1}"/>
-					<app:input id="customName2" value="#{tdProductSearchForm.tdProduct.customName2}" label="${msg.tdProduct_customName2}"/>
-					<app:input id="customValue2" value="#{tdProductSearchForm.tdProduct.customValue2}" label="${msg.tdProduct_customValue2}"/>
-					<app:input id="customName3" value="#{tdProductSearchForm.tdProduct.customName3}" label="${msg.tdProduct_customName3}"/>
-					<app:input id="customValue3" value="#{tdProductSearchForm.tdProduct.customValue3}" label="${msg.tdProduct_customValue3}"/>
-					<app:input id="customName4" value="#{tdProductSearchForm.tdProduct.customName4}" label="${msg.tdProduct_customName4}"/>
-					<app:input id="customValue4" value="#{tdProductSearchForm.tdProduct.customValue4}" label="${msg.tdProduct_customValue4}"/>
-					<app:rangeFloat id="mrpPrice" value="#{tdProductSearchForm.mrpPriceRange}" label="${msg.tdProduct_mrpPrice}" />
-					<app:rangeFloat id="discount" value="#{tdProductSearchForm.discountRange}" label="${msg.tdProduct_discount}" />
-					<app:rangeFloat id="dealerPrice" value="#{tdProductSearchForm.dealerPriceRange}" label="${msg.tdProduct_dealerPrice}" />
-					<app:rangeInt id="internalRating" value="#{tdProductSearchForm.internalRatingRange}" label="${msg.tdProduct_internalRating}"/>
-					<app:selectManyBoolean id="recommendedProduct" value="#{tdProductSearchForm.recommendedProductSelector}" label="${msg.tdProduct_recommendedProduct}" />
-					<app:selectManyBoolean id="bestSeller" value="#{tdProductSearchForm.bestSellerSelector}" label="${msg.tdProduct_bestSeller}" />
-					<app:input id="specifications" value="#{tdProductSearchForm.tdProduct.specifications}" label="${msg.tdProduct_specifications}"/>
-					<app:input id="refLink1" value="#{tdProductSearchForm.tdProduct.refLink1}" label="${msg.tdProduct_refLink1}"/>
-					<app:input id="refLink2" value="#{tdProductSearchForm.tdProduct.refLink2}" label="${msg.tdProduct_refLink2}"/>
-					<app:rangeInt id="productSegmentType" value="#{tdProductSearchForm.productSegmentTypeRange}" label="${msg.tdProduct_productSegmentType}"/>
-					<app:input id="comparison" value="#{tdProductSearchForm.tdProduct.comparison}" label="${msg.tdProduct_comparison}"/>
-					<app:selectManyBoolean id="bookableOnline" value="#{tdProductSearchForm.bookableOnlineSelector}" label="${msg.tdProduct_bookableOnline}" />
-					<app:selectManyBoolean id="bookableOffline" value="#{tdProductSearchForm.bookableOfflineSelector}" label="${msg.tdProduct_bookableOffline}" />
-					<app:selectManyBoolean id="uniformAcrossYear" value="#{tdProductSearchForm.uniformAcrossYearSelector}" label="${msg.tdProduct_uniformAcrossYear}" />
-					<app:selectManyBoolean id="uniformAcrossSubmodel" value="#{tdProductSearchForm.uniformAcrossSubmodelSelector}" label="${msg.tdProduct_uniformAcrossSubmodel}" />
-					<app:selectManyBoolean id="uniformAcrossModel" value="#{tdProductSearchForm.uniformAcrossModelSelector}" label="${msg.tdProduct_uniformAcrossModel}" />
-					<app:selectManyBoolean id="uniformAcrossMake" value="#{tdProductSearchForm.uniformAcrossMakeSelector}" label="${msg.tdProduct_uniformAcrossMake}" />
-					<app:rangeInt id="deliveryType" value="#{tdProductSearchForm.deliveryTypeRange}" label="${msg.tdProduct_deliveryType}"/>
-					<app:selectManyBoolean id="productStatus" value="#{tdProductSearchForm.productStatusSelector}" label="${msg.tdProduct_productStatus}" />
-					<app:rangeInt id="customint1" value="#{tdProductSearchForm.customint1Range}" label="${msg.tdProduct_customint1}"/>
-					<app:rangeInt id="customint2" value="#{tdProductSearchForm.customint2Range}" label="${msg.tdProduct_customint2}"/>
-					<app:rangeInt id="customint3" value="#{tdProductSearchForm.customint3Range}" label="${msg.tdProduct_customint3}"/>
-					<app:input id="seoResources" value="#{tdProductSearchForm.tdProduct.seoResources}" label="${msg.tdProduct_seoResources}"/>
-					<app:input id="seoUrl" value="#{tdProductSearchForm.tdProduct.seoUrl}" label="${msg.tdProduct_seoUrl}"/>
-					<app:input id="seoH1" value="#{tdProductSearchForm.tdProduct.seoH1}" label="${msg.tdProduct_seoH1}"/>
-					<app:input id="seoH2" value="#{tdProductSearchForm.tdProduct.seoH2}" label="${msg.tdProduct_seoH2}"/>
-					<app:input id="metaTitle" value="#{tdProductSearchForm.tdProduct.metaTitle}" label="${msg.tdProduct_metaTitle}"/>
-					<app:input id="metaKeyword" value="#{tdProductSearchForm.tdProduct.metaKeyword}" label="${msg.tdProduct_metaKeyword}"/>
-					<app:input id="metaDescription" value="#{tdProductSearchForm.tdProduct.metaDescription}" label="${msg.tdProduct_metaDescription}"/>
-					<app:rangeDateTime id="updationDate" value="#{tdProductSearchForm.updationDateRange}" label="${msg.tdProduct_updationDate}" />
-				</h:panelGrid>
-			</f:validateBean>
-		</ui:define>
-
-		<ui:define name="result">   -->
+                                     <!--action="selectProduct"-->
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+				<app:iconSelect  process="@this" title="${tdProductConverter.print(item)}" rendered="true" ajax="true">
+            			<f:setPropertyActionListener value="#{item}" target="#{tdProductLazyDataModel.selectedRow}" />
+            	</app:iconSelect>
+			</p:column>
 		    <p:column id="tdProduct_productId" headerText="${msg.tdProduct_productId}">
 				<h:outputText value="#{item.productId}" />
 			</p:column>
@@ -348,11 +286,10 @@
             <p:column id="tdProduct_updationDate" headerText="${msg.tdProduct_updationDate}" sortBy="#{item.updationDate}">
 				<h:outputText value="#{item.updationDate}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="select" process="@this" title="${tdProductConverter.print(item)}" rendered="true">
-            			<f:setPropertyActionListener value="#{item}" target="#{tdProductController.selectedRow}" />
-            	</app:iconSelect>
-			</p:column>
+
+
+
+
 	<!--	</ui:define>
 	</app:search>  -->
     </p:dataTable>
@@ -362,6 +299,10 @@
         <p:commandButton id="askForDeleteItemDialogYes" action="delete" ajax="true" update=":form:searchResults :form:messages" oncomplete="askForDeleteItemDialog.hide(); APP.updateSearchResultsRegion(xhr,status,args)" immediate="true" process="@this" value="${msg.yes}" title="${msg.dialog_delete_confirm} ${msg.yes}" icon="ui-icon-check" />
         <p:commandButton id="askForDeleteItemDialogNo" value="${msg.no}" title="${msg.dialog_delete_confirm} ${msg.no}" onclick="askForDeleteItemDialog.hide(); return false;" icon="ui-icon-cancel"/>
     </p:confirmDialog>
+   <!--    <p:dialog id="multiDialog" header="Car Detail" widgetVar="multiCarDialog"
+              height="300" showEffect="fade" hideEffect="explode">
+          Id: #{tdProductLazyDataModel.selectedRow.productId}
+    </p:dialog>      -->
 </ui:define>
 </app:panelMenu>
 </ui:composition>

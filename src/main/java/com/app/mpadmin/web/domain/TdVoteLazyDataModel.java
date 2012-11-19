@@ -31,6 +31,25 @@ public class TdVoteLazyDataModel extends GenericLazyDataModel<TdVote> {
     @Inject
     transient private TdVoteSearchForm tdVoteSearchForm;
 
+List<TdVote> datasource;
+
+    @Override
+    public TdVote getRowData(String rowKey) {
+        for(TdVote tdVote : datasource) {
+            if(tdVote.getVoteId().equals(rowKey))
+                return tdVote;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdVote tdVote)
+    {
+         return tdVote.getVoteId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdVoteRepository finder.
      * Automatically called by PrimeFaces component.
@@ -55,7 +74,7 @@ public class TdVoteLazyDataModel extends GenericLazyDataModel<TdVote> {
         TdVote tdVote = tdVoteSearchForm.getTdVote();
         setRowCount(tdVoteRepository.findCount(tdVote, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdVoteRepository.find(tdVote, sp);
+        datasource = tdVoteRepository.find(tdVote, sp);
+        return datasource;
     }
 }

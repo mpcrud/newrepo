@@ -31,6 +31,25 @@ public class TdShipmentVendorLazyDataModel extends GenericLazyDataModel<TdShipme
     @Inject
     transient private TdShipmentVendorSearchForm tdShipmentVendorSearchForm;
 
+List<TdShipmentVendor> datasource;
+
+    @Override
+    public TdShipmentVendor getRowData(String rowKey) {
+        for(TdShipmentVendor tdShipmentVendor : datasource) {
+            if(tdShipmentVendor.getShipmentVendorId().equals(rowKey))
+                return tdShipmentVendor;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdShipmentVendor tdShipmentVendor)
+    {
+         return tdShipmentVendor.getShipmentVendorId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdShipmentVendorRepository finder.
      * Automatically called by PrimeFaces component.
@@ -54,7 +73,7 @@ public class TdShipmentVendorLazyDataModel extends GenericLazyDataModel<TdShipme
         TdShipmentVendor tdShipmentVendor = tdShipmentVendorSearchForm.getTdShipmentVendor();
         setRowCount(tdShipmentVendorRepository.findCount(tdShipmentVendor, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdShipmentVendorRepository.find(tdShipmentVendor, sp);
+        datasource = tdShipmentVendorRepository.find(tdShipmentVendor, sp);
+        return datasource;
     }
 }

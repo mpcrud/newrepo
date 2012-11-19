@@ -16,7 +16,7 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">	
 <app:panelMenu title="${msg.tdTagGrpTagMapping}">
 <ui:define name="content">
-	<app:search data="#{tdTagGrpTagMappingLazyDataModel}" title="${msg.tdTagGrpTagMapping}">
+	<app:search data="#{tdTagGrpTagMappingLazyDataModel}" title="${msg.tdTagGrpTagMapping}" selection="#{tdTagGrpTagMappingLazyDataModel.selectedList}" rowKey="#{item.grpTagMappingId}">
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
@@ -29,6 +29,7 @@
 		</ui:define>
 
 		<ui:define name="result">
+            <p:column selectionMode="multiple" style="width:18px"/>
 		<!-- 	<p:column id="tdTagGrpTagMapping_tagGrpId" headerText="${msg.tdTagGrpTagMapping_tagGrpId}" sortBy="#{item.tagGrpId}">
 				<h:outputText value="#{item.tagGrpId}" />
 			</p:column>

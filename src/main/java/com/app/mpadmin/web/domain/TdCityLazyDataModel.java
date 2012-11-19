@@ -31,10 +31,30 @@ public class TdCityLazyDataModel extends GenericLazyDataModel<TdCity> {
     @Inject
     transient private TdCitySearchForm tdCitySearchForm;
 
+
     /**
      * Prepare the search parameters and call the tdCityRepository finder.
      * Automatically called by PrimeFaces component.
      */
+
+    List<TdCity> datasource;
+
+    @Override
+    public TdCity getRowData(String rowKey) {
+        for(TdCity tdCity : datasource) {
+            if(tdCity.getCityId().equals(rowKey))
+                return tdCity;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdCity tdCity)
+    {
+         return tdCity.getCityId();
+    }
+
     @Override
     public List<TdCity> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, String> filters) {
         SearchParameters sp = tdCitySearchForm.getSearchParameters();
@@ -58,7 +78,7 @@ public class TdCityLazyDataModel extends GenericLazyDataModel<TdCity> {
         TdCity tdCity = tdCitySearchForm.getTdCity();
         setRowCount(tdCityRepository.findCount(tdCity, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdCityRepository.find(tdCity, sp);
+        datasource= tdCityRepository.find(tdCity, sp);
+        return datasource;
     }
 }

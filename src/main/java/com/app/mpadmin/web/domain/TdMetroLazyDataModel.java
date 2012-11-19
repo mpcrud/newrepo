@@ -31,6 +31,24 @@ public class TdMetroLazyDataModel extends GenericLazyDataModel<TdMetro> {
     @Inject
     transient private TdMetroSearchForm tdMetroSearchForm;
 
+    List<TdMetro> datasource;
+
+        @Override
+        public TdMetro getRowData(String rowKey) {
+            for(TdMetro tdMetro : datasource) {
+                if(tdMetro.getMetroId().equals(rowKey))
+                    return tdMetro;
+            }
+
+            return null;
+        }
+
+        @Override
+        public Object getRowKey(TdMetro tdMetro)
+        {
+             return tdMetro.getMetroId();
+        }
+
     /**
      * Prepare the search parameters and call the tdMetroRepository finder.
      * Automatically called by PrimeFaces component.
@@ -48,7 +66,7 @@ public class TdMetroLazyDataModel extends GenericLazyDataModel<TdMetro> {
         TdMetro tdMetro = tdMetroSearchForm.getTdMetro();
         setRowCount(tdMetroRepository.findCount(tdMetro, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdMetroRepository.find(tdMetro, sp);
+        datasource = tdMetroRepository.find(tdMetro, sp);
+        return datasource;
     }
 }

@@ -31,6 +31,25 @@ public class TdTopicLazyDataModel extends GenericLazyDataModel<TdTopic> {
     @Inject
     transient private TdTopicSearchForm tdTopicSearchForm;
 
+List<TdTopic> datasource;
+
+    @Override
+    public TdTopic getRowData(String rowKey) {
+        for(TdTopic tdTopic : datasource) {
+            if(tdTopic.getTopicId().equals(rowKey))
+                return tdTopic;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdTopic tdTopic)
+    {
+         return tdTopic.getTopicId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdTopicRepository finder.
      * Automatically called by PrimeFaces component.
@@ -64,7 +83,7 @@ public class TdTopicLazyDataModel extends GenericLazyDataModel<TdTopic> {
         TdTopic tdTopic = tdTopicSearchForm.getTdTopic();
         setRowCount(tdTopicRepository.findCount(tdTopic, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdTopicRepository.find(tdTopic, sp);
+        datasource = tdTopicRepository.find(tdTopic, sp);
+        return datasource;
     }
 }

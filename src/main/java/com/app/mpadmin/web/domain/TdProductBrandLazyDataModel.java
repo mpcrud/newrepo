@@ -31,6 +31,25 @@ public class TdProductBrandLazyDataModel extends GenericLazyDataModel<TdProductB
     @Inject
     transient private TdProductBrandSearchForm tdProductBrandSearchForm;
 
+List<TdProductBrand> datasource;
+
+    @Override
+    public TdProductBrand getRowData(String rowKey) {
+        for(TdProductBrand tdProductBrand : datasource) {
+            if(tdProductBrand.getProductBrandId().equals(rowKey))
+                return tdProductBrand;
+        }
+
+        return null;
+    }
+
+    @Override
+    public Object getRowKey(TdProductBrand tdProductBrand)
+    {
+         return tdProductBrand.getProductBrandId();
+    }
+
+
     /**
      * Prepare the search parameters and call the tdProductBrandRepository finder.
      * Automatically called by PrimeFaces component.
@@ -52,7 +71,7 @@ public class TdProductBrandLazyDataModel extends GenericLazyDataModel<TdProductB
         TdProductBrand tdProductBrand = tdProductBrandSearchForm.getTdProductBrand();
         setRowCount(tdProductBrandRepository.findCount(tdProductBrand, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
-
-        return tdProductBrandRepository.find(tdProductBrand, sp);
+        datasource= tdProductBrandRepository.find(tdProductBrand, sp);
+        return datasource;
     }
 }

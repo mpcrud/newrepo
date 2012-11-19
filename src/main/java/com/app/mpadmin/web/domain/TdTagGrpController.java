@@ -8,6 +8,7 @@
 package com.app.mpadmin.web.domain;
 
 import static com.app.mpadmin.web.util.PrimeFacesUtil.forceClose;
+import static com.app.mpadmin.web.util.PrimeFacesUtil.showAskForMapTagGrpToTagDialog;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -47,6 +48,7 @@ public class TdTagGrpController {
     public boolean save(TdTagGrp tdTagGrp) {
         tdTagGrpRepository.save(tdTagGrp);
         messageUtil.info("status_saved_ok", tdTagGrpConverter.print(tdTagGrp));
+        showAskForMapTagGrpToTagDialog();
         return true;
     }
 
