@@ -17,34 +17,59 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
 
+import com.app.mpadmin.domain.TdPicture;
+import com.app.mpadmin.repository.TdPictureRepository;
+import com.app.mpadmin.web.converter.domain.TdPictureConverter;
 import org.primefaces.event.FileUploadEvent;
-import org.primefaces.model.UploadedFile;
+import org.primefaces.context.RequestContext;
 
-@ManagedBean(name="fileUploadController")
-@RequestScoped
+//@ManagedBean(name="fileUploadController")
+//@RequestScoped
+@Named
+@Singleton
 public class FileUploadController {
-  // private UploadedFile file;
+
+    @Inject
+    private TdPictureRepository tdPictureRepository;
+
+    @Inject
+    private MessageUtil messageUtil;
+
+    @Inject
+    private TdPictureConverter tdPictureConverter;
 
 
-    public void upload(FileUploadEvent event) {
+    private InputStream in;
+
+    //private boolean isUploaded = false;
+    public void upload(FileUploadEvent event) throws IOException{
         FacesMessage msg = new FacesMessage("Success! ", event.getFile().getFileName() + " is uploaded.");
         FacesContext.getCurrentInstance().addMessage(null, msg);
+
         // Do what you want with the file
         try {
-            copyFile(event.getFile().getFileName(), event.getFile().getInputstream());
-        } catch (IOException e) {
+           // copyFile(event.getFile().getFileName(), event.getFile().getInputstream());
+            in = event.getFile().getInputstream();
+
+            } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
-    public void copyFile(String fileName, InputStream in) {
+    public void copyFile(TdPicture tdPicture) {
            try {
 
-               String destination="C:\\";
-                // write the inputStream to a FileOutputStream
-                OutputStream out = new FileOutputStream(new File(destination + fileName));
+                String fileName=tdPicture.getPictureName();
+                String destination=tdPicture.getPicturePath();//"C:/Geo/";
+               // write the inputStream to a FileOutputStream
+               tdPicture.setPictureLongDesc(tdPicture.getPictureName());
+               tdPicture.setPictureShortDesc(tdPicture.getPictureName());
+               OutputStream out = new FileOutputStream(new File(destination + fileName));
 
                 int read = 0;
                 byte[] bytes = new byte[1024];
@@ -56,10 +81,15 @@ public class FileUploadController {
                 in.close();
                 out.flush();
                 out.close();
-
                 System.out.println("New file created!");
+                tdPictureRepository.save(tdPicture);
+                messageUtil.info("status_saved_ok", tdPictureConverter.print(tdPicture));
+
                 } catch (IOException e) {
                 System.out.println(e.getMessage());
+
                 }
     }
+
+
 }

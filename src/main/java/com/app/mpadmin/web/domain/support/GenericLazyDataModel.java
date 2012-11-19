@@ -7,6 +7,7 @@
  */
 package com.app.mpadmin.web.domain.support;
 
+import java.util.List;
 import java.util.Map;
 
 import org.primefaces.model.LazyDataModel;
@@ -24,6 +25,8 @@ public abstract class GenericLazyDataModel<E> extends LazyDataModel<E> {
 
     private E selectedRow;
     private boolean bypassFirstOffset = true;
+    private E[] selectedList;
+
 
     /**
      * _HACK_
@@ -65,6 +68,20 @@ public abstract class GenericLazyDataModel<E> extends LazyDataModel<E> {
     public void setSelectedRow(E selectedRow) {
         this.selectedRow = selectedRow;
     }
+
+    public E[] getSelectedList() {
+        return selectedList;
+    }
+
+    public void setSelectedList(E[] selectedList) {
+        this.selectedList = selectedList;
+    }
+
+    public void addRow(E row)
+    {
+        this.selectedList[this.selectedList.length]=row;
+    }
+
 
     /**
      * Convert PrimeFaces SortOrder to our OrderByDirection.

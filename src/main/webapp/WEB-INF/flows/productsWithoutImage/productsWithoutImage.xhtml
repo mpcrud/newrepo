@@ -25,7 +25,7 @@
 			     <appcc:outputLabel for="picturePath" value="${msg.tdPicture_picturePath}" required="true" />
                  <p:selectOneListbox id="picturePath" value="#{tdPicture.picturePath}" style="width:150px">
                        <f:selectItem itemLabel="/root/img/" itemValue="/root/img/" />
-                       <f:selectItem itemLabel="C:\Geo\" itemValue="C:/Geo/" />
+                    <!--   <f:selectItem itemLabel="C:\Geo\" itemValue="C:/Geo/" />   -->
                  </p:selectOneListbox>
                  <h:outputText value="#{tdPicture.picturePath}" rendered="${readonly}"/>
 				 <app:inputTextArea id="pictureUrl" value="#{tdPicture.pictureUrl}" label="${msg.tdPicture_pictureUrl}" maxlength="512"/>
