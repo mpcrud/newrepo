@@ -20,7 +20,7 @@
 		<p:fieldset legend="${msg.tdPicture}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
                 <h:outputText value="Image"/>
-                <p:fileUpload mode="advanced" sizeLimit="2097152" fileUploadListener="#{fileUploadController.upload}"/>
+                <p:fileUpload mode="advanced" sizeLimit="2097152" fileUploadListener="#{fileUploadController.upload}" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
                  <app:input id="pictureName" value="#{tdPicture.pictureName}" size="48" label="${msg.tdPicture_pictureName}" required="true" />
 			<!--	<app:input id="pictureShortDesc" value="#{tdPicture.pictureShortDesc}" label="${msg.tdPicture_pictureShortDesc}" maxlength="45"/>
 				<app:inputTextArea id="pictureLongDesc" value="#{tdPicture.pictureLongDesc}" label="${msg.tdPicture_pictureLongDesc}" />   -->

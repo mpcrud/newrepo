@@ -138,7 +138,12 @@
 				</h:panelGrid>
 			</f:validateBean>
 		</ui:define>
-
+        <ui:define name="multiOptions">
+        <p:menuButton value="Options">
+        <p:menuitem value="Change Status" icon="ui-icon-arrowrefresh-1-w" action="updateAll"/>
+        <p:menuitem value="Delete" icon="ui-icon-close" ajax="false" action="deleteAll"/>
+        </p:menuButton>
+        </ui:define>
 		<ui:define name="result">
            <p:column selectionMode="multiple" style="width:18px"/>
             <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">

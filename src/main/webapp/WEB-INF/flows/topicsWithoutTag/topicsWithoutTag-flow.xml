@@ -52,6 +52,7 @@
 		<transition on="saveAndClose">
 			<evaluate expression="tdTagGrpController.saveAndClose(tdTagGrp)" />
 		</transition>
+        <transition on="forceClose" to="quit" />
 	</view-state>
 
 	<view-state id="tdTopicSubSelect" view="topicsWithoutTag.xhtml">

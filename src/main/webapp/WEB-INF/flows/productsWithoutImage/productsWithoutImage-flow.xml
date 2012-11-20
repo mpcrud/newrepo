@@ -47,13 +47,14 @@
             <evaluate expression="primeFacesUtil.refresh()"/>
         </transition>
         <transition on="save">
-			<evaluate expression="fileUploadController.save(tdPicture)" />
+			<evaluate expression="fileUploadController.copyFile(tdPicture)" />
 		</transition>
 
 		<transition on="saveAndClose">
-			<evaluate expression="fileUploadController.save(tdPicture)" />
+			<evaluate expression="fileUploadController.copyFile(tdPicture)" />
             <evaluate expression="primeFacesUtil.forceClose()"/>
         </transition>
+        <transition on="forceClose" to="quit" />
 	</view-state>
 
 	<view-state id="tdProductSubSelect" view="productsWithoutImage.xhtml">

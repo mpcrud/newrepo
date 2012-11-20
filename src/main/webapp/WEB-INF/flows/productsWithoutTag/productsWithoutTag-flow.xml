@@ -51,6 +51,11 @@
 		<transition on="saveAndClose">
 			<evaluate expression="tdTagGrpController.save(tdTagGrp)" />
         </transition>
+
+     <transition on="editTagGrpTagMapping" to="editTagGrpTagMapping">
+			<set name="requestScope.paramReadonly" value="false" type="boolean" />
+		</transition>
+
 	</view-state>
 
 	<view-state id="tdProductSubSelect" view="productsWithoutTag.xhtml">

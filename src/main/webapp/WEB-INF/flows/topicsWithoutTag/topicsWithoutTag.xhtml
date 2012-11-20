@@ -17,7 +17,7 @@
 <app:panelMenu title="Topics Without Tag">
 <ui:define name="content">
     <f:validateBean disabled="true">
-		<p:fieldset legend="${msg.tdTagGrp}">
+		<p:fieldset legend="Map Topic to a Category">
 			<h:panelGrid columns="2" styleClass="aria-role-presentation">
 			 	 <app:tdTopicAutoComplete id="topic" value="#{tdTagGrp.topic}" required="true" label="${msg.tdTagGrp_topic}">
                     <app:iconSearch action="selectTopic" title="${msg.tdTagGrp_topic} " />
@@ -129,8 +129,9 @@
 	<!--	</ui:define>
 	</app:search> -->
     </p:dataTable>
-    <p:commandButton oncomplete="RowNumber.show()" value="Click Me" update=":form:display"/>
+ <!--   <p:commandButton oncomplete="RowNumber.show()" value="Click Me" update=":form:display"/>   -->
 </ui:define>
+
 <ui:define name="dialogs">
     <p:confirmDialog widgetVar="askForDeleteItemDialog" header="${msg.menu_delete}?" message="${msg.dialog_delete_confirm}">
         <p:commandButton id="askForDeleteItemDialogYes" action="delete" ajax="true" update=":form:searchResults :form:messages" oncomplete="askForDeleteItemDialog.hide(); APP.updateSearchResultsRegion(xhr,status,args)" immediate="true" process="@this" value="${msg.yes}" title="${msg.dialog_delete_confirm} ${msg.yes}" icon="ui-icon-check" />

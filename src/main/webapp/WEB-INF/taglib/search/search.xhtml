@@ -28,10 +28,11 @@
 			</f:facet>
 		</p:ajaxStatus>
 	</span>
-    <p:menuButton value="Options">
+    <ui:insert name="multiOptions"/>
+ <!--   <p:menuButton value="Options">
         <p:menuitem value="Change Status" icon="ui-icon-arrowrefresh-1-w" action="updateAll"/>
         <p:menuitem value="Delete" icon="ui-icon-close" ajax="false" action="deleteAll"/>
-    </p:menuButton>
+    </p:menuButton>   -->
 	<!-- looks like safari/voiceover requires 'span' (not 'div') for live region-->
 	<span id="searchResultsRegion" aria-label="Résultats" aria-live="assertive" aria-relevant="additions">
 	</span>

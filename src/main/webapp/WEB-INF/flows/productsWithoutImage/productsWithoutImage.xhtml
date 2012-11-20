@@ -20,8 +20,8 @@
 		<p:fieldset legend="${msg.tdPicture}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
                 <h:outputText value="Image"/>
-                <p:fileUpload id="fileUploader" mode="advanced" sizeLimit="2097152" fileUploadListener="#{fileUploadController.upload}"/>
-			 	 <app:input id="pictureName" value="#{tdPicture.pictureName}.jpg" size="48" label="${msg.tdPicture_pictureName}" required="true" />
+                <p:fileUpload id="fileUploader" mode="advanced" sizeLimit="2097152" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" fileUploadListener="#{fileUploadController.upload}"/>
+			 	 <app:input id="pictureName" value="#{tdPicture.pictureName}" size="48" label="${msg.tdPicture_pictureName}" required="true" />
 			     <appcc:outputLabel for="picturePath" value="${msg.tdPicture_picturePath}" required="true" />
                  <p:selectOneListbox id="picturePath" value="#{tdPicture.picturePath}" style="width:150px">
                        <f:selectItem itemLabel="/root/img/" itemValue="/root/img/" />
@@ -54,7 +54,7 @@
         		height="500px">
                                      <!--action="selectProduct"-->
             <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect  process="@this" title="${tdProductConverter.print(item)}" rendered="true" ajax="true">
+				<app:iconSelect  process="@this" title="${tdProductConverter.print(item)}" rendered="true" ajax="true" action="selectProduct" update="@form">
             			<f:setPropertyActionListener value="#{item}" target="#{tdProductLazyDataModel.selectedRow}" />
             	</app:iconSelect>
 			</p:column>

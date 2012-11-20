@@ -17,7 +17,7 @@
 <app:panelMenu title="Products Without Category">
 <ui:define name="content">
       <f:validateBean disabled="true">
-		<p:fieldset legend="${msg.tdTagGrp}">
+		<p:fieldset legend="Map Product to a Category">
 			<h:panelGrid columns="2" styleClass="aria-role-presentation">
 			 	 <app:tdProductAutoComplete id="product" value="#{tdTagGrp.product}" required="true" label="${msg.tdTagGrp_product}">
                     <app:iconSearch action="selectProduct" title="${msg.tdTagGrp_product} " />

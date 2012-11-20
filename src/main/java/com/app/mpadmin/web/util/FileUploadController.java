@@ -86,6 +86,7 @@ public class FileUploadController {
                 messageUtil.info("status_saved_ok", tdPictureConverter.print(tdPicture));
 
                 } catch (IOException e) {
+                messageUtil.error(e);
                 System.out.println(e.getMessage());
 
                 }
