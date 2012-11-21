@@ -36,6 +36,7 @@ public class TdTagLazyDataModel extends GenericLazyDataModel<TdTag> {
      * Automatically called by PrimeFaces component.
      */
     List<TdTag> datasource;
+    List<TdTag> selectedTags;
 
     @Override
     public TdTag getRowData(String rowKey) {
@@ -51,6 +52,14 @@ public class TdTagLazyDataModel extends GenericLazyDataModel<TdTag> {
     public Object getRowKey(TdTag tdTag)
     {
          return tdTag.getTagId();
+    }
+
+    public List<TdTag> getSelectedTags() {
+        return selectedTags;
+    }
+
+    public void setSelectedTags(List<TdTag> selectedTags) {
+        this.selectedTags = selectedTags;
     }
 
     @Override

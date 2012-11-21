@@ -13,10 +13,15 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
+import com.app.mpadmin.domain.TdTag;
+import com.app.mpadmin.domain.TdTagGrp;
 import com.app.mpadmin.domain.TdTagGrpTagMapping;
 import com.app.mpadmin.repository.TdTagGrpTagMappingRepository;
 import com.app.mpadmin.web.converter.domain.TdTagGrpTagMappingConverter;
 import com.app.mpadmin.web.util.MessageUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Thin controller layer allowing you to do business validation and other conditional 
@@ -61,6 +66,17 @@ public class TdTagGrpTagMappingController {
         String infoArg = tdTagGrpTagMappingConverter.print(tdTagGrpTagMapping);
         tdTagGrpTagMappingRepository.delete(tdTagGrpTagMapping);
         messageUtil.info("status_deleted_ok", infoArg);
+        return true;
+    }
+
+    public boolean saveByComponents(TdTagGrp tdTagGrp,List<TdTag> tagList){
+       for(TdTag tag:tagList){
+            TdTagGrpTagMapping mapping = new TdTagGrpTagMapping();
+            mapping.setTagGrp(tdTagGrp);
+            mapping.setTag(tag);
+            tdTagGrpTagMappingRepository.save(mapping);
+         }
+        messageUtil.infoDelayed("status_saved_ok", tagList.size()+" tags mapped to product");
         return true;
     }
 }

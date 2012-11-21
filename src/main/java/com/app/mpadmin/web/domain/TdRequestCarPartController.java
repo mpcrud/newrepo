@@ -63,4 +63,25 @@ public class TdRequestCarPartController {
         messageUtil.info("status_deleted_ok", infoArg);
         return true;
     }
+
+    public boolean updateStatus(TdRequestCarPart[] arr){
+        for(TdRequestCarPart tdRequestCarPart:arr){
+            switch (tdRequestCarPart.getRequestStatus()){
+                case 0: tdRequestCarPart.setRequestStatus(1);break;
+                case 1: tdRequestCarPart.setRequestStatus(0);break;
+                default: tdRequestCarPart.setRequestStatus(1);break;
+            }
+            tdRequestCarPartRepository.save(tdRequestCarPart);
+        }
+        messageUtil.info("status_saved_ok",arr.length+" request status updated");
+        return true;
+    }
+
+    public boolean deleteAll(TdRequestCarPart[] arr){
+        for(TdRequestCarPart tdRequestCarPart:arr){
+            tdRequestCarPartRepository.delete(tdRequestCarPart);
+        }
+        messageUtil.info("status_deleted_ok",arr.length+" request status deleted");
+        return true;
+    }
 }

@@ -14,6 +14,7 @@
 	<persistence-context />
 
 	<var name="tdTopicLazyDataModel" class="com.app.mpadmin.web.domain.TdTopicLazyDataModel" />
+    <var name="tdUserAuthLazyDataModel" class="com.app.mpadmin.web.domain.TdUserAuthLazyDataModel" />
 
 	<decision-state id="selectChoice">
 		<if test="create" then="edit" />
@@ -33,6 +34,9 @@
 			<evaluate expression="tdTopicController.delete(tdTopicLazyDataModel.selectedRow)" />
 		</transition>
 		<transition on="sendNew" to="edit" validate="false" />
+        <transition on="viewUser" to="editUser">
+			<set name="requestScope.paramReadonly" value="true" type="boolean" />
+		</transition>
 	</view-state>
 
 	<view-state id="tdTopicSubSelect" view="tdTopicSelect.xhtml">
@@ -49,6 +53,16 @@
 		<input name="tdTopic" value="tdTopicLazyDataModel.selectedRow" />
 		<transition on="endEdit" to="quitChoice" />
 		<transition on="deleteAndClose" to="tdTopicSelect" />
+	</subflow-state>
+
+    <subflow-state id="editUser" subflow="tdUserAuth/edit">
+		<input name="sub" value="true" />
+		<input name="readonly" value="requestScope.paramReadonly" />
+		<input name="tdUserAuth" value="tdUserAuthLazyDataModel.selectedRow" />
+		<transition on="endEdit" to="quitChoice">
+			<evaluate expression="messageUtil.info('status_edited_ok',resourceBundle.tdComment_user)" />
+		</transition>
+		<transition on="cancelEdit" to="quitChoice" />
 	</subflow-state>
 
 	<decision-state id="quitChoice">

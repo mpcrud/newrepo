@@ -14,12 +14,13 @@
 	<persistence-context />
 
 	<var name="tdTopicLazyDataModel" class="com.app.mpadmin.web.domain.TopicWithoutTagLazyDataModel" />
+    <var name="tdTagLazyDataModel" class="com.app.mpadmin.web.domain.TdTagLazyDataModel" />
 
     <input name="tdTagGrp" required="false" value="flowScope.tdTagGrp"/>
 
     <on-start>
 		<evaluate expression="tdTagGrpController.newIfNull(tdTagGrp)" result="flowScope.tdTagGrp" />
-	</on-start>
+    </on-start>
 
 	<decision-state id="selectChoice">
 		<if test="create" then="edit" />
@@ -50,7 +51,10 @@
 		</transition>
 
 		<transition on="saveAndClose">
-			<evaluate expression="tdTagGrpController.saveAndClose(tdTagGrp)" />
+		<!--	<evaluate expression="tdTagGrpController.saveAndClose(tdTagGrp)" />   -->
+            <evaluate expression="tdTagGrpController.saveToReturn(tdTagGrp)" result-type="com.app.mpadmin.domain.TdTagGrp" result="flowScope.newTagGrp"/>
+            <evaluate expression="tdTagGrpTagMappingController.saveByComponents(newTagGrp,tdTagLazyDataModel.selectedList)"/>
+            <evaluate expression="primeFacesUtil.forceClose()"/>
 		</transition>
         <transition on="forceClose" to="quit" />
 	</view-state>

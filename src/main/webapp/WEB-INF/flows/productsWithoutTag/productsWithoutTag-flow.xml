@@ -14,6 +14,7 @@
 	<persistence-context />
 
 	<var name="tdProductLazyDataModel" class="com.app.mpadmin.web.domain.ProductWithoutTagLazyDataModel" />
+    <var name="tdTagLazyDataModel" class="com.app.mpadmin.web.domain.TdTagLazyDataModel" />
 
     <input name="tdTagGrp" required="false" value="flowScope.tdTagGrp"/>
 
@@ -49,8 +50,11 @@
 		</transition>
 
 		<transition on="saveAndClose">
-			<evaluate expression="tdTagGrpController.save(tdTagGrp)" />
-        </transition>
+		<!--	<evaluate expression="tdTagGrpController.save(tdTagGrp)" />      -->
+            <evaluate expression="tdTagGrpController.saveToReturn(tdTagGrp)" result-type="com.app.mpadmin.domain.TdTagGrp" result="flowScope.newTagGrp"/>
+            <evaluate expression="tdTagGrpTagMappingController.saveByComponents(newTagGrp,tdTagLazyDataModel.selectedList)"/>
+            <evaluate expression="primeFacesUtil.forceClose()"/>
+         </transition>
 
      <transition on="editTagGrpTagMapping" to="editTagGrpTagMapping">
 			<set name="requestScope.paramReadonly" value="false" type="boolean" />

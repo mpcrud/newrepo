@@ -138,9 +138,11 @@
 
 		<ui:define name="result">     -->
             <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="selectProduct" process="@this" title="${tdProductConverter.print(item)}" rendered="true">
+                <p:commandButton ajax="true" action="selectProduct" process="@this" rendered="true" immediate="false" icon="iconSelect" title="${tdProductConverter.print(item)}">
+			<!--	<app:iconSelect action="selectProduct" process="@this" title="${tdProductConverter.print(item)}" rendered="true">   -->
             			<f:setPropertyActionListener value="#{item}" target="#{tdProductLazyDataModel.selectedRow}" />
-            	</app:iconSelect>
+            <!--	</app:iconSelect>   -->
+                </p:commandButton>
 			</p:column>
 		    <p:column id="tdProduct_productId" headerText="${msg.tdProduct_productId}">
 				<h:outputText value="#{item.productId}" />

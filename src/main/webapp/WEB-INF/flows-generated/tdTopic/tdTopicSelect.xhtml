@@ -77,6 +77,12 @@
 			<p:column id="tdTopic_commentCount" headerText="${msg.tdTopic_commentCount}" sortBy="#{item.commentCount}">
 				<h:outputText value="#{item.commentCount}" />
 			</p:column>
+            <p:column id="tdTopic_user" headerText="${msg.tdTopic_user}">
+              <p:commandLink  ajax="false" action="viewUser" process="@form" rendered="true">
+                <f:setPropertyActionListener value="#{item.user}" target="#{tdUserAuthLazyDataModel.selectedRow}" />
+			    <h:outputText value="#{tdUserAuthConverter.print(item.user)}" />
+              </p:commandLink>
+			</p:column>
 			<p:column id="tdTopic_assignedSince" headerText="${msg.tdTopic_assignedSince}" sortBy="#{item.assignedSince}">
 				<h:outputText value="#{item.assignedSince}" />
 			</p:column>

@@ -7,6 +7,10 @@
  */
 package com.app.mpadmin.web.converter.domain;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.ConverterException;
 import javax.inject.Inject;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.domain.TdTopic;
@@ -26,6 +30,7 @@ public class TdTopicConverter extends GenericJsfConverter<TdTopic, Integer> {
 
     @Override
     public String print(TdTopic tdTopic) {
-        return tdTopic == null ? "" : "" + tdTopic.getTopicTitle() + "/" + tdTopic.getDescShort() + "/" + tdTopic.getDescLong();
+        return tdTopic == null ? "" : "" + tdTopic.getTopicId()+"/"+tdTopic.getTopicTitle() + "/" + tdTopic.getDescShort();
     }
-}
+
+  }

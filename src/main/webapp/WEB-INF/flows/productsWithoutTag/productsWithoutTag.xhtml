@@ -18,19 +18,25 @@
 <ui:define name="content">
       <f:validateBean disabled="true">
 		<p:fieldset legend="Map Product to a Category">
-			<h:panelGrid columns="2" styleClass="aria-role-presentation">
+			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 			 	 <app:tdProductAutoComplete id="product" value="#{tdTagGrp.product}" required="true" label="${msg.tdTagGrp_product}">
                     <app:iconSearch action="selectProduct" title="${msg.tdTagGrp_product} " />
 					<app:iconEdit action="editProduct" title="${msg.tdTagGrp_product}" />
 					<app:iconView action="viewProduct" title="${msg.tdTagGrp_product}" />
                 </app:tdProductAutoComplete>
-                <app:inputDateTime id="updationDate" value="#{tdTagGrp.updationDate}" label="${msg.tdTagGrp_updationDate}" />
+            <!--    <app:inputDateTime id="updationDate" value="#{tdTagGrp.updationDate}" label="${msg.tdTagGrp_updationDate}" />
 				<app:input id="isActive" value="#{tdTagGrp.isActive}" label="${msg.tdTagGrp_isActive}" maxlength="1"/>
-				<app:input id="tagGrpStatus" value="#{tdTagGrp.tagGrpStatus}" label="${msg.tdTagGrp_tagGrpStatus}" maxlength="1"/>
+				<app:input id="tagGrpStatus" value="#{tdTagGrp.tagGrpStatus}" label="${msg.tdTagGrp_tagGrpStatus}" maxlength="1"/>  -->
+                <h:outputText value="Tags " />
+                <p:selectManyMenu value="#{tdTagLazyDataModel.selectedList}" style="height:300px;width:230px" converter="#{tdTagConverter}">
+                <f:selectItems value="#{tdTagRepository.find()}" var="player" itemLabel="#{tdTagConverter.print(player)}" itemValue="#{player}" />
+                </p:selectManyMenu>
 			</h:panelGrid>
 		</p:fieldset>
 		<app:saveButton title="${msg.tdTagGrp}"/>
 	</f:validateBean>
+      <span id="searchResultsRegion" aria-label="Résultats" aria-live="assertive" aria-relevant="additions">
+	</span>
       <p:dataTable id="searchResults"
         		value="#{tdProductLazyDataModel}"
         		var="item"
@@ -136,9 +142,12 @@
 
 		<ui:define name="result"> -->
             <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="selectProduct" process="@this" title="${tdProductConverter.print(item)}" rendered="true">
+                <p:commandButton ajax="true" action="selectProduct" process="@this" rendered="true" immediate="false" icon="iconSelect" title="${tdProductConverter.print(item)}">
+		           <f:setPropertyActionListener value="#{item}" target="#{tdProductLazyDataModel.selectedRow}" />
+	             </p:commandButton>
+			<!--	<app:iconSelect action="selectProduct" process="@this" title="${tdProductConverter.print(item)}" rendered="true">
             			<f:setPropertyActionListener value="#{item}" target="#{tdProductLazyDataModel.selectedRow}" />
-            	</app:iconSelect>
+            	</app:iconSelect> -->
 			</p:column>
 		    <p:column id="tdProduct_productId" headerText="${msg.tdProduct_productId}">
 				<h:outputText value="#{item.productId}" />
@@ -370,6 +379,7 @@
 			</p:column>
 
     </p:dataTable>
+      <script> jQuery("#searchResultsRegion").text('' + #{tdProductLazyDataModel.rowCount} + ' results'); </script>
 	<!--	</ui:define>
 	</app:search>  -->
 </ui:define>

@@ -14,7 +14,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
+import com.app.mpadmin.domain.TdProduct;
 import com.app.mpadmin.domain.TdTagGrp;
+import com.app.mpadmin.domain.TdTopic;
 import com.app.mpadmin.repository.TdTagGrpRepository;
 import com.app.mpadmin.web.converter.domain.TdTagGrpConverter;
 import com.app.mpadmin.web.util.MessageUtil;
@@ -64,5 +66,29 @@ public class TdTagGrpController {
         tdTagGrpRepository.delete(tdTagGrp);
         messageUtil.info("status_deleted_ok", infoArg);
         return true;
+    }
+
+    /*public TdTagGrp saveByProduct(TdProduct tdProduct){
+        TdTagGrp tdTagGrp = new TdTagGrp();
+        tdTagGrp.setProduct(tdProduct);
+        tdTagGrp.setTagGrpStatus(1);
+        tdTagGrp.setIsActive(1);
+        tdTagGrpRepository.save(tdTagGrp);
+        messageUtil.info("status_saved_ok", tdTagGrpConverter.print(tdTagGrp));
+        //return true;
+        return tdTagGrp;
+    }  */
+
+    public TdTagGrp saveToReturn(TdTagGrp tdTagGrp){
+       // TdTagGrp tdTagGrp = new TdTagGrp();
+        //tdTagGrp.setTopic(tdTopic);
+       // tdTagGrp.setReferenceId(topicId);
+       // tdTagGrp.setReferenceType(500);
+        tdTagGrp.setTagGrpStatus(1);
+        tdTagGrp.setIsActive(1);
+        tdTagGrpRepository.save(tdTagGrp);
+        messageUtil.info("status_saved_ok", tdTagGrpConverter.print(tdTagGrp));
+        //return true;
+        return tdTagGrp;
     }
 }

@@ -18,19 +18,26 @@
 <ui:define name="content">
     <f:validateBean disabled="true">
 		<p:fieldset legend="Map Topic to a Category">
-			<h:panelGrid columns="2" styleClass="aria-role-presentation">
+			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 			 	 <app:tdTopicAutoComplete id="topic" value="#{tdTagGrp.topic}" required="true" label="${msg.tdTagGrp_topic}">
                     <app:iconSearch action="selectTopic" title="${msg.tdTagGrp_topic} " />
 					<app:iconEdit action="editTopic" title="${msg.tdTagGrp_topic}" />
 					<app:iconView action="viewTopic" title="${msg.tdTagGrp_topic}" />
                 </app:tdTopicAutoComplete>
-                <app:inputDateTime id="updationDate" value="#{tdTagGrp.updationDate}" label="${msg.tdTagGrp_updationDate}" />
+             <!--   <app:input id="referenceId" value="#{tdTagGrp.referenceId}" label="${msg.tdTagGrp_topic} Id" /> -->
+              <!--  <app:inputDateTime id="updationDate" value="#{tdTagGrp.updationDate}" label="${msg.tdTagGrp_updationDate}" />
 				<app:input id="isActive" value="#{tdTagGrp.isActive}" label="${msg.tdTagGrp_isActive}" maxlength="1"/>
-				<app:input id="tagGrpStatus" value="#{tdTagGrp.tagGrpStatus}" label="${msg.tdTagGrp_tagGrpStatus}" maxlength="1"/>
+				<app:input id="tagGrpStatus" value="#{tdTagGrp.tagGrpStatus}" label="${msg.tdTagGrp_tagGrpStatus}" maxlength="1"/> -->
+                <h:outputText value="Tags "/>
+                <p:selectManyMenu value="#{tdTagLazyDataModel.selectedList}" style="height:300px;width:230px" converter="#{tdTagConverter}">
+                <f:selectItems value="#{tdTagRepository.find()}" var="player" itemLabel="#{tdTagConverter.print(player)}" itemValue="#{player}" />
+                </p:selectManyMenu>
 			</h:panelGrid>
 		</p:fieldset>
 		<app:saveButton title="${msg.tdTagGrp}"/>
 	</f:validateBean>
+    <span id="searchResultsRegion" aria-label="Résultats" aria-live="assertive" aria-relevant="additions">
+	</span>
     <p:dataTable id="searchResults"
         		value="#{tdTopicLazyDataModel}"
         		var="item"
@@ -46,9 +53,12 @@
                  >
 
             <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect action="selectTopic" process="@this" title="${tdTopicConverter.print(item)}" rendered="true">
+                <p:commandButton ajax="true" action="selectTopic" process="@this" rendered="true" immediate="false" icon="iconSelect" title="${tdTopicConverter.print(item)}">
+		           <f:setPropertyActionListener value="#{item}" target="#{tdTopicLazyDataModel.selectedRow}" />
+	             </p:commandButton>
+			<!--	<app:iconSelect action="selectTopic" process="@this" title="${tdTopicConverter.print(item)}" rendered="true" update="@form">
             			<f:setPropertyActionListener value="#{item}" target="#{tdTopicLazyDataModel.selectedRow}" />
-            	</app:iconSelect>
+            	</app:iconSelect>   -->
 			</p:column>
 			<p:column id="tdTopic_topicId" headerText="${msg.tdTopic_topicId}" sortBy="#{item.topicId}">
 				<h:outputText value="#{item.topicId}" />
@@ -128,7 +138,7 @@
 
 	<!--	</ui:define>
 	</app:search> -->
-    </p:dataTable>
+    </p:dataTable>   <script> jQuery("#searchResultsRegion").text('' + #{tdTopicLazyDataModel.rowCount} + ' results'); </script>
  <!--   <p:commandButton oncomplete="RowNumber.show()" value="Click Me" update=":form:display"/>   -->
 </ui:define>
 

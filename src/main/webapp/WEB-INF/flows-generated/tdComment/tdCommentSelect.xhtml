@@ -52,7 +52,10 @@
 				<h:outputText value="#{item.commentId}" />
 			</p:column>
 	       <p:column id="tdComment_user" headerText="${msg.tdComment_user}">
-				<h:outputText value="#{tdUserAuthConverter.print(item.user)}" />
+              <p:commandLink  ajax="false" action="viewUser" process="@form" rendered="true">
+                <f:setPropertyActionListener value="#{item.user}" target="#{tdUserAuthLazyDataModel.selectedRow}" />
+			    <h:outputText value="#{tdUserAuthConverter.print(item.user)}" />
+              </p:commandLink>
 			</p:column>
 			<p:column id="tdComment_topic" headerText="${msg.tdComment_topic}">
 				<h:outputText value="#{tdTopicConverter.print(item.topic)}" />

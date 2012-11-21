@@ -7,6 +7,10 @@
  */
 package com.app.mpadmin.web.converter.domain;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.ConverterException;
 import javax.inject.Inject;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.domain.TdTag;
@@ -28,4 +32,5 @@ public class TdTagConverter extends GenericJsfConverter<TdTag, Integer> {
     public String print(TdTag tdTag) {
         return tdTag == null ? "" : tdTag.getId()+"/ " + tdTag.getTagTitle() + "/ " + tdTag.getTagDesc() + "/ " + tdTag.getTagUrl();
     }
-}
+
+  }

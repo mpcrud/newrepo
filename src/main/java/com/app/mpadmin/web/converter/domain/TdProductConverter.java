@@ -26,7 +26,7 @@ public class TdProductConverter extends GenericJsfConverter<TdProduct, Integer> 
 
     @Override
     public String print(TdProduct tdProduct) {
-        return tdProduct == null ? "" : "" + tdProduct.getProductDisplayName();
+        return tdProduct == null ? "" : "" + tdProduct.getProductId()+"/"+tdProduct.getProductDisplayName();
     }
 
     public int printId(TdProduct tdProduct)
