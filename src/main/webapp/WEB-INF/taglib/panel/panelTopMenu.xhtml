@@ -17,7 +17,7 @@
 			<p:toolbarGroup align="right">
 				<p:menuButton value="#{msg.menu_active_flows} (#{flowsMenuHandler.menuModelCount})" model="#{flowsMenuHandler.menuModel}" rendered="#{flowsMenuHandler.menuModelCount ne 0 and userContext.isLoggedIn()}" />
 				<p:menuButton value="Domain">
-					<p:menuitem value="${msg.authGroup}" url="/app/authGroup" />
+				<!--	<p:menuitem value="${msg.authGroup}" url="/app/authGroup" />
 					<p:menuitem value="${msg.authGroupPermissions}" url="/app/authGroupPermissions" />
 					<p:menuitem value="${msg.authMessage}" url="/app/authMessage" />
 					<p:menuitem value="${msg.authPermission}" url="/app/authPermission" />
@@ -27,8 +27,8 @@
 					<p:menuitem value="${msg.djangoAdminLog}" url="/app/djangoAdminLog" />
 					<p:menuitem value="${msg.djangoContentType}" url="/app/djangoContentType" />
 					<p:menuitem value="${msg.djangoSession}" url="/app/djangoSession" />
-					<p:menuitem value="${msg.djangoSite}" url="/app/djangoSite" />
-					<p:menuitem value="${msg.tdChangePassword}" url="/app/tdChangePassword" />
+					<p:menuitem value="${msg.djangoSite}" url="/app/djangoSite" />  -->
+                    <p:menuitem value="${msg.tdChangePassword}" url="/app/tdChangePassword" />
 					<p:menuitem value="${msg.tdCity}" url="/app/tdCity" />
 					<p:menuitem value="${msg.tdComment}" url="/app/tdComment" />
 					<p:menuitem value="${msg.tdCountry}" url="/app/tdCountry" />
@@ -52,7 +52,6 @@
 					<p:menuitem value="${msg.tdState}" url="/app/tdState" />
 					<p:menuitem value="${msg.tdSubmodelYearMapping}" url="/app/tdSubmodelYearMapping" />
 					<p:menuitem value="${msg.tdTag}" url="/app/tdTag" />
-					<p:menuitem value="${msg.tdTagGrp}" url="/app/tdTagGrp" />
 					<p:menuitem value="${msg.tdTagGrpTagMapping}" url="/app/tdTagGrpTagMapping" />
 					<p:menuitem value="${msg.tdTagRelation}" url="/app/tdTagRelation" />
 					<p:menuitem value="${msg.tdTopic}" url="/app/tdTopic" />
@@ -63,8 +62,8 @@
 					<p:menuitem value="${msg.tdUserDetail}" url="/app/tdUserDetail" />
 					<p:menuitem value="${msg.tdUserTagPreference}" url="/app/tdUserTagPreference" />
 					<p:menuitem value="${msg.tdVote}" url="/app/tdVote" />
-					<p:menuitem value="${msg.tempTdSubmodelYearMapping}" url="/app/tempTdSubmodelYearMapping" />
-					<p:menuitem value="${msg.tempTdTagGrpTagMapping}" url="/app/tempTdTagGrpTagMapping" />
+				<!--	<p:menuitem value="${msg.tempTdSubmodelYearMapping}" url="/app/tempTdSubmodelYearMapping" />
+					<p:menuitem value="${msg.tempTdTagGrpTagMapping}" url="/app/tempTdTagGrpTagMapping" />     -->
 				</p:menuButton>
 				<p:menuButton value="Navigate">
 					<p:menuitem value="Home" url="/app/home" icon="ui-icon ui-icon-home" />
