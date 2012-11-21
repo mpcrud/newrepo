@@ -76,7 +76,7 @@ public class TdTagGrpTagMappingController {
             mapping.setTag(tag);
             tdTagGrpTagMappingRepository.save(mapping);
          }
-        messageUtil.infoDelayed("status_saved_ok", tagList.size()+" tags mapped to product");
+        messageUtil.infoDelayed("status_saved_ok", tagList.size()+" tags mapped");
         return true;
     }
 }
