@@ -36,6 +36,6 @@
 	<entry key="tdPage_pageCustom3">Page Custom3</entry>
 	<entry key="tdPage_pageCustom4">Page Custom4</entry>
     <entry key="tdPage_isActive">Is Active</entry>
-    <entry key="tdPage_CreationDate">Creation Date</entry>
-    <entry key="tdPage_userId">User Id</entry>
+    <entry key="tdPage_creationDate">Creation Date</entry>
+    <entry key="tdPage_pageUserId">User Id</entry>
 </properties>
