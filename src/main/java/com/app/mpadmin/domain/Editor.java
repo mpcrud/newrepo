@@ -1,5 +1,7 @@
 package com.app.mpadmin.domain;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: miti
@@ -8,7 +10,7 @@ package com.app.mpadmin.domain;
  * To change this template use File | Settings | File Templates.
  */
 public class Editor {
-    private String email;
+    private List<String> email;
     private String subject;
     private String value;
 
@@ -20,13 +22,21 @@ public class Editor {
             this.value = value;
         }
 
-        public String getEmail() {
+     /*   public String getEmail() {
         return email;
         }
 
         public void setEmail(String email) {
         this.email = email;
-        }
+        }  */
+
+    public List<String> getEmail() {
+        return email;
+    }
+
+    public void setEmail(List<String> email) {
+        this.email = email;
+    }
 
     public String getSubject() {
         return subject;

@@ -14,6 +14,7 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components"	
 	template="/WEB-INF/layouts/main.xhtml">
 	<ui:define name="topmenu">
+
 			<p:toolbar>
 				<p:toolbarGroup align="left" rendered="#{not sub and not readonly}">
 					<!-- note: show js askForSaveDialog is done on server side -->
@@ -62,7 +63,7 @@
 						model="#{flowsMenuHandler.getMenuModel(flowRequestContext)}"
 						rendered="#{not sub}" />
 					<p:menuButton value="Domain">
-						<p:menuitem value="${msg.authGroup}" url="/app/authGroup" />
+					<!--	<p:menuitem value="${msg.authGroup}" url="/app/authGroup" />
 						<p:menuitem value="${msg.authGroupPermissions}" url="/app/authGroupPermissions" />
 						<p:menuitem value="${msg.authMessage}" url="/app/authMessage" />
 						<p:menuitem value="${msg.authPermission}" url="/app/authPermission" />
@@ -72,7 +73,7 @@
 						<p:menuitem value="${msg.djangoAdminLog}" url="/app/djangoAdminLog" />
 						<p:menuitem value="${msg.djangoContentType}" url="/app/djangoContentType" />
 						<p:menuitem value="${msg.djangoSession}" url="/app/djangoSession" />
-						<p:menuitem value="${msg.djangoSite}" url="/app/djangoSite" />
+						<p:menuitem value="${msg.djangoSite}" url="/app/djangoSite" />   -->
 						<p:menuitem value="${msg.tdChangePassword}" url="/app/tdChangePassword" />
 						<p:menuitem value="${msg.tdCity}" url="/app/tdCity" />
 						<p:menuitem value="${msg.tdComment}" url="/app/tdComment" />
@@ -93,7 +94,7 @@
 						<p:menuitem value="${msg.tdProductSupplier}" url="/app/tdProductSupplier" />
 						<p:menuitem value="${msg.tdRequestCarPart}" url="/app/tdRequestCarPart" />
 						<p:menuitem value="${msg.tdRole}" url="/app/tdRole" />
-						<p:menuitem value="${msg.tdShipmentVendor}" url="/app/tdShipmentVendor" />
+					<!--	<p:menuitem value="${msg.tdShipmentVendor}" url="/app/tdShipmentVendor" />
 						<p:menuitem value="${msg.tdState}" url="/app/tdState" />
 						<p:menuitem value="${msg.tdSubmodelYearMapping}" url="/app/tdSubmodelYearMapping" />
 						<p:menuitem value="${msg.tdTag}" url="/app/tdTag" />
@@ -107,9 +108,9 @@
 						<p:menuitem value="${msg.tdUserAuth}" url="/app/tdUserAuth" />
 						<p:menuitem value="${msg.tdUserDetail}" url="/app/tdUserDetail" />
 						<p:menuitem value="${msg.tdUserTagPreference}" url="/app/tdUserTagPreference" />
-						<p:menuitem value="${msg.tdVote}" url="/app/tdVote" />
-						<p:menuitem value="${msg.tempTdSubmodelYearMapping}" url="/app/tempTdSubmodelYearMapping" />
-						<p:menuitem value="${msg.tempTdTagGrpTagMapping}" url="/app/tempTdTagGrpTagMapping" />
+						<p:menuitem value="${msg.tdVote}" url="/app/tdVote" />     -->
+					<!--	<p:menuitem value="${msg.tempTdSubmodelYearMapping}" url="/app/tempTdSubmodelYearMapping" />
+						<p:menuitem value="${msg.tempTdTagGrpTagMapping}" url="/app/tempTdTagGrpTagMapping" />    -->
 					</p:menuButton>
 					<p:menuButton value="Debug">
 						<p:menuitem value="Throw exception!" action="debugThrowException" process="@this" ajax="false" immediate="true" icon="ui-icon ui-icon-alert" />

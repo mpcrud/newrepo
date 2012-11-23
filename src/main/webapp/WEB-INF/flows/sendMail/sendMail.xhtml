@@ -10,7 +10,7 @@
     <h:form id="form">
     <h:panelGrid columns="2">
     <h:outputLabel for="email" value="To"/>
-    <h:inputText id="email" value="#{editor.email}" width="1000"/>
+    <h:inputTextarea id="email" value="#{editor.email}" rows="10" cols="60"/>
     <h:outputLabel for="subject" value="Subject"/>
     <h:inputText id="subject" value="#{editor.subject}" width="1000"/>
     <h:outputLabel for="value" value="Body"/>
@@ -18,13 +18,13 @@
     <h:panelGrid columns="2" style="margin-top:10px">
         <h:outputLabel for="submitButton"/>
         <p:commandButton id="submitButton" value="Send" update="display" action="submitMail"
-                        icon="ui-icon-disk" />
+                        icon="ui-icon-disk" oncomplete="dlg.show()" />
       <!--  <p:commandButton id="clearButton" type="button" value="Clear" onclick="value.clear()"
                         icon="ui-icon-close" />   -->
     </h:panelGrid>
     </h:panelGrid>
-    <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade" modal="true">
-        <h:outputText id="display" value="#{editor.value}" escape="false" />
+    <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
+        <h:outputText id="display" value="#{editor.subject}" escape="false" />
     </p:dialog>
 
 </h:form>

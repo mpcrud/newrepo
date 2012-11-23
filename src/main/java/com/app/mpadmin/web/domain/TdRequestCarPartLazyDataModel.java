@@ -7,6 +7,7 @@
  */
 package com.app.mpadmin.web.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.inject.Inject;
@@ -69,5 +70,13 @@ List<TdRequestCarPart> datasource;
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data
         datasource = tdRequestCarPartRepository.find(tdRequestCarPart, sp);
         return datasource;
+    }
+
+    public List<String> emailList(){
+        List<String> eList = new ArrayList<String>();
+        for(TdRequestCarPart requestCarPart : getSelectedList()){
+            eList.add(requestCarPart.getBillingEmail());
+        }
+        return eList;
     }
 }

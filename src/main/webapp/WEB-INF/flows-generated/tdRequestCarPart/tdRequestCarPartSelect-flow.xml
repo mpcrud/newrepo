@@ -14,6 +14,7 @@
 	<persistence-context />
 
 	<var name="tdRequestCarPartLazyDataModel" class="com.app.mpadmin.web.domain.TdRequestCarPartLazyDataModel" />
+    <input name="editor" required="false" value="flowScope.editor" type="com.app.mpadmin.domain.Editor"/>
 
 	<decision-state id="selectChoice">
 		<if test="create" then="edit" />
@@ -24,6 +25,7 @@
 		<on-entry>
 			<evaluate expression="messageUtil.displayDelayedMessages()" />
 			<evaluate expression="persistenceContext.clear()" />
+            <evaluate expression="editorController.newIfNull(editor)" result="flowScope.editor" result-type="com.app.mpadmin.domain.Editor"/>
 		</on-entry>
 		<on-render>
 			<evaluate expression="flowsMenuHandler.updateMenu(flowRequestContext,'select')" />
@@ -41,7 +43,11 @@
             <evaluate expression="tdRequestCarPartController.deleteAll(tdRequestCarPartLazyDataModel.selectedList)"/>
             <evaluate expression="primeFacesUtil.refresh()"/>
         </transition>
-	</view-state>
+        <transition on="sendEmail" to="sendemail" validate="false">
+          <evaluate expression="tdRequestCarPartLazyDataModel.emailList()" result="flowScope.eList" result-type="java.util.List"/>
+          <evaluate expression="editor.setEmail(eList)"/>
+        </transition>
+        </view-state>
 
 	<view-state id="tdRequestCarPartSubSelect" view="tdRequestCarPartSelect.xhtml">
 		<transition on="select" to="tdRequestCarPartSelected" validate="false"/>
@@ -52,6 +58,25 @@
 			then="endSwitchToAlreadyOpenFlow"
 			else="edit" />
 	</decision-state>
+
+
+   <view-state id="sendemail" view="/WEB-INF/flows/sendMail/sendMail.xhtml" model="flowscope.editor" >
+       <on-entry>
+    		<set name="editor" value="flowScope.editor" type="com.app.mpadmin.domain.Editor"/>
+       </on-entry>
+       <transition on="submitMail" to="mailSent">
+             <evaluate expression="editorController.sendMail(tdRequestCarPart)"/>
+       </transition>
+       <transition on="cancel" to="mailSent"/>
+   </view-state>
+
+
+ <!--   <subflow-state id="sendEmail" subflow="sendMail">
+          <input name="sub" value="true" />
+          <input name="email" value="flowScope.eList"/>
+          <transition on="endEdit" to="quitChoice" />
+		  <transition on="deleteAndClose" to="tdRequestCarPartSelect" />
+    </subflow-state>  -->
 
 	<subflow-state id="edit" subflow="tdRequestCarPart/edit">
 		<input name="tdRequestCarPart" value="tdRequestCarPartLazyDataModel.selectedRow" />
@@ -65,6 +90,10 @@
 
 	<end-state id="endSwitchToAlreadyOpenFlow"
 		view="externalRedirect:contextRelative:#{flowsMenuHandler.endStateRedirectToAlreadyOpenFlow(flowRequestContext,tdRequestCarPartLazyDataModel.selectedRow)}" />
+
+    <end-state id="mailSent">
+
+    </end-state>
 
 	<end-state id="tdRequestCarPartSelected">
 		<output name="tdRequestCarPartSelected" value="tdRequestCarPartLazyDataModel.selectedRow" />

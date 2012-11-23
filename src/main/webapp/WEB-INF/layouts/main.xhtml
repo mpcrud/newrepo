@@ -20,28 +20,29 @@
 	</h:head>
 	<h:body>
 		<img src="${request.contextPath}/resources/icons/environment/${systemProperties['env_name'] eq null ? 'developpement' : systemProperties['env_name']}.gif" style="position: absolute; top:0px; left:0px; z-index:100"/>
-		<h:form id="form" enctype="multipart/form-data">
+        <h:form id="form" enctype="multipart/form-data">
 			<!-- regular layout (does not work with chromeshades) -->
 			<p:layout fullPage="true" >
 				<p:layoutUnit id="top" position="north" resizable="false" size="115">
-					<div role="banner">
+                    <div role="banner">
 						<h:panelGrid columns="3" style="width: 100%">
 							<h:outputLink id="logo_link" value="http://www.motrpart.in/" title="Go to Motrpart" ><h:graphicImage id="logoHeader" alt="Logo Motrpart" name="img/motrprt.png" style="border: 0px;"/></h:outputLink>
 							<h1 style="text-align: center;">${empty title? msg.main_title : title}</h1>	
 							<h:panelGroup>
+                             <!--   <p:breadCrumb value="#{msg.menu_active_flows} (#{flowsMenuHandler.menuModelCount})" model="#{flowsMenuHandler.menuModel}" rendered="#{flowsMenuHandler.menuModelCount ne 0 and userContext.isLoggedIn()}" />         -->
 								<div style="float: right;">
 									<h:outputFormat rendered="#{userContext.isLoggedIn()}" value="${userContext.username}" style="margin-right: 5px;"/>
 									<h:outputLink id="login_link" value="${facesContext.externalContext.requestContextPath}/app/login" styleClass="userInfo-user" rendered="${userContext.isAnonymousUser()}"><h:outputText value="${msg.connexion}"/></h:outputLink>
 									<h:outputLink id="logout_link" value="${facesContext.externalContext.requestContextPath}/app/logout" styleClass="userInfo-user" rendered="${userContext.isLoggedIn()}"><h:outputText value="${msg.logout}"/></h:outputLink>
 									<a id="home_link" href="${facesContext.externalContext.requestContextPath}/app/home" class="userInfo-welcome">${msg.home}</a>
-									<h:outputLink value="home?locale=fr" styleClass="userInfo-fr" rendered="#{!(userContext.locale eq 'fr')}">Français</h:outputLink>
+								<!--	<h:outputLink value="home?locale=fr" styleClass="userInfo-fr" rendered="#{!(userContext.locale eq 'fr')}">Français</h:outputLink>     -->
 									<h:outputLink value="home?locale=en" styleClass="userInfo-en" rendered="#{userContext.locale eq 'fr'}">English</h:outputLink>
 								</div>
 							</h:panelGroup>
 						</h:panelGrid>
 					</div>
 					<div role="navigation">
-						<ui:insert name="topmenu"/>
+                        <ui:insert name="topmenu"/>
 					</div>
 				</p:layoutUnit>
 				<p:layoutUnit id="center" position="center">

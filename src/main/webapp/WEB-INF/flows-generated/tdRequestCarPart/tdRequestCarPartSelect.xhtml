@@ -46,6 +46,13 @@
         <p:menuButton value="Options">
         <p:menuitem value="Change Status" icon="ui-icon-arrowrefresh-1-w" action="updateAll"/>
         <p:menuitem value="Delete" icon="ui-icon-close" ajax="false" action="deleteAll"/>
+        <p:menuitem value="Send Mail" ajax="true" action="sendEmail">
+         <!--   <h:outputLink value="mailto:#{tdRequestCarpartLazyDataModel.emailList()}">
+            <f:param name="subject" value="Some subject" />
+            <f:param name="body" value="Some body" />
+            <h:outputText value="mail" />
+         </h:outputLink> -->
+        </p:menuitem>
         </p:menuButton>
         </ui:define>
 		<ui:define name="result">
