@@ -30,7 +30,13 @@
 				<app:input id="facebookCount" value="#{tdTopic.facebookCount}" label="${msg.tdTopic_facebookCount}" />
 				<app:input id="metaDesc" value="#{tdTopic.metaDesc}" size="200" label="${msg.tdTopic_metaDesc}" maxlength="200"/>
 				<app:inputDateTime id="updationDate" value="#{tdTopic.updationDate}" label="${msg.tdTopic_updationDate}" />
-				<app:input id="isActive" value="#{tdTopic.isActive}" label="${msg.tdTopic_isActive}" />
+			<!--	<app:input id="isActive" value="#{tdTopic.isActive}" label="${msg.tdTopic_isActive}" />      -->
+                <appcc:outputLabel for="isActive" value="${msg.tdTopic_isActive}" />
+                  <p:selectOneRadio id="isActive" value="#{tdTopic.isActive}">
+                  <f:selectItem itemLabel="Active" itemValue="1" />
+                  <f:selectItem itemLabel="Inactive" itemValue="0" />
+                  </p:selectOneRadio>
+                <h:outputText value="#{tdTopic.isActive}" rendered="${readonly}"/>
 				<app:input id="isFeatured" value="#{tdTopic.isFeatured}" label="${msg.tdTopic_isFeatured}" />
 				<app:input id="assignedToUser" value="#{tdTopic.assignedToUser}" label="${msg.tdTopic_assignedToUser}" />
 				<app:inputDateTime id="expiryDate" value="#{tdTopic.expiryDate}" label="${msg.tdTopic_expiryDate}" />

@@ -26,7 +26,13 @@
 				<app:inputTextArea id="makemodelAlternateName" value="#{tdMakeModel.makemodelAlternateName}" label="${msg.tdMakeModel_makemodelAlternateName}" />
 				<app:inputTextArea id="shortDesc" value="#{tdMakeModel.shortDesc}" label="${msg.tdMakeModel_shortDesc}" />
 				<app:input id="longDesc" value="#{tdMakeModel.longDesc}" label="${msg.tdMakeModel_longDesc}" />
-				<app:input id="isActive" value="#{tdMakeModel.isActive}" label="${msg.tdMakeModel_isActive}" />
+			<!--	<app:input id="isActive" value="#{tdMakeModel.isActive}" label="${msg.tdMakeModel_isActive}" />  -->
+                <appcc:outputLabel for="isActive" value="${msg.tdMakeModel_isActive}" />
+                  <p:selectOneRadio id="isActive" value="#{tdMakeModel.isActive}">
+                  <f:selectItem itemLabel="Active" itemValue="1" />
+                  <f:selectItem itemLabel="Inactive" itemValue="0" />
+                  </p:selectOneRadio>
+                <h:outputText value="#{tdMakeModel.isActive}" rendered="${readonly}"/>
 				<app:input id="modelLaunchYear" value="#{tdMakeModel.modelLaunchYear}" label="${msg.tdMakeModel_modelLaunchYear}" />
 				<app:input id="fuelType" value="#{tdMakeModel.fuelType}" label="${msg.tdMakeModel_fuelType}" />
 				<app:input id="transmissionType" value="#{tdMakeModel.transmissionType}" label="${msg.tdMakeModel_transmissionType}" />

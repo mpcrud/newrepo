@@ -24,7 +24,13 @@
 				<app:input id="commentCount" value="#{tdComment.commentCount}" label="${msg.tdComment_commentCount}" />
 		<!-- 		<app:input id="userId" value="#{tdComment.userId}" label="${msg.tdComment_userId}" /> -->
 				<app:inputDateTime id="updationDate" value="#{tdComment.updationDate}" label="${msg.tdComment_updationDate}" />
-				<app:input id="isActive" value="#{tdComment.isActive}" label="${msg.tdComment_isActive}" />
+			<!--	<app:input id="isActive" value="#{tdComment.isActive}" label="${msg.tdComment_isActive}" />   -->
+                <appcc:outputLabel for="isActive" value="${msg.tdComment_isActive}" />
+                  <p:selectOneRadio id="isActive" value="#{tdComment.isActive}">
+                  <f:selectItem itemLabel="Active" itemValue="1" />
+                  <f:selectItem itemLabel="Inactive" itemValue="0" />
+                  </p:selectOneRadio>
+                <h:outputText value="#{tdComment.isActive}" rendered="${readonly}"/>
 				<app:inputTextArea id="commentDesc" value="#{tdComment.commentDesc}" label="${msg.tdComment_commentDesc}" />
 				<app:input id="commentStatus" value="#{tdComment.commentStatus}" label="${msg.tdComment_commentStatus}" />
 				<app:inputTextArea id="shortDesc" value="#{tdComment.shortDesc}" label="${msg.tdComment_shortDesc}" />

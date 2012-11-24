@@ -26,6 +26,6 @@ public class TdUserAuthConverter extends GenericJsfConverter<TdUserAuth, Integer
 
     @Override
     public String print(TdUserAuth tdUserAuth) {
-        return tdUserAuth == null ? "" : "" + tdUserAuth.getUsername() + "/" + tdUserAuth.getEmail() + "/" + tdUserAuth.getUserpassword();
+        return tdUserAuth == null ? "" : "" + tdUserAuth.getUserId()+"/"+tdUserAuth.getUsername();// + "/" + tdUserAuth.getEmail() + "/" + tdUserAuth.getUserpassword();
     }
 }

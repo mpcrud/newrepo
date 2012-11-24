@@ -31,7 +31,7 @@
 			</f:validateBean>
 		</ui:define>
 
-		<ui:define name="result">
+        <ui:define name="result">
             <p:column selectionMode="multiple" style="width:18px"/>
             <p:column id="tdVote_voteId" headerText="${msg.tdVote_voteId}" sortBy="#{item.voteId}">
 				<h:outputText value="#{item.voteId}" />
@@ -57,7 +57,7 @@
 			<p:column id="tdVote_voteStatus" headerText="${msg.tdVote_voteStatus}" sortBy="#{item.voteStatus}">
 				<h:outputText value="#{item.voteStatus}" />
 			</p:column>
-			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
+            <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdVoteConverter.print(item)}">
 					<f:setPropertyActionListener value="#{item}" target="#{tdVoteLazyDataModel.selectedRow}" />
 				</app:iconSelect>
@@ -68,6 +68,13 @@
                        <f:setPropertyActionListener value="#{item}" target="#{tdVoteLazyDataModel.selectedRow}" />					
 				</app:iconDelete>					
 			</p:column>
+
+            <!--    <h:outputLink value="mailto:#{tdVoteLazyDataModel.emailList()}">
+            <f:param name="subject" value="Some subject" />
+            <f:param name="body" value="Some body" />
+            <h:outputText value="mail" />
+         </h:outputLink>   -->
+
 		</ui:define>
 	</app:search>
 </ui:define>

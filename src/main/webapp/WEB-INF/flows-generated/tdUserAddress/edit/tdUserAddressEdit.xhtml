@@ -24,7 +24,13 @@
 				<app:input id="zipCode" value="#{tdUserAddress.zipCode}" label="${msg.tdUserAddress_zipCode}" />
 				<app:input id="userDetailsId" value="#{tdUserAddress.userDetailsId}" label="${msg.tdUserAddress_userDetailsId}" />
 				<app:inputDateTime id="updationDate" value="#{tdUserAddress.updationDate}" label="${msg.tdUserAddress_updationDate}" />
-				<app:input id="isActive" value="#{tdUserAddress.isActive}" label="${msg.tdUserAddress_isActive}" />
+			<!--	<app:input id="isActive" value="#{tdUserAddress.isActive}" label="${msg.tdUserAddress_isActive}" />     -->
+                <appcc:outputLabel for="isActive" value="${msg.tdUserAddress_isActive}" />
+                  <p:selectOneRadio id="isActive" value="#{tdUserAddress.isActive}">
+                  <f:selectItem itemLabel="Active" itemValue="1" />
+                  <f:selectItem itemLabel="Inactive" itemValue="0" />
+                  </p:selectOneRadio>
+                <h:outputText value="#{tdUserAddress.isActive}" rendered="${readonly}"/>
 				<app:tdCountryAutoComplete id="country" value="#{tdUserAddress.country}" required="false" label="${msg.tdUserAddress_country}">
 					<app:iconSearch action="selectCountry" title="${msg.tdUserAddress_country} " />
 					<app:iconEdit action="editCountry" title="${msg.tdUserAddress_country}" />

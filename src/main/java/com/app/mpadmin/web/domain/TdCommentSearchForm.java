@@ -9,12 +9,7 @@ package com.app.mpadmin.web.domain;
 
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdComment_.commentCount;
-import static com.app.mpadmin.domain.TdComment_.commentStatus;
-import static com.app.mpadmin.domain.TdComment_.isActive;
-import static com.app.mpadmin.domain.TdComment_.topicId;
-import static com.app.mpadmin.domain.TdComment_.updationDate;
-import static com.app.mpadmin.domain.TdComment_.userId;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.Ranges.RangeDate;
@@ -23,6 +18,8 @@ import com.app.mpadmin.domain.TdComment;
 import com.app.mpadmin.web.domain.support.SearchFormBase;
 import static com.app.mpadmin.dao.support.EntitySelectors.TdTopicSelector.newTdTopicSelector;
 import static com.app.mpadmin.dao.support.EntitySelectors.TdUserAuthSelector.newTdUserAuthSelector;
+import static com.app.mpadmin.domain.TdComment_.*;
+
 import com.app.mpadmin.dao.support.EntitySelectors.TdTopicSelector;
 import com.app.mpadmin.dao.support.EntitySelectors.TdUserAuthSelector;
 /**
@@ -35,6 +32,7 @@ public class TdCommentSearchForm extends SearchFormBase {
 
     private TdComment tdComment = new TdComment();
     //private RangeInteger<TdComment> topicIdRange = newRangeInteger(topicId);
+    private RangeInteger<TdComment> commentIdRange = RangeInteger.newRangeInteger(commentId);
     private RangeInteger<TdComment> commentCountRange = newRangeInteger(commentCount);
     //private RangeInteger<TdComment> userIdRange = newRangeInteger(userId);
     private RangeDate<TdComment> updationDateRange = newRangeDate(updationDate);
@@ -50,6 +48,10 @@ public class TdCommentSearchForm extends SearchFormBase {
    /* public RangeInteger<TdComment> getTopicIdRange() {
         return topicIdRange;
     }*/
+    public RangeInteger<TdComment> getCommentIdRange(){
+        return commentIdRange;
+    }
+
 
     public RangeInteger<TdComment> getCommentCountRange() {
         return commentCountRange;

@@ -21,7 +21,13 @@
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:input id="firstname" value="#{tdUserDetail.firstname}" size="45" label="${msg.tdUserDetail_firstname}" maxlength="45"/>
 				<app:input id="lastname" value="#{tdUserDetail.lastname}" size="45" label="${msg.tdUserDetail_lastname}" maxlength="45"/>
-				<app:input id="isActive" value="#{tdUserDetail.isActive}" label="${msg.tdUserDetail_isActive}" />
+			<!--	<app:input id="isActive" value="#{tdUserDetail.isActive}" label="${msg.tdUserDetail_isActive}" />  -->
+                <appcc:outputLabel for="isActive" value="${msg.tdUserDetail_isActive}" />
+                  <p:selectOneRadio id="isActive" value="#{tdUserDetail.isActive}">
+                  <f:selectItem itemLabel="Active" itemValue="1" />
+                  <f:selectItem itemLabel="Inactive" itemValue="0" />
+                  </p:selectOneRadio>
+                <h:outputText value="#{tdUserDetail.isActive}" rendered="${readonly}"/>
 				<app:inputDate id="dob" value="#{tdUserDetail.dob}" label="${msg.tdUserDetail_dob}" />
 				<app:input id="phone" value="#{tdUserDetail.phone}" label="${msg.tdUserDetail_phone}" />
 				<app:input id="interest" value="#{tdUserDetail.interest}" size="45" label="${msg.tdUserDetail_interest}" maxlength="45"/>

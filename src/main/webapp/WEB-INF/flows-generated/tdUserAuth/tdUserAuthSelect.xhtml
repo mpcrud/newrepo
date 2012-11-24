@@ -16,7 +16,7 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">	
 <app:panelMenu title="${msg.tdUserAuth}">
 <ui:define name="content">
-	<app:search data="#{tdUserAuthLazyDataModel}" title="${msg.tdUserAuth}" selection="#{tduserAuthLazyDataModel.selectedList}" rowKey="#{item.userId}">
+	<app:search data="#{tdUserAuthLazyDataModel}" title="${msg.tdUserAuth}" selection="#{tdUserAuthLazyDataModel.selectedList}" rowKey="#{item.userId}">
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">

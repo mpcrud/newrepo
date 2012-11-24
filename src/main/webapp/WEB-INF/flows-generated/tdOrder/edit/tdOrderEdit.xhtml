@@ -25,7 +25,13 @@
 				<app:input id="orderFormNo" value="#{tdOrder.orderFormNo}" size="128" label="${msg.tdOrder_orderFormNo}" maxlength="128"/>
 				<app:input id="orderType" value="#{tdOrder.orderType}" label="${msg.tdOrder_orderType}" required="true" />
 				<app:input id="orderStatus" value="#{tdOrder.orderStatus}" label="${msg.tdOrder_orderStatus}" required="true" />
-				<app:input id="orderActive" value="#{tdOrder.orderActive}" label="${msg.tdOrder_orderActive}" required="true" />
+			<!--	<app:input id="orderActive" value="#{tdOrder.orderActive}" label="${msg.tdOrder_orderActive}" required="true" /> -->
+                <appcc:outputLabel for="orderActive" value="${msg.tdOrder_orderActive}" />
+                  <p:selectOneRadio id="orderActive" value="#{tdOrder.orderActive}">
+                  <f:selectItem itemLabel="Active" itemValue="1" />
+                  <f:selectItem itemLabel="Inactive" itemValue="0" />
+                  </p:selectOneRadio>
+                <h:outputText value="#{tdOrder.orderActive}" rendered="${readonly}"/>
 				<app:inputTextArea id="orderChangeHistory" value="#{tdOrder.orderChangeHistory}" label="${msg.tdOrder_orderChangeHistory}" />
 				<app:input id="orderPriority" value="#{tdOrder.orderPriority}" label="${msg.tdOrder_orderPriority}" />
 				<app:input id="orderCorporateType" value="#{tdOrder.orderCorporateType}" label="${msg.tdOrder_orderCorporateType}" />

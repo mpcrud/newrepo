@@ -22,7 +22,13 @@
 				<app:input id="username" value="#{tdUserAuth.username}" size="100" label="${msg.tdUserAuth_username}" required="true" />
 				<app:input id="email" value="#{tdUserAuth.email}" size="100" label="${msg.tdUserAuth_email}" required="true" />
 				<app:inputPassword id="userpassword" value="#{tdUserAuth.userpassword}" size="100" label="${msg.tdUserAuth_userpassword}" required="true" />
-				<app:input id="isActive" value="#{tdUserAuth.isActive}" label="${msg.tdUserAuth_isActive}" />
+			<!--	<app:input id="isActive" value="#{tdUserAuth.isActive}" label="${msg.tdUserAuth_isActive}" />   -->
+                <appcc:outputLabel for="isActive" value="${msg.tdUserAuth_isActive}" />
+                  <p:selectOneRadio id="isActive" value="#{tdUserAuth.isActive}">
+                  <f:selectItem itemLabel="Active" itemValue="1" />
+                  <f:selectItem itemLabel="Inactive" itemValue="0" />
+                  </p:selectOneRadio>
+                <h:outputText value="#{tdUserAuth.isActive}" rendered="${readonly}"/>
 				<app:inputDateTime id="updationDate" value="#{tdUserAuth.updationDate}" label="${msg.tdUserAuth_updationDate}" />
 				<app:tdRoleAutoComplete id="role" value="#{tdUserAuth.role}" required="false" label="${msg.tdUserAuth_role}">
 					<app:iconSearch action="selectRole" title="${msg.tdUserAuth_role} " />

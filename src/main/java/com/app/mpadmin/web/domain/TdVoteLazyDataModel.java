@@ -7,6 +7,7 @@
  */
 package com.app.mpadmin.web.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.inject.Inject;
@@ -31,7 +32,7 @@ public class TdVoteLazyDataModel extends GenericLazyDataModel<TdVote> {
     @Inject
     transient private TdVoteSearchForm tdVoteSearchForm;
 
-List<TdVote> datasource;
+    List<TdVote> datasource;
 
     @Override
     public TdVote getRowData(String rowKey) {
@@ -77,4 +78,5 @@ List<TdVote> datasource;
         datasource = tdVoteRepository.find(tdVote, sp);
         return datasource;
     }
-}
+
+    }

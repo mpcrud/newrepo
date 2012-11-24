@@ -25,7 +25,13 @@
 				<app:inputTextArea id="tagDesc" value="#{tdTag.tagDesc}" label="${msg.tdTag_tagDesc}" />
 				<app:input id="tagUrl" value="#{tdTag.tagUrl}" size="45" label="${msg.tdTag_tagUrl}" maxlength="45"/>
 				<app:inputDateTime id="updationDate" value="#{tdTag.updationDate}" label="${msg.tdTag_updationDate}" />
-				<app:input id="isActive" value="#{tdTag.isActive}" label="${msg.tdTag_isActive}" />
+			<!--	<app:input id="isActive" value="#{tdTag.isActive}" label="${msg.tdTag_isActive}" />    -->
+                <appcc:outputLabel for="isActive" value="${msg.tdTag_isActive}" />
+                  <p:selectOneRadio id="isActive" value="#{tdTag.isActive}">
+                  <f:selectItem itemLabel="Active" itemValue="1" />
+                  <f:selectItem itemLabel="Inactive" itemValue="0" />
+                  </p:selectOneRadio>
+                <h:outputText value="#{tdTag.isActive}" rendered="${readonly}"/>
 				<app:input id="tagStatus" value="#{tdTag.tagStatus}" label="${msg.tdTag_tagStatus}" />
 			</h:panelGrid>
 		</p:fieldset>

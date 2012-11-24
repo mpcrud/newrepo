@@ -19,6 +19,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlTransient;
 import org.apache.log4j.Logger;
@@ -145,7 +146,7 @@ public class TdPage implements Identifiable<Integer>, Serializable {
     }
 
     // -- [pageReferenceId] ------------------------
-
+    @NotNull
     @Column(name = "page_reference_id", precision = 10)
     public Integer getPageReferenceId() {
         return pageReferenceId;

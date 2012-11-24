@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="commentId" value="#{tdCommentSearchForm.commentIdRange}" label="${msg.tdComment_commentId}"/>
 				    <app:tdUserAuthMultiAutoComplete id="userSelector" value="#{tdCommentSearchForm.userSelector.selected}" label="${msg.tdComment_user}" />
 					<app:tdTopicMultiAutoComplete id="topicSelector" value="#{tdCommentSearchForm.topicSelector.selected}" label="${msg.tdComment_topic}" />
 				<!-- 	<app:rangeInt id="topicId" value="#{tdCommentSearchForm.topicIdRange}" label="${msg.tdComment_topicId}"/>-->
@@ -48,7 +49,7 @@
                        <f:setPropertyActionListener value="#{item}" target="#{tdCommentLazyDataModel.selectedRow}" />
 				</app:iconDelete>
 			</p:column>
-            <p:column id="tdComment_commentId" headerText="${msg.tdComment_commentId}">
+            <p:column id="tdComment_commentId" headerText="${msg.tdComment_commentId}" sortBy="#{item.commentId}">
 				<h:outputText value="#{item.commentId}" />
 			</p:column>
 	       <p:column id="tdComment_user" headerText="${msg.tdComment_user}">
@@ -58,7 +59,7 @@
               </p:commandLink>
 			</p:column>
 			<p:column id="tdComment_topic" headerText="${msg.tdComment_topic}">
-				<h:outputText value="#{tdTopicConverter.print(item.topic)}" />
+				<h:outputText value="#{item.topic.topicId}" />
 			</p:column>	
 		<!-- <p:column id="tdComment_topicId" headerText="${msg.tdComment_topicId}" sortBy="#{item.topicId}">
 				<h:outputText value="#{item.topicId}" />
@@ -82,7 +83,7 @@
 				<h:outputText value="#{item.isActive}" />
 			</p:column>
             <p:column id="tdComment_commentDesc" headerText="${msg.tdComment_commentDesc}" sortBy="#{item.commentDesc}">
-				<h:outputText value="#{item.commentDesc}" />
+				<h:outputText value="#{item.commentDesc}"/>
 			</p:column>
             <p:column id="tdComment_shortDesc" headerText="${msg.tdComment_shortDesc}" sortBy="#{item.shortDesc}">
 				<h:outputText value="#{item.shortDesc}" />

@@ -25,7 +25,13 @@
 				<app:inputTextArea id="makeAlternateName" value="#{tdMake.makeAlternateName}" label="${msg.tdMake_makeAlternateName}" />
 				<app:inputTextArea id="shortDesc" value="#{tdMake.shortDesc}" label="${msg.tdMake_shortDesc}" />
 				<app:input id="longDesc" value="#{tdMake.longDesc}" label="${msg.tdMake_longDesc}" />
-				<app:input id="isActive" value="#{tdMake.isActive}" label="${msg.tdMake_isActive}" />
+			<!--	<app:input id="isActive" value="#{tdMake.isActive}" label="${msg.tdMake_isActive}" />   -->
+                <appcc:outputLabel for="isActive" value="${msg.tdMake_isActive}" />
+                  <p:selectOneRadio id="isActive" value="#{tdMake.isActive}">
+                  <f:selectItem itemLabel="Active" itemValue="1" />
+                  <f:selectItem itemLabel="Inactive" itemValue="0" />
+                  </p:selectOneRadio>
+                <h:outputText value="#{tdMake.isActive}" rendered="${readonly}"/>
 				<app:input id="startingYearOps" value="#{tdMake.startingYearOps}" label="${msg.tdMake_startingYearOps}" />
 				<app:input id="representCountryId" value="#{tdMake.representCountryId}" label="${msg.tdMake_representCountryId}" />
 				<app:inputTextArea id="custom1" value="#{tdMake.custom1}" label="${msg.tdMake_custom1}" />

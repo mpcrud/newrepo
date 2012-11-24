@@ -16,7 +16,7 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">	
 <app:panelMenu title="${msg.tdCountry}">
 <ui:define name="content">
-	<app:search data="#{tdCountryLazyDataModel}" title="${msg.tdCountry}" selection="#{tdCountryLaztDataModel.selectedList}" rowKey="#{item.countryId}">
+	<app:search data="#{tdCountryLazyDataModel}" title="${msg.tdCountry}" selection="#{tdCountryLazyDataModel.selectedList}" rowKey="#{item.countryId}">
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">

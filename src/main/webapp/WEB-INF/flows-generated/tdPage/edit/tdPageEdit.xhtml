@@ -32,7 +32,13 @@
 				<app:inputTextArea id="pageH2" value="#{tdPage.pageH2}" label="${msg.tdPage_pageH2}" />
 				<app:inputTextArea id="pageBackLink1" value="#{tdPage.pageBackLink1}" label="${msg.tdPage_pageBackLink1}" />
 				<app:inputTextArea id="pageBackLink2" value="#{tdPage.pageBackLink2}" label="${msg.tdPage_pageBackLink2}" />
-				<app:input id="pageIsActive" value="#{tdPage.pageIsActive}" label="${msg.tdPage_pageIsActive}" />
+			<!--	<app:input id="pageIsActive" value="#{tdPage.pageIsActive}" label="${msg.tdPage_pageIsActive}" />  -->
+                <appcc:outputLabel for="pageIsActive" value="${msg.tdPage_pageIsActive}" />
+                  <p:selectOneRadio id="pageIsActive" value="#{tdPage.pageIsActive}">
+                  <f:selectItem itemLabel="Active" itemValue="1" />
+                  <f:selectItem itemLabel="Inactive" itemValue="0" />
+                  </p:selectOneRadio>
+                <h:outputText value="#{tdPage.pageIsActive}" rendered="${readonly}"/>
 				<app:input id="pagePriority" value="#{tdPage.pagePriority}" label="${msg.tdPage_pagePriority}" />
 				<app:inputDateTime id="updationDate" value="#{tdPage.updationDate}" label="${msg.tdPage_updationDate}" />
 				<app:input id="pageUserId" value="#{tdPage.pageUserId}" label="${msg.tdPage_pageUserId}" />

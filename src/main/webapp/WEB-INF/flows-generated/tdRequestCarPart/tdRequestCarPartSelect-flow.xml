@@ -60,16 +60,19 @@
 	</decision-state>
 
 
-   <view-state id="sendemail" view="/WEB-INF/flows/sendMail/sendMail.xhtml" model="flowscope.editor" >
+   <view-state id="sendemail" view="/WEB-INF/flows/sendMail/sendMail.xhtml" model="flowScope.editor">
        <on-entry>
     		<set name="editor" value="flowScope.editor" type="com.app.mpadmin.domain.Editor"/>
        </on-entry>
        <transition on="submitMail" to="mailSent">
-             <evaluate expression="editorController.sendMail(tdRequestCarPart)"/>
+             <evaluate expression="editorController.sendMail(editor)"/>
        </transition>
-       <transition on="cancel" to="mailSent"/>
+       <transition on="quit" to="mailSent"/>
    </view-state>
 
+   <!--  <action-state id="submitmail">
+          <evaluate expression="editorController.sendMail(editor)"/>
+     </action-state>   -->
 
  <!--   <subflow-state id="sendEmail" subflow="sendMail">
           <input name="sub" value="true" />

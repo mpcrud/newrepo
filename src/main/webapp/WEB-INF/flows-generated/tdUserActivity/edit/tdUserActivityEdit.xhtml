@@ -26,7 +26,13 @@
 				<app:input id="ipaddress" value="#{tdUserActivity.ipaddress}" size="8" label="${msg.tdUserActivity_ipaddress}" maxlength="8"/>
 				<app:input id="currentStatus" value="#{tdUserActivity.currentStatus}" label="${msg.tdUserActivity_currentStatus}" />
 				<app:inputDateTime id="updationDate" value="#{tdUserActivity.updationDate}" label="${msg.tdUserActivity_updationDate}" />
-				<app:input id="isActive" value="#{tdUserActivity.isActive}" label="${msg.tdUserActivity_isActive}" />
+			<!--	<app:input id="isActive" value="#{tdUserActivity.isActive}" label="${msg.tdUserActivity_isActive}" />     -->
+                <appcc:outputLabel for="isActive" value="${msg.tdUserActivity_isActive}" />
+                  <p:selectOneRadio id="isActive" value="#{tdUserActivity.isActive}">
+                  <f:selectItem itemLabel="Active" itemValue="1" />
+                  <f:selectItem itemLabel="Inactive" itemValue="0" />
+                  </p:selectOneRadio>
+                <h:outputText value="#{tdUserActivity.isActive}" rendered="${readonly}"/>
 				<app:input id="sessionPage" value="#{tdUserActivity.sessionPage}" label="${msg.tdUserActivity_sessionPage}" />
 				<app:tdUserAuthAutoComplete id="user" value="#{tdUserActivity.user}" required="false" label="${msg.tdUserActivity_user}">
 					<app:iconSearch action="selectUser" title="${msg.tdUserActivity_user} " />

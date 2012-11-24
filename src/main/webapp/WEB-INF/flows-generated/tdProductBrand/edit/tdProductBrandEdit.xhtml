@@ -40,7 +40,13 @@
 				<app:inputTextArea id="metaKeyword" value="#{tdProductBrand.metaKeyword}" label="${msg.tdProductBrand_metaKeyword}" />
 				<app:inputTextArea id="metaDescription" value="#{tdProductBrand.metaDescription}" label="${msg.tdProductBrand_metaDescription}" />
 				<app:inputDateTime id="updationDate" value="#{tdProductBrand.updationDate}" label="${msg.tdProductBrand_updationDate}" />
-				<app:input id="isActive" value="#{tdProductBrand.isActive}" label="${msg.tdProductBrand_isActive}" />
+			<!--	<app:input id="isActive" value="#{tdProductBrand.isActive}" label="${msg.tdProductBrand_isActive}" />    -->
+                <appcc:outputLabel for="isActive" value="${msg.tdProductBrand_isActive}" />
+                  <p:selectOneRadio id="isActive" value="#{tdProductBrand.isActive}">
+                  <f:selectItem itemLabel="Active" itemValue="1" />
+                  <f:selectItem itemLabel="Inactive" itemValue="0" />
+                  </p:selectOneRadio>
+                <h:outputText value="#{tdProductBrand.isActive}" rendered="${readonly}"/>
 			</h:panelGrid>
 		</p:fieldset>
 		<app:saveButton title="${msg.tdProductBrand}"/>
