@@ -75,6 +75,7 @@ List<TdTopic> datasource;
         sp.addRange(tdTopicSearchForm.getVoteCountRange());
         sp.addRange(tdTopicSearchForm.getCustomInt1Range());
         sp.addRange(tdTopicSearchForm.getCustomInt2Range());
+        sp.addRange(tdTopicSearchForm.getTopicIdRange());
 
         // entity selectors
         sp.clearEntitySelectors();

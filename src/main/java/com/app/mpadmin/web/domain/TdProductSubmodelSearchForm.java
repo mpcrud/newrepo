@@ -10,6 +10,7 @@ package com.app.mpadmin.web.domain;
 import static com.app.mpadmin.dao.support.EntitySelectors.TdProductSelector.newTdProductSelector;
 import static com.app.mpadmin.dao.support.EntitySelectors.TdSubmodelYearMappingSelector.newTdSubmodelYearMappingSelector;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
+import static com.app.mpadmin.domain.TdProductSubmodel_.productSubmodelId;
 import static com.app.mpadmin.domain.TdProductSubmodel_.submodelYearMappingId;
 import static com.app.mpadmin.domain.TdProductSubmodel_.productId;
 import org.springframework.context.annotation.Scope;
@@ -34,6 +35,7 @@ public class TdProductSubmodelSearchForm extends SearchFormBase {
    // private RangeInteger<TdProductSubmodel> productIdRange = newRangeInteger(productId);
     private TdProductSelector<TdProductSubmodel> productSelector = newTdProductSelector(productId);
     private TdSubmodelYearMappingSelector<TdProductSubmodel> submodelYearMappingSelector = newTdSubmodelYearMappingSelector(submodelYearMappingId);
+    private RangeInteger<TdProductSubmodel> productSubmodelIdRange = newRangeInteger(productSubmodelId);
 
     public TdProductSubmodel getTdProductSubmodel() {
         return tdProductSubmodel;
@@ -49,6 +51,9 @@ public class TdProductSubmodelSearchForm extends SearchFormBase {
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdProductSubmodel> getProductSubmodelIdRange() {
+        return productSubmodelIdRange;
+    }
  /*   public RangeInteger<TdProductSubmodel> getSubmodelYearMappingIdRange() {
         return submodelYearMappingIdRange;
     }

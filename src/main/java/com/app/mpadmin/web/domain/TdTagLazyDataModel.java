@@ -73,7 +73,7 @@ public class TdTagLazyDataModel extends GenericLazyDataModel<TdTag> {
         sp.addRange(tdTagSearchForm.getUpdationDateRange());
         sp.addRange(tdTagSearchForm.getIsActiveRange());
         sp.addRange(tdTagSearchForm.getTagStatusRange());
-
+        sp.addRange(tdTagSearchForm.getTagIdRange());
         TdTag tdTag = tdTagSearchForm.getTdTag();
         setRowCount(tdTagRepository.findCount(tdTag, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data

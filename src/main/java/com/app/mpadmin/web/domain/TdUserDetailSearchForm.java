@@ -10,12 +10,8 @@ package com.app.mpadmin.web.domain;
 import static com.app.mpadmin.dao.support.EntitySelectors.TdUserAuthSelector.newTdUserAuthSelector;
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdUserDetail_.credit;
-import static com.app.mpadmin.domain.TdUserDetail_.dob;
-import static com.app.mpadmin.domain.TdUserDetail_.isActive;
-import static com.app.mpadmin.domain.TdUserDetail_.phone;
-import static com.app.mpadmin.domain.TdUserDetail_.updationDate;
-import static com.app.mpadmin.domain.TdUserDetail_.userId;
+import static com.app.mpadmin.domain.TdUserDetail_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.EntitySelectors.TdUserAuthSelector;
@@ -39,12 +35,16 @@ public class TdUserDetailSearchForm extends SearchFormBase {
     private RangeDate<TdUserDetail> updationDateRange = newRangeDate(updationDate);
     private RangeInteger<TdUserDetail> creditRange = newRangeInteger(credit);
     private TdUserAuthSelector<TdUserDetail> userSelector = newTdUserAuthSelector(userId);
+    private RangeInteger<TdUserDetail> userDetailIdRange = newRangeInteger(userDetailsId);
 
     public TdUserDetail getTdUserDetail() {
         return tdUserDetail;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdUserDetail> getUserDetailIdRange(){
+        return userDetailIdRange;
+    }
     public RangeInteger<TdUserDetail> getIsActiveRange() {
         return isActiveRange;
     }

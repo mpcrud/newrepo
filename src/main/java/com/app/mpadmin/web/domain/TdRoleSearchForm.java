@@ -10,6 +10,7 @@ package com.app.mpadmin.web.domain;
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
 import static com.app.mpadmin.domain.TdRole_.isActive;
+import static com.app.mpadmin.domain.TdRole_.roleId;
 import static com.app.mpadmin.domain.TdRole_.updationDate;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -29,12 +30,16 @@ public class TdRoleSearchForm extends SearchFormBase {
     private TdRole tdRole = new TdRole();
     private RangeDate<TdRole> updationDateRange = newRangeDate(updationDate);
     private RangeInteger<TdRole> isActiveRange = newRangeInteger(isActive);
+    private RangeInteger<TdRole> roleIdRange = newRangeInteger(roleId);
 
     public TdRole getTdRole() {
         return tdRole;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdRole> getRoleIdRange(){
+        return roleIdRange;
+    }
     public RangeDate<TdRole> getUpdationDateRange() {
         return updationDateRange;
     }

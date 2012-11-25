@@ -64,7 +64,7 @@ public class TdUserAddressLazyDataModel extends GenericLazyDataModel<TdUserAddre
         sp.addRange(tdUserAddressSearchForm.getUserDetailsIdRange());
         sp.addRange(tdUserAddressSearchForm.getUpdationDateRange());
         sp.addRange(tdUserAddressSearchForm.getIsActiveRange());
-
+        sp.addRange(tdUserAddressSearchForm.getUserAddressIdRange());
         // entity selectors
         sp.clearEntitySelectors();
         sp.addEntitySelector(tdUserAddressSearchForm.getCountrySelector());

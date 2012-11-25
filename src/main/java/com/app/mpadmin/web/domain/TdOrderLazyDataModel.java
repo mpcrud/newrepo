@@ -115,7 +115,7 @@ List<TdOrder> datasource;
         sp.addRange(tdOrderSearchForm.getCustomint1Range());
         sp.addRange(tdOrderSearchForm.getCustomint2Range());
         sp.addRange(tdOrderSearchForm.getCarYearRange());
-
+        sp.addRange(tdOrderSearchForm.getOrderIdRange());
         // entity selectors
         sp.clearEntitySelectors();
         sp.addEntitySelector(tdOrderSearchForm.getBillingCitySelector());

@@ -10,22 +10,8 @@ package com.app.mpadmin.web.domain;
 import static com.app.mpadmin.dao.support.EntitySelectors.TdMakeSelector.newTdMakeSelector;
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdMakeModel_.bhp;
-import static com.app.mpadmin.domain.TdMakeModel_.bodyType;
-import static com.app.mpadmin.domain.TdMakeModel_.doorCount;
-import static com.app.mpadmin.domain.TdMakeModel_.engineCapacity;
-import static com.app.mpadmin.domain.TdMakeModel_.fuelDelivery;
-import static com.app.mpadmin.domain.TdMakeModel_.fuelType;
-import static com.app.mpadmin.domain.TdMakeModel_.gearCount;
-import static com.app.mpadmin.domain.TdMakeModel_.isActive;
-import static com.app.mpadmin.domain.TdMakeModel_.makeId;
-import static com.app.mpadmin.domain.TdMakeModel_.makemodelStatus;
-import static com.app.mpadmin.domain.TdMakeModel_.modelLaunchYear;
-import static com.app.mpadmin.domain.TdMakeModel_.torque;
-import static com.app.mpadmin.domain.TdMakeModel_.transmissionType;
-import static com.app.mpadmin.domain.TdMakeModel_.updationDate;
-import static com.app.mpadmin.domain.TdMakeModel_.valvesCount;
-import static com.app.mpadmin.domain.TdMakeModel_.wheeldriveType;
+import static com.app.mpadmin.domain.TdMakeModel_.*;
+
 import javax.persistence.metamodel.SingularAttribute;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -61,6 +47,7 @@ public class TdMakeModelSearchForm extends SearchFormBase {
     private RangeInteger<TdMakeModel> makemodelStatusRange = newRangeInteger(makemodelStatus);
     private RangeDate<TdMakeModel> updationDateRange = newRangeDate(updationDate);
     private TdMakeSelector<TdMakeModel> makeSelector = newTdMakeSelector(makeId);
+    private RangeInteger<TdMakeModel> makeModelIdRange  = RangeInteger.newRangeInteger(makeModelId);
 
     public TdMakeModel getTdMakeModel() {
         return tdMakeModel;
@@ -71,7 +58,10 @@ public class TdMakeModelSearchForm extends SearchFormBase {
         return makeIdRange;
     }*/
 
-    
+    public RangeInteger<TdMakeModel> getMakeModelIdRange() {
+        return makeModelIdRange;
+    }
+
 	public RangeInteger<TdMakeModel> getIsActiveRange() {
         return isActiveRange;
     }

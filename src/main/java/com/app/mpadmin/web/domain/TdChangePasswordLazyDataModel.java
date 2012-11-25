@@ -60,9 +60,12 @@ public class TdChangePasswordLazyDataModel extends GenericLazyDataModel<TdChange
 
         // ranges
         sp.clearRanges();
-        sp.addRange(tdChangePasswordSearchForm.getUseridRange());
+      //  sp.addRange(tdChangePasswordSearchForm.getUseridRange());
         sp.addRange(tdChangePasswordSearchForm.getIsActiveRange());
-
+        sp.addRange(tdChangePasswordSearchForm.getGuidIntRange());
+        sp.addRange(tdChangePasswordSearchForm.getChangePasswordIdRange());
+        sp.clearEntitySelectors();
+        sp.addEntitySelector(tdChangePasswordSearchForm.getUserSelector());
         TdChangePassword tdChangePassword = tdChangePasswordSearchForm.getTdChangePassword();
         setRowCount(tdChangePasswordRepository.findCount(tdChangePassword, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data

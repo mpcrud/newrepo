@@ -62,7 +62,7 @@ public class TdUserAuthLazyDataModel extends GenericLazyDataModel<TdUserAuth> {
         sp.clearRanges();
         sp.addRange(tdUserAuthSearchForm.getIsActiveRange());
         sp.addRange(tdUserAuthSearchForm.getUpdationDateRange());
-
+        sp.addRange(tdUserAuthSearchForm.getUserIdRange());
         // entity selectors
         sp.clearEntitySelectors();
         sp.addEntitySelector(tdUserAuthSearchForm.getRoleSelector());

@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="stateId" value="#{tdStateSearchForm.stateIdRange}" label="${msg.tdState_stateId}"/>
 					<app:input id="stateName" value="#{tdStateSearchForm.tdState.stateName}" label="${msg.tdState_stateName}"/>
 					<app:rangeInt id="importance" value="#{tdStateSearchForm.importanceRange}" label="${msg.tdState_importance}"/>
 					<app:tdCountryMultiAutoComplete id="countrySelector" value="#{tdStateSearchForm.countrySelector.selected}" label="${msg.tdState_country}" />

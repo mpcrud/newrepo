@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="requestId" value="#{tdRequestCarPartSearchForm.requestCarPartIdRange}" label="${msg.tdRequestCarPart_requestId}"/>
 					<app:input id="requestSource" value="#{tdRequestCarPartSearchForm.tdRequestCarPart.requestSource}" label="${msg.tdRequestCarPart_requestSource}"/>
 					<app:rangeDateTime id="lastUpdateDate" value="#{tdRequestCarPartSearchForm.lastUpdateDateRange}" label="${msg.tdRequestCarPart_lastUpdateDate}" />
 					<app:input id="carMake" value="#{tdRequestCarPartSearchForm.tdRequestCarPart.carMake}" label="${msg.tdRequestCarPart_carMake}"/>
@@ -43,17 +44,17 @@
 			</f:validateBean>
 		</ui:define>
         <ui:define name="multiOptions">
-        <p:menuButton value="Options">
-        <p:menuitem value="Change Status" icon="ui-icon-arrowrefresh-1-w" action="updateAll"/>
-        <p:menuitem value="Delete" icon="ui-icon-close" ajax="false" action="deleteAll"/>
-        <p:menuitem value="Send Mail" ajax="true" action="sendEmail">
+     <!--   <p:menuButton value="Options"> -->
+        <p:commandButton value="Change Status" icon="ui-icon-arrowrefresh-1-w" action="updateAll"/>
+        <p:commandButton value="Delete" icon="ui-icon-close" ajax="false" action="deleteAll"/>
+        <p:commandButton value="Send Mail" ajax="true" action="sendEmail">   <br/>
          <!--   <h:outputLink value="mailto:#{tdRequestCarpartLazyDataModel.emailList()}">
             <f:param name="subject" value="Some subject" />
             <f:param name="body" value="Some body" />
-            <h:outputText value="mail" />
+           <h:outputText value="mail" />
          </h:outputLink> -->
-        </p:menuitem>
-        </p:menuButton>
+        </p:commandButton>
+      <!--  </p:menuButton>  -->
         </ui:define>
 		<ui:define name="result">
             <p:column selectionMode="multiple" style="width:18px"/>

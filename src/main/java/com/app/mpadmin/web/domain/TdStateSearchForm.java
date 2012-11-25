@@ -10,9 +10,8 @@ package com.app.mpadmin.web.domain;
 import static com.app.mpadmin.dao.support.EntitySelectors.TdCountrySelector.newTdCountrySelector;
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdState_.countryId;
-import static com.app.mpadmin.domain.TdState_.importance;
-import static com.app.mpadmin.domain.TdState_.updationDate;
+import static com.app.mpadmin.domain.TdState_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.EntitySelectors.TdCountrySelector;
@@ -33,12 +32,16 @@ public class TdStateSearchForm extends SearchFormBase {
     private RangeInteger<TdState> importanceRange = newRangeInteger(importance);
     private RangeDate<TdState> updationDateRange = newRangeDate(updationDate);
     private TdCountrySelector<TdState> countrySelector = newTdCountrySelector(countryId);
+    private RangeInteger<TdState> stateIdRange = newRangeInteger(stateId);
 
     public TdState getTdState() {
         return tdState;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdState> getStateIdRange(){
+        return stateIdRange;
+    }
     public RangeInteger<TdState> getImportanceRange() {
         return importanceRange;
     }

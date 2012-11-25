@@ -11,13 +11,8 @@ import static com.app.mpadmin.dao.support.EntitySelectors.TdTopicSelector.newTdT
 import static com.app.mpadmin.dao.support.EntitySelectors.TdUserAuthSelector.newTdUserAuthSelector;
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdVote_.commentId;
-import static com.app.mpadmin.domain.TdVote_.isActive;
-import static com.app.mpadmin.domain.TdVote_.topicId;
-import static com.app.mpadmin.domain.TdVote_.updationDate;
-import static com.app.mpadmin.domain.TdVote_.userId;
-import static com.app.mpadmin.domain.TdVote_.voteStatus;
-import static com.app.mpadmin.domain.TdVote_.voteType;
+import static com.app.mpadmin.domain.TdVote_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.EntitySelectors.TdTopicSelector;
@@ -43,12 +38,16 @@ public class TdVoteSearchForm extends SearchFormBase {
     private RangeInteger<TdVote> commentIdRange = newRangeInteger(commentId);
     private TdUserAuthSelector<TdVote> userSelector = newTdUserAuthSelector(userId);
     private TdTopicSelector<TdVote> topicSelector = newTdTopicSelector(topicId);
+    private RangeInteger<TdVote> voteIdRange = newRangeInteger(voteId);
 
     public TdVote getTdVote() {
         return tdVote;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdVote> getVoteIdRange(){
+        return voteIdRange;
+    }
     public RangeInteger<TdVote> getVoteTypeRange() {
         return voteTypeRange;
     }

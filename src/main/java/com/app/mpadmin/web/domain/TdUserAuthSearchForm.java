@@ -10,9 +10,8 @@ package com.app.mpadmin.web.domain;
 import static com.app.mpadmin.dao.support.EntitySelectors.TdRoleSelector.newTdRoleSelector;
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdUserAuth_.isActive;
-import static com.app.mpadmin.domain.TdUserAuth_.roleId;
-import static com.app.mpadmin.domain.TdUserAuth_.updationDate;
+import static com.app.mpadmin.domain.TdUserAuth_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.EntitySelectors.TdRoleSelector;
@@ -33,12 +32,16 @@ public class TdUserAuthSearchForm extends SearchFormBase {
     private RangeInteger<TdUserAuth> isActiveRange = newRangeInteger(isActive);
     private RangeDate<TdUserAuth> updationDateRange = newRangeDate(updationDate);
     private TdRoleSelector<TdUserAuth> roleSelector = newTdRoleSelector(roleId);
+    private RangeInteger<TdUserAuth> userIdRange = newRangeInteger(userId);
 
     public TdUserAuth getTdUserAuth() {
         return tdUserAuth;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdUserAuth> getUserIdRange(){
+        return userIdRange;
+    }
     public RangeInteger<TdUserAuth> getIsActiveRange() {
         return isActiveRange;
     }

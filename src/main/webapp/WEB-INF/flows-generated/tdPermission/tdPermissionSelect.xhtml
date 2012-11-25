@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="permissionId" value="#{tdPermissionSearchForm.permissionIdRange}" label="${msg.tdPermission_permissionId}"/>
 					<app:input id="permissionName" value="#{tdPermissionSearchForm.tdPermission.permissionName}" label="${msg.tdPermission_permissionName}"/>
 					<app:rangeDateTime id="updationDate" value="#{tdPermissionSearchForm.updationDateRange}" label="${msg.tdPermission_updationDate}" />
 				</h:panelGrid>

@@ -7,9 +7,13 @@
  */
 package com.app.mpadmin.web.domain;
 
+import static com.app.mpadmin.dao.support.EntitySelectors.TdUserAuthSelector.newTdUserAuthSelector;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
+import static com.app.mpadmin.domain.TdChangePassword_.guidInt;
 import static com.app.mpadmin.domain.TdChangePassword_.isActive;
 import static com.app.mpadmin.domain.TdChangePassword_.userid;
+
+import com.app.mpadmin.dao.support.EntitySelectors;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.Ranges.RangeInteger;
@@ -25,19 +29,33 @@ public class TdChangePasswordSearchForm extends SearchFormBase {
     private static final long serialVersionUID = 1L;
 
     private TdChangePassword tdChangePassword = new TdChangePassword();
-    private RangeInteger<TdChangePassword> useridRange = newRangeInteger(userid);
+  //  private RangeInteger<TdChangePassword> useridRange = newRangeInteger(userid);
     private RangeInteger<TdChangePassword> isActiveRange = newRangeInteger(isActive);
+    private RangeInteger<TdChangePassword> changePasswordIdRange = RangeInteger.newRangeInteger(guidInt);
+    private EntitySelectors.TdUserAuthSelector<TdChangePassword> userSelector = newTdUserAuthSelector(userid);
 
     public TdChangePassword getTdChangePassword() {
         return tdChangePassword;
     }
 
     // Ranges, used from the view.
-    public RangeInteger<TdChangePassword> getUseridRange() {
+  /*  public RangeInteger<TdChangePassword> getUseridRange() {
         return useridRange;
+    }   */
+    public RangeInteger<TdChangePassword> getChangePasswordIdRange(){
+        return changePasswordIdRange;
     }
+
+    public EntitySelectors.TdUserAuthSelector<TdChangePassword> getUserSelector() {
+        return userSelector;
+    }
+
 
     public RangeInteger<TdChangePassword> getIsActiveRange() {
         return isActiveRange;
+    }
+
+    public RangeInteger<TdChangePassword> getGuidIntRange(){
+        return changePasswordIdRange;
     }
 }

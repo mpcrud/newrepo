@@ -9,19 +9,8 @@ package com.app.mpadmin.web.domain;
 
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdCity_.customtable1;
-import static com.app.mpadmin.domain.TdCity_.customtable2;
-import static com.app.mpadmin.domain.TdCity_.customtable3;
-import static com.app.mpadmin.domain.TdCity_.customtable4;
-import static com.app.mpadmin.domain.TdCity_.destinationRank;
-import static com.app.mpadmin.domain.TdCity_.destinationType;
-import static com.app.mpadmin.domain.TdCity_.flag;
-import static com.app.mpadmin.domain.TdCity_.importance;
-import static com.app.mpadmin.domain.TdCity_.isResource;
-import static com.app.mpadmin.domain.TdCity_.isSupportedBy;
-import static com.app.mpadmin.domain.TdCity_.metroId;
-import static com.app.mpadmin.domain.TdCity_.populationRank;
-import static com.app.mpadmin.domain.TdCity_.updationDate;
+import static com.app.mpadmin.domain.TdCity_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.Ranges.RangeDate;
@@ -51,6 +40,7 @@ public class TdCitySearchForm extends SearchFormBase {
     private RangeInteger<TdCity> customtable3Range = newRangeInteger(customtable3);
     private RangeInteger<TdCity> customtable4Range = newRangeInteger(customtable4);
     private RangeDate<TdCity> updationDateRange = newRangeDate(updationDate);
+    private RangeInteger<TdCity> cityIdRange = RangeInteger.newRangeInteger(cityId);
 
     public TdCity getTdCity() {
         return tdCity;
@@ -79,6 +69,10 @@ public class TdCitySearchForm extends SearchFormBase {
 
     public RangeInteger<TdCity> getMetroIdRange() {
         return metroIdRange;
+    }
+
+    public RangeInteger<TdCity> getCityIdRange(){
+        return cityIdRange;
     }
 
     public RangeInteger<TdCity> getIsResourceRange() {

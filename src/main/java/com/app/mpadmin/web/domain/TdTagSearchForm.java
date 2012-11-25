@@ -9,11 +9,8 @@ package com.app.mpadmin.web.domain;
 
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdTag_.isActive;
-import static com.app.mpadmin.domain.TdTag_.tagPriority;
-import static com.app.mpadmin.domain.TdTag_.tagStatus;
-import static com.app.mpadmin.domain.TdTag_.tagType;
-import static com.app.mpadmin.domain.TdTag_.updationDate;
+import static com.app.mpadmin.domain.TdTag_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.Ranges.RangeDate;
@@ -35,12 +32,16 @@ public class TdTagSearchForm extends SearchFormBase {
     private RangeDate<TdTag> updationDateRange = newRangeDate(updationDate);
     private RangeInteger<TdTag> isActiveRange = newRangeInteger(isActive);
     private RangeInteger<TdTag> tagStatusRange = newRangeInteger(tagStatus);
+    private RangeInteger<TdTag> tagIdRange = newRangeInteger(tagId);
 
     public TdTag getTdTag() {
         return tdTag;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdTag> getTagIdRange(){
+        return tagIdRange;
+    }
     public RangeInteger<TdTag> getTagPriorityRange() {
         return tagPriorityRange;
     }

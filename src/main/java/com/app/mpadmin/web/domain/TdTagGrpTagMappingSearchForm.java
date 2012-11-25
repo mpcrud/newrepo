@@ -10,6 +10,7 @@ package com.app.mpadmin.web.domain;
 import static com.app.mpadmin.dao.support.EntitySelectors.TdTagSelector.newTdTagSelector;
 import static com.app.mpadmin.dao.support.EntitySelectors.TdTagGrpSelector.newTdTagGrpSelector;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
+import static com.app.mpadmin.domain.TdTagGrpTagMapping_.grpTagMappingId;
 import static com.app.mpadmin.domain.TdTagGrpTagMapping_.tagGrpId;
 import static com.app.mpadmin.domain.TdTagGrpTagMapping_.tagId;
 
@@ -37,12 +38,17 @@ public class TdTagGrpTagMappingSearchForm extends SearchFormBase {
    // private RangeInteger<TdTagGrpTagMapping> tagIdRange = newRangeInteger(tagId);
     private TdTagGrpSelector<TdTagGrpTagMapping> tagGrpSelector = newTdTagGrpSelector(tagGrpId);
     private TdTagSelector<TdTagGrpTagMapping> tagSelector = newTdTagSelector(tagId);
+    private RangeInteger<TdTagGrpTagMapping> tagGrptagMappingIdRange = newRangeInteger(grpTagMappingId);
 
     public TdTagGrpTagMapping getTdTagGrpTagMapping() {
         return tdTagGrpTagMapping;
     }
 
+
     // Ranges, used from the view.
+    public RangeInteger<TdTagGrpTagMapping> getTagGrpTagMappingIdRange() {
+        return tagGrptagMappingIdRange;
+    }
    /* public RangeInteger<TdTagGrpTagMapping> getTagGrpIdRange() {
         return tagGrpIdRange;
     }

@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="productBrandId" value="#{tdProductBrandSearchForm.productBrandIdRange}" label="${msg.tdProductBrand_brandId}"/>
 					<app:input id="brandDisplayName" value="#{tdProductBrandSearchForm.tdProductBrand.brandDisplayName}" label="${msg.tdProductBrand_brandDisplayName}"/>
 					<app:input id="brandAlternateName" value="#{tdProductBrandSearchForm.tdProductBrand.brandAlternateName}" label="${msg.tdProductBrand_brandAlternateName}"/>
 					<app:input id="shortDesc" value="#{tdProductBrandSearchForm.tdProductBrand.shortDesc}" label="${msg.tdProductBrand_shortDesc}"/>

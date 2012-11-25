@@ -13,14 +13,8 @@ import static com.app.mpadmin.dao.support.EntitySelectors.TdMetroSelector.newTdM
 import static com.app.mpadmin.dao.support.EntitySelectors.TdStateSelector.newTdStateSelector;
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdUserAddress_.cityId;
-import static com.app.mpadmin.domain.TdUserAddress_.countryId;
-import static com.app.mpadmin.domain.TdUserAddress_.isActive;
-import static com.app.mpadmin.domain.TdUserAddress_.metroId;
-import static com.app.mpadmin.domain.TdUserAddress_.stateId;
-import static com.app.mpadmin.domain.TdUserAddress_.updationDate;
-import static com.app.mpadmin.domain.TdUserAddress_.userDetailsId;
-import static com.app.mpadmin.domain.TdUserAddress_.zipCode;
+import static com.app.mpadmin.domain.TdUserAddress_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.EntitySelectors.TdCitySelector;
@@ -49,12 +43,16 @@ public class TdUserAddressSearchForm extends SearchFormBase {
     private TdStateSelector<TdUserAddress> stateSelector = newTdStateSelector(stateId);
     private TdCitySelector<TdUserAddress> citySelector = newTdCitySelector(cityId);
     private TdMetroSelector<TdUserAddress> metroSelector = newTdMetroSelector(metroId);
+    private RangeInteger<TdUserAddress> userAddressIdRange = newRangeInteger(userAddressId);
 
     public TdUserAddress getTdUserAddress() {
         return tdUserAddress;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdUserAddress> getUserAddressIdRange() {
+        return userAddressIdRange;
+    }
     public RangeInteger<TdUserAddress> getZipCodeRange() {
         return zipCodeRange;
     }

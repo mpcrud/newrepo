@@ -81,7 +81,7 @@ public class EditorController {
                         if(null==to) {
                             to="contact@motrpart.in";
                         }
-                        messageUtil.info("status_saved_ok","Trying to send mail with subject="+subject+"body "+content);
+                    //    messageUtil.info("status_saved_ok","Trying to send mail with subject="+subject+"body "+content);
                         //String bcc= ServerProperties.getInstance().getApplicationProperty(Constants.SEND_QUOTE_TO_ADDRESS);
                         msg.addRecipients(javax.mail.Message.RecipientType.TO,to);
                         //msg.addRecipients(javax.mail.Message.RecipientType.BCC,bcc);

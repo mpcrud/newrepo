@@ -13,48 +13,9 @@ import static com.app.mpadmin.dao.support.PropertySelectors.BooleanSelector.newB
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeFloat.newRangeFloat;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdProduct_.bestSeller;
-import static com.app.mpadmin.domain.TdProduct_.bookableOffline;
-import static com.app.mpadmin.domain.TdProduct_.bookableOnline;
-import static com.app.mpadmin.domain.TdProduct_.customint1;
-import static com.app.mpadmin.domain.TdProduct_.customint2;
-import static com.app.mpadmin.domain.TdProduct_.customint3;
-import static com.app.mpadmin.domain.TdProduct_.dealerPrice;
-import static com.app.mpadmin.domain.TdProduct_.deliveryType;
-import static com.app.mpadmin.domain.TdProduct_.discount;
-import static com.app.mpadmin.domain.TdProduct_.height1;
-import static com.app.mpadmin.domain.TdProduct_.height2;
-import static com.app.mpadmin.domain.TdProduct_.innerDia1;
-import static com.app.mpadmin.domain.TdProduct_.innerDia2;
-import static com.app.mpadmin.domain.TdProduct_.internalRating;
-import static com.app.mpadmin.domain.TdProduct_.mrpPrice;
-import static com.app.mpadmin.domain.TdProduct_.noOfHoles1;
-import static com.app.mpadmin.domain.TdProduct_.noOfHoles2;
-import static com.app.mpadmin.domain.TdProduct_.noOfOuterThread1;
-import static com.app.mpadmin.domain.TdProduct_.noOfOuterThread2;
-import static com.app.mpadmin.domain.TdProduct_.noOfTeeth1;
-import static com.app.mpadmin.domain.TdProduct_.noOfTeeth2;
-import static com.app.mpadmin.domain.TdProduct_.outerDia1;
-import static com.app.mpadmin.domain.TdProduct_.outerDia2;
-import static com.app.mpadmin.domain.TdProduct_.plateDiameter;
-import static com.app.mpadmin.domain.TdProduct_.productAgeDistance;
-import static com.app.mpadmin.domain.TdProduct_.productAgeTime;
-import static com.app.mpadmin.domain.TdProduct_.productSegmentType;
-import static com.app.mpadmin.domain.TdProduct_.productShipmentId;
-import static com.app.mpadmin.domain.TdProduct_.productStatus;
-import static com.app.mpadmin.domain.TdProduct_.productSupplierId;
-import static com.app.mpadmin.domain.TdProduct_.quantityOfFit;
-import static com.app.mpadmin.domain.TdProduct_.recommendedProduct;
-import static com.app.mpadmin.domain.TdProduct_.requiredQuantity;
-import static com.app.mpadmin.domain.TdProduct_.thickness1;
-import static com.app.mpadmin.domain.TdProduct_.thickness2;
-import static com.app.mpadmin.domain.TdProduct_.uniformAcrossMake;
-import static com.app.mpadmin.domain.TdProduct_.uniformAcrossModel;
-import static com.app.mpadmin.domain.TdProduct_.uniformAcrossSubmodel;
-import static com.app.mpadmin.domain.TdProduct_.uniformAcrossYear;
-import static com.app.mpadmin.domain.TdProduct_.updationDate;
-import static com.app.mpadmin.domain.TdProduct_.width1;
-import static com.app.mpadmin.domain.TdProduct_.width2;
+import static com.app.mpadmin.domain.TdProduct_.*;
+
+import com.app.mpadmin.domain.TdProductBrand;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -120,6 +81,7 @@ public class TdProductSearchForm extends SearchFormBase {
     private BooleanSelector<TdProduct> productStatusSelector = newBooleanSelector(productStatus);
     private TdProductShipmentSelector<TdProduct> productShipmentSelector = newTdProductShipmentSelector(productShipmentId);
     private TdProductSupplierSelector<TdProduct> productSupplierSelector = newTdProductSupplierSelector(productSupplierId);
+    private RangeInteger<TdProduct> productIdRange = newRangeInteger(productId);
 
     public TdProduct getTdProduct() {
         return tdProduct;
@@ -133,6 +95,9 @@ public class TdProductSearchForm extends SearchFormBase {
     public RangeInteger<TdProduct> getProductShipmentIdRange() {
         return productShipmentIdRange;
     }*/
+    public RangeInteger<TdProduct> getProductIdRange(){
+        return productIdRange;
+    }
 
     public RangeInteger<TdProduct> getProductAgeTimeRange() {
         return productAgeTimeRange;

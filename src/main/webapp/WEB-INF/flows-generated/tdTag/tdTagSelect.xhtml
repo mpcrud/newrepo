@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="tagId" value="#{tdTagSearchForm.tagIdRange}" label="${msg.tdTag_tagId}"/>
 					<app:input id="tagTitle" value="#{tdTagSearchForm.tdTag.tagTitle}" label="${msg.tdTag_tagTitle}"/>
 					<app:rangeInt id="tagPriority" value="#{tdTagSearchForm.tagPriorityRange}" label="${msg.tdTag_tagPriority}"/>
 					<app:rangeInt id="tagType" value="#{tdTagSearchForm.tagTypeRange}" label="${msg.tdTag_tagType}"/>
@@ -32,10 +33,10 @@
 			</f:validateBean>
 		</ui:define>
         <ui:define name="multiOptions">
-        <p:menuButton value="Options">
-        <p:menuitem value="Change Status" icon="ui-icon-arrowrefresh-1-w" action="updateAll"/>
-        <p:menuitem value="Delete" icon="ui-icon-close" ajax="false" action="deleteAll"/>
-        </p:menuButton>
+      <!--  <p:menuButton value="Options">   -->
+        <p:commandButton value="Change Status" icon="ui-icon-arrowrefresh-1-w" action="updateAll"/>
+        <p:commandButton value="Delete" icon="ui-icon-close" ajax="false" action="deleteAll"/>    <br/>
+    <!--    </p:menuButton>   -->
         </ui:define>
 		<ui:define name="result">
             <p:column selectionMode="multiple" style="width:18px"/>

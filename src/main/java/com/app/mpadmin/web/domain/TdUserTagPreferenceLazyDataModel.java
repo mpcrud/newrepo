@@ -61,7 +61,7 @@ List<TdUserTagPreference> datasource;
         // ranges
         sp.clearRanges();
         sp.addRange(tdUserTagPreferenceSearchForm.getUpdationDateRange());
-
+        sp.addRange(tdUserTagPreferenceSearchForm.getUserTagPreferenceIdRange());
         // entity selectors
         sp.clearEntitySelectors();
         sp.addEntitySelector(tdUserTagPreferenceSearchForm.getUserSelector());

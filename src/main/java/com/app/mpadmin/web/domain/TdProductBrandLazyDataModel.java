@@ -63,7 +63,7 @@ List<TdProductBrand> datasource;
         sp.addRange(tdProductBrandSearchForm.getInternalRatingRange());
         sp.addRange(tdProductBrandSearchForm.getUpdationDateRange());
         sp.addRange(tdProductBrandSearchForm.getIsActiveRange());
-
+        sp.addRange(tdProductBrandSearchForm.getProductBrandIdRange());
         // property selectors
         sp.clearPropertySelectors();
         sp.addPropertySelector(tdProductBrandSearchForm.getBrandStatusSelector());

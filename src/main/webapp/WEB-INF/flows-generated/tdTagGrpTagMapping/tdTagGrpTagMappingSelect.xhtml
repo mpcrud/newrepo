@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                <app:rangeInt id="tagGrpTagMappingId" value="#{tdTagGrpTagMappingSearchForm.tagGrpTagMappingIdRange}" label="${msg.tdTagGrpTagMapping_grpTagMappingId}"/>
 				<app:tdTagGrpMultiAutoComplete id="tagGrpSelector" value="#{tdTagGrpTagMappingSearchForm.tagGrpSelector.selected}" label="${msg.tdTagGrpTagMapping_tagGrp}" />
 				<app:tdTagMultiAutoComplete id="tagSelector" value="#{tdTagGrpTagMappingSearchForm.tagSelector.selected}" label="${msg.tdTagGrpTagMapping_tag}" />
 				<!-- 	<app:rangeInt id="tagGrpId" value="#{tdTagGrpTagMappingSearchForm.tagGrpIdRange}" label="${msg.tdTagGrpTagMapping_tagGrpId}"/>

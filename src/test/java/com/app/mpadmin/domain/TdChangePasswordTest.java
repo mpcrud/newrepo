@@ -68,8 +68,9 @@ public class TdChangePasswordTest {
         model1.setGuidChar("dddddddddddddddddddddddddddddddddddd");
         model2.setGuidChar("dddddddddddddddddddddddddddddddddddd");
 
-        model1.setUserid(1);
-        model2.setUserid(1);
+      //  model1.setUserid(1);
+      //  model2.setUserid(1);
+
 
         model1.setCreationDate(new Date());
         model2.setCreationDate(new Date());

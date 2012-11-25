@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="pictureId" value="#{tdPictureSearchForm.pictureIdRange}" label="${msg.tdPicture_pictureId}"></app:rangeInt>
 					<app:input id="pictureName" value="#{tdPictureSearchForm.tdPicture.pictureName}" label="${msg.tdPicture_pictureName}"/>
 					<app:input id="pictureShortDesc" value="#{tdPictureSearchForm.tdPicture.pictureShortDesc}" label="${msg.tdPicture_pictureShortDesc}"/>
 					<app:input id="pictureLongDesc" value="#{tdPictureSearchForm.tdPicture.pictureLongDesc}" label="${msg.tdPicture_pictureLongDesc}"/>

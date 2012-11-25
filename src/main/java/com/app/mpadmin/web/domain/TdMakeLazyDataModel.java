@@ -64,7 +64,7 @@ public class TdMakeLazyDataModel extends GenericLazyDataModel<TdMake> {
         sp.addRange(tdMakeSearchForm.getRepresentCountryIdRange());
         sp.addRange(tdMakeSearchForm.getMakeStatusRange());
         sp.addRange(tdMakeSearchForm.getUpdationDateRange());
-
+        sp.addRange(tdMakeSearchForm.getMakeIdRange());
         TdMake tdMake = tdMakeSearchForm.getTdMake();
         setRowCount(tdMakeRepository.findCount(tdMake, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data

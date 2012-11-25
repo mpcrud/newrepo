@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="pageId" value="#{tdPageSearchForm.pageIdRange}" label="${msg.tdPage_pageId}"/>
                     <app:input id="pageHeading" value="#{tdPageSearchForm.tdPage.pageHeading}" label="${msg.tdPage_pageHeading}"/>
 					<app:input id="pageShortDesc" value="#{tdPageSearchForm.tdPage.pageShortDesc}" label="${msg.tdPage_pageShortDesc}"/>
 					<app:inputTextArea id="pageLongDesc" value="#{tdPageSearchForm.tdPage.pageLongDesc}" label="${msg.tdPage_pageLongDesc}"/>

@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="userAddressId" value="#{tdUserAddressSearchForm.userAddressIdRange}" label="${msg.tdUserAddress_userAddressId}"/>
 					<app:input id="address1" value="#{tdUserAddressSearchForm.tdUserAddress.address1}" label="${msg.tdUserAddress_address1}"/>
 					<app:input id="address2" value="#{tdUserAddressSearchForm.tdUserAddress.address2}" label="${msg.tdUserAddress_address2}"/>
 					<app:tdCityMultiAutoComplete id="citySelector" value="#{tdUserAddressSearchForm.citySelector.selected}" label="${msg.tdUserAddress_city}" />

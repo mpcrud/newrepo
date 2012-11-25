@@ -10,22 +10,8 @@ package com.app.mpadmin.web.domain;
 import static com.app.mpadmin.dao.support.EntitySelectors.TdUserAuthSelector.newTdUserAuthSelector;
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdTopic_.assignedSince;
-import static com.app.mpadmin.domain.TdTopic_.assignedToUser;
-import static com.app.mpadmin.domain.TdTopic_.commentCount;
-import static com.app.mpadmin.domain.TdTopic_.customInt1;
-import static com.app.mpadmin.domain.TdTopic_.customInt2;
-import static com.app.mpadmin.domain.TdTopic_.expiryDate;
-import static com.app.mpadmin.domain.TdTopic_.facebookCount;
-import static com.app.mpadmin.domain.TdTopic_.isActive;
-import static com.app.mpadmin.domain.TdTopic_.isFeatured;
-import static com.app.mpadmin.domain.TdTopic_.parentTopicId;
-import static com.app.mpadmin.domain.TdTopic_.topicStatus;
-import static com.app.mpadmin.domain.TdTopic_.twitterCount;
-import static com.app.mpadmin.domain.TdTopic_.updationDate;
-import static com.app.mpadmin.domain.TdTopic_.userId;
-import static com.app.mpadmin.domain.TdTopic_.viewCount;
-import static com.app.mpadmin.domain.TdTopic_.voteCount;
+import static com.app.mpadmin.domain.TdTopic_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.EntitySelectors.TdUserAuthSelector;
@@ -59,12 +45,16 @@ public class TdTopicSearchForm extends SearchFormBase {
     private RangeInteger<TdTopic> customInt1Range = newRangeInteger(customInt1);
     private RangeInteger<TdTopic> customInt2Range = newRangeInteger(customInt2);
     private TdUserAuthSelector<TdTopic> userSelector = newTdUserAuthSelector(userId);
+    private RangeInteger<TdTopic> topicIdRange = newRangeInteger(topicId);
 
     public TdTopic getTdTopic() {
         return tdTopic;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdTopic>  getTopicIdRange(){
+        return topicIdRange;
+    }
     public RangeInteger<TdTopic> getViewCountRange() {
         return viewCountRange;
     }

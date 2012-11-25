@@ -8,7 +8,11 @@
 package com.app.mpadmin.web.domain;
 
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
+import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
+import static com.app.mpadmin.domain.TdPermission_.permissionId;
 import static com.app.mpadmin.domain.TdPermission_.updationDate;
+
+import com.app.mpadmin.dao.support.Ranges;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.Ranges.RangeDate;
@@ -25,12 +29,16 @@ public class TdPermissionSearchForm extends SearchFormBase {
 
     private TdPermission tdPermission = new TdPermission();
     private RangeDate<TdPermission> updationDateRange = newRangeDate(updationDate);
+    private Ranges.RangeInteger<TdPermission> permissionIdRange = newRangeInteger(permissionId);
 
     public TdPermission getTdPermission() {
         return tdPermission;
     }
 
     // Ranges, used from the view.
+    public Ranges.RangeInteger<TdPermission> getPermissionIdRange(){
+        return permissionIdRange;
+    }
     public RangeDate<TdPermission> getUpdationDateRange() {
         return updationDateRange;
     }

@@ -65,6 +65,7 @@ public class TdTagGrpLazyDataModel extends GenericLazyDataModel<TdTagGrp> {
         sp.addRange(tdTagGrpSearchForm.getIsActiveRange());
         sp.addRange(tdTagGrpSearchForm.getTagGrpStatusRange());
         sp.addRange(tdTagGrpSearchForm.getReferenceTypeRange());
+        sp.addRange(tdTagGrpSearchForm.getTagGrpIdRange());
         sp.clearEntitySelectors();
         sp.addEntitySelector(tdTagGrpSearchForm.getProductSelector());
         sp.addEntitySelector(tdTagGrpSearchForm.getTopicSelector());

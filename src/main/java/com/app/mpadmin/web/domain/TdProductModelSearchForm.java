@@ -12,6 +12,8 @@ import static com.app.mpadmin.dao.support.EntitySelectors.TdProductSelector.newT
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
 import static com.app.mpadmin.domain.TdProductModel_.makeModelId;
 import static com.app.mpadmin.domain.TdProductModel_.productId;
+import static com.app.mpadmin.domain.TdProductModel_.productModelId;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -35,6 +37,7 @@ public class TdProductModelSearchForm extends SearchFormBase {
     private TdProductSelector<TdProductModel> productSelector = newTdProductSelector(productId);
     //private RangeInteger<TdProductModel> makeModelIdRange = newRangeInteger(makeModelId);
     //private RangeInteger<TdProductModel> productIdRange = newRangeInteger(productId);
+    private RangeInteger<TdProductModel> productModelIdRange = newRangeInteger(productModelId);
 
     public TdProductModel getTdProductModel() {
         return tdProductModel;
@@ -48,6 +51,10 @@ public class TdProductModelSearchForm extends SearchFormBase {
     
     public TdProductSelector<TdProductModel> getProductSelector() {
         return productSelector;
+    }
+
+    public RangeInteger<TdProductModel> getProductModelIdRange() {
+        return productModelIdRange;
     }
 
     // Ranges, used from the view.

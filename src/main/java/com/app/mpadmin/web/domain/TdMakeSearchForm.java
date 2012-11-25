@@ -9,11 +9,8 @@ package com.app.mpadmin.web.domain;
 
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdMake_.isActive;
-import static com.app.mpadmin.domain.TdMake_.makeStatus;
-import static com.app.mpadmin.domain.TdMake_.representCountryId;
-import static com.app.mpadmin.domain.TdMake_.startingYearOps;
-import static com.app.mpadmin.domain.TdMake_.updationDate;
+import static com.app.mpadmin.domain.TdMake_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.Ranges.RangeDate;
@@ -35,12 +32,16 @@ public class TdMakeSearchForm extends SearchFormBase {
     private RangeInteger<TdMake> representCountryIdRange = newRangeInteger(representCountryId);
     private RangeInteger<TdMake> makeStatusRange = newRangeInteger(makeStatus);
     private RangeDate<TdMake> updationDateRange = newRangeDate(updationDate);
+    private RangeInteger<TdMake> makeIdRange = RangeInteger.newRangeInteger(makeId);
 
     public TdMake getTdMake() {
         return tdMake;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdMake> getMakeIdRange(){
+        return makeIdRange;
+    }
     public RangeInteger<TdMake> getIsActiveRange() {
         return isActiveRange;
     }

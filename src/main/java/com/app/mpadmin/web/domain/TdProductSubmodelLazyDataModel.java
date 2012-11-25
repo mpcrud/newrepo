@@ -60,6 +60,7 @@ List<TdProductSubmodel> datasource;
 
         // ranges
         sp.clearRanges();
+        sp.addRange(tdProductSubmodelSearchForm.getProductSubmodelIdRange());
        // sp.addRange(tdProductSubmodelSearchForm.getSubmodelYearMappingIdRange());
        // sp.addRange(tdProductSubmodelSearchForm.getProductIdRange());
      // entity selectors

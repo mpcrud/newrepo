@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="userId" value="#{tdUserAuthSearchForm.userIdRange}" label="${msg.tdUserAuth_userId}"/>
 					<app:input id="username" value="#{tdUserAuthSearchForm.tdUserAuth.username}" label="${msg.tdUserAuth_username}"/>
 					<app:input id="email" value="#{tdUserAuthSearchForm.tdUserAuth.email}" label="${msg.tdUserAuth_email}"/>
 					<app:input id="userpassword" value="#{tdUserAuthSearchForm.tdUserAuth.userpassword}" label="${msg.tdUserAuth_userpassword}"/>

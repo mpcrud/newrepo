@@ -61,6 +61,7 @@ public class TdTagGrpTagMappingLazyDataModel extends GenericLazyDataModel<TdTagG
 
         // ranges
         sp.clearRanges();
+        sp.addRange(tdTagGrpTagMappingSearchForm.getTagGrpTagMappingIdRange());
        // sp.addRange(tdTagGrpTagMappingSearchForm.getTagGrpIdRange());
        // sp.addRange(tdTagGrpTagMappingSearchForm.getTagIdRange());
         sp.clearEntitySelectors();

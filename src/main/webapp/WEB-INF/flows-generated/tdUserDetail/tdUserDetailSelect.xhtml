@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="userDetailsId" value="#{tdUserDetailSearchForm.userDetailIdRange}" label="${msg.tdUserDetail_userDetailsId}"/>
 					<app:tdUserAuthMultiAutoComplete id="userSelector" value="#{tdUserDetailSearchForm.userSelector.selected}" label="${msg.tdUserDetail_user}" />
 					<app:input id="firstname" value="#{tdUserDetailSearchForm.tdUserDetail.firstname}" label="${msg.tdUserDetail_firstname}"/>
 					<app:input id="lastname" value="#{tdUserDetailSearchForm.tdUserDetail.lastname}" label="${msg.tdUserDetail_lastname}"/>

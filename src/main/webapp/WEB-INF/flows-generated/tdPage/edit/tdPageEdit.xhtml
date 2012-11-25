@@ -22,7 +22,7 @@
 				<app:input id="pageHeading" value="#{tdPage.pageHeading}" label="${msg.tdPage_pageHeading}" maxlength="50"/>
 				<app:input id="pageShortDesc" value="#{tdPage.pageShortDesc}" label="${msg.tdPage_pageShortDesc}" maxlength="150"/>
 				<app:inputTextArea id="pageLongDesc" value="#{tdPage.pageLongDesc}" label="${msg.tdPage_pageLongDesc}" />
-				<app:input id="pageType" value="#{tdPage.pageType}" label="${msg.tdPage_pageType}" />
+				<app:input id="pageType" value="#{tdPage.pageType}" label="${msg.tdPage_pageType}" required="true" requiredMessage="Enter integer value for page type"/>
 				<app:input id="pageReferenceId" value="#{tdPage.pageReferenceId}" label="${msg.tdPage_pageReferenceId}" />
 				<app:inputTextArea id="pageSeoUrl" value="#{tdPage.pageSeoUrl}" label="${msg.tdPage_pageSeoUrl}" />
 				<app:inputTextArea id="pageSeoKeyword" value="#{tdPage.pageSeoKeyword}" label="${msg.tdPage_pageSeoKeyword}" />

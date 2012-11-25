@@ -62,7 +62,7 @@ List<TdRole> datasource;
         sp.clearRanges();
         sp.addRange(tdRoleSearchForm.getUpdationDateRange());
         sp.addRange(tdRoleSearchForm.getIsActiveRange());
-
+        sp.addRange(tdRoleSearchForm.getRoleIdRange());
         TdRole tdRole = tdRoleSearchForm.getTdRole();
         setRowCount(tdRoleRepository.findCount(tdRole, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data

@@ -10,15 +10,8 @@ package com.app.mpadmin.web.domain;
 import static com.app.mpadmin.dao.support.EntitySelectors.TdUserAuthSelector.newTdUserAuthSelector;
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdUserActivity_.currentStatus;
-import static com.app.mpadmin.domain.TdUserActivity_.duration;
-import static com.app.mpadmin.domain.TdUserActivity_.isActive;
-import static com.app.mpadmin.domain.TdUserActivity_.replyCount;
-import static com.app.mpadmin.domain.TdUserActivity_.sessionPage;
-import static com.app.mpadmin.domain.TdUserActivity_.updationDate;
-import static com.app.mpadmin.domain.TdUserActivity_.userId;
-import static com.app.mpadmin.domain.TdUserActivity_.userLogintime;
-import static com.app.mpadmin.domain.TdUserActivity_.viewCount;
+import static com.app.mpadmin.domain.TdUserActivity_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.EntitySelectors.TdUserAuthSelector;
@@ -45,12 +38,16 @@ public class TdUserActivitySearchForm extends SearchFormBase {
     private RangeInteger<TdUserActivity> isActiveRange = newRangeInteger(isActive);
     private RangeInteger<TdUserActivity> sessionPageRange = newRangeInteger(sessionPage);
     private TdUserAuthSelector<TdUserActivity> userSelector = newTdUserAuthSelector(userId);
+    private RangeInteger<TdUserActivity> userActivityIdRange = newRangeInteger(userActivityId);
 
     public TdUserActivity getTdUserActivity() {
         return tdUserActivity;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdUserActivity> getUserActivityIdRange(){
+        return userActivityIdRange;
+    }
     public RangeDate<TdUserActivity> getUserLogintimeRange() {
         return userLogintimeRange;
     }

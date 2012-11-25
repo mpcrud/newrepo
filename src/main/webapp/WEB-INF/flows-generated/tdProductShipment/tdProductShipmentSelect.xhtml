@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="productShipmentId" value="#{tdProductShipmentSearchForm.productShipmentIdRange}" label="${msg.tdProductShipment_productShipmentId}"/>
 					<app:tdShipmentVendorMultiAutoComplete id="shipmentVendorSelector" value="#{tdProductShipmentSearchForm.shipmentVendorSelector.selected}" label="${msg.tdProductShipment_shipmentVendor}" />
 					<app:rangeFloat id="shipmentMrpCost" value="#{tdProductShipmentSearchForm.shipmentMrpCostRange}" label="${msg.tdProductShipment_shipmentMrpCost}" />
 					<app:rangeFloat id="shipmentDiscount" value="#{tdProductShipmentSearchForm.shipmentDiscountRange}" label="${msg.tdProductShipment_shipmentDiscount}" />

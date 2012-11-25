@@ -66,7 +66,7 @@ public class TdProductModelLazyDataModel extends GenericLazyDataModel<TdProductM
         sp.clearEntitySelectors();
         sp.addEntitySelector(tdProductModelSearchForm.getMakeModelSelector());
         sp.addEntitySelector(tdProductModelSearchForm.getProductSelector());
-
+        sp.addRange(tdProductModelSearchForm.getProductModelIdRange());
         TdProductModel tdProductModel = tdProductModelSearchForm.getTdProductModel();
         setRowCount(tdProductModelRepository.findCount(tdProductModel, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data

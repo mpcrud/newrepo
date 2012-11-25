@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="userActivityEventId" value="#{tdUserActivityEventSearchForm.userActivityEventIdRange}" label="${msg.tdUserActivityEvent_userActivityEventId}"/>
 					<app:tdUserActivityMultiAutoComplete id="userActivitySelector" value="#{tdUserActivityEventSearchForm.userActivitySelector.selected}" label="${msg.tdUserActivityEvent_userActivity}" />
 					<app:input id="userActivityName" value="#{tdUserActivityEventSearchForm.tdUserActivityEvent.userActivityName}" label="${msg.tdUserActivityEvent_userActivityName}"/>
 					<app:input id="userEventName" value="#{tdUserActivityEventSearchForm.tdUserActivityEvent.userEventName}" label="${msg.tdUserActivityEvent_userEventName}"/>

@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="productShipmentId" value="#{tdProductSearchForm.productIdRange}" label="${msg.tdProduct_productId}"/>
                    <app:tdProductShipmentMultiAutoComplete id="productShipmentSelector" value="#{tdProductSearchForm.productShipmentSelector.selected}" label="${msg.tdProduct_productShipment}" />
 				    <app:tdProductSupplierMultiAutoComplete id="productSupplierSelector" value="#{tdProductSearchForm.productSupplierSelector.selected}" label="${msg.tdProduct_productSupplier}" />				
 				<!-- 	<app:rangeInt id="productSupplierId" value="#{tdProductSearchForm.productSupplierIdRange}" label="${msg.tdProduct_productSupplierId}"/> -->

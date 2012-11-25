@@ -62,7 +62,7 @@ public class TdSubmodelYearMappingLazyDataModel extends GenericLazyDataModel<TdS
         sp.clearRanges();
         sp.addRange(tdSubmodelYearMappingSearchForm.getMakeSubmodelIdRange());
         sp.addRange(tdSubmodelYearMappingSearchForm.getModelLaunchYearRange());
-
+        sp.addRange(tdSubmodelYearMappingSearchForm.getMappingIdRange());
         TdSubmodelYearMapping tdSubmodelYearMapping = tdSubmodelYearMappingSearchForm.getTdSubmodelYearMapping();
         setRowCount(tdSubmodelYearMappingRepository.findCount(tdSubmodelYearMapping, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data

@@ -62,6 +62,7 @@ public class TdStateLazyDataModel extends GenericLazyDataModel<TdState> {
         sp.clearRanges();
         sp.addRange(tdStateSearchForm.getImportanceRange());
         sp.addRange(tdStateSearchForm.getUpdationDateRange());
+        sp.addRange(tdStateSearchForm.getStateIdRange());
 
         // entity selectors
         sp.clearEntitySelectors();

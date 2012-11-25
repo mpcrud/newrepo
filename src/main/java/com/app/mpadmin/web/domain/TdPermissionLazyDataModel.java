@@ -61,7 +61,7 @@ public class TdPermissionLazyDataModel extends GenericLazyDataModel<TdPermission
         // ranges
         sp.clearRanges();
         sp.addRange(tdPermissionSearchForm.getUpdationDateRange());
-
+        sp.addRange(tdPermissionSearchForm.getPermissionIdRange());
         TdPermission tdPermission = tdPermissionSearchForm.getTdPermission();
         setRowCount(tdPermissionRepository.findCount(tdPermission, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data

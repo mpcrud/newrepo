@@ -20,7 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
-					<app:input id="countryId" value="#{tdCountrySearchForm.tdCountry.countryId}" label="${msg.tdCountry_countryId}"/>
+					<app:rangeInt id="countryId" value="#{tdCountrySearchForm.countryIdRange}" label="${msg.tdCountry_countryId}"/>
 					<app:input id="countryName" value="#{tdCountrySearchForm.tdCountry.countryName}" label="${msg.tdCountry_countryName}"/>
 					<app:rangeInt id="importance" value="#{tdCountrySearchForm.importanceRange}" label="${msg.tdCountry_importance}"/>
 					<app:rangeInt id="countryCode" value="#{tdCountrySearchForm.countryCodeRange}" label="${msg.tdCountry_countryCode}"/>

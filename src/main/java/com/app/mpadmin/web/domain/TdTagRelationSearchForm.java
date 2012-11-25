@@ -10,11 +10,8 @@ package com.app.mpadmin.web.domain;
 import static com.app.mpadmin.dao.support.EntitySelectors.TdTagSelector.newTdTagSelector;
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdTagRelation_.currentTagId;
-import static com.app.mpadmin.domain.TdTagRelation_.isActive;
-import static com.app.mpadmin.domain.TdTagRelation_.parentTagId;
-import static com.app.mpadmin.domain.TdTagRelation_.tagStatus;
-import static com.app.mpadmin.domain.TdTagRelation_.updationDate;
+import static com.app.mpadmin.domain.TdTagRelation_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.EntitySelectors.TdTagSelector;
@@ -37,12 +34,17 @@ public class TdTagRelationSearchForm extends SearchFormBase {
     private RangeInteger<TdTagRelation> isActiveRange = newRangeInteger(isActive);
     private TdTagSelector<TdTagRelation> parentTagSelector = newTdTagSelector(parentTagId);
     private TdTagSelector<TdTagRelation> currentTagSelector = newTdTagSelector(currentTagId);
+    private RangeInteger<TdTagRelation>  tagRelationIdRange =newRangeInteger(tagRelationId);
 
     public TdTagRelation getTdTagRelation() {
         return tdTagRelation;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdTagRelation> getTagRelationIdRange() {
+            return tagRelationIdRange;
+        }
+
     public RangeDate<TdTagRelation> getUpdationDateRange() {
         return updationDateRange;
     }

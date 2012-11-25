@@ -64,7 +64,7 @@ List<TdRequestCarPart> datasource;
         sp.addRange(tdRequestCarPartSearchForm.getLastUpdateDateRange());
         sp.addRange(tdRequestCarPartSearchForm.getCarYearRange());
         sp.addRange(tdRequestCarPartSearchForm.getRequestStatusRange());
-
+        sp.addRange(tdRequestCarPartSearchForm.getRequestCarPartIdRange());
         TdRequestCarPart tdRequestCarPart = tdRequestCarPartSearchForm.getTdRequestCarPart();
         setRowCount(tdRequestCarPartRepository.findCount(tdRequestCarPart, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data

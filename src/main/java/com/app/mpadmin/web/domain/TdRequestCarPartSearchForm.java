@@ -9,9 +9,8 @@ package com.app.mpadmin.web.domain;
 
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdRequestCarPart_.carYear;
-import static com.app.mpadmin.domain.TdRequestCarPart_.lastUpdateDate;
-import static com.app.mpadmin.domain.TdRequestCarPart_.requestStatus;
+import static com.app.mpadmin.domain.TdRequestCarPart_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.Ranges.RangeDate;
@@ -31,12 +30,17 @@ public class TdRequestCarPartSearchForm extends SearchFormBase {
     private RangeDate<TdRequestCarPart> lastUpdateDateRange = newRangeDate(lastUpdateDate);
     private RangeInteger<TdRequestCarPart> carYearRange = newRangeInteger(carYear);
     private RangeInteger<TdRequestCarPart> requestStatusRange = newRangeInteger(requestStatus);
+    private RangeInteger<TdRequestCarPart> requestCarPartIdRange = newRangeInteger(requestId);
 
     public TdRequestCarPart getTdRequestCarPart() {
         return tdRequestCarPart;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdRequestCarPart> getRequestCarPartIdRange(){
+        return requestCarPartIdRange;
+    }
+
     public RangeDate<TdRequestCarPart> getLastUpdateDateRange() {
         return lastUpdateDateRange;
     }

@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="tagGrpId" value="#{tdTagGrpSearchForm.tagGrpIdRange}" label="${msg.tdTagGrp_tagGrpId}"/>
 					<app:rangeInt id="referenceId" value="#{tdTagGrpSearchForm.referenceIdRange}" label="${msg.tdTagGrp_referenceId}"/>
 					<app:rangeDateTime id="updationDate" value="#{tdTagGrpSearchForm.updationDateRange}" label="${msg.tdTagGrp_updationDate}" />
 					<app:rangeInt id="isActive" value="#{tdTagGrpSearchForm.isActiveRange}" label="${msg.tdTagGrp_isActive}"/>

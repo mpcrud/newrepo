@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="orderId" value="#{tdOrderSearchForm.orderIdRange}" label="${msg.tdOrder_orderId}"/>
 					<app:rangeInt id="billingId" value="#{tdOrderSearchForm.billingIdRange}" label="${msg.tdOrder_billingId}"/>
 					<app:rangeInt id="invoiceId" value="#{tdOrderSearchForm.invoiceIdRange}" label="${msg.tdOrder_invoiceId}"/>
 					<app:tdUserAuthMultiAutoComplete id="userSelector" value="#{tdOrderSearchForm.userSelector.selected}" label="${msg.tdOrder_user}" />
@@ -139,10 +140,10 @@
 			</f:validateBean>
 		</ui:define>
         <ui:define name="multiOptions">
-        <p:menuButton value="Options">
-        <p:menuitem value="Change Status" icon="ui-icon-arrowrefresh-1-w" action="updateAll"/>
-        <p:menuitem value="Delete" icon="ui-icon-close" ajax="false" action="deleteAll"/>
-        </p:menuButton>
+       <!-- <p:menuButton value="Options">  -->
+        <p:commandButton value="Change Status" icon="ui-icon-arrowrefresh-1-w" action="updateAll"/>
+        <p:commandButton value="Delete" icon="ui-icon-close" ajax="false" action="deleteAll"/>   <br/>
+     <!--   </p:menuButton>    -->
         </ui:define>
 		<ui:define name="result">
            <p:column selectionMode="multiple" style="width:18px"/>

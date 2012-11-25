@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="metroId" value="#{tdMetroSearchForm.metroIdRange}" label="${msg.tdMetro_metroId}"/>
 					<app:input id="metroName" value="#{tdMetroSearchForm.tdMetro.metroName}" label="${msg.tdMetro_metroName}"/>
 					<app:input id="metroName2" value="#{tdMetroSearchForm.tdMetro.metroName2}" label="${msg.tdMetro_metroName2}"/>
 					<app:input id="metroName3" value="#{tdMetroSearchForm.tdMetro.metroName3}" label="${msg.tdMetro_metroName3}"/>

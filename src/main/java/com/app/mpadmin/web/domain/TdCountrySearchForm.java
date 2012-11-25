@@ -9,11 +9,8 @@ package com.app.mpadmin.web.domain;
 
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdCountry_.countryCode;
-import static com.app.mpadmin.domain.TdCountry_.countryCode2;
-import static com.app.mpadmin.domain.TdCountry_.importance;
-import static com.app.mpadmin.domain.TdCountry_.isdCode;
-import static com.app.mpadmin.domain.TdCountry_.updationDate;
+import static com.app.mpadmin.domain.TdCountry_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.Ranges.RangeDate;
@@ -35,6 +32,7 @@ public class TdCountrySearchForm extends SearchFormBase {
     private RangeInteger<TdCountry> countryCode2Range = newRangeInteger(countryCode2);
     private RangeInteger<TdCountry> isdCodeRange = newRangeInteger(isdCode);
     private RangeDate<TdCountry> updationDateRange = newRangeDate(updationDate);
+    private RangeInteger<TdCountry> countryIdRange = RangeInteger.newRangeInteger(countryId);
 
     public TdCountry getTdCountry() {
         return tdCountry;
@@ -47,6 +45,10 @@ public class TdCountrySearchForm extends SearchFormBase {
 
     public RangeInteger<TdCountry> getCountryCodeRange() {
         return countryCodeRange;
+    }
+
+    public RangeInteger<TdCountry> getCountryIdRange(){
+        return countryIdRange;
     }
 
     public RangeInteger<TdCountry> getCountryCode2Range() {

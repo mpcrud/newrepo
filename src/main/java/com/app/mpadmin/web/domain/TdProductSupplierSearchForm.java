@@ -10,10 +10,8 @@ package com.app.mpadmin.web.domain;
 import static com.app.mpadmin.dao.support.PropertySelectors.BooleanSelector.newBooleanSelector;
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdProductSupplier_.productSupplierRating;
-import static com.app.mpadmin.domain.TdProductSupplier_.productSupplierStatus;
-import static com.app.mpadmin.domain.TdProductSupplier_.productSupplierType;
-import static com.app.mpadmin.domain.TdProductSupplier_.updationDate;
+import static com.app.mpadmin.domain.TdProductSupplier_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.PropertySelectors.BooleanSelector;
@@ -35,12 +33,15 @@ public class TdProductSupplierSearchForm extends SearchFormBase {
     private RangeInteger<TdProductSupplier> productSupplierTypeRange = newRangeInteger(productSupplierType);
     private RangeDate<TdProductSupplier> updationDateRange = newRangeDate(updationDate);
     private BooleanSelector<TdProductSupplier> productSupplierStatusSelector = newBooleanSelector(productSupplierStatus);
-
+    private RangeInteger<TdProductSupplier> productSupplierIdRange  = newRangeInteger(productSupplierId);
     public TdProductSupplier getTdProductSupplier() {
         return tdProductSupplier;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdProductSupplier> getProductSupplierIdRange(){
+        return productSupplierIdRange;
+    }
     public RangeInteger<TdProductSupplier> getProductSupplierRatingRange() {
         return productSupplierRatingRange;
     }

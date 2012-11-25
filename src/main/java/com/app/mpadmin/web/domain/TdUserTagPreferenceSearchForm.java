@@ -10,9 +10,9 @@ package com.app.mpadmin.web.domain;
 import static com.app.mpadmin.dao.support.EntitySelectors.TdTagSelector.newTdTagSelector;
 import static com.app.mpadmin.dao.support.EntitySelectors.TdUserAuthSelector.newTdUserAuthSelector;
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
-import static com.app.mpadmin.domain.TdUserTagPreference_.tagId;
-import static com.app.mpadmin.domain.TdUserTagPreference_.updationDate;
-import static com.app.mpadmin.domain.TdUserTagPreference_.userId;
+import static com.app.mpadmin.domain.TdUserTagPreference_.*;
+
+import com.app.mpadmin.dao.support.Ranges;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.EntitySelectors.TdTagSelector;
@@ -33,12 +33,16 @@ public class TdUserTagPreferenceSearchForm extends SearchFormBase {
     private RangeDate<TdUserTagPreference> updationDateRange = newRangeDate(updationDate);
     private TdUserAuthSelector<TdUserTagPreference> userSelector = newTdUserAuthSelector(userId);
     private TdTagSelector<TdUserTagPreference> tagSelector = newTdTagSelector(tagId);
+    private Ranges.RangeInteger<TdUserTagPreference> userTagPreferenceIdRange = Ranges.RangeInteger.newRangeInteger(userTagPreferenceId);
 
     public TdUserTagPreference getTdUserTagPreference() {
         return tdUserTagPreference;
     }
 
     // Ranges, used from the view.
+    public Ranges.RangeInteger<TdUserTagPreference> getUserTagPreferenceIdRange(){
+        return userTagPreferenceIdRange;
+    }
     public RangeDate<TdUserTagPreference> getUpdationDateRange() {
         return updationDateRange;
     }

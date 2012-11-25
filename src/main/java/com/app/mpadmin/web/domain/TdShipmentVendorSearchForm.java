@@ -11,12 +11,8 @@ import static com.app.mpadmin.dao.support.PropertySelectors.BooleanSelector.newB
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeFloat.newRangeFloat;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdShipmentVendor_.shipmentDuration;
-import static com.app.mpadmin.domain.TdShipmentVendor_.shipmentVendorStandardDiscount;
-import static com.app.mpadmin.domain.TdShipmentVendor_.shipmentVendorStandardMrpCost;
-import static com.app.mpadmin.domain.TdShipmentVendor_.shipmentVendorStatus;
-import static com.app.mpadmin.domain.TdShipmentVendor_.shipmentVendorType;
-import static com.app.mpadmin.domain.TdShipmentVendor_.updationDate;
+import static com.app.mpadmin.domain.TdShipmentVendor_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.PropertySelectors.BooleanSelector;
@@ -41,12 +37,16 @@ public class TdShipmentVendorSearchForm extends SearchFormBase {
     private RangeInteger<TdShipmentVendor> shipmentVendorTypeRange = newRangeInteger(shipmentVendorType);
     private RangeDate<TdShipmentVendor> updationDateRange = newRangeDate(updationDate);
     private BooleanSelector<TdShipmentVendor> shipmentVendorStatusSelector = newBooleanSelector(shipmentVendorStatus);
+    private RangeInteger<TdShipmentVendor> shipmentVendorIdRange = newRangeInteger(shipmentVendorId);
 
     public TdShipmentVendor getTdShipmentVendor() {
         return tdShipmentVendor;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdShipmentVendor> getShipmentVendorIdRange(){
+        return shipmentVendorIdRange;
+    }
     public RangeFloat<TdShipmentVendor> getShipmentVendorStandardMrpCostRange() {
         return shipmentVendorStandardMrpCostRange;
     }

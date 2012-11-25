@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="voteId" value="#{tdVoteSearchForm.voteIdRange}" label="${msg.tdVote_voteId}"/>
 					<app:tdUserAuthMultiAutoComplete id="userSelector" value="#{tdVoteSearchForm.userSelector.selected}" label="${msg.tdVote_user}" />
 					<app:tdTopicMultiAutoComplete id="topicSelector" value="#{tdVoteSearchForm.topicSelector.selected}" label="${msg.tdVote_topic}" />
 					<app:rangeInt id="voteType" value="#{tdVoteSearchForm.voteTypeRange}" label="${msg.tdVote_voteType}"/>

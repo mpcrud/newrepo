@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="roleId" value="#{tdRoleSearchForm.roleIdRange}" label="${msg.tdRole_roleId}"/>
 					<app:input id="roleName" value="#{tdRoleSearchForm.tdRole.roleName}" label="${msg.tdRole_roleName}"/>
 					<app:rangeDateTime id="updationDate" value="#{tdRoleSearchForm.updationDateRange}" label="${msg.tdRole_updationDate}" />
 					<app:rangeInt id="isActive" value="#{tdRoleSearchForm.isActiveRange}" label="${msg.tdRole_isActive}"/>

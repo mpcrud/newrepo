@@ -64,7 +64,7 @@ public class TdCountryLazyDataModel extends GenericLazyDataModel<TdCountry> {
         sp.addRange(tdCountrySearchForm.getCountryCode2Range());
         sp.addRange(tdCountrySearchForm.getIsdCodeRange());
         sp.addRange(tdCountrySearchForm.getUpdationDateRange());
-
+        sp.addRange(tdCountrySearchForm.getCountryIdRange());
         TdCountry tdCountry = tdCountrySearchForm.getTdCountry();
         setRowCount(tdCountryRepository.findCount(tdCountry, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data

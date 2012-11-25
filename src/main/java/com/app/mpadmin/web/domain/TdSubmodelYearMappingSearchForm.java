@@ -10,6 +10,8 @@ package com.app.mpadmin.web.domain;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
 import static com.app.mpadmin.domain.TdSubmodelYearMapping_.makeSubmodelId;
 import static com.app.mpadmin.domain.TdSubmodelYearMapping_.modelLaunchYear;
+import static com.app.mpadmin.domain.TdSubmodelYearMapping_.submodelYearMappingId;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.Ranges.RangeInteger;
@@ -27,12 +29,16 @@ public class TdSubmodelYearMappingSearchForm extends SearchFormBase {
     private TdSubmodelYearMapping tdSubmodelYearMapping = new TdSubmodelYearMapping();
     private RangeInteger<TdSubmodelYearMapping> makeSubmodelIdRange = newRangeInteger(makeSubmodelId);
     private RangeInteger<TdSubmodelYearMapping> modelLaunchYearRange = newRangeInteger(modelLaunchYear);
+    private RangeInteger<TdSubmodelYearMapping> mappingIdRange = newRangeInteger(submodelYearMappingId);
 
     public TdSubmodelYearMapping getTdSubmodelYearMapping() {
         return tdSubmodelYearMapping;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdSubmodelYearMapping> getMappingIdRange(){
+        return  mappingIdRange;
+    }
     public RangeInteger<TdSubmodelYearMapping> getMakeSubmodelIdRange() {
         return makeSubmodelIdRange;
     }

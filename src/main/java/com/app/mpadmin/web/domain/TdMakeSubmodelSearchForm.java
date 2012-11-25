@@ -11,24 +11,8 @@ import static com.app.mpadmin.dao.support.EntitySelectors.TdMakeModelSelector.ne
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeDouble.newRangeDouble;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.bhp;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.bodyType;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.doorCount;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.engineCapacity;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.fuelDelivery;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.fuelType;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.gearCount;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.isActive;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.makeModelId;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.makesubmodelStatus;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.specialEditionYear;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.submodelLaunchYear;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.submodelType;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.torque;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.transmissionType;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.updationDate;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.valvesCount;
-import static com.app.mpadmin.domain.TdMakeSubmodel_.wheeldriveType;
+import static com.app.mpadmin.domain.TdMakeSubmodel_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import javax.persistence.metamodel.SingularAttribute;
@@ -69,12 +53,17 @@ public class TdMakeSubmodelSearchForm extends SearchFormBase {
     private RangeInteger<TdMakeSubmodel> makesubmodelStatusRange = newRangeInteger(makesubmodelStatus);
     private RangeDate<TdMakeSubmodel> updationDateRange = newRangeDate(updationDate);
     //private TdMakeModelSelector<TdMakeSubmodel> makeModelSelector = newTdMakeModelSelector(makeModelId);
+    private  RangeDouble<TdMakeSubmodel> makeSubmodelIdRange = newRangeDouble(makeSubmodelId);
 
     public TdMakeSubmodel getTdMakeSubmodel() { 
         return tdMakeSubmodel;
     }
 
     // Ranges, used from the view.
+    public RangeDouble<TdMakeSubmodel> getMakeSubmodelIdRange(){
+        return makeSubmodelIdRange;
+    }
+
     public RangeDouble<TdMakeSubmodel> getMakeModelIdRange() {
         return makeModelIdRange;
     }

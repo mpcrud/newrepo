@@ -66,7 +66,7 @@ public class TdVoteLazyDataModel extends GenericLazyDataModel<TdVote> {
         sp.addRange(tdVoteSearchForm.getIsActiveRange());
         sp.addRange(tdVoteSearchForm.getVoteStatusRange());
         sp.addRange(tdVoteSearchForm.getCommentIdRange());
-
+        sp.addRange(tdVoteSearchForm.getVoteIdRange());
         // entity selectors
         sp.clearEntitySelectors();
         sp.addEntitySelector(tdVoteSearchForm.getUserSelector());

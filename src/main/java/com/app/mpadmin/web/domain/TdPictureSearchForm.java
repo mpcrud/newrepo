@@ -8,9 +8,8 @@
 package com.app.mpadmin.web.domain;
 
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdPicture_.pictureRefId;
-import static com.app.mpadmin.domain.TdPicture_.pictureType;
-import static com.app.mpadmin.domain.TdPicture_.status;
+import static com.app.mpadmin.domain.TdPicture_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.Ranges.RangeInteger;
@@ -29,12 +28,17 @@ public class TdPictureSearchForm extends SearchFormBase {
     private RangeInteger<TdPicture> pictureTypeRange = newRangeInteger(pictureType);
     private RangeInteger<TdPicture> pictureRefIdRange = newRangeInteger(pictureRefId);
     private RangeInteger<TdPicture> statusRange = newRangeInteger(status);
+    private RangeInteger<TdPicture> pictureIdRange = newRangeInteger(pictureId);
 
     public TdPicture getTdPicture() {
         return tdPicture;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdPicture> getPictureIdRange(){
+        return pictureIdRange;
+    }
+
     public RangeInteger<TdPicture> getPictureTypeRange() {
         return pictureTypeRange;
     }

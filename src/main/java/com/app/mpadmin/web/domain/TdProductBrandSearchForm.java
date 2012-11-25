@@ -10,10 +10,8 @@ package com.app.mpadmin.web.domain;
 import static com.app.mpadmin.dao.support.PropertySelectors.BooleanSelector.newBooleanSelector;
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdProductBrand_.brandStatus;
-import static com.app.mpadmin.domain.TdProductBrand_.internalRating;
-import static com.app.mpadmin.domain.TdProductBrand_.isActive;
-import static com.app.mpadmin.domain.TdProductBrand_.updationDate;
+import static com.app.mpadmin.domain.TdProductBrand_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.PropertySelectors.BooleanSelector;
@@ -35,12 +33,16 @@ public class TdProductBrandSearchForm extends SearchFormBase {
     private RangeDate<TdProductBrand> updationDateRange = newRangeDate(updationDate);
     private RangeInteger<TdProductBrand> isActiveRange = newRangeInteger(isActive);
     private BooleanSelector<TdProductBrand> brandStatusSelector = newBooleanSelector(brandStatus);
+    private RangeInteger<TdProductBrand> productBrandIdRange = newRangeInteger(productBrandId);
 
     public TdProductBrand getTdProductBrand() {
         return tdProductBrand;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdProductBrand> getProductBrandIdRange(){
+        return productBrandIdRange;
+    }
     public RangeInteger<TdProductBrand> getInternalRatingRange() {
         return internalRatingRange;
     }

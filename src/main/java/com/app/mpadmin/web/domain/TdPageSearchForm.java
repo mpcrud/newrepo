@@ -9,14 +9,8 @@ package com.app.mpadmin.web.domain;
 
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdPage_.pageCustom3;
-import static com.app.mpadmin.domain.TdPage_.pageCustom4;
-import static com.app.mpadmin.domain.TdPage_.pageIsActive;
-import static com.app.mpadmin.domain.TdPage_.pagePriority;
-import static com.app.mpadmin.domain.TdPage_.pageReferenceId;
-import static com.app.mpadmin.domain.TdPage_.pageType;
-import static com.app.mpadmin.domain.TdPage_.pageUserId;
-import static com.app.mpadmin.domain.TdPage_.updationDate;
+import static com.app.mpadmin.domain.TdPage_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.Ranges.RangeDate;
@@ -41,12 +35,16 @@ public class TdPageSearchForm extends SearchFormBase {
     private RangeInteger<TdPage> pageUserIdRange = newRangeInteger(pageUserId);
     private RangeInteger<TdPage> pageCustom3Range = newRangeInteger(pageCustom3);
     private RangeInteger<TdPage> pageCustom4Range = newRangeInteger(pageCustom4);
-
+    private RangeInteger<TdPage> pageIdRange = newRangeInteger(pageId);
     public TdPage getTdPage() {
         return tdPage;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdPage> getPageIdRange(){
+        return pageIdRange;
+    }
+
     public RangeInteger<TdPage> getPageTypeRange() {
         return pageTypeRange;
     }

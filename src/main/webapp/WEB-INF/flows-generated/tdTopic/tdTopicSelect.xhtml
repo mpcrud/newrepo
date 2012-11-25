@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="topicId" value="#{tdTopicSearchForm.topicIdRange}" label="${msg.tdTopic_topicId}"/>
 					<app:input id="topicTitle" value="#{tdTopicSearchForm.tdTopic.topicTitle}" label="${msg.tdTopic_topicTitle}"/>
 					<app:rangeInt id="viewCount" value="#{tdTopicSearchForm.viewCountRange}" label="${msg.tdTopic_viewCount}"/>
 					<app:rangeInt id="commentCount" value="#{tdTopicSearchForm.commentCountRange}" label="${msg.tdTopic_commentCount}"/>

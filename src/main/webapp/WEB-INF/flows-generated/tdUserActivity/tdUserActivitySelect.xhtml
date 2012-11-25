@@ -20,6 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
+                    <app:rangeInt id="userActivityId" value="#{tdUserActivitySearchForm.userActivityIdRange}" label="${msg.tdUserActivity_userActivityId}"/>
 					<app:tdUserAuthMultiAutoComplete id="userSelector" value="#{tdUserActivitySearchForm.userSelector.selected}" label="${msg.tdUserActivity_user}" />
 					<app:rangeDateTime id="userLogintime" value="#{tdUserActivitySearchForm.userLogintimeRange}" label="${msg.tdUserActivity_userLogintime}" />
 					<app:rangeInt id="duration" value="#{tdUserActivitySearchForm.durationRange}" label="${msg.tdUserActivity_duration}"/>

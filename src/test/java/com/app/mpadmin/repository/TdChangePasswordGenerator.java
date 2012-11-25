@@ -30,7 +30,7 @@ public class TdChangePasswordGenerator {
 
         // simple attributes follows
         tdChangePassword.setGuidChar("dddddddddddddddddddddddddddddddddddd");
-        tdChangePassword.setUserid(1);
+       // tdChangePassword.setUserid(1);
         tdChangePassword.setCreationDate(new Date());
         tdChangePassword.setIsActive(1);
         return tdChangePassword;

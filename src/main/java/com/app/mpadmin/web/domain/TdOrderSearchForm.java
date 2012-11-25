@@ -15,70 +15,8 @@ import static com.app.mpadmin.dao.support.EntitySelectors.TdUserAuthSelector.new
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeFloat.newRangeFloat;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdOrder_.assignedToUserid;
-import static com.app.mpadmin.domain.TdOrder_.assignedToUseridDate;
-import static com.app.mpadmin.domain.TdOrder_.billingAdvanceAmount;
-import static com.app.mpadmin.domain.TdOrder_.billingBalanceAmount;
-import static com.app.mpadmin.domain.TdOrder_.billingCityId;
-import static com.app.mpadmin.domain.TdOrder_.billingCountryId;
-import static com.app.mpadmin.domain.TdOrder_.billingGrossAmount;
-import static com.app.mpadmin.domain.TdOrder_.billingId;
-import static com.app.mpadmin.domain.TdOrder_.billingMarginAmount;
-import static com.app.mpadmin.domain.TdOrder_.billingNettCost;
-import static com.app.mpadmin.domain.TdOrder_.billingPaymentGatewayRate;
-import static com.app.mpadmin.domain.TdOrder_.billingPhone1Blocked;
-import static com.app.mpadmin.domain.TdOrder_.billingPhone2Blocked;
-import static com.app.mpadmin.domain.TdOrder_.billingStateId;
-import static com.app.mpadmin.domain.TdOrder_.billingTaxrate;
-import static com.app.mpadmin.domain.TdOrder_.billingTotalAmount;
-import static com.app.mpadmin.domain.TdOrder_.carYear;
-import static com.app.mpadmin.domain.TdOrder_.custPaymentDate;
-import static com.app.mpadmin.domain.TdOrder_.custPaymentMode;
-import static com.app.mpadmin.domain.TdOrder_.custPaymentStatus;
-import static com.app.mpadmin.domain.TdOrder_.customint1;
-import static com.app.mpadmin.domain.TdOrder_.customint2;
-import static com.app.mpadmin.domain.TdOrder_.deliveryDate;
-import static com.app.mpadmin.domain.TdOrder_.deliveryStatus;
-import static com.app.mpadmin.domain.TdOrder_.dispatchDate;
-import static com.app.mpadmin.domain.TdOrder_.disputeRaisedDate;
-import static com.app.mpadmin.domain.TdOrder_.disputeRaisedStatus;
-import static com.app.mpadmin.domain.TdOrder_.invoiceId;
-import static com.app.mpadmin.domain.TdOrder_.mailedReminderToVendorDate;
-import static com.app.mpadmin.domain.TdOrder_.mailedReminderToVendorStatus;
-import static com.app.mpadmin.domain.TdOrder_.orderAcceptNewsletter;
-import static com.app.mpadmin.domain.TdOrder_.orderAcceptPromotionalMaterial;
-import static com.app.mpadmin.domain.TdOrder_.orderActive;
-import static com.app.mpadmin.domain.TdOrder_.orderAvailabilityStatus;
-import static com.app.mpadmin.domain.TdOrder_.orderAvailabilityStatusUpdationDate;
-import static com.app.mpadmin.domain.TdOrder_.orderBulkType;
-import static com.app.mpadmin.domain.TdOrder_.orderCancelRequestDate;
-import static com.app.mpadmin.domain.TdOrder_.orderCancelRequestStatus;
-import static com.app.mpadmin.domain.TdOrder_.orderCancellationDate;
-import static com.app.mpadmin.domain.TdOrder_.orderCancellationToVendorDate;
-import static com.app.mpadmin.domain.TdOrder_.orderCancellationToVendorStatus;
-import static com.app.mpadmin.domain.TdOrder_.orderCancellationType;
-import static com.app.mpadmin.domain.TdOrder_.orderConfirmationDate;
-import static com.app.mpadmin.domain.TdOrder_.orderConversionDate;
-import static com.app.mpadmin.domain.TdOrder_.orderCorporateType;
-import static com.app.mpadmin.domain.TdOrder_.orderCreationDate;
-import static com.app.mpadmin.domain.TdOrder_.orderFirstUpdationDate;
-import static com.app.mpadmin.domain.TdOrder_.orderLastUpdationDate;
-import static com.app.mpadmin.domain.TdOrder_.orderOriginCountryId;
-import static com.app.mpadmin.domain.TdOrder_.orderPriority;
-import static com.app.mpadmin.domain.TdOrder_.orderReconfirmationDate;
-import static com.app.mpadmin.domain.TdOrder_.orderRefundDate;
-import static com.app.mpadmin.domain.TdOrder_.orderRefundType;
-import static com.app.mpadmin.domain.TdOrder_.orderStatus;
-import static com.app.mpadmin.domain.TdOrder_.orderType;
-import static com.app.mpadmin.domain.TdOrder_.productId;
-import static com.app.mpadmin.domain.TdOrder_.productQuantity;
-import static com.app.mpadmin.domain.TdOrder_.shipmentCityId;
-import static com.app.mpadmin.domain.TdOrder_.shipmentCountryId;
-import static com.app.mpadmin.domain.TdOrder_.shipmentRate;
-import static com.app.mpadmin.domain.TdOrder_.shipmentStateId;
-import static com.app.mpadmin.domain.TdOrder_.userId;
-import static com.app.mpadmin.domain.TdOrder_.vendorPaymentDate;
-import static com.app.mpadmin.domain.TdOrder_.vendorPaymentMode;
+import static com.app.mpadmin.domain.TdOrder_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.EntitySelectors.TdCitySelector;
@@ -165,12 +103,16 @@ public class TdOrderSearchForm extends SearchFormBase {
     private TdCountrySelector<TdOrder> billingCountrySelector = newTdCountrySelector(billingCountryId);
     private TdUserAuthSelector<TdOrder> assignedToUserSelector = newTdUserAuthSelector(assignedToUserid);
     private TdStateSelector<TdOrder> billingStateSelector = newTdStateSelector(billingStateId);
+    private RangeInteger<TdOrder> orderIdRange = newRangeInteger(orderId);
 
     public TdOrder getTdOrder() {
         return tdOrder;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdOrder> getOrderIdRange(){
+        return orderIdRange;
+    }
     public RangeInteger<TdOrder> getBillingIdRange() {
         return billingIdRange;
     }

@@ -62,7 +62,7 @@ public class TdMetroLazyDataModel extends GenericLazyDataModel<TdMetro> {
         sp.addRange(tdMetroSearchForm.getImportanceRange());
         sp.addRange(tdMetroSearchForm.getFlagRange());
         sp.addRange(tdMetroSearchForm.getUpdationDateRange());
-
+        sp.addRange(tdMetroSearchForm.getMetroIdRange());
         TdMetro tdMetro = tdMetroSearchForm.getTdMetro();
         setRowCount(tdMetroRepository.findCount(tdMetro, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data

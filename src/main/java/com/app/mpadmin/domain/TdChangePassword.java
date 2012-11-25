@@ -7,18 +7,13 @@
  */
 package com.app.mpadmin.domain;
 
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.TemporalType.TIMESTAMP;
 import static org.hibernate.annotations.CacheConcurrencyStrategy.NONSTRICT_READ_WRITE;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.PrePersist;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlTransient;
 import org.apache.log4j.Logger;
@@ -41,6 +36,8 @@ public class TdChangePassword implements Identifiable<Integer>, Serializable {
     private Date creationDate; // not null
     private Integer isActive; // not null
     private Integer guidInt; // pk
+
+    private TdUserAuth user;
 
     // ---------------------------
     // Constructors
@@ -145,6 +142,29 @@ public class TdChangePassword implements Identifiable<Integer>, Serializable {
     @Transient
     public boolean isGuidIntSet() {
         return guidInt != null;
+    }
+
+    @Cache(usage = NONSTRICT_READ_WRITE)
+    @JoinColumn(name = "user_id")
+    @ManyToOne(cascade = PERSIST, fetch = LAZY)
+    public TdUserAuth getUser() {
+        return user;
+    }
+
+    /**
+     * Set the user without adding this TdComment instance on the passed user
+     * If you want to preserve referential integrity we recommend to use
+     * instead the corresponding adder method provided by {@link TdUserAuth}
+     */
+    public void setUser(TdUserAuth user) {
+        this.user = user;
+
+        // We set the foreign key property so it can be used by our JPA search by Example facility.
+        if (user != null) {
+            setUserid(user.getUserId());
+        } else {
+            setUserid(null);
+        }
     }
 
     /**

@@ -60,6 +60,7 @@ public class TdUserActivityEventLazyDataModel extends GenericLazyDataModel<TdUse
 
         // ranges
         sp.clearRanges();
+        sp.addRange(tdUserActivityEventSearchForm.getUserActivityEventIdRange());
         sp.addRange(tdUserActivityEventSearchForm.getUpdationDateRange());
 
         // entity selectors

@@ -64,6 +64,7 @@ public class TdCommentLazyDataModel extends GenericLazyDataModel<TdComment> {
         sp.addRange(tdCommentSearchForm.getUpdationDateRange());
         sp.addRange(tdCommentSearchForm.getIsActiveRange());
         sp.addRange(tdCommentSearchForm.getCommentStatusRange());
+        sp.addRange(tdCommentSearchForm.getCommentIdRange());
      // entity selectors
         sp.clearEntitySelectors();
         sp.addEntitySelector(tdCommentSearchForm.getUserSelector());

@@ -63,7 +63,7 @@ public class TdProductSupplierLazyDataModel extends GenericLazyDataModel<TdProdu
         sp.addRange(tdProductSupplierSearchForm.getProductSupplierRatingRange());
         sp.addRange(tdProductSupplierSearchForm.getProductSupplierTypeRange());
         sp.addRange(tdProductSupplierSearchForm.getUpdationDateRange());
-
+        sp.addRange(tdProductSupplierSearchForm.getProductSupplierIdRange());
         // property selectors
         sp.clearPropertySelectors();
         sp.addPropertySelector(tdProductSupplierSearchForm.getProductSupplierStatusSelector());

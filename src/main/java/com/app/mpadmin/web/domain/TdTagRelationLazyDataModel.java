@@ -63,6 +63,7 @@ List<TdTagRelation> datasource;
         sp.addRange(tdTagRelationSearchForm.getUpdationDateRange());
         sp.addRange(tdTagRelationSearchForm.getTagStatusRange());
         sp.addRange(tdTagRelationSearchForm.getIsActiveRange());
+        sp.addRange(tdTagRelationSearchForm.getTagRelationIdRange());
 
         // entity selectors
         sp.clearEntitySelectors();

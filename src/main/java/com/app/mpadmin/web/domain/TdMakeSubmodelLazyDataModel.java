@@ -78,7 +78,7 @@ List<TdMakeSubmodel> datasource;
         sp.addRange(tdMakeSubmodelSearchForm.getSpecialEditionYearRange());
         sp.addRange(tdMakeSubmodelSearchForm.getMakesubmodelStatusRange());
         sp.addRange(tdMakeSubmodelSearchForm.getUpdationDateRange());
-
+        sp.addRange(tdMakeSubmodelSearchForm.getMakeSubmodelIdRange());
         TdMakeSubmodel tdMakeSubmodel = tdMakeSubmodelSearchForm.getTdMakeSubmodel();
         setRowCount(tdMakeSubmodelRepository.findCount(tdMakeSubmodel, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data

@@ -35,6 +35,7 @@ public class TdTagGrpSearchForm extends SearchFormBase {
     private RangeInteger<TdTagGrp> isActiveRange = newRangeInteger(isActive);
     private RangeInteger<TdTagGrp> tagGrpStatusRange = newRangeInteger(tagGrpStatus);
     private RangeInteger<TdTagGrp> referenceTypeRange = newRangeInteger(referenceType);
+    private RangeInteger<TdTagGrp> tagGrpIdRange = newRangeInteger(tagGrpId);
 
     private EntitySelectors.TdTopicSelector<TdTagGrp> topicSelector = newTdTopicSelector(referenceId);
     private EntitySelectors.TdProductSelector<TdTagGrp> productSelector = newTdProductSelector(referenceId);
@@ -44,6 +45,9 @@ public class TdTagGrpSearchForm extends SearchFormBase {
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdTagGrp> getTagGrpIdRange(){
+        return tagGrpIdRange;
+    }
     public RangeInteger<TdTagGrp> getReferenceIdRange() {
         return referenceIdRange;
     }

@@ -68,7 +68,7 @@ public class TdUserActivityLazyDataModel extends GenericLazyDataModel<TdUserActi
         sp.addRange(tdUserActivitySearchForm.getUpdationDateRange());
         sp.addRange(tdUserActivitySearchForm.getIsActiveRange());
         sp.addRange(tdUserActivitySearchForm.getSessionPageRange());
-
+        sp.addRange(tdUserActivitySearchForm.getUserActivityIdRange());
         // entity selectors
         sp.clearEntitySelectors();
         sp.addEntitySelector(tdUserActivitySearchForm.getUserSelector());

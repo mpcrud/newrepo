@@ -74,6 +74,7 @@ public class TdCityLazyDataModel extends GenericLazyDataModel<TdCity> {
         sp.addRange(tdCitySearchForm.getCustomtable3Range());
         sp.addRange(tdCitySearchForm.getCustomtable4Range());
         sp.addRange(tdCitySearchForm.getUpdationDateRange());
+        sp.addRange(tdCitySearchForm.getCityIdRange());
 
         TdCity tdCity = tdCitySearchForm.getTdCity();
         setRowCount(tdCityRepository.findCount(tdCity, sp)); // total count so the paginator may display the total number of pages

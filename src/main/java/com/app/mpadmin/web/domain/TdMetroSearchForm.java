@@ -9,9 +9,8 @@ package com.app.mpadmin.web.domain;
 
 import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
-import static com.app.mpadmin.domain.TdMetro_.flag;
-import static com.app.mpadmin.domain.TdMetro_.importance;
-import static com.app.mpadmin.domain.TdMetro_.updationDate;
+import static com.app.mpadmin.domain.TdMetro_.*;
+
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.Ranges.RangeDate;
@@ -31,12 +30,16 @@ public class TdMetroSearchForm extends SearchFormBase {
     private RangeInteger<TdMetro> importanceRange = newRangeInteger(importance);
     private RangeInteger<TdMetro> flagRange = newRangeInteger(flag);
     private RangeDate<TdMetro> updationDateRange = newRangeDate(updationDate);
+    private RangeInteger<TdMetro> metroIdRange = RangeInteger.newRangeInteger(metroId);
 
     public TdMetro getTdMetro() {
         return tdMetro;
     }
 
     // Ranges, used from the view.
+    public RangeInteger<TdMetro> getMetroIdRange(){
+        return metroIdRange;
+    }
     public RangeInteger<TdMetro> getImportanceRange() {
         return importanceRange;
     }

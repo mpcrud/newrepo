@@ -76,7 +76,7 @@ public class TdMakeModelLazyDataModel extends GenericLazyDataModel<TdMakeModel> 
         sp.addRange(tdMakeModelSearchForm.getTorqueRange());
         sp.addRange(tdMakeModelSearchForm.getMakemodelStatusRange());
         sp.addRange(tdMakeModelSearchForm.getUpdationDateRange());
-        
+        sp.addRange(tdMakeModelSearchForm.getMakeModelIdRange());
         // entity selectors
         sp.clearEntitySelectors();
         sp.addEntitySelector(tdMakeModelSearchForm.getMakeSelector());

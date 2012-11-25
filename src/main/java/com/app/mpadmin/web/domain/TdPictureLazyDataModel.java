@@ -63,7 +63,7 @@ List<TdPicture> datasource;
         sp.addRange(tdPictureSearchForm.getPictureTypeRange());
         sp.addRange(tdPictureSearchForm.getPictureRefIdRange());
         sp.addRange(tdPictureSearchForm.getStatusRange());
-
+        sp.addRange(tdPictureSearchForm.getPictureIdRange());
         TdPicture tdPicture = tdPictureSearchForm.getTdPicture();
         setRowCount(tdPictureRepository.findCount(tdPicture, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data

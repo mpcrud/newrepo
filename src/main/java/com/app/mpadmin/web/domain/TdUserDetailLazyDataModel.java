@@ -65,7 +65,7 @@ public class TdUserDetailLazyDataModel extends GenericLazyDataModel<TdUserDetail
         sp.addRange(tdUserDetailSearchForm.getPhoneRange());
         sp.addRange(tdUserDetailSearchForm.getUpdationDateRange());
         sp.addRange(tdUserDetailSearchForm.getCreditRange());
-
+        sp.addRange(tdUserDetailSearchForm.getUserDetailIdRange());
         // entity selectors
         sp.clearEntitySelectors();
         sp.addEntitySelector(tdUserDetailSearchForm.getUserSelector());

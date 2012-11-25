@@ -69,7 +69,7 @@ public class TdPageLazyDataModel extends GenericLazyDataModel<TdPage> {
         sp.addRange(tdPageSearchForm.getPageUserIdRange());
         sp.addRange(tdPageSearchForm.getPageCustom3Range());
         sp.addRange(tdPageSearchForm.getPageCustom4Range());
-
+        sp.addRange(tdPageSearchForm.getPageIdRange());
         TdPage tdPage = tdPageSearchForm.getTdPage();
         setRowCount(tdPageRepository.findCount(tdPage, sp)); // total count so the paginator may display the total number of pages
         populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters); // load one page of data

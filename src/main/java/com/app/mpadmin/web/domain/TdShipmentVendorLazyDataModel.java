@@ -65,7 +65,7 @@ List<TdShipmentVendor> datasource;
         sp.addRange(tdShipmentVendorSearchForm.getShipmentDurationRange());
         sp.addRange(tdShipmentVendorSearchForm.getShipmentVendorTypeRange());
         sp.addRange(tdShipmentVendorSearchForm.getUpdationDateRange());
-
+        sp.addRange(tdShipmentVendorSearchForm.getShipmentVendorIdRange());
         // property selectors
         sp.clearPropertySelectors();
         sp.addPropertySelector(tdShipmentVendorSearchForm.getShipmentVendorStatusSelector());
