@@ -384,6 +384,19 @@ public class TdCity implements Identifiable<Integer>, Serializable {
      * Set the default values.
      */
     public void initDefaultValues() {
+        setCustomtable1(0);
+        setCustomtable2(0);
+        setCustomtable3(0);
+        setCustomtable4(0);
+        setDestinationRank(0);
+        setDestinationType(0);
+        setFlag(0);
+        setDestinationRank(0);
+        setImportance(0);
+        setIsResource(0);
+        setIsSupportedBy(0);
+        setMetroId(0);
+        setPopulationRank(0);
     }
 
     /**
