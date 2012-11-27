@@ -211,6 +211,10 @@ public class TdTag implements Identifiable<Integer>, Serializable {
      * Set the default values.
      */
     public void initDefaultValues() {
+        setTagPriority(0);
+        setTagStatus(0);
+        setTagType(0);
+
     }
 
     /**

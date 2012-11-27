@@ -7,19 +7,19 @@
  */
 package com.app.mpadmin.domain;
 
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.FetchType.LAZY;
 import static org.hibernate.annotations.CacheConcurrencyStrategy.NONSTRICT_READ_WRITE;
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.annotation.Nullable;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlTransient;
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.URL;
 import com.app.mpadmin.domain.PersistableHashBuilder;
@@ -47,8 +47,11 @@ public class TdPicture implements Identifiable<Integer>, Serializable {
     private Integer pictureRefId; // not null
     private Integer status; // not null
 
-   private UploadedFile file;
-
+   //private UploadedFile file;
+    private TdTopic topic;
+    private TdProduct product;
+    private TdComment comment;
+    private TdTag tag;
     // ---------------------------
     // Constructors
     // ---------------------------
@@ -212,21 +215,98 @@ public class TdPicture implements Identifiable<Integer>, Serializable {
     public void setStatus(Integer status) {
         this.status = status;
     }
-
-    @Transient
-    public UploadedFile getFile() {
-        return file;
+   //Many To One
+   @Cache(usage = NONSTRICT_READ_WRITE)
+    @JoinColumn(name = "picture_ref_id", referencedColumnName = "topic_id",updatable = false,insertable = false)
+    @OneToOne(cascade = PERSIST, fetch = LAZY)
+    @NotFound(action= NotFoundAction.IGNORE)
+    @Nullable
+    public TdTopic getTopic( ){
+       // if(pictureType!=600)
+        //  topic=null;
+        return topic;
     }
 
-    public void setFile(UploadedFile file) {
-        this.file = file;
+    public void setTopic(TdTopic topic){
+        this.topic=topic;
+        if(topic!=null)
+        {
+          setPictureType(600);
+          setPictureRefId(topic.getId());
+        }
+        else setPictureRefId(null);
     }
+
+    @Cache(usage = NONSTRICT_READ_WRITE)
+    @JoinColumn(name = "picture_ref_id", referencedColumnName = "product_id",updatable = false,insertable = false)
+    @OneToOne(cascade = PERSIST, fetch = LAZY)
+    @NotFound(action= NotFoundAction.IGNORE)
+    @Nullable
+    public TdProduct getProduct( ){
+       //  if(pictureType != 1000)
+         //   product=null;
+         return product;
+    }
+
+    public void setProduct(TdProduct product){
+        this.product = product;
+        if(product!=null)
+        {
+            setPictureType(1000);
+            setPictureRefId(product.getId());
+        }
+        else setPictureRefId(null);
+    }
+
+    @Cache(usage = NONSTRICT_READ_WRITE)
+        @JoinColumn(name = "picture_ref_id", referencedColumnName = "tag_id",updatable = false,insertable = false)
+        @OneToOne(cascade = PERSIST, fetch = LAZY)
+        @NotFound(action= NotFoundAction.IGNORE)
+        @Nullable
+        public TdTag getTag( ){
+         //   if(pictureType!=800)
+           //   tag=null;
+            return tag;
+        }
+
+        public void setTag(TdTag tag){
+            this.tag=tag;
+            if(tag!=null)
+            {
+              setPictureType(800);
+              setPictureRefId(tag.getTagId());
+            }
+            else setPictureRefId(null);
+        }
+
+        @Cache(usage = NONSTRICT_READ_WRITE)
+        @JoinColumn(name = "picture_ref_id", referencedColumnName = "comment_id",updatable = false,insertable = false)
+        @OneToOne(cascade = PERSIST, fetch = LAZY)
+        @NotFound(action= NotFoundAction.IGNORE)
+        @Nullable
+        public TdComment getComment( ){
+          //   if(pictureType != 700)
+          //      comment=null;
+             return comment;
+        }
+
+        public void setComment(TdComment comment){
+            this.comment= comment;
+            if(comment!=null)
+            {
+                setPictureType(700);
+                setPictureRefId(comment.getId());
+            }
+            else setPictureRefId(null);
+        }
 
     /**
      * Set the default values.
      */
     public void initDefaultValues() {
         setStatus(1);
+       // setPictureType(0);
+        setPictureRefId(0);
     }
 
     /**

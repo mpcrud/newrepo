@@ -282,6 +282,9 @@ public class TdShipmentVendor implements Identifiable<Integer>, Serializable {
         setShipmentVendorStandardMrpCost(0);
         setShipmentVendorStandardDiscount(0);
         setShipmentVendorStatus(false);
+        /****/
+        setShipmentDuration(0);
+        setShipmentVendorType(0);
     }
 
     /**

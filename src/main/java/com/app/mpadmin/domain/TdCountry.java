@@ -183,6 +183,11 @@ public class TdCountry implements Identifiable<Integer>, Serializable {
      * Set the default values.
      */
     public void initDefaultValues() {
+        setImportance(0);
+        setCountryCode(0);
+        setCountryCode2(0);
+        setIsdCode(0);
+
     }
 
     /**

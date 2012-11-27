@@ -19,12 +19,12 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdOrder}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="billingId" value="#{tdOrder.billingId}" label="${msg.tdOrder_billingId}" />
-				<app:input id="invoiceId" value="#{tdOrder.invoiceId}" label="${msg.tdOrder_invoiceId}" />
-				<app:inputTextArea id="username" value="#{tdOrder.username}" label="${msg.tdOrder_username}" />
-				<app:input id="orderFormNo" value="#{tdOrder.orderFormNo}" size="128" label="${msg.tdOrder_orderFormNo}" maxlength="128"/>
-				<app:input id="orderType" value="#{tdOrder.orderType}" label="${msg.tdOrder_orderType}" required="true" />
-				<app:input id="orderStatus" value="#{tdOrder.orderStatus}" label="${msg.tdOrder_orderStatus}" required="true" />
+				<app:input id="billingId" value="#{tdOrder.billingId}" label="${msg.tdOrder_billingId} (Integer)" />
+				<app:input id="invoiceId" value="#{tdOrder.invoiceId}" label="${msg.tdOrder_invoiceId} (Integer)" />
+				<app:input id="username" value="#{tdOrder.username}" label="${msg.tdOrder_username}" />
+				<app:input id="orderFormNo" value="#{tdOrder.orderFormNo}" size="128" label="${msg.tdOrder_orderFormNo} (Integer)" maxlength="128"/>
+				<app:input id="orderType" value="#{tdOrder.orderType}" label="${msg.tdOrder_orderType} (Integer)" required="true" />
+				<app:input id="orderStatus" value="#{tdOrder.orderStatus}" label="${msg.tdOrder_orderStatus} (Integer)" required="true" />
 			<!--	<app:input id="orderActive" value="#{tdOrder.orderActive}" label="${msg.tdOrder_orderActive}" required="true" /> -->
                 <appcc:outputLabel for="orderActive" value="${msg.tdOrder_orderActive}" />
                   <p:selectOneRadio id="orderActive" value="#{tdOrder.orderActive}">
@@ -33,54 +33,54 @@
                   </p:selectOneRadio>
                 <h:outputText value="#{tdOrder.orderActive}" rendered="${readonly}"/>
 				<app:inputTextArea id="orderChangeHistory" value="#{tdOrder.orderChangeHistory}" label="${msg.tdOrder_orderChangeHistory}" />
-				<app:input id="orderPriority" value="#{tdOrder.orderPriority}" label="${msg.tdOrder_orderPriority}" />
-				<app:input id="orderCorporateType" value="#{tdOrder.orderCorporateType}" label="${msg.tdOrder_orderCorporateType}" />
-				<app:input id="orderBulkType" value="#{tdOrder.orderBulkType}" label="${msg.tdOrder_orderBulkType}" />
-				<app:input id="orderDiscountCouponCode" value="#{tdOrder.orderDiscountCouponCode}" size="128" label="${msg.tdOrder_orderDiscountCouponCode}" maxlength="128"/>
-				<app:inputTextArea id="productName" value="#{tdOrder.productName}" label="${msg.tdOrder_productName}" />
-				<app:input id="productQuantity" value="#{tdOrder.productQuantity}" label="${msg.tdOrder_productQuantity}" required="true" />
+				<app:input id="orderPriority" value="#{tdOrder.orderPriority}" label="${msg.tdOrder_orderPriority} (Integer)" />
+				<app:input id="orderCorporateType" value="#{tdOrder.orderCorporateType}" label="${msg.tdOrder_orderCorporateType} (Integer)" />
+				<app:input id="orderBulkType" value="#{tdOrder.orderBulkType}" label="${msg.tdOrder_orderBulkType} (Integer)" />
+				<app:input id="orderDiscountCouponCode" value="#{tdOrder.orderDiscountCouponCode}" size="128" label="${msg.tdOrder_orderDiscountCouponCode} (Integer)" maxlength="128"/>
+				<app:inputTextArea id="productName" value="#{tdOrder.productName}" label="${msg.tdOrder_productName}" maxlength="100"/>
+				<app:input id="productQuantity" value="#{tdOrder.productQuantity}" label="${msg.tdOrder_productQuantity} (Integer)" required="true" />
 				<app:inputDateTime id="assignedToUseridDate" value="#{tdOrder.assignedToUseridDate}" label="${msg.tdOrder_assignedToUseridDate}" />
-				<app:input id="billingPhone1Blocked" value="#{tdOrder.billingPhone1Blocked}" label="${msg.tdOrder_billingPhone1Blocked}" />
-				<app:input id="billingPhone2Blocked" value="#{tdOrder.billingPhone2Blocked}" label="${msg.tdOrder_billingPhone2Blocked}" />
+				<app:input id="billingPhone1Blocked" value="#{tdOrder.billingPhone1Blocked}" label="${msg.tdOrder_billingPhone1Blocked} (Integer)" />
+				<app:input id="billingPhone2Blocked" value="#{tdOrder.billingPhone2Blocked}" label="${msg.tdOrder_billingPhone2Blocked} (Integer)" />
 				<app:input id="billingFirstname" value="#{tdOrder.billingFirstname}" size="127" label="${msg.tdOrder_billingFirstname}" maxlength="128"/>
 				<app:input id="billingLastname" value="#{tdOrder.billingLastname}" size="127" label="${msg.tdOrder_billingLastname}" maxlength="128"/>
-				<app:inputTextArea id="billingEmail" value="#{tdOrder.billingEmail}" label="${msg.tdOrder_billingEmail}" />
-				<app:input id="billingPhone1" value="#{tdOrder.billingPhone1}" size="50" label="${msg.tdOrder_billingPhone1}" maxlength="50"/>
-				<app:input id="billingPhone2" value="#{tdOrder.billingPhone2}" size="50" label="${msg.tdOrder_billingPhone2}" maxlength="50"/>
-				<app:inputTextArea id="billingAddressline1" value="#{tdOrder.billingAddressline1}" label="${msg.tdOrder_billingAddressline1}" />
-				<app:inputTextArea id="billingAddressline2" value="#{tdOrder.billingAddressline2}" label="${msg.tdOrder_billingAddressline2}" />
-				<app:input id="billingZip" value="#{tdOrder.billingZip}" size="64" label="${msg.tdOrder_billingZip}" maxlength="64"/>
-				<app:input id="billingTotalAmount" value="#{tdOrder.billingTotalAmount}" label="${msg.tdOrder_billingTotalAmount}" />
-				<app:input id="billingAdvanceAmount" value="#{tdOrder.billingAdvanceAmount}" label="${msg.tdOrder_billingAdvanceAmount}" />
-				<app:input id="billingBalanceAmount" value="#{tdOrder.billingBalanceAmount}" label="${msg.tdOrder_billingBalanceAmount}" />
-				<app:input id="billingMarginAmount" value="#{tdOrder.billingMarginAmount}" label="${msg.tdOrder_billingMarginAmount}" />
-				<app:input id="billingTaxrate" value="#{tdOrder.billingTaxrate}" label="${msg.tdOrder_billingTaxrate}" />
-				<app:input id="billingPaymentGatewayRate" value="#{tdOrder.billingPaymentGatewayRate}" label="${msg.tdOrder_billingPaymentGatewayRate}" />
-				<app:input id="shipmentRate" value="#{tdOrder.shipmentRate}" label="${msg.tdOrder_shipmentRate}" />
-				<app:input id="billingGrossAmount" value="#{tdOrder.billingGrossAmount}" label="${msg.tdOrder_billingGrossAmount}" />
-				<app:input id="billingNettCost" value="#{tdOrder.billingNettCost}" label="${msg.tdOrder_billingNettCost}" />
-				<app:input id="custPaymentMode" value="#{tdOrder.custPaymentMode}" label="${msg.tdOrder_custPaymentMode}" />
-				<app:input id="custPaymentStatus" value="#{tdOrder.custPaymentStatus}" label="${msg.tdOrder_custPaymentStatus}" />
+				<app:inputTextArea id="billingEmail" value="#{tdOrder.billingEmail}" label="${msg.tdOrder_billingEmail}" maxlength="100" />
+				<app:input id="billingPhone1" value="#{tdOrder.billingPhone1}" size="50" label="${msg.tdOrder_billingPhone1} (Integer)" maxlength="50"/>
+				<app:input id="billingPhone2" value="#{tdOrder.billingPhone2}" size="50" label="${msg.tdOrder_billingPhone2} (Integer)" maxlength="50"/>
+				<app:inputTextArea id="billingAddressline1" value="#{tdOrder.billingAddressline1}" label="${msg.tdOrder_billingAddressline1} (String)" />
+				<app:inputTextArea id="billingAddressline2" value="#{tdOrder.billingAddressline2}" label="${msg.tdOrder_billingAddressline2} (String)" />
+				<app:input id="billingZip" value="#{tdOrder.billingZip}" size="64" label="${msg.tdOrder_billingZip} (Integer)" maxlength="64"/>
+				<app:input id="billingTotalAmount" value="#{tdOrder.billingTotalAmount}" label="${msg.tdOrder_billingTotalAmount} (Float)" />
+				<app:input id="billingAdvanceAmount" value="#{tdOrder.billingAdvanceAmount}" label="${msg.tdOrder_billingAdvanceAmount} (Float)" />
+				<app:input id="billingBalanceAmount" value="#{tdOrder.billingBalanceAmount}" label="${msg.tdOrder_billingBalanceAmount} (Float)" />
+				<app:input id="billingMarginAmount" value="#{tdOrder.billingMarginAmount}" label="${msg.tdOrder_billingMarginAmount} (Float)" />
+				<app:input id="billingTaxrate" value="#{tdOrder.billingTaxrate}" label="${msg.tdOrder_billingTaxrate} (Float)" />
+				<app:input id="billingPaymentGatewayRate" value="#{tdOrder.billingPaymentGatewayRate}" label="${msg.tdOrder_billingPaymentGatewayRate} (Float)" />
+				<app:input id="shipmentRate" value="#{tdOrder.shipmentRate}" label="${msg.tdOrder_shipmentRate} (Float)" />
+				<app:input id="billingGrossAmount" value="#{tdOrder.billingGrossAmount}" label="${msg.tdOrder_billingGrossAmount} (Float)" />
+				<app:input id="billingNettCost" value="#{tdOrder.billingNettCost}" label="${msg.tdOrder_billingNettCost} (Float)" />
+				<app:input id="custPaymentMode" value="#{tdOrder.custPaymentMode}" label="${msg.tdOrder_custPaymentMode} (Integer)" />
+				<app:input id="custPaymentStatus" value="#{tdOrder.custPaymentStatus}" label="${msg.tdOrder_custPaymentStatus} (Integer)" />
 				<app:inputDateTime id="custPaymentDate" value="#{tdOrder.custPaymentDate}" label="${msg.tdOrder_custPaymentDate}" />
 				<app:inputTextArea id="custPaymentComments" value="#{tdOrder.custPaymentComments}" label="${msg.tdOrder_custPaymentComments}" />
 				<app:input id="custPaymentId1" value="#{tdOrder.custPaymentId1}" size="128" label="${msg.tdOrder_custPaymentId1}" maxlength="128"/>
 				<app:input id="custPaymentId2" value="#{tdOrder.custPaymentId2}" size="128" label="${msg.tdOrder_custPaymentId2}" maxlength="128"/>
-				<app:input id="vendorPaymentMode" value="#{tdOrder.vendorPaymentMode}" label="${msg.tdOrder_vendorPaymentMode}" />
+				<app:input id="vendorPaymentMode" value="#{tdOrder.vendorPaymentMode}" label="${msg.tdOrder_vendorPaymentMode} (Integer)" />
 				<app:inputDateTime id="vendorPaymentDate" value="#{tdOrder.vendorPaymentDate}" label="${msg.tdOrder_vendorPaymentDate}" />
 				<app:inputTextArea id="vendorPaymentComments" value="#{tdOrder.vendorPaymentComments}" label="${msg.tdOrder_vendorPaymentComments}" />
 				<app:input id="shipmentFirstname" value="#{tdOrder.shipmentFirstname}" size="127" label="${msg.tdOrder_shipmentFirstname}" maxlength="127"/>
 				<app:input id="shipmentLastname" value="#{tdOrder.shipmentLastname}" size="127" label="${msg.tdOrder_shipmentLastname}" maxlength="127"/>
 				<app:inputTextArea id="shipmentEmail" value="#{tdOrder.shipmentEmail}" label="${msg.tdOrder_shipmentEmail}" />
-				<app:input id="shipmentPhone1" value="#{tdOrder.shipmentPhone1}" size="50" label="${msg.tdOrder_shipmentPhone1}" maxlength="50"/>
-				<app:input id="shipmentPhone2" value="#{tdOrder.shipmentPhone2}" size="50" label="${msg.tdOrder_shipmentPhone2}" maxlength="50"/>
+				<app:input id="shipmentPhone1" value="#{tdOrder.shipmentPhone1}" size="50" label="${msg.tdOrder_shipmentPhone1} (Integer)" maxlength="50"/>
+				<app:input id="shipmentPhone2" value="#{tdOrder.shipmentPhone2}" size="50" label="${msg.tdOrder_shipmentPhone2} (Integer)" maxlength="50"/>
 				<app:inputTextArea id="shipmentAddressline1" value="#{tdOrder.shipmentAddressline1}" label="${msg.tdOrder_shipmentAddressline1}" />
 				<app:inputTextArea id="shipmentAddressline2" value="#{tdOrder.shipmentAddressline2}" label="${msg.tdOrder_shipmentAddressline2}" />
-				<app:input id="shipmentZip" value="#{tdOrder.shipmentZip}" size="64" label="${msg.tdOrder_shipmentZip}" maxlength="64"/>
+				<app:input id="shipmentZip" value="#{tdOrder.shipmentZip}" size="64" label="${msg.tdOrder_shipmentZip} (Integer)" maxlength="64"/>
 				<app:inputTextArea id="shipmentComments" value="#{tdOrder.shipmentComments}" label="${msg.tdOrder_shipmentComments}" />
 				<app:inputTextArea id="orderOriginIpaddress" value="#{tdOrder.orderOriginIpaddress}" label="${msg.tdOrder_orderOriginIpaddress}" />
 				<app:inputTextArea id="orderOriginCity" value="#{tdOrder.orderOriginCity}" label="${msg.tdOrder_orderOriginCity}" />
 				<app:input id="orderOriginCountryCode" value="#{tdOrder.orderOriginCountryCode}" size="2" label="${msg.tdOrder_orderOriginCountryCode}" maxlength="2"/>
-				<app:input id="orderOriginCountryId" value="#{tdOrder.orderOriginCountryId}" label="${msg.tdOrder_orderOriginCountryId}" />
+				<app:input id="orderOriginCountryId" value="#{tdOrder.orderOriginCountryId}" label="${msg.tdOrder_orderOriginCountryId} (Integer)" />
 				<app:inputTextArea id="orderLeadsubmitUrl" value="#{tdOrder.orderLeadsubmitUrl}" label="${msg.tdOrder_orderLeadsubmitUrl}" />
 				<app:inputTextArea id="orderOriginRefUrl" value="#{tdOrder.orderOriginRefUrl}" label="${msg.tdOrder_orderOriginRefUrl}" />
 				<app:inputTextArea id="orderOriginalRefUrl" value="#{tdOrder.orderOriginalRefUrl}" label="${msg.tdOrder_orderOriginalRefUrl}" />
@@ -121,8 +121,8 @@
 				<app:input id="orderAcceptNewsletter" value="#{tdOrder.orderAcceptNewsletter}" label="${msg.tdOrder_orderAcceptNewsletter}" />
 				<app:input id="orderAcceptPromotionalMaterial" value="#{tdOrder.orderAcceptPromotionalMaterial}" label="${msg.tdOrder_orderAcceptPromotionalMaterial}" />
 				<app:inputTextArea id="orderInternalNarration" value="#{tdOrder.orderInternalNarration}" label="${msg.tdOrder_orderInternalNarration}" />
-				<app:input id="custom1" value="#{tdOrder.custom1}" size="128" label="${msg.tdOrder_custom1}" maxlength="128"/>
-				<app:input id="custom2" value="#{tdOrder.custom2}" size="128" label="${msg.tdOrder_custom2}" maxlength="128"/>
+				<app:inputTextArea id="custom1" value="#{tdOrder.custom1}" size="128" label="${msg.tdOrder_custom1}" maxlength="128"/>
+				<app:inputTextArea id="custom2" value="#{tdOrder.custom2}" size="128" label="${msg.tdOrder_custom2}" maxlength="128"/>
 				<app:input id="customint1" value="#{tdOrder.customint1}" label="${msg.tdOrder_customint1}" />
 				<app:input id="customint2" value="#{tdOrder.customint2}" label="${msg.tdOrder_customint2}" />
 				<app:inputTextArea id="ipaddress" value="#{tdOrder.ipaddress}" label="${msg.tdOrder_ipaddress}" />

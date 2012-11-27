@@ -511,6 +511,12 @@ public class TdTopic implements Identifiable<Integer>, Serializable {
         setVoteCount(0);
         setIsActive(1);
         setTopicStatus(1);
+        /***/
+        setCustomInt1(0);
+        setCustomInt2(0);
+        setFacebookCount(0);
+        setIsFeatured(0);
+
     }
 
     /**

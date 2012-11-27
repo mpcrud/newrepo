@@ -309,6 +309,8 @@ public class TdProductShipment implements Identifiable<Integer>, Serializable {
         setShipmentMrpCost(0);
         setShipmentDiscount(0);
         setShipmentStatus(false);
+        setShipmentType(0);
+        setShipmentDuration(0);
     }
 
     /**

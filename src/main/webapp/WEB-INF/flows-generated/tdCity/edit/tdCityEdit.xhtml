@@ -19,27 +19,26 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdCity}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="cityName" value="#{tdCity.cityName}" size="45" label="${msg.tdCity_cityName}" maxlength="45"/>
-				<app:input id="cityName2" value="#{tdCity.cityName2}" size="45" label="${msg.tdCity_cityName2}" maxlength="45"/>
-				<app:input id="populationRank" value="#{tdCity.populationRank}" label="${msg.tdCity_populationRank}" />
-				<app:input id="destinationRank" value="#{tdCity.destinationRank}" label="${msg.tdCity_destinationRank}" />
-				<app:input id="flag" value="#{tdCity.flag}" label="${msg.tdCity_flag}" />
-				<app:input id="destinationType" value="#{tdCity.destinationType}" label="${msg.tdCity_destinationType}" />
-				<app:input id="isBigcity" value="#{tdCity.isBigcity}" size="1" label="${msg.tdCity_isBigcity}" maxlength="1"/>
-				<app:input id="isDestination" value="#{tdCity.isDestination}" size="1" label="${msg.tdCity_isDestination}" maxlength="1"/>
-				<app:input id="importance" value="#{tdCity.importance}" label="${msg.tdCity_importance}" />
-				<app:input id="metroId" value="#{tdCity.metroId}" label="${msg.tdCity_metroId}" />
+				<app:input id="cityName" value="#{tdCity.cityName}" size="45" label="${msg.tdCity_cityName} (String)" maxlength="45"/>
+				<app:input id="cityName2" value="#{tdCity.cityName2}" size="45" label="${msg.tdCity_cityName2} (String)" maxlength="45"/>
+				<app:input id="populationRank" value="#{tdCity.populationRank}" label="${msg.tdCity_populationRank} (Integer)" />
+				<app:input id="destinationRank" value="#{tdCity.destinationRank}" label="${msg.tdCity_destinationRank} (Integer)" />
+				<app:input id="flag" value="#{tdCity.flag}" label="${msg.tdCity_flag} (Integer)" />
+				<app:input id="isBigcity" value="#{tdCity.isBigcity}" size="1" label="${msg.tdCity_isBigcity} (String)" maxlength="1"/>
+				<app:input id="isDestination" value="#{tdCity.isDestination}" size="1" label="${msg.tdCity_isDestination}(String)" maxlength="1"/>
+				<app:input id="importance" value="#{tdCity.importance}" label="${msg.tdCity_importance} (Integer)" />
+				<app:input id="metroId" value="#{tdCity.metroId}" label="${msg.tdCity_metroId} (Integer)" />
 				<app:inputTextArea id="descShort" value="#{tdCity.descShort}" label="${msg.tdCity_descShort}"  maxlength="200"/>
 				<app:inputTextArea id="descLong" value="#{tdCity.descLong}" label="${msg.tdCity_descLong}" />
-				<app:input id="isResource" value="#{tdCity.isResource}" label="${msg.tdCity_isResource}" />
-				<app:inputTextArea id="resources" value="#{tdCity.resources}" label="${msg.tdCity_resources}" />
-				<app:input id="isSupportedBy" value="#{tdCity.isSupportedBy}" label="${msg.tdCity_isSupportedBy}" />
+				<app:input id="isResource" value="#{tdCity.isResource}" label="${msg.tdCity_isResource} (String)" />
+				<app:inputTextArea id="resources" value="#{tdCity.resources}" label="${msg.tdCity_resources} (String)" />
+				<app:input id="isSupportedBy" value="#{tdCity.isSupportedBy}" label="${msg.tdCity_isSupportedBy} (Integer)" />
 				<app:input id="longitude" value="#{tdCity.longitude}" size="10" label="${msg.tdCity_longitude}" maxlength="10"/>
 				<app:input id="latitude" value="#{tdCity.latitude}" size="10" label="${msg.tdCity_latitude}" maxlength="10"/>
-				<app:input id="customtable1" value="#{tdCity.customtable1}" label="${msg.tdCity_customtable1}" />
-				<app:input id="customtable2" value="#{tdCity.customtable2}" label="${msg.tdCity_customtable2}" />
-				<app:input id="customtable3" value="#{tdCity.customtable3}" label="${msg.tdCity_customtable3}" />
-				<app:input id="customtable4" value="#{tdCity.customtable4}" label="${msg.tdCity_customtable4}" />
+				<app:input id="customtable1" value="#{tdCity.customtable1}" label="${msg.tdCity_customtable1} (Integer)" />
+				<app:input id="customtable2" value="#{tdCity.customtable2}" label="${msg.tdCity_customtable2} (Integer)" />
+				<app:input id="customtable3" value="#{tdCity.customtable3}" label="${msg.tdCity_customtable3} (Integer)" />
+				<app:input id="customtable4" value="#{tdCity.customtable4}" label="${msg.tdCity_customtable4} (Integer)" />
 				<app:inputDateTime id="updationDate" value="#{tdCity.updationDate}" label="${msg.tdCity_updationDate}" />
 			</h:panelGrid>
 		</p:fieldset>

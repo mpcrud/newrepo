@@ -360,6 +360,8 @@ public class TdUserAddress implements Identifiable<Integer>, Serializable {
      * Set the default values.
      */
     public void initDefaultValues() {
+        setZipCode(0);
+        setUserDetailsId(0);
     }
 
     /**

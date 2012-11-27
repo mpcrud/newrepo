@@ -540,6 +540,21 @@ public class TdMakeModel implements Identifiable<Integer>, Serializable {
      * Set the default values.
      */
     public void initDefaultValues() {
+        setIsActive(1);
+        setBhp(0);
+        setBodyType(0);
+        setDoorCount(0);
+        setEngineCapacity(0);
+        setFuelDelivery(0);
+        setFuelType(0);
+        setGearCount(0);
+        setMakemodelStatus(1);
+        setModelLaunchYear(0);
+        setTorque(0);
+        setTransmissionType(0);
+        setValvesCount(0);
+        setWheeldriveType(0);
+
     }
 
     /**

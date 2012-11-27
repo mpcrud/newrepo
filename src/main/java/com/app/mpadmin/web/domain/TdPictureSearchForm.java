@@ -7,9 +7,12 @@
  */
 package com.app.mpadmin.web.domain;
 
+import static com.app.mpadmin.dao.support.EntitySelectors.TdProductSelector.newTdProductSelector;
+import static com.app.mpadmin.dao.support.EntitySelectors.TdTopicSelector.newTdTopicSelector;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
 import static com.app.mpadmin.domain.TdPicture_.*;
 
+import com.app.mpadmin.dao.support.EntitySelectors;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.Ranges.RangeInteger;
@@ -29,6 +32,11 @@ public class TdPictureSearchForm extends SearchFormBase {
     private RangeInteger<TdPicture> pictureRefIdRange = newRangeInteger(pictureRefId);
     private RangeInteger<TdPicture> statusRange = newRangeInteger(status);
     private RangeInteger<TdPicture> pictureIdRange = newRangeInteger(pictureId);
+
+    private EntitySelectors.TdTopicSelector<TdPicture> topicSelector = newTdTopicSelector(pictureRefId);
+    private EntitySelectors.TdProductSelector<TdPicture> productSelector = newTdProductSelector(pictureRefId);
+    private EntitySelectors.TdCommentSelector<TdPicture> commentSelector = EntitySelectors.TdCommentSelector.newTdCommentSelector(pictureRefId);
+    private EntitySelectors.TdTagSelector<TdPicture> tagSelector = EntitySelectors.TdTagSelector.newTdTagSelector(pictureRefId);
 
     public TdPicture getTdPicture() {
         return tdPicture;
@@ -50,4 +58,18 @@ public class TdPictureSearchForm extends SearchFormBase {
     public RangeInteger<TdPicture> getStatusRange() {
         return statusRange;
     }
+
+    public EntitySelectors.TdTopicSelector<TdPicture> getTopicSelector() {
+            return topicSelector;
+        }
+    public EntitySelectors.TdProductSelector<TdPicture> getProductSelector() {
+                return productSelector;
+            }
+    public EntitySelectors.TdCommentSelector<TdPicture> getCommentSelector() {
+                return commentSelector;
+            }
+    public EntitySelectors.TdTagSelector<TdPicture> getTagSelector() {
+                return tagSelector;
+            }
+
 }

@@ -76,8 +76,8 @@ public class TdPageTest {
         model1.setPageType(1);
         model2.setPageType(1);
 
-        model1.setPageReferenceId(1);
-        model2.setPageReferenceId(1);
+     //   model1.setPageReferenceId(1);
+     //   model2.setPageReferenceId(1);
 
         Integer pageId = ValueGenerator.getUniqueInteger();
         model1.setPageId(pageId);

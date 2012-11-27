@@ -77,6 +77,9 @@
             <p:column id="tdPicture_status" headerText="${msg.tdPicture_status}" sortBy="#{item.status}">
 				<h:outputText value="#{item.status}" />
 			</p:column>
+            <p:column headerText="Image">
+                <img src="#{item.picturePath}#{item.pictureName}" alt="image"/>
+            </p:column>
 
 		</ui:define>
 	</app:search>

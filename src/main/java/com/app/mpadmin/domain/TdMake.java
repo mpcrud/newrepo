@@ -369,6 +369,11 @@ public class TdMake implements Identifiable<Integer>, Serializable {
      * Set the default values.
      */
     public void initDefaultValues() {
+        setIsActive(1);
+        setMakeStatus(1);
+        setRepresentCountryId(0);
+        setStartingYearOps(0);
+
     }
 
     /**

@@ -378,6 +378,13 @@ public class TdPage implements Identifiable<Integer>, Serializable {
      * Set the default values.
      */
     public void initDefaultValues() {
+        setPageCustom3(0);
+        setPageCustom4(0);
+        setPageIsActive(0);
+        setPagePriority(0);
+        setPageReferenceId(0);
+        setPageType(0);
+
     }
 
     /**

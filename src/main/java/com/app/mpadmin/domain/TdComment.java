@@ -309,6 +309,9 @@ public class TdComment implements Identifiable<Integer>, Serializable {
      * Set the default values.
      */
     public void initDefaultValues() {
+        setCommentCount(0);
+        setCommentStatus(1);
+        setIsActive(1);
     }
 
     /**

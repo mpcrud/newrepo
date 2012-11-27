@@ -11,11 +11,12 @@
 			completeMethod="#{tdTopicRepository.find}"
 			var="item"
 			itemValue="#{item}"
-			itemLabel="#{tdTopicConverter.print(item)}"
+			itemLabel='#{tdTopicConverter.print(item)}'
 			converter="#{tdTopicConverter}"
 			dropdown="true"
 			multiple="true"
-			size="50">
+			size="50"
+            style="width:150px" >
 		</p:autoComplete>
 		<h:panelGroup>
 			<ui:insert/>

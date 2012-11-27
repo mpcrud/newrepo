@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import javax.inject.Inject;
 
+import com.app.mpadmin.domain.Editor;
 import org.primefaces.model.SortOrder;
 
 import com.app.mpadmin.dao.support.SearchParameters;
@@ -72,11 +73,24 @@ List<TdRequestCarPart> datasource;
         return datasource;
     }
 
-    public List<String> emailList(){
+   /* public List<String> emailList(){
         List<String> eList = new ArrayList<String>();
         for(TdRequestCarPart requestCarPart : getSelectedList()){
             eList.add(requestCarPart.getBillingEmail());
         }
         return eList;
-    }
+    }   */
+    public Editor emailList(){
+       List<String> eList = new ArrayList<String>();
+       Editor editorList=new Editor();
+       Object[] objectArr=getSelectedList();
+       for(int i=0;i<objectArr.length;i++){
+           eList.add(((TdRequestCarPart)objectArr[i]).getBillingEmail());
+       }
+       editorList.setEmail(eList);
+       editorList.setSubject(((TdRequestCarPart)objectArr[0]).getCarMake());
+       editorList.setValue(((TdRequestCarPart)objectArr[0]).getFuelType());
+
+       return editorList;
+   }
 }

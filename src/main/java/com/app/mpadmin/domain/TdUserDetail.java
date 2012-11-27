@@ -264,6 +264,10 @@ public class TdUserDetail implements Identifiable<Integer>, Serializable {
      * Set the default values.
      */
     public void initDefaultValues() {
+        setCredit(0);
+        setPhone(0);
+
+
     }
 
     /**

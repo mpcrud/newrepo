@@ -221,6 +221,7 @@ public class TdTagGrp implements Identifiable<Integer>, Serializable {
      */
     public void initDefaultValues() {
          setReferenceType(0);
+        setTagGrpStatus(0);
            }
 
     /**

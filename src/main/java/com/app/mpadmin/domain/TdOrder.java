@@ -1913,6 +1913,36 @@ public class TdOrder implements Identifiable<Integer>, Serializable {
         setDisputeRaisedStatus(0);
         setOrderAcceptNewsletter(1);
         setOrderAcceptPromotionalMaterial(1);
+        setBillingAdvanceAmount(0);
+        setBillingBalanceAmount(0);
+        setBillingGrossAmount(0f);
+        setBillingMarginAmount(0f);
+        setBillingNettCost(0f);
+        setBillingPaymentGatewayRate(0f);
+        setBillingStateId(0);
+        setBillingTaxrate(0f);
+        setBillingTotalAmount(0f);
+        setCarYear(0);
+        setCustomint1(0);
+        setCustomint2(0);
+        setCustPaymentMode(0);
+        setCustPaymentStatus(0);
+        setInvoiceId(0);
+        setVendorPaymentMode(0);
+        setShipmentRate(0);
+        setShipmentCountryId(0);
+        setShipmentCityId(0);
+        setOrderType(0);
+        setOrderStatus(0);
+        setOrderRefundType(0);
+        setOrderPriority(0);
+        setOrderBulkType(0);
+        setOrderCorporateType(0);
+        setShipmentCityId(0);
+        setShipmentCountryId(0);
+        setShipmentRate(0f);
+        setShipmentStateId(0);
+        setOrderCancellationType(0);
     }
 
     /**

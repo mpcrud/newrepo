@@ -263,6 +263,10 @@ public class TdVote implements Identifiable<Integer>, Serializable {
      * Set the default values.
      */
     public void initDefaultValues() {
+        setCommentId(0);
+        setVoteStatus(0);
+        setVoteType(0);
+
     }
 
     /**

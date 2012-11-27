@@ -21,7 +21,7 @@
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 		<!-- 		<app:input id="topicId" value="#{tdComment.topicId}" label="${msg.tdComment_topicId}" /> -->
 				<app:input id="commentName" value="#{tdComment.commentName}" size="45" label="${msg.tdComment_commentName}" maxlength="45"/>
-				<app:input id="commentCount" value="#{tdComment.commentCount}" label="${msg.tdComment_commentCount}" />
+				<app:input id="commentCount" value="#{tdComment.commentCount}" label="${msg.tdComment_commentCount} (Integer)" />
 		<!-- 		<app:input id="userId" value="#{tdComment.userId}" label="${msg.tdComment_userId}" /> -->
 				<app:inputDateTime id="updationDate" value="#{tdComment.updationDate}" label="${msg.tdComment_updationDate}" />
 			<!--	<app:input id="isActive" value="#{tdComment.isActive}" label="${msg.tdComment_isActive}" />   -->
@@ -32,7 +32,7 @@
                   </p:selectOneRadio>
                 <h:outputText value="#{tdComment.isActive}" rendered="${readonly}"/>
 				<app:inputTextArea id="commentDesc" value="#{tdComment.commentDesc}" label="${msg.tdComment_commentDesc}" />
-				<app:input id="commentStatus" value="#{tdComment.commentStatus}" label="${msg.tdComment_commentStatus}" />
+				<app:input id="commentStatus" value="#{tdComment.commentStatus}" label="${msg.tdComment_commentStatus}(Integer)" />
 				<app:inputTextArea id="shortDesc" value="#{tdComment.shortDesc}" label="${msg.tdComment_shortDesc}" />
 				<app:tdUserAuthAutoComplete id="user" value="#{tdComment.user}" required="true" label="${msg.tdComment_user}">
 					<app:iconSearch action="selectUser" title="${msg.tdComment_user} " />

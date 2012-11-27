@@ -19,11 +19,11 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdMetro}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="metroName" value="#{tdMetro.metroName}" size="45" label="${msg.tdMetro_metroName}" />
-				<app:input id="metroName2" value="#{tdMetro.metroName2}" size="45" label="${msg.tdMetro_metroName2}" />
-				<app:input id="metroName3" value="#{tdMetro.metroName3}" size="45" label="${msg.tdMetro_metroName3}" />
-				<app:input id="importance" value="#{tdMetro.importance}" label="${msg.tdMetro_importance}" />
-				<app:input id="flag" value="#{tdMetro.flag}" label="${msg.tdMetro_flag}" />
+				<app:input id="metroName" value="#{tdMetro.metroName}" size="45" label="${msg.tdMetro_metroName} (String)" />
+				<app:input id="metroName2" value="#{tdMetro.metroName2}" size="45" label="${msg.tdMetro_metroName2} (String)" />
+				<app:input id="metroName3" value="#{tdMetro.metroName3}" size="45" label="${msg.tdMetro_metroName3} (String)" />
+				<app:input id="importance" value="#{tdMetro.importance}" label="${msg.tdMetro_importance} (Integer)" />
+				<app:input id="flag" value="#{tdMetro.flag}" label="${msg.tdMetro_flag} (Integer)" />
 				<app:inputDateTime id="updationDate" value="#{tdMetro.updationDate}" label="${msg.tdMetro_updationDate}" />
 			</h:panelGrid>
 		</p:fieldset>

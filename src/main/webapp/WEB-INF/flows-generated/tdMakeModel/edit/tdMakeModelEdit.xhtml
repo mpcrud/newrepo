@@ -19,13 +19,13 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdMakeModel}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="makeModelId" value="#{tdMakeModel.makeModelId}" label="${msg.tdMakeModel_makeModelId}" />
+				<app:input id="makeModelId" value="#{tdMakeModel.makeModelId}" label="${msg.tdMakeModel_makeModelId} (Integer)" />
 			<!--  	<app:input id="makeId" value="#{tdMakeModel.makeId}" label="${msg.tdMakeModel_makeId}" /> -->
-				<app:inputTextArea id="makemodelDisplayName" value="#{tdMakeModel.makemodelDisplayName}" label="${msg.tdMakeModel_makemodelDisplayName}" />
-				<app:inputTextArea id="makemodelTechnicalName" value="#{tdMakeModel.makemodelTechnicalName}" label="${msg.tdMakeModel_makemodelTechnicalName}" />
-				<app:inputTextArea id="makemodelAlternateName" value="#{tdMakeModel.makemodelAlternateName}" label="${msg.tdMakeModel_makemodelAlternateName}" />
-				<app:inputTextArea id="shortDesc" value="#{tdMakeModel.shortDesc}" label="${msg.tdMakeModel_shortDesc}" />
-				<app:input id="longDesc" value="#{tdMakeModel.longDesc}" label="${msg.tdMakeModel_longDesc}" />
+				<app:inputTextArea id="makemodelDisplayName" value="#{tdMakeModel.makemodelDisplayName}" label="${msg.tdMakeModel_makemodelDisplayName} (String)" />
+				<app:inputTextArea id="makemodelTechnicalName" value="#{tdMakeModel.makemodelTechnicalName}" label="${msg.tdMakeModel_makemodelTechnicalName} (String)" />
+				<app:inputTextArea id="makemodelAlternateName" value="#{tdMakeModel.makemodelAlternateName}" label="${msg.tdMakeModel_makemodelAlternateName} (String)" />
+				<app:inputTextArea id="shortDesc" value="#{tdMakeModel.shortDesc}" label="${msg.tdMakeModel_shortDesc} (String)" />
+				<app:input id="longDesc" value="#{tdMakeModel.longDesc}" label="${msg.tdMakeModel_longDesc} (String)" />
 			<!--	<app:input id="isActive" value="#{tdMakeModel.isActive}" label="${msg.tdMakeModel_isActive}" />  -->
                 <appcc:outputLabel for="isActive" value="${msg.tdMakeModel_isActive}" />
                   <p:selectOneRadio id="isActive" value="#{tdMakeModel.isActive}">
@@ -33,29 +33,29 @@
                   <f:selectItem itemLabel="Inactive" itemValue="0" />
                   </p:selectOneRadio>
                 <h:outputText value="#{tdMakeModel.isActive}" rendered="${readonly}"/>
-				<app:input id="modelLaunchYear" value="#{tdMakeModel.modelLaunchYear}" label="${msg.tdMakeModel_modelLaunchYear}" />
-				<app:input id="fuelType" value="#{tdMakeModel.fuelType}" label="${msg.tdMakeModel_fuelType}" />
-				<app:input id="transmissionType" value="#{tdMakeModel.transmissionType}" label="${msg.tdMakeModel_transmissionType}" />
-				<app:input id="wheeldriveType" value="#{tdMakeModel.wheeldriveType}" label="${msg.tdMakeModel_wheeldriveType}" />
-				<app:input id="engineCapacity" value="#{tdMakeModel.engineCapacity}" label="${msg.tdMakeModel_engineCapacity}" />
-				<app:input id="bodyType" value="#{tdMakeModel.bodyType}" label="${msg.tdMakeModel_bodyType}" />
-				<app:input id="doorCount" value="#{tdMakeModel.doorCount}" label="${msg.tdMakeModel_doorCount}" />
-				<app:input id="gearCount" value="#{tdMakeModel.gearCount}" label="${msg.tdMakeModel_gearCount}" />
-				<app:input id="fuelDelivery" value="#{tdMakeModel.fuelDelivery}" label="${msg.tdMakeModel_fuelDelivery}" />
-				<app:input id="valvesCount" value="#{tdMakeModel.valvesCount}" label="${msg.tdMakeModel_valvesCount}" />
-				<app:input id="bhp" value="#{tdMakeModel.bhp}" label="${msg.tdMakeModel_bhp}" />
-				<app:input id="torque" value="#{tdMakeModel.torque}" label="${msg.tdMakeModel_torque}" />
-				<app:input id="makemodelStatus" value="#{tdMakeModel.makemodelStatus}" label="${msg.tdMakeModel_makemodelStatus}" />
-				<app:inputTextArea id="seoResources" value="#{tdMakeModel.seoResources}" label="${msg.tdMakeModel_seoResources}" />
-				<app:inputTextArea id="seoUrl" value="#{tdMakeModel.seoUrl}" label="${msg.tdMakeModel_seoUrl}" />
-				<app:inputTextArea id="seoH1" value="#{tdMakeModel.seoH1}" label="${msg.tdMakeModel_seoH1}" />
-				<app:inputTextArea id="seoH2" value="#{tdMakeModel.seoH2}" label="${msg.tdMakeModel_seoH2}" />
-				<app:inputTextArea id="metaTitle" value="#{tdMakeModel.metaTitle}" label="${msg.tdMakeModel_metaTitle}" />
-				<app:inputTextArea id="metaKeyword" value="#{tdMakeModel.metaKeyword}" label="${msg.tdMakeModel_metaKeyword}" />
-				<app:inputTextArea id="metaDescription" value="#{tdMakeModel.metaDescription}" label="${msg.tdMakeModel_metaDescription}" />
-				<app:inputTextArea id="custom1" value="#{tdMakeModel.custom1}" label="${msg.tdMakeModel_custom1}" />
-				<app:inputTextArea id="custom2" value="#{tdMakeModel.custom2}" label="${msg.tdMakeModel_custom2}" />
-				<app:inputTextArea id="custom3" value="#{tdMakeModel.custom3}" label="${msg.tdMakeModel_custom3}" />
+				<app:input id="modelLaunchYear" value="#{tdMakeModel.modelLaunchYear}" label="${msg.tdMakeModel_modelLaunchYear} (Integer)" />
+				<app:input id="fuelType" value="#{tdMakeModel.fuelType}" label="${msg.tdMakeModel_fuelType} (Integer)" />
+				<app:input id="transmissionType" value="#{tdMakeModel.transmissionType}" label="${msg.tdMakeModel_transmissionType} (Integer)" />
+				<app:input id="wheeldriveType" value="#{tdMakeModel.wheeldriveType}" label="${msg.tdMakeModel_wheeldriveType} (Integer)" />
+				<app:input id="engineCapacity" value="#{tdMakeModel.engineCapacity}" label="${msg.tdMakeModel_engineCapacity} (Integer)" />
+				<app:input id="bodyType" value="#{tdMakeModel.bodyType}" label="${msg.tdMakeModel_bodyType} (Integer)" />
+				<app:input id="doorCount" value="#{tdMakeModel.doorCount}" label="${msg.tdMakeModel_doorCount} (Integer)" />
+				<app:input id="gearCount" value="#{tdMakeModel.gearCount}" label="${msg.tdMakeModel_gearCount} (Integer)" />
+				<app:input id="fuelDelivery" value="#{tdMakeModel.fuelDelivery}" label="${msg.tdMakeModel_fuelDelivery} (Integer)" />
+				<app:input id="valvesCount" value="#{tdMakeModel.valvesCount}" label="${msg.tdMakeModel_valvesCount} (Integer)" />
+				<app:input id="bhp" value="#{tdMakeModel.bhp}" label="${msg.tdMakeModel_bhp} (Integer)" />
+				<app:input id="torque" value="#{tdMakeModel.torque}" label="${msg.tdMakeModel_torque} (Integer)" />
+				<app:input id="makemodelStatus" value="#{tdMakeModel.makemodelStatus}" label="${msg.tdMakeModel_makemodelStatus} (Integer)" />
+				<app:inputTextArea id="seoResources" value="#{tdMakeModel.seoResources}" label="${msg.tdMakeModel_seoResources} (String)" />
+				<app:inputTextArea id="seoUrl" value="#{tdMakeModel.seoUrl}" label="${msg.tdMakeModel_seoUrl} (String)" />
+				<app:inputTextArea id="seoH1" value="#{tdMakeModel.seoH1}" label="${msg.tdMakeModel_seoH1} (String)" />
+				<app:inputTextArea id="seoH2" value="#{tdMakeModel.seoH2}" label="${msg.tdMakeModel_seoH2} (String)" />
+				<app:inputTextArea id="metaTitle" value="#{tdMakeModel.metaTitle}" label="${msg.tdMakeModel_metaTitle} (String)" />
+				<app:inputTextArea id="metaKeyword" value="#{tdMakeModel.metaKeyword}" label="${msg.tdMakeModel_metaKeyword} (String)" />
+				<app:inputTextArea id="metaDescription" value="#{tdMakeModel.metaDescription}" label="${msg.tdMakeModel_metaDescription} (String)" />
+				<app:inputTextArea id="custom1" value="#{tdMakeModel.custom1}" label="${msg.tdMakeModel_custom1} (String)" />
+				<app:inputTextArea id="custom2" value="#{tdMakeModel.custom2}" label="${msg.tdMakeModel_custom2} (String)" />
+				<app:inputTextArea id="custom3" value="#{tdMakeModel.custom3}" label="${msg.tdMakeModel_custom3} (String)" />
 				<app:inputDateTime id="updationDate" value="#{tdMakeModel.updationDate}" label="${msg.tdMakeModel_updationDate}" />
 				<app:tdMakeAutoComplete id="make" value="#{tdMakeModel.make}" required="true" label="${msg.tdMakeModel_make}">
 					<app:iconSearch action="selectMake" title="${msg.tdMakeModel_make} " />

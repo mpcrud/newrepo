@@ -273,6 +273,12 @@ public class TdUserActivity implements Identifiable<Integer>, Serializable {
      * Set the default values.
      */
     public void initDefaultValues() {
+        setDuration(0);
+        setCurrentStatus(0);
+        setReplyCount(0);
+        setViewCount(0);
+        setSessionPage(0);
+
     }
 
     /**

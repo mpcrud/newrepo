@@ -226,6 +226,7 @@ public class TdState implements Identifiable<Integer>, Serializable {
      * Set the default values.
      */
     public void initDefaultValues() {
+        setImportance(0);
     }
 
     /**

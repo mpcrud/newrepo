@@ -1300,6 +1300,36 @@ public class TdProduct implements Identifiable<Integer>, Serializable {
         setUniformAcrossModel(false);
         setUniformAcrossMake(false);
         setProductStatus(false);
+        /***/
+        setCustomint1(0);
+        setCustomint2(0);
+        setCustomint3(0);
+        setDeliveryType(0);
+        setHeight1(0);
+        setHeight2(0);
+        setInnerDia1(0);
+        setInnerDia2(0);
+        setOuterDia1(0);
+        setOuterDia2(0);
+        setInternalRating(0);
+        setMrpPrice(0);
+        setNoOfHoles1(0);
+        setNoOfHoles2(0);
+        setNoOfTeeth1(0);
+        setNoOfTeeth2(0);
+        setNoOfOuterThread1(0);
+        setNoOfOuterThread2(0);
+        setWidth2(0);
+        setWidth1(0);
+        setThickness2(0);
+        setThickness1(0);
+        setRequiredQuantity(0);
+        setQuantityOfFit(0);
+        setPlateDiameter(0);
+        setProductAgeDistance(0);
+        setProductAgeTime(0);
+        setProductSegmentType(0);
+
     }
 
     /**

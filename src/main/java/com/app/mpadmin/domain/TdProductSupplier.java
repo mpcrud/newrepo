@@ -460,6 +460,10 @@ public class TdProductSupplier implements Identifiable<Integer>, Serializable {
      */
     public void initDefaultValues() {
         setProductSupplierStatus(false);
+        /****/
+        setProductSupplierRating(0);
+        setProductSupplierType(0);
+
     }
 
     /**

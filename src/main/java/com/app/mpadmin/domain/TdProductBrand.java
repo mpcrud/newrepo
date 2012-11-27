@@ -372,6 +372,7 @@ public class TdProductBrand implements Identifiable<Integer>, Serializable {
      */
     public void initDefaultValues() {
         setBrandStatus(false);
+        setInternalRating(0);
     }
 
     /**

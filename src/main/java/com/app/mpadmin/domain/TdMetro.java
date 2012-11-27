@@ -185,6 +185,9 @@ public class TdMetro implements Identifiable<Integer>, Serializable {
      * Set the default values.
      */
     public void initDefaultValues() {
+        setFlag(0);
+        setImportance(0);
+
     }
 
     /**

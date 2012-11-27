@@ -19,15 +19,15 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdProductShipment}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="shipmentMrpCost" value="#{tdProductShipment.shipmentMrpCost}" label="${msg.tdProductShipment_shipmentMrpCost}" />
-				<app:input id="shipmentDiscount" value="#{tdProductShipment.shipmentDiscount}" label="${msg.tdProductShipment_shipmentDiscount}" />
-				<app:inputTextArea id="shipmentPolicy" value="#{tdProductShipment.shipmentPolicy}" label="${msg.tdProductShipment_shipmentPolicy}" />
-				<app:inputTextArea id="shipmentSpecialNote" value="#{tdProductShipment.shipmentSpecialNote}" label="${msg.tdProductShipment_shipmentSpecialNote}" />
-				<app:input id="shipmentDuration" value="#{tdProductShipment.shipmentDuration}" label="${msg.tdProductShipment_shipmentDuration}" />
-				<app:input id="shipmentType" value="#{tdProductShipment.shipmentType}" label="${msg.tdProductShipment_shipmentType}" />
-				<app:inputBoolean id="shipmentStatus" value="#{tdProductShipment.shipmentStatus}" label="${msg.tdProductShipment_shipmentStatus}" required="true" />
-				<app:inputTextArea id="custom1" value="#{tdProductShipment.custom1}" label="${msg.tdProductShipment_custom1}" />
-				<app:inputTextArea id="custom2" value="#{tdProductShipment.custom2}" label="${msg.tdProductShipment_custom2}" />
+				<app:input id="shipmentMrpCost" value="#{tdProductShipment.shipmentMrpCost}" label="${msg.tdProductShipment_shipmentMrpCost} (Float)" />
+				<app:input id="shipmentDiscount" value="#{tdProductShipment.shipmentDiscount}" label="${msg.tdProductShipment_shipmentDiscount} (Float)" />
+				<app:inputTextArea id="shipmentPolicy" value="#{tdProductShipment.shipmentPolicy}" label="${msg.tdProductShipment_shipmentPolicy} (String)" />
+				<app:inputTextArea id="shipmentSpecialNote" value="#{tdProductShipment.shipmentSpecialNote}" label="${msg.tdProductShipment_shipmentSpecialNote} (String)" />
+				<app:input id="shipmentDuration" value="#{tdProductShipment.shipmentDuration}" label="${msg.tdProductShipment_shipmentDuration} (Integer)" />
+				<app:input id="shipmentType" value="#{tdProductShipment.shipmentType}" label="${msg.tdProductShipment_shipmentType} (Integer)" />
+				<app:inputBoolean id="shipmentStatus" value="#{tdProductShipment.shipmentStatus}" label="${msg.tdProductShipment_shipmentStatus} (Boolean)" required="true" />
+				<app:inputTextArea id="custom1" value="#{tdProductShipment.custom1}" label="${msg.tdProductShipment_custom1} (String)" />
+				<app:inputTextArea id="custom2" value="#{tdProductShipment.custom2}" label="${msg.tdProductShipment_custom2} (String)" />
 				<app:inputDateTime id="updationDate" value="#{tdProductShipment.updationDate}" label="${msg.tdProductShipment_updationDate}" />
 				<app:tdShipmentVendorAutoComplete id="shipmentVendor" value="#{tdProductShipment.shipmentVendor}" required="true" label="${msg.tdProductShipment_shipmentVendor}">
 					<app:iconSearch action="selectShipmentVendor" title="${msg.tdProductShipment_shipmentVendor} " />

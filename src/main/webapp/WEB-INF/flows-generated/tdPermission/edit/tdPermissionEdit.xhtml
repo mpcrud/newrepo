@@ -19,7 +19,7 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdPermission}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="permissionName" value="#{tdPermission.permissionName}" size="90" label="${msg.tdPermission_permissionName}" maxlength="90"/>
+				<app:input id="permissionName" value="#{tdPermission.permissionName}" size="90" label="${msg.tdPermission_permissionName} (String)" maxlength="90"/>
 				<app:inputDateTime id="updationDate" value="#{tdPermission.updationDate}" label="${msg.tdPermission_updationDate}" required="true" />
 			</h:panelGrid>
 		</p:fieldset>
