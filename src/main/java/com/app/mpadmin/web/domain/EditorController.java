@@ -43,23 +43,22 @@ public class EditorController {
                final String from= "no-reply@motrpart.in";
                final String subject = editor.getSubject();
                final String content= editor.getValue() ;
-               final List<String> mailTo= new ArrayList<String>();//= editor.getEmail();
-               mailTo.add("smriti3008@gmail.com");
-               mailTo.add("smriti.agarwal@motrpart.com");
+               final List<String> mailTo= editor.getEmail();
+             // new ArrayList<String>(); mailTo.add("smriti3008@gmail.com");
+
                for(String to: mailTo)
                {
                try
                  {
                     messageUtil.info("status_saved_ok","Trying to send mail");
-                   sendMail(from,subject,content,to,true);
+                   sendEMail(from,subject,content,to,true);
                  }
                catch (Exception e){
                    e.printStackTrace();
                  }
                }
-
            }
-    public void sendMail(final String from, final String subject, final String content, final String mailTo, final boolean isHtml) throws Exception
+    public void sendEMail(final String from, final String subject, final String content, final String mailTo, final boolean isHtml) throws Exception
        {
            new Thread((new Runnable() {
            public void run()

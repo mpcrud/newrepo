@@ -26,6 +26,6 @@ public class TdCommentConverter extends GenericJsfConverter<TdComment, Integer> 
 
     @Override
     public String print(TdComment tdComment) {
-        return tdComment == null ? "" : "" + tdComment.getCommentName() + "/" + tdComment.getCommentDesc() + "/" + tdComment.getShortDesc();
+        return tdComment == null ? "" : ""+tdComment.getCommentId()+"/" + tdComment.getCommentName(); //+ "/" + tdComment.getCommentDesc() + "/" + tdComment.getShortDesc();
     }
 }

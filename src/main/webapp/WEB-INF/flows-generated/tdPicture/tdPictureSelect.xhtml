@@ -77,10 +77,18 @@
             <p:column id="tdPicture_status" headerText="${msg.tdPicture_status}" sortBy="#{item.status}">
 				<h:outputText value="#{item.status}" />
 			</p:column>
-            <p:column headerText="Image">
-                <img src="#{item.picturePath}#{item.pictureName}" alt="image"/>
+            <p:column id="tdPicture_product" headerText="${msg.tdPicture_product}">
+                        <h:outputText value="#{tdProductConverter.print(item.product)}" />
             </p:column>
-
+            <p:column id="tdPicture_topic" headerText="${msg.tdPicture_topic}">
+                   <h:outputText value="#{tdTopicConverter.print(item.topic)}" converter="#{fewCharacterConverter}"/>
+            </p:column>
+            <p:column id="tdPicture_comment" headerText="${msg.tdPicture_comment}">
+                   <h:outputText value="#{tdCommentConverter.print(item.comment)}" converter="#{fewCharacterConverter}"/>
+            </p:column>
+            <p:column id="tdPicture_tag" headerText="${msg.tdPicture_tag}">
+                   <h:outputText value="#{tdTagConverter.print(item.tag)}" />
+            </p:column>
 		</ui:define>
 	</app:search>
 </ui:define>

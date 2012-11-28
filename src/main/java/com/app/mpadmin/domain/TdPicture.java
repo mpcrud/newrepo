@@ -222,8 +222,8 @@ public class TdPicture implements Identifiable<Integer>, Serializable {
     @NotFound(action= NotFoundAction.IGNORE)
     @Nullable
     public TdTopic getTopic( ){
-       // if(pictureType!=600)
-        //  topic=null;
+        if(pictureType!=600)
+         topic=null;
         return topic;
     }
 
@@ -232,9 +232,9 @@ public class TdPicture implements Identifiable<Integer>, Serializable {
         if(topic!=null)
         {
           setPictureType(600);
-          setPictureRefId(topic.getId());
+          setPictureRefId(topic.getTopicId());
         }
-        else setPictureRefId(null);
+     //   else setPictureRefId(null);
     }
 
     @Cache(usage = NONSTRICT_READ_WRITE)
@@ -243,8 +243,8 @@ public class TdPicture implements Identifiable<Integer>, Serializable {
     @NotFound(action= NotFoundAction.IGNORE)
     @Nullable
     public TdProduct getProduct( ){
-       //  if(pictureType != 1000)
-         //   product=null;
+         if(pictureType != 1000)
+            product=null;
          return product;
     }
 
@@ -253,9 +253,9 @@ public class TdPicture implements Identifiable<Integer>, Serializable {
         if(product!=null)
         {
             setPictureType(1000);
-            setPictureRefId(product.getId());
+            setPictureRefId(product.getProductId());
         }
-        else setPictureRefId(null);
+     //   else setPictureRefId(null);
     }
 
     @Cache(usage = NONSTRICT_READ_WRITE)
@@ -264,8 +264,8 @@ public class TdPicture implements Identifiable<Integer>, Serializable {
         @NotFound(action= NotFoundAction.IGNORE)
         @Nullable
         public TdTag getTag( ){
-         //   if(pictureType!=800)
-           //   tag=null;
+            if(pictureType!=800)
+             tag=null;
             return tag;
         }
 
@@ -276,7 +276,7 @@ public class TdPicture implements Identifiable<Integer>, Serializable {
               setPictureType(800);
               setPictureRefId(tag.getTagId());
             }
-            else setPictureRefId(null);
+          //  else setPictureRefId(null);
         }
 
         @Cache(usage = NONSTRICT_READ_WRITE)
@@ -285,8 +285,8 @@ public class TdPicture implements Identifiable<Integer>, Serializable {
         @NotFound(action= NotFoundAction.IGNORE)
         @Nullable
         public TdComment getComment( ){
-          //   if(pictureType != 700)
-          //      comment=null;
+             if(pictureType != 700)
+                comment=null;
              return comment;
         }
 
@@ -295,9 +295,9 @@ public class TdPicture implements Identifiable<Integer>, Serializable {
             if(comment!=null)
             {
                 setPictureType(700);
-                setPictureRefId(comment.getId());
+                setPictureRefId(comment.getCommentId());
             }
-            else setPictureRefId(null);
+         //   else setPictureRefId(null);
         }
 
     /**
@@ -305,7 +305,7 @@ public class TdPicture implements Identifiable<Integer>, Serializable {
      */
     public void initDefaultValues() {
         setStatus(1);
-       // setPictureType(0);
+        setPictureType(0);
         setPictureRefId(0);
     }
 

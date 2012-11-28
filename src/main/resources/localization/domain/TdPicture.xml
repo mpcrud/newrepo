@@ -23,4 +23,8 @@
 	<entry key="tdPicture_pictureType">Picture Type</entry>
 	<entry key="tdPicture_pictureRefId">Picture Ref Id</entry>
 	<entry key="tdPicture_status">Status</entry>
+    <entry key="tdPicture_topic">Topic</entry>
+    <entry key="tdPicture_product">Product</entry>
+    <entry key="tdPicture_tag">Tag</entry>
+    <entry key="tdPicture_comment">Comment</entry>
 </properties>

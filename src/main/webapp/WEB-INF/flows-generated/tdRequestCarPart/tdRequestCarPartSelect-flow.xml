@@ -44,9 +44,15 @@
             <evaluate expression="primeFacesUtil.refresh()"/>
         </transition>
         <transition on="sendEmail" to="sendemail" validate="false">
+         <evaluate expression="tdRequestCarPartLazyDataModel.emailList()" result="viewScope.editorList" result-type="com.app.mpadmin.domain.Editor"/>
+         <evaluate expression="editor.setEmail(editorList.email)"/>
+         <evaluate expression="editor.setSubject(editorList.subject)"/>
+         <evaluate expression="editor.setValue(editorList.value)"/>
+       </transition>
+     <!--   <transition on="sendEmail" to="sendemail" validate="false">
           <evaluate expression="tdRequestCarPartLazyDataModel.emailList()" result="flowScope.eList" result-type="java.util.List"/>
           <evaluate expression="editor.setEmail(eList)"/>
-        </transition>
+          </transition> -->
         </view-state>
 
 	<view-state id="tdRequestCarPartSubSelect" view="tdRequestCarPartSelect.xhtml">
@@ -70,9 +76,9 @@
        <transition on="quit" to="mailSent"/>
    </view-state>
 
-   <!--  <action-state id="submitmail">
+  <!--   <action-state id="submitmail">
           <evaluate expression="editorController.sendMail(editor)"/>
-     </action-state>   -->
+     </action-state>    -->
 
  <!--   <subflow-state id="sendEmail" subflow="sendMail">
           <input name="sub" value="true" />

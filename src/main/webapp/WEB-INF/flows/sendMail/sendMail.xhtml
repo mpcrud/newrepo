@@ -7,29 +7,31 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">
 <app:panelMenu title="Mail">
     <ui:define name="content">
-  <h:form id="form">
+  <!--<h:form id="form"> -->
     <f:validateBean disabled="true">
     <h:panelGrid columns="2">
     <h:outputLabel for="email" value="To"/>
-    <h:inputText id="email" value="#{editor.email}" width="1000"/>
+    <h:inputTextarea id="email" value="#{editor.email}" converter="#{listConverter}" rows="7" cols="50"/>
     <h:outputLabel for="subject" value="Subject"/>
     <h:inputText id="subject" value="#{editor.subject}" width="1000"/>
     <h:outputLabel for="value" value="Body"/>
     <p:editor id="value" value="#{editor.value}" width="600" />
     <h:panelGrid columns="2" style="margin-top:10px">
-        <h:outputLabel for="submitButton"/>
-        <p:commandButton id="submitButton" value="Send"  action="submitMail" process="@this"
-                        icon="ui-icon-disk" update="display" />
-   <!--     <p:commandButton id="clearButton" type="button" value="Clear" onclick="value.clear()"
-                        icon="ui-icon-close" />    -->
+        <h:outputLabel for="saveAndClose"/>
+        <p:commandButton id="saveAndClose" action="submitMail" ajax="true" update="messages display" process="@form"
+		styleClass="aria-save-button default" style="margin-bottom: 14px"
+		icon="ui-icon-disk"
+		value="#{msg.menu_mail}"
+		title="#{msg.menu_mail}"
+		rendered="#{not sub and not readonly}" />
     </h:panelGrid>
     </h:panelGrid>
     </f:validateBean>
-   <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
-        <h:outputText id="display" value="#{editor.value}" escape="false" />
-    </p:dialog>
+ <!--  </h:form>    -->
+     <p:dialog header="Content" widgetVar="dlg" showEffect="fade" hideEffect="fade">
+           <h:outputText id="display" value="#{editor.value}" escape="false" />
+     </p:dialog>
 
-</h:form>
  </ui:define>
 </app:panelMenu>
 </ui:composition>

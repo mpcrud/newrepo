@@ -30,7 +30,7 @@ public class TdTopicConverter extends GenericJsfConverter<TdTopic, Integer> {
 
     @Override
     public String print(TdTopic tdTopic) {
-        return tdTopic == null ? "" : "" + tdTopic.getTopicId()+"/"+tdTopic.getTopicTitle().replace("&nbsp;"," ");
+        return tdTopic == null ? "" : "" + tdTopic.getTopicId()+"/"+tdTopic.getTopicTitle().replace("&nbsp;"," ").substring(0,20);
     }
 
   }

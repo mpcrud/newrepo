@@ -22,30 +22,51 @@
              <!--   <img src="#{tdPicture.picturePath}#{tdPicture.pictureName}" width="200" height="171" alt="#{tdPicture.picturePath}#{tdPicture.pictureName}"/> -->
                 <h:outputText value="Image"/>
                 <p:fileUpload mode="advanced" sizeLimit="2097152" fileUploadListener="#{fileUploadController.upload}" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
-                 <app:input id="pictureName" value="#{tdPicture.pictureName}" size="48" label="${msg.tdPicture_pictureName}" required="true" />
+                 <app:input id="pictureName" value="#{tdPicture.pictureName}" size="48" label="${msg.tdPicture_pictureName} (String)" required="true" />
 			<!--	<app:input id="pictureShortDesc" value="#{tdPicture.pictureShortDesc}" label="${msg.tdPicture_pictureShortDesc}" maxlength="45"/>
 				<app:inputTextArea id="pictureLongDesc" value="#{tdPicture.pictureLongDesc}" label="${msg.tdPicture_pictureLongDesc}" />   -->
 			<!--	<app:input id="picturePath" value="#{tdPicture.picturePath}" label="${msg.tdPicture_picturePath}" />  -->
-                <appcc:outputLabel for="picturePath" value="${msg.tdPicture_picturePath}" required="true" />
+                <appcc:outputLabel for="picturePath" value="${msg.tdPicture_picturePath} (String)" required="true" />
                          <p:selectOneListbox id="picturePath" value="#{tdPicture.picturePath}" style="width:150px">
                             <f:selectItem itemLabel="/root/img/" itemValue="/root/img/" />
-                        <!--    <f:selectItem itemLabel="C:\Geo\" itemValue="C:/Geo/" />   -->
+                            <f:selectItem itemLabel="C:\Geo\" itemValue="C:\Geo\" />
                          </p:selectOneListbox>
                   <h:outputText value="#{tdPicture.picturePath}" rendered="${readonly}"/>
-				<app:inputTextArea id="pictureUrl" value="#{tdPicture.pictureUrl}" label="${msg.tdPicture_pictureUrl}" maxlength="512"/>
-				<app:inputTextArea id="pictureOwner" value="#{tdPicture.pictureOwner}" label="${msg.tdPicture_pictureOwner}" maxlength="512"/>
+				<app:inputTextArea id="pictureUrl" value="#{tdPicture.pictureUrl}" label="${msg.tdPicture_pictureUrl} (String)" maxlength="512"/>
+				<app:inputTextArea id="pictureOwner" value="#{tdPicture.pictureOwner}" label="${msg.tdPicture_pictureOwner} (String)" maxlength="512"/>
 			<!--	<app:input id="pictureType" value="#{tdPicture.pictureType}" label="${msg.tdPicture_pictureType}" required="true" />      -->
-                <appcc:outputLabel for="pictureType" value="${msg.tdPicture_pictureType}" required="true" />
+             <!--   <appcc:outputLabel for="pictureType" value="${msg.tdPicture_pictureType}" required="true" />
                          <p:selectOneListbox id="pictureType" value="#{tdPicture.pictureType}" style="width:150px">
-                            <f:selectItem itemLabel="800/Tag Ref Car Part Category Type" itemValue="800" />
+                            <f:selectItem itemLabel="800/Tag Ref Car Part Category Type" itemValue="800"/>
                             <f:selectItem itemLabel="1000/Car Part Product Type" itemValue="1000" />
                             <f:selectItem itemLabel="500/Coming Soon Type" itemValue="500"/>
                             <f:selectItem itemLabel="600/Topic Ref" itemValue="600" />
                             <f:selectItem itemLabel="700/Comment Ref" itemValue="700"/>
                          </p:selectOneListbox>
-                <h:outputText value="#{tdPicture.pictureType}" rendered="${readonly}"/>
-				<app:input id="pictureRefId" value="#{tdPicture.pictureRefId}" label="${msg.tdPicture_pictureRefId}" required="true" />
-				<app:input id="status" value="#{tdPicture.status}" label="${msg.tdPicture_status}" required="true" maxlength="1"/>
+                <h:outputText value="#{tdPicture.pictureType}" rendered="${readonly}"/> -->
+
+               <appcc:outputLabel for="topic" value="${msg.tdPicture_topic}" />
+                <p:selectOneListbox id="topic" value="#{tdPicture.topic}" converter="#{tdTopicConverter}" style="height:300px;width:230px">
+                   <f:selectItems itemValue="#{item}" itemLabel="#{tdTopicConverter.print(item)}"  value="#{tdTopicRepository.find()}" var="item"/>
+                </p:selectOneListbox>
+                <h:outputText value="#{tdPicture.topic}" rendered="${readonly}"/>
+                <appcc:outputLabel for="product" value="${msg.tdPicture_product}" />
+                <p:selectOneListbox id="product" value="#{tdPicture.product}" converter="#{tdProductConverter}" style="height:300px;width:230px">
+                   <f:selectItems itemValue="#{item}" itemLabel="#{tdProductConverter.print(item)}"  value="#{tdProductRepository.find()}" var="item"/>
+                </p:selectOneListbox>
+                <h:outputText value="#{tdPicture.product}" rendered="${readonly}"/>
+                <appcc:outputLabel for="tag" value="${msg.tdPicture_tag}" />
+                <p:selectOneListbox id="tag" value="#{tdPicture.tag}" converter="#{tdTagConverter}" style="height:300px;width:230px">
+                   <f:selectItems itemValue="#{item}" itemLabel="#{tdTagConverter.print(item)}"  value="#{tdTagRepository.find()}" var="item"/>
+                </p:selectOneListbox>
+                <h:outputText value="#{tdPicture.tag}" rendered="${readonly}"/>
+                <appcc:outputLabel for="comment" value="${msg.tdPicture_comment}" />
+                <p:selectOneListbox id="comment" value="#{tdPicture.comment}" converter="#{tdCommentConverter}" style="height:300px;width:230px">
+                   <f:selectItems itemValue="#{item}" itemLabel="#{tdCommentConverter.print(item)}"  value="#{tdCommentRepository.find()}" var="item"/>
+                </p:selectOneListbox>
+                <h:outputText value="#{tdPicture.comment}" rendered="${readonly}"/>
+
+				<app:input id="status" value="#{tdPicture.status}" label="${msg.tdPicture_status}(Integer)" required="true" maxlength="1"/>
             </h:panelGrid>
 		</p:fieldset>
 		<app:saveButton title="${msg.tdPicture}"/>

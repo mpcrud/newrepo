@@ -41,6 +41,7 @@
 
 		<transition on="saveAndClose">
        <!--     <evaluate expression="tdPictureController.save(tdPicture)"/>   -->
+
            <evaluate expression="fileUploadController.copyFile(tdPicture)"/>
             <evaluate expression="primeFacesUtil.forceClose()"/>
         </transition>
@@ -61,6 +62,7 @@
 		</transition>
 		<transition on="cancel" to="cancelEdit" />
 	</view-state>
+
 
 	<end-state id="endEdit">
 		<output name="tdPicture" value="tdPicture" />
