@@ -542,7 +542,7 @@ public class TdTopic implements Identifiable<Integer>, Serializable {
     public String toString() {
         return Objects.toStringHelper(this) //
                 .add("topicId", getTopicId()) //
-                .add("topicTitle", getTopicTitle().replace("&nbsp;"," ").substring(0,15)) //
+                .add("topicTitle", getTopicTitle().replace("&nbsp;"," ").substring(0,10)) //
               /*  .add("viewCount", getViewCount()) //
                 .add("commentCount", getCommentCount()) //
                 .add("assignedSince", getAssignedSince()) //
