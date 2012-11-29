@@ -55,6 +55,15 @@
 		<if test="create" then="quit" else="tdTagGrpSelect"/>
 	</decision-state>
 
+    <end-state id="quit" view="/WEB-INF/views/home.xhtml">
+		<on-entry>
+			<evaluate expression="messageUtil.displayDelayedMessages()" />
+            <evaluate expression="tdTagGrpSearchForm.topicSelector.clearSelected()"/>
+            <evaluate expression="tdTagGrpSearchForm.productSelector.clearSelected()"/>
+		</on-entry>
+	</end-state>
+
+
 	<end-state id="endSwitchToAlreadyOpenFlow"
 		view="externalRedirect:contextRelative:#{flowsMenuHandler.endStateRedirectToAlreadyOpenFlow(flowRequestContext,tdTagGrpLazyDataModel.selectedRow)}" />
 

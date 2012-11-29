@@ -35,7 +35,7 @@
 				<app:inputTextArea id="pictureUrl" value="#{tdPicture.pictureUrl}" label="${msg.tdPicture_pictureUrl} (String)" maxlength="512"/>
 				<app:inputTextArea id="pictureOwner" value="#{tdPicture.pictureOwner}" label="${msg.tdPicture_pictureOwner} (String)" maxlength="512"/>
 			<!--	<app:input id="pictureType" value="#{tdPicture.pictureType}" label="${msg.tdPicture_pictureType}" required="true" />      -->
-             <!--   <appcc:outputLabel for="pictureType" value="${msg.tdPicture_pictureType}" required="true" />
+               <appcc:outputLabel for="pictureType" value="${msg.tdPicture_pictureType}" required="true" />
                          <p:selectOneListbox id="pictureType" value="#{tdPicture.pictureType}" style="width:150px">
                             <f:selectItem itemLabel="800/Tag Ref Car Part Category Type" itemValue="800"/>
                             <f:selectItem itemLabel="1000/Car Part Product Type" itemValue="1000" />
@@ -43,7 +43,7 @@
                             <f:selectItem itemLabel="600/Topic Ref" itemValue="600" />
                             <f:selectItem itemLabel="700/Comment Ref" itemValue="700"/>
                          </p:selectOneListbox>
-                <h:outputText value="#{tdPicture.pictureType}" rendered="${readonly}"/> -->
+                <h:outputText value="#{tdPicture.pictureType}" rendered="${readonly}"/>
 
                <appcc:outputLabel for="topic" value="${msg.tdPicture_topic}" />
                 <p:selectOneListbox id="topic" value="#{tdPicture.topic}" converter="#{tdTopicConverter}" style="height:300px;width:230px">

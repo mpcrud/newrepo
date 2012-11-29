@@ -62,6 +62,14 @@
 		<output name="tdTagGrpTagMappingSelected" value="tdTagGrpTagMappingLazyDataModel.selectedRow" />
 	</end-state>
 
+    <end-state id="quit" view="/WEB-INF/views/home.xhtml">
+		<on-entry>
+			<evaluate expression="messageUtil.displayDelayedMessages()" />
+            <evaluate expression="tdTagGrpTagMappingSearchForm.tagGrpSelector.clearSelected()"/>
+            <evaluate expression="tdTagGrpTagMappingSearchForm.tagSelector.clearSelected()"/>
+		</on-entry>
+	</end-state>
+
 	<global-transitions>
 		<transition on="search">
 			<evaluate expression="tdTagGrpTagMappingLazyDataModel.onSearch()" />

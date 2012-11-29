@@ -55,6 +55,14 @@
 		<if test="create" then="quit" else="tdMakeModelSelect"/>
 	</decision-state>
 
+    <end-state id="quit" view="/WEB-INF/views/home.xhtml">
+		<on-entry>
+			<evaluate expression="messageUtil.displayDelayedMessages()" />
+            <evaluate expression="tdMakeModelSearchForm.makeSelector.clearSelected()"/>
+		</on-entry>
+	</end-state>
+
+
 	<end-state id="endSwitchToAlreadyOpenFlow"
 		view="externalRedirect:contextRelative:#{flowsMenuHandler.endStateRedirectToAlreadyOpenFlow(flowRequestContext,tdMakeModelLazyDataModel.selectedRow)}" />
 
