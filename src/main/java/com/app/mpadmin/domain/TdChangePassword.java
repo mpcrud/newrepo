@@ -93,7 +93,7 @@ public class TdChangePassword implements Identifiable<Integer>, Serializable {
     // -- [userid] ------------------------
 
     @NotNull
-    @Column(name = "userId", nullable = false, precision = 10)
+    @Column(name = "userId", nullable = false, precision = 10,insertable = false, updatable = false)
     public Integer getUserid() {
         return userid;
     }
