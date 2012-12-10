@@ -20,9 +20,9 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
-                    <app:rangeInt id="cityId" value="#{tdCitySearchForm.tdCity.cityId}" label="${msg.tdCity_cityId}"/>
+                    <app:rangeInt id="cityId" value="#{tdCitySearchForm.cityIdRange}" label="${msg.tdCity_cityId}"/>
 					<app:input id="cityName" value="#{tdCitySearchForm.tdCity.cityName}" label="${msg.tdCity_cityName}"/>
-					<app:input id="cityName2" value="#{tdCitySearchForm.tdCity.cityName2}" label="${msg.tdCity_cityName2}"/>
+                    <app:input id="cityName2" value="#{tdCitySearchForm.tdCity.cityName2}" label="${msg.tdCity_cityName2}"/>
 					<app:rangeInt id="populationRank" value="#{tdCitySearchForm.populationRankRange}" label="${msg.tdCity_populationRank}"/>
 					<app:rangeInt id="destinationRank" value="#{tdCitySearchForm.destinationRankRange}" label="${msg.tdCity_destinationRank}"/>
 					<app:rangeInt id="flag" value="#{tdCitySearchForm.flagRange}" label="${msg.tdCity_flag}"/>

@@ -145,7 +145,7 @@ public class TdChangePassword implements Identifiable<Integer>, Serializable {
     }
 
     @Cache(usage = NONSTRICT_READ_WRITE)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     @ManyToOne(cascade = PERSIST, fetch = LAZY)
     public TdUserAuth getUser() {
         return user;
