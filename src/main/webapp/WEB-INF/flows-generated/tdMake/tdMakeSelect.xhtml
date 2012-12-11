@@ -20,7 +20,7 @@
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
-					<app:input id="makeId" value="#{tdMakeSearchForm.tdMake.makeId}" label="${msg.tdMake_makeId}"/>
+					<app:rangeInt id="makeId" value="#{tdMakeSearchForm.makeIdRange}" label="${msg.tdMake_makeId}"/>
 					<app:input id="makeDisplayName" value="#{tdMakeSearchForm.tdMake.makeDisplayName}" label="${msg.tdMake_makeDisplayName}"/>
 					<app:input id="makeTechnicalName" value="#{tdMakeSearchForm.tdMake.makeTechnicalName}" label="${msg.tdMake_makeTechnicalName}"/>
 					<app:input id="makeAlternateName" value="#{tdMakeSearchForm.tdMake.makeAlternateName}" label="${msg.tdMake_makeAlternateName}"/>

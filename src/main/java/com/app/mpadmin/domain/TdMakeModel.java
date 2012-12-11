@@ -375,7 +375,7 @@ public class TdMakeModel implements Identifiable<Integer>, Serializable {
     // -- [seoUrl] ------------------------
 
     @Size(max = 1536)
-    @URL
+   // @URL
     @Column(name = "seo_url", length = 1536)
     public String getSeoUrl() {
         return seoUrl;
