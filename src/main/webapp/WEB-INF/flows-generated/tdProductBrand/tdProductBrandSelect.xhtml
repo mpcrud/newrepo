@@ -16,7 +16,7 @@
 	xmlns:appcc="http://java.sun.com/jsf/composite/components">	
 <app:panelMenu title="${msg.tdProductBrand}">
 <ui:define name="content">
-	<app:search data="#{tdProductBrandLazyDataModel}" title="${msg.tdProductBrand}" selection="#{tdProductBrandLazyDataModel.selectedList}" rowKey="#{item.brandId}">
+	<app:search data="#{tdProductBrandLazyDataModel}" title="${msg.tdProductBrand}" selection="#{tdProductBrandLazyDataModel.selectedList}" rowKey="#{item.productBrandId}">
 		<ui:define name="filters">
 			<f:validateBean disabled="true">
 				<h:panelGrid columns="4">
@@ -58,8 +58,8 @@
                        <f:setPropertyActionListener value="#{item}" target="#{tdProductBrandLazyDataModel.selectedRow}" />
 				</app:iconDelete>
 			</p:column>
-            <p:column id="tdProductBrand_brandId" headerText="${msg.tdProductBrand_brandId}" sortBy="#{item.brandId}">
-				<h:outputText value="#{item.brandId}" />
+            <p:column id="tdProductBrand_brandId" headerText="${msg.tdProductBrand_brandId}" sortBy="#{item.productBrandId}">
+				<h:outputText value="#{item.productBrandId}" />
 			</p:column>
 			<p:column id="tdProductBrand_brandDisplayName" headerText="${msg.tdProductBrand_brandDisplayName}" sortBy="#{item.brandDisplayName}">
 				<h:outputText value="#{item.brandDisplayName}" />

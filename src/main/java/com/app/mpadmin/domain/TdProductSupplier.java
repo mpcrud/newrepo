@@ -310,7 +310,7 @@ public class TdProductSupplier implements Identifiable<Integer>, Serializable {
     // -- [seoUrl] ------------------------
 
     @Size(max = 512)
-    @URL
+    //@URL
     @Column(name = "seo_url", length = 512)
     public String getSeoUrl() {
         return seoUrl;

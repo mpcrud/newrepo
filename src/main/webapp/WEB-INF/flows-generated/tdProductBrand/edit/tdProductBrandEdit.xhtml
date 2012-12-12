@@ -19,9 +19,9 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdProductBrand}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:inputTextArea id="brandDisplayName" value="#{tdProductBrand.brandDisplayName}" label="${msg.tdProductBrand_brandDisplayName}" required="true" />
-				<app:inputTextArea id="brandAlternateName" value="#{tdProductBrand.brandAlternateName}" label="${msg.tdProductBrand_brandAlternateName}" />
-				<app:inputTextArea id="shortDesc" value="#{tdProductBrand.shortDesc}" label="${msg.tdProductBrand_shortDesc}" />
+				<app:input id="brandDisplayName" value="#{tdProductBrand.brandDisplayName}" label="${msg.tdProductBrand_brandDisplayName}" required="true" />
+				<app:input id="brandAlternateName" value="#{tdProductBrand.brandAlternateName}" label="${msg.tdProductBrand_brandAlternateName}" />
+				<app:inputTextArea id="shortDesc" value="#{tdProductBrand.shortDesc}" label="${msg.tdProductBrand_shortDesc}" maxlength="100"/>
 				<app:inputTextArea id="longDesc" value="#{tdProductBrand.longDesc}" label="${msg.tdProductBrand_longDesc}" />
 				<app:input id="internalRating" value="#{tdProductBrand.internalRating}" label="${msg.tdProductBrand_internalRating}" />
 				<app:inputTextArea id="refLink1" value="#{tdProductBrand.refLink1}" label="${msg.tdProductBrand_refLink1}" />

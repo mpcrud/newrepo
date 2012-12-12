@@ -470,7 +470,30 @@
             <p:column id="tdOrder_orderOriginRegion" headerText="${msg.tdOrder_orderOriginRegion}" sortBy="#{item.orderOriginRegion}">
 				<h:outputText value="#{item.orderOriginRegion}" />
             </p:column>
-
+            <p:column id="tdOrder_shipmentCity" headerText="${msg.tdOrder_shipmentCity}" sortBy="#{item.shipmentCity}">
+				<h:outputText value="#{tdCityConverter.print(item.shipmentCity)}" />
+            </p:column>
+            <p:column id="tdOrder_billingCity" headerText="${msg.tdOrder_billingCity}" sortBy="#{item.billingCity}">
+				<h:outputText value="#{tdCityConverter.print(item.billingCity)}" />
+            </p:column>
+            <p:column id="tdOrder_shipmentState" headerText="${msg.tdOrder_shipmentState}" sortBy="#{item.shipmentState}">
+				<h:outputText value="#{tdStateConverter.print(item.shipmentState)}" />
+            </p:column>
+            <p:column id="tdOrder_billingState" headerText="${msg.tdOrder_billingState}" sortBy="#{item.billingState}">
+				<h:outputText value="#{tdStateConverter.print(item.billingState)}" />
+            </p:column>
+            <p:column id="tdOrder_billingCountry" headerText="${msg.tdOrder_billingCountry}" sortBy="#{item.billingCountry}">
+				<h:outputText value="#{tdCountryConverter.print(item.billingCountry)}" />
+            </p:column>
+            <p:column id="tdOrder_shipmentCountry" headerText="${msg.tdOrder_shipmentCountry}" sortBy="#{item.shipmentCountry}">
+				<h:outputText value="#{tdCountryConverter.print(item.shipmentCountry)}" />
+            </p:column>
+            <p:column id="tdOrder_product" headerText="${msg.tdOrder_product}" sortBy="#{item.product}">
+				<h:outputText value="#{tdProductConverter.print(item.product)}" />
+			</p:column>
+            <p:column id="tdOrder_assignedToUser" headerText="${msg.tdOrder_assignedToUser}">
+				<h:outputText value="#{tdUserAuthConverter.print(item.assignedToUser)}" />
+			</p:column>
 		</ui:define>
 	</app:search>
 </ui:define>

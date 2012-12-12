@@ -19,7 +19,7 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdTopic}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:inputTextArea id="topicTitle" value="#{tdTopic.topicTitle}" label="${msg.tdTopic_topicTitle}" />
+				<app:inputTextArea id="topicTitle" value="#{tdTopic.topicTitle}" label="${msg.tdTopic_topicTitle}" required="true"/>
 				<app:input id="viewCount" value="#{tdTopic.viewCount}" label="${msg.tdTopic_viewCount}" />
 				<app:input id="commentCount" value="#{tdTopic.commentCount}" label="${msg.tdTopic_commentCount}" />
 				<app:inputDateTime id="assignedSince" value="#{tdTopic.assignedSince}" label="${msg.tdTopic_assignedSince}" />
@@ -40,7 +40,7 @@
 				<app:input id="isFeatured" value="#{tdTopic.isFeatured}" label="${msg.tdTopic_isFeatured}" />
 				<app:input id="assignedToUser" value="#{tdTopic.assignedToUser}" label="${msg.tdTopic_assignedToUser}" />
 				<app:inputDateTime id="expiryDate" value="#{tdTopic.expiryDate}" label="${msg.tdTopic_expiryDate}" />
-				<app:input id="topicStatus" value="#{tdTopic.topicStatus}" label="${msg.tdTopic_topicStatus}" />
+				<app:input id="topicStatus" value="#{tdTopic.topicStatus}" label="${msg.tdTopic_topicStatus}" maxlength="1"/>
 				<app:input id="voteCount" value="#{tdTopic.voteCount}" label="${msg.tdTopic_voteCount}" />
 				<app:input id="customInt1" value="#{tdTopic.customInt1}" label="${msg.tdTopic_customInt1}" />
 				<app:input id="customInt2" value="#{tdTopic.customInt2}" label="${msg.tdTopic_customInt2}" />
@@ -49,7 +49,7 @@
 				<app:inputTextArea id="seoResources" value="#{tdTopic.seoResources}" label="${msg.tdTopic_seoResources}" />
 				<app:inputTextArea id="metaTitle" value="#{tdTopic.metaTitle}" label="${msg.tdTopic_metaTitle}" />
 				<app:inputTextArea id="metaKeyword" value="#{tdTopic.metaKeyword}" label="${msg.tdTopic_metaKeyword}" />
-				<app:inputTextArea id="seoUrl" value="#{tdTopic.seoUrl}" label="${msg.tdTopic_seoUrl}" />
+				<app:inputTextArea id="seoUrl" value="#{tdTopic.seoUrl}" label="${msg.tdTopic_seoUrl}" required="true"/>
 				<app:inputTextArea id="h1" value="#{tdTopic.h1}" label="${msg.tdTopic_h1}" />
 				<app:inputTextArea id="h2" value="#{tdTopic.h2}" label="${msg.tdTopic_h2}" />
 				<app:tdUserAuthAutoComplete id="user" value="#{tdTopic.user}" required="false" label="${msg.tdTopic_user}">

@@ -58,6 +58,9 @@
 			<p:column id="tdVote_voteStatus" headerText="${msg.tdVote_voteStatus}" sortBy="#{item.voteStatus}">
 				<h:outputText value="#{item.voteStatus}" />
 			</p:column>
+            <p:column id="tdVote_commentId" headerText="${msg.tdVote_commentId}" sortBy="#{item.commentId}">
+				<h:outputText value="#{item.commentId}" />
+			</p:column>
             <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
 				<app:iconSelect action="select" process="@this" rendered="#{sub}" title="${tdVoteConverter.print(item)}">
 					<f:setPropertyActionListener value="#{item}" target="#{tdVoteLazyDataModel.selectedRow}" />

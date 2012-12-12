@@ -19,32 +19,32 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdMake}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="makeId" value="#{tdMake.makeId}" label="${msg.tdMake_makeId} (Integer)" />
-				<app:inputTextArea id="makeDisplayName" value="#{tdMake.makeDisplayName}" label="${msg.tdMake_makeDisplayName} (String)" />
-				<app:inputTextArea id="makeTechnicalName" value="#{tdMake.makeTechnicalName}" label="${msg.tdMake_makeTechnicalName} (String)" />
-				<app:inputTextArea id="makeAlternateName" value="#{tdMake.makeAlternateName}" label="${msg.tdMake_makeAlternateName} (String)" />
-				<app:inputTextArea id="shortDesc" value="#{tdMake.shortDesc}" label="${msg.tdMake_shortDesc} (String)"/>
-				<app:inputTextArea id="longDesc" value="#{tdMake.longDesc}" label="${msg.tdMake_longDesc} (String)" />
-			<!--	<app:input id="isActive" value="#{tdMake.isActive}" label="${msg.tdMake_isActive}" />       -->
-                   <appcc:outputLabel for="isActive" value="${msg.tdMake_isActive}" />
-               <p:selectOneRadio id="isActive" value="#{tdMake.isActive}">
+				<app:input id="makeId" value="#{tdMake.makeId}" label="${msg.tdMake_makeId}(Integer)" required="true"/>
+				<app:inputTextArea id="makeDisplayName" value="#{tdMake.makeDisplayName}" label="${msg.tdMake_makeDisplayName}(String)" />
+				<app:inputTextArea id="makeTechnicalName" value="#{tdMake.makeTechnicalName}" label="${msg.tdMake_makeTechnicalName}(String)" />
+				<app:inputTextArea id="makeAlternateName" value="#{tdMake.makeAlternateName}" label="${msg.tdMake_makeAlternateName}(String)" />
+				<app:inputTextArea id="shortDesc" value="#{tdMake.shortDesc}" label="${msg.tdMake_shortDesc}(String)"/>
+			<!--	<app:inputTextArea id="longDesc" value="#{tdMake.longDesc}" label="${msg.tdMake_longDesc}(String)" />
+			<!-	<app:input id="isActive" value="#{tdMake.isActive}" label="${msg.tdMake_isActive}" />       -->
+                <appcc:outputLabel for="isActive" value="${msg.tdMake_isActive}" />
+                <p:selectOneRadio id="isActive" value="#{tdMake.isActive}">
                   <f:selectItem itemLabel="Active" itemValue="1" />
                   <f:selectItem itemLabel="Inactive" itemValue="0" />
-                  </p:selectOneRadio>
+                </p:selectOneRadio>
                 <h:outputText value="#{tdMake.isActive}" rendered="${readonly}"/>
-				<app:input id="startingYearOps" value="#{tdMake.startingYearOps}" label="${msg.tdMake_startingYearOps} (Integer)" />
-				<app:input id="representCountryId" value="#{tdMake.representCountryId}" label="${msg.tdMake_representCountryId}(Integer)" />
-				<app:inputTextArea id="custom1" value="#{tdMake.custom1}" label="${msg.tdMake_custom1} (String)" />
-				<app:inputTextArea id="custom2" value="#{tdMake.custom2}" label="${msg.tdMake_custom2} (String)" />
-				<app:inputTextArea id="custom3" value="#{tdMake.custom3}" label="${msg.tdMake_custom3} (String)" />
-				<app:input id="makeStatus" value="#{tdMake.makeStatus}" label="${msg.tdMake_makeStatus} (Integer)" />
+				<app:input id="startingYearOps" value="#{tdMake.startingYearOps}" label="${msg.tdMake_startingYearOps}(Integer)" />
+				<app:input id="representCountryId" value="#{tdMake.representCountryId}" label="${msg.tdMake_representCountryId}Integer)" />
+				<app:inputTextArea id="custom1" value="#{tdMake.custom1}" label="${msg.tdMake_custom1}(String)" />
+				<app:inputTextArea id="custom2" value="#{tdMake.custom2}" label="${msg.tdMake_custom2}(String)" />
+				<app:inputTextArea id="custom3" value="#{tdMake.custom3}" label="${msg.tdMake_custom3}(String)" />
+				<app:input id="makeStatus" value="#{tdMake.makeStatus}" label="${msg.tdMake_makeStatus}(Integer)" />
 				<app:inputTextArea id="seoResources" value="#{tdMake.seoResources}" label="${msg.tdMake_seoResources}(String)" />
-				<app:inputTextArea id="seoUrl" value="#{tdMake.seoUrl}" label="${msg.tdMake_seoUrl} (String)" />
-				<app:inputTextArea id="seoH1" value="#{tdMake.seoH1}" label="${msg.tdMake_seoH1} (String)" />
-				<app:inputTextArea id="seoH2" value="#{tdMake.seoH2}" label="${msg.tdMake_seoH2} (String)" />
-				<app:inputTextArea id="metaTitle" value="#{tdMake.metaTitle}" label="${msg.tdMake_metaTitle} (String)" />
-				<app:inputTextArea id="metaKeyword" value="#{tdMake.metaKeyword}" label="${msg.tdMake_metaKeyword} (String)" />
-				<app:inputTextArea id="metaDescription" value="#{tdMake.metaDescription}" label="${msg.tdMake_metaDescription} (String)" />
+				<app:inputTextArea id="seoUrl" value="#{tdMake.seoUrl}" label="${msg.tdMake_seoUrl}(String)" />
+				<app:inputTextArea id="seoH1" value="#{tdMake.seoH1}" label="${msg.tdMake_seoH1}(String)" />
+				<app:inputTextArea id="seoH2" value="#{tdMake.seoH2}" label="${msg.tdMake_seoH2}(String)" />
+				<app:inputTextArea id="metaTitle" value="#{tdMake.metaTitle}" label="${msg.tdMake_metaTitle}(String)" />
+				<app:inputTextArea id="metaKeyword" value="#{tdMake.metaKeyword}" label="${msg.tdMake_metaKeyword}(String)" />
+				<app:inputTextArea id="metaDescription" value="#{tdMake.metaDescription}" label="${msg.tdMake_metaDescription}(String)" />
 				<app:inputDateTime id="updationDate" value="#{tdMake.updationDate}" label="${msg.tdMake_updationDate}" />
 			</h:panelGrid>
 		</p:fieldset>

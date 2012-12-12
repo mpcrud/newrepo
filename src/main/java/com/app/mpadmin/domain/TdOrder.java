@@ -1060,7 +1060,7 @@ public class TdOrder implements Identifiable<Integer>, Serializable {
     // -- [orderLeadsubmitUrl] ------------------------
 
     @Size(max = 256)
-    @URL
+    //@URL
     @Column(name = "order_leadsubmit_url", length = 256)
     public String getOrderLeadsubmitUrl() {
         return orderLeadsubmitUrl;
@@ -1073,7 +1073,7 @@ public class TdOrder implements Identifiable<Integer>, Serializable {
     // -- [orderOriginRefUrl] ------------------------
 
     @Size(max = 256)
-    @URL
+   // @URL
     @Column(name = "order_origin_ref_url", length = 256)
     public String getOrderOriginRefUrl() {
         return orderOriginRefUrl;
@@ -1086,7 +1086,7 @@ public class TdOrder implements Identifiable<Integer>, Serializable {
     // -- [orderOriginalRefUrl] ------------------------
 
     @Size(max = 256)
-    @URL
+  //  @URL
     @Column(name = "order_original_ref_url", length = 256)
     public String getOrderOriginalRefUrl() {
         return orderOriginalRefUrl;

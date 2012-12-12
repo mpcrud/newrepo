@@ -262,7 +262,7 @@ public class TdProductBrand implements Identifiable<Integer>, Serializable {
     // -- [seoUrl] ------------------------
 
     @Size(max = 512)
-    @URL
+    //@URL
     @Column(name = "seo_url", unique = true, length = 512)
     public String getSeoUrl() {
         return seoUrl;

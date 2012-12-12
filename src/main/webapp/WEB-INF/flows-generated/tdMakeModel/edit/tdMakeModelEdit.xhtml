@@ -20,13 +20,13 @@
 		<p:fieldset legend="${msg.tdMakeModel}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:input id="makeModelId" value="#{tdMakeModel.makeModelId}" label="${msg.tdMakeModel_makeModelId} (Integer)" />
-			<!--  	<app:input id="makeId" value="#{tdMakeModel.makeId}" label="${msg.tdMakeModel_makeId}" /> -->
+			<!-- 	<app:input id="makeId" value="#{tdMakeModel.makeId}" label="${msg.tdMakeModel_makeId}" /> -->
 				<app:inputTextArea id="makemodelDisplayName" value="#{tdMakeModel.makemodelDisplayName}" label="${msg.tdMakeModel_makemodelDisplayName} (String)" />
 				<app:inputTextArea id="makemodelTechnicalName" value="#{tdMakeModel.makemodelTechnicalName}" label="${msg.tdMakeModel_makemodelTechnicalName} (String)" />
 				<app:inputTextArea id="makemodelAlternateName" value="#{tdMakeModel.makemodelAlternateName}" label="${msg.tdMakeModel_makemodelAlternateName} (String)" />
 				<app:inputTextArea id="shortDesc" value="#{tdMakeModel.shortDesc}" label="${msg.tdMakeModel_shortDesc} (String)" />
-				<app:input id="longDesc" value="#{tdMakeModel.longDesc}" label="${msg.tdMakeModel_longDesc} (String)" />
-			<!--	<app:input id="isActive" value="#{tdMakeModel.isActive}" label="${msg.tdMakeModel_isActive}" />  -->
+			<!--	<app:input id="longDesc" value="#{tdMakeModel.longDesc}" label="${msg.tdMakeModel_longDesc} (String)" />
+			<!-	<app:input id="isActive" value="#{tdMakeModel.isActive}" label="${msg.tdMakeModel_isActive}" />  -->
                 <appcc:outputLabel for="isActive" value="${msg.tdMakeModel_isActive}" />
                   <p:selectOneRadio id="isActive" value="#{tdMakeModel.isActive}">
                   <f:selectItem itemLabel="Active" itemValue="1" />
@@ -58,7 +58,7 @@
 				<app:inputTextArea id="custom3" value="#{tdMakeModel.custom3}" label="${msg.tdMakeModel_custom3} (String)" />
 				<app:inputDateTime id="updationDate" value="#{tdMakeModel.updationDate}" label="${msg.tdMakeModel_updationDate}" />
 				<app:tdMakeAutoComplete id="make" value="#{tdMakeModel.make}" required="true" label="${msg.tdMakeModel_make}">
-					<app:iconSearch action="selectMake" title="${msg.tdMakeModel_make} " />
+					<app:iconSearch action="selectMake" title="${msg.tdMakeModel_make}" />
 					<app:iconEdit action="editMake" title="${msg.tdMakeModel_make}" />
 					<app:iconView action="viewMake" title="${msg.tdMakeModel_make}" />
 				</app:tdMakeAutoComplete>
