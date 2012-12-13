@@ -19,7 +19,7 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdProductModel}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="productModelId" value="#{tdProductModel.productModelId}" label="${msg.tdProductModel_productModelId}" required="true" />
+				<app:input id="productModelId" value="#{tdProductModel.productModelId}" label="${msg.tdProductModel_productModelId}(Integer)" required="true" />
 			<!-- 	<app:input id="makeModelId" value="#{tdProductModel.makeModelId}" label="${msg.tdProductModel_makeModelId}" required="true" />
 				<app:input id="productId" value="#{tdProductModel.productId}" label="${msg.tdProductModel_productId}" required="true" /> -->
 				<app:tdMakeModelAutoComplete id="makeModel" value="#{tdProductModel.makeModel}" required="true" label="${msg.tdProductModel_makeModel}">

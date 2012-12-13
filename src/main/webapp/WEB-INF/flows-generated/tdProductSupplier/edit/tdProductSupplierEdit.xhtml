@@ -24,17 +24,17 @@
 				<app:inputTextArea id="productSupplierPolicy" value="#{tdProductSupplier.productSupplierPolicy}" label="${msg.tdProductSupplier_productSupplierPolicy} (String)" />
 				<app:inputTextArea id="productSupplierSpecialization" value="#{tdProductSupplier.productSupplierSpecialization}" label="${msg.tdProductSupplier_productSupplierSpecialization} (String)" />
 				<app:input id="microDescription" value="#{tdProductSupplier.microDescription}" size="128" label="${msg.tdProductSupplier_microDescription} (String)" maxlength="128"/>
-				<app:inputTextArea id="shortDesc" value="#{tdProductSupplier.shortDesc}" label="${msg.tdProductSupplier_shortDesc} (String)" />
+				<app:inputTextArea id="shortDesc" value="#{tdProductSupplier.shortDesc}" label="${msg.tdProductSupplier_shortDesc} (String)" maxlength="100"/>
 				<app:inputTextArea id="longDesc" value="#{tdProductSupplier.longDesc}" label="${msg.tdProductSupplier_longDesc} (String)" />
 				<app:input id="productSupplierRating" value="#{tdProductSupplier.productSupplierRating}" label="${msg.tdProductSupplier_productSupplierRating} (Integer)" />
-				<app:input id="productSupplierType" value="#{tdProductSupplier.productSupplierType}" label="${msg.tdProductSupplier_productSupplierType} (String)" />
+				<app:input id="productSupplierType" value="#{tdProductSupplier.productSupplierType}" label="${msg.tdProductSupplier_productSupplierType} (Integer)" />
 				<app:inputTextArea id="productSupplierLogoSmall" value="#{tdProductSupplier.productSupplierLogoSmall}" label="${msg.tdProductSupplier_productSupplierLogoSmall} (String)" />
 				<app:inputTextArea id="productSupplierLogoLong" value="#{tdProductSupplier.productSupplierLogoLong}" label="${msg.tdProductSupplier_productSupplierLogoLong} (String)" />
 				<app:inputBoolean id="productSupplierStatus" value="#{tdProductSupplier.productSupplierStatus}" label="${msg.tdProductSupplier_productSupplierStatus} (Boolean)" required="true" />
 				<app:inputTextArea id="custom1" value="#{tdProductSupplier.custom1}" label="${msg.tdProductSupplier_custom1} (String)" />
 				<app:inputTextArea id="custom2" value="#{tdProductSupplier.custom2}" label="${msg.tdProductSupplier_custom2} (String)" />
 				<app:inputTextArea id="seoResources" value="#{tdProductSupplier.seoResources}" label="${msg.tdProductSupplier_seoResources} (String)" />
-				<app:inputTextArea id="seoUrl" value="#{tdProductSupplier.seoUrl}" label="${msg.tdProductSupplier_seoUrl} (String)" />
+				<app:inputTextArea id="seoUrl" value="#{tdProductSupplier.seoUrl}" label="${msg.tdProductSupplier_seoUrl} (String)" required="true"/>
 				<app:inputTextArea id="seoH1" value="#{tdProductSupplier.seoH1}" label="${msg.tdProductSupplier_seoH1} (String)" />
 				<app:inputTextArea id="seoH2" value="#{tdProductSupplier.seoH2}" label="${msg.tdProductSupplier_seoH2} (String)" />
 				<app:inputTextArea id="metaTitle" value="#{tdProductSupplier.metaTitle}" label="${msg.tdProductSupplier_metaTitle} (String)" />

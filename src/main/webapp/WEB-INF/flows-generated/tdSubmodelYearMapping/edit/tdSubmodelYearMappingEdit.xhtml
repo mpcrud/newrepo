@@ -19,9 +19,9 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdSubmodelYearMapping}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="submodelYearMappingId" value="#{tdSubmodelYearMapping.submodelYearMappingId}" label="${msg.tdSubmodelYearMapping_submodelYearMappingId}" />
-				<app:input id="makeSubmodelId" value="#{tdSubmodelYearMapping.makeSubmodelId}" label="${msg.tdSubmodelYearMapping_makeSubmodelId}" />
-				<app:input id="modelLaunchYear" value="#{tdSubmodelYearMapping.modelLaunchYear}" label="${msg.tdSubmodelYearMapping_modelLaunchYear}" />
+				<app:input id="submodelYearMappingId" value="#{tdSubmodelYearMapping.submodelYearMappingId}" label="${msg.tdSubmodelYearMapping_submodelYearMappingId}(Integer)" required="true" />
+				<app:input id="makeSubmodelId" value="#{tdSubmodelYearMapping.makeSubmodelId}" label="${msg.tdSubmodelYearMapping_makeSubmodelId}(Integer)" required="true"/>
+				<app:input id="modelLaunchYear" value="#{tdSubmodelYearMapping.modelLaunchYear}" label="${msg.tdSubmodelYearMapping_modelLaunchYear}(Integer)" required="true"/>
 			</h:panelGrid>
 		</p:fieldset>
 		<app:saveButton title="${msg.tdSubmodelYearMapping}"/>

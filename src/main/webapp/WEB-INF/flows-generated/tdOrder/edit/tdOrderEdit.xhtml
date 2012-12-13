@@ -21,7 +21,7 @@
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:input id="billingId" value="#{tdOrder.billingId}" label="${msg.tdOrder_billingId} (Integer)" />
 				<app:input id="invoiceId" value="#{tdOrder.invoiceId}" label="${msg.tdOrder_invoiceId} (Integer)" />
-				<app:input id="username" value="#{tdOrder.username}" label="${msg.tdOrder_username}(String)" />
+				<app:input id="username" value="#{tdOrder.username}" label="${msg.tdOrder_username}(String)" required="true"/>
 				<app:input id="orderFormNo" value="#{tdOrder.orderFormNo}" size="128" label="${msg.tdOrder_orderFormNo} (String)" maxlength="128"/>
 				<app:input id="orderType" value="#{tdOrder.orderType}" label="${msg.tdOrder_orderType} (Integer)" required="true" />
 				<app:input id="orderStatus" value="#{tdOrder.orderStatus}" label="${msg.tdOrder_orderStatus} (Integer)" required="true" />

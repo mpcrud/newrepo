@@ -74,7 +74,7 @@
                            <h:outputText value="#{tdTopicConverter.print(item.topic)}" />
                          </p:column>
             			<p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-            				<app:iconSelect action="select" process="@this" title="${tdTagGrpConverter.print(item)}" rendered="true">
+            				<app:iconSelect action="select" process="@this" title="${tdTagGrpConverter.print(item)}" rendered="true" ajax="true">
             					<f:setPropertyActionListener value="#{item}" target="#{tdTagGrpLazyDataModel.selectedRow}" />
             				</app:iconSelect>
             			</p:column>

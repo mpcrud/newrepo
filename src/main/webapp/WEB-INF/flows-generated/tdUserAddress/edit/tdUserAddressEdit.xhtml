@@ -19,29 +19,29 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdUserAddress}">
 			<h:panelGrid columns="2" styleClass="aria-role-presentation">
-				<app:input id="address1" value="#{tdUserAddress.address1}" size="90" label="${msg.tdUserAddress_address1}" maxlength="90"/>
-				<app:input id="address2" value="#{tdUserAddress.address2}" size="90" label="${msg.tdUserAddress_address2}" maxlength="90"/>
-				<app:input id="zipCode" value="#{tdUserAddress.zipCode}" label="${msg.tdUserAddress_zipCode}" />
-				<app:input id="userDetailsId" value="#{tdUserAddress.userDetailsId}" label="${msg.tdUserAddress_userDetailsId}" />
+				<app:input id="address1" value="#{tdUserAddress.address1}" size="90" label="${msg.tdUserAddress_address1}(String)" maxlength="90" required="true"/>
+				<app:input id="address2" value="#{tdUserAddress.address2}" size="90" label="${msg.tdUserAddress_address2}(String)" maxlength="90"/>
+				<app:input id="zipCode" value="#{tdUserAddress.zipCode}" label="${msg.tdUserAddress_zipCode}(Integer)" />
+				<app:input id="userDetailsId" value="#{tdUserAddress.userDetailsId}" label="${msg.tdUserAddress_userDetailsId}(Integer)" required="true"/>
 				<app:inputDateTime id="updationDate" value="#{tdUserAddress.updationDate}" label="${msg.tdUserAddress_updationDate}" />
 			<!--	<app:input id="isActive" value="#{tdUserAddress.isActive}" label="${msg.tdUserAddress_isActive}" />     -->
-                <appcc:outputLabel for="isActive" value="${msg.tdUserAddress_isActive}" />
+                <appcc:outputLabel for="isActive" value="${msg.tdUserAddress_isActive}" required="true"/>
                   <p:selectOneRadio id="isActive" value="#{tdUserAddress.isActive}">
                   <f:selectItem itemLabel="Active" itemValue="1" />
                   <f:selectItem itemLabel="Inactive" itemValue="0" />
                   </p:selectOneRadio>
                 <h:outputText value="#{tdUserAddress.isActive}" rendered="${readonly}"/>
-				<app:tdCountryAutoComplete id="country" value="#{tdUserAddress.country}" required="false" label="${msg.tdUserAddress_country}">
+				<app:tdCountryAutoComplete id="country" value="#{tdUserAddress.country}" required="true" label="${msg.tdUserAddress_country}">
 					<app:iconSearch action="selectCountry" title="${msg.tdUserAddress_country} " />
 					<app:iconEdit action="editCountry" title="${msg.tdUserAddress_country}" />
 					<app:iconView action="viewCountry" title="${msg.tdUserAddress_country}" />
 				</app:tdCountryAutoComplete>
-				<app:tdStateAutoComplete id="state" value="#{tdUserAddress.state}" required="false" label="${msg.tdUserAddress_state}">
+				<app:tdStateAutoComplete id="state" value="#{tdUserAddress.state}" required="true" label="${msg.tdUserAddress_state}">
 					<app:iconSearch action="selectState" title="${msg.tdUserAddress_state} " />
 					<app:iconEdit action="editState" title="${msg.tdUserAddress_state}" />
 					<app:iconView action="viewState" title="${msg.tdUserAddress_state}" />
 				</app:tdStateAutoComplete>
-				<app:tdCityAutoComplete id="city" value="#{tdUserAddress.city}" required="false" label="${msg.tdUserAddress_city}">
+				<app:tdCityAutoComplete id="city" value="#{tdUserAddress.city}" required="true" label="${msg.tdUserAddress_city}">
 					<app:iconSearch action="selectCity" title="${msg.tdUserAddress_city} " />
 					<app:iconEdit action="editCity" title="${msg.tdUserAddress_city}" />
 					<app:iconView action="viewCity" title="${msg.tdUserAddress_city}" />

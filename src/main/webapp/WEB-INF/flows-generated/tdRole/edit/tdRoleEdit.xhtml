@@ -19,11 +19,11 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdRole}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="roleName" value="#{tdRole.roleName}" size="45" label="${msg.tdRole_roleName}" />
+				<app:input id="roleName" value="#{tdRole.roleName}" size="45" label="${msg.tdRole_roleName}(String)" required="true" />
 				<app:inputDateTime id="updationDate" value="#{tdRole.updationDate}" label="${msg.tdRole_updationDate}" />
 			<!--	<app:input id="isActive" value="#{tdRole.isActive}" label="${msg.tdRole_isActive}" />  -->
-                <appcc:outputLabel for="isActive" value="${msg.tdRole_isActive}" />
-                  <p:selectOneRadio id="isActive" value="#{tdRole.isActive}">
+                <appcc:outputLabel for="isActive" value="${msg.tdRole_isActive}" required="true"/>
+                  <p:selectOneRadio id="isActive" value="#{tdRole.isActive}" required="true">
                   <f:selectItem itemLabel="Active" itemValue="1" />
                   <f:selectItem itemLabel="Inactive" itemValue="0" />
                   </p:selectOneRadio>

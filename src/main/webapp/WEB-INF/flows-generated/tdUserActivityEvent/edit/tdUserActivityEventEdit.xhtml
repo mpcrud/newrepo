@@ -19,9 +19,9 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdUserActivityEvent}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="userActivityName" value="#{tdUserActivityEvent.userActivityName}" size="45" label="${msg.tdUserActivityEvent_userActivityName}" maxlength="45"/>
-				<app:input id="userEventName" value="#{tdUserActivityEvent.userEventName}" size="45" label="${msg.tdUserActivityEvent_userEventName}" maxlength="45"/>
-				<app:inputTextArea id="userEventDesc" value="#{tdUserActivityEvent.userEventDesc}" label="${msg.tdUserActivityEvent_userEventDesc}" />
+				<app:input id="userActivityName" value="#{tdUserActivityEvent.userActivityName}" size="45" label="${msg.tdUserActivityEvent_userActivityName}(String)" maxlength="45" required="true"/>
+				<app:input id="userEventName" value="#{tdUserActivityEvent.userEventName}" size="45" label="${msg.tdUserActivityEvent_userEventName}(String)" maxlength="45"/>
+				<app:inputTextArea id="userEventDesc" value="#{tdUserActivityEvent.userEventDesc}" label="${msg.tdUserActivityEvent_userEventDesc}(String)" />
 				<app:inputDateTime id="updationDate" value="#{tdUserActivityEvent.updationDate}" label="${msg.tdUserActivityEvent_updationDate}" />
 				<app:tdUserActivityAutoComplete id="userActivity" value="#{tdUserActivityEvent.userActivity}" required="false" label="${msg.tdUserActivityEvent_userActivity}">
 					<app:iconSearch action="selectUserActivity" title="${msg.tdUserActivityEvent_userActivity} " />

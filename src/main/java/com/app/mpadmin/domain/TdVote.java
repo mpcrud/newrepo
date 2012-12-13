@@ -49,7 +49,7 @@ public class TdVote implements Identifiable<Integer>, Serializable {
 
     // Technical attributes for query by example
     private Integer userId;
-    private Integer topicI
+    private Integer topicId;
     // Many to one
     private TdUserAuth user; // (userId)
     private TdTopic topic; // (topicId)

@@ -19,18 +19,18 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdTagGrp}">
 			<h:panelGrid columns="2" styleClass="aria-role-presentation">
-				<app:input id="referenceId" value="#{tdTagGrp.referenceId}" label="${msg.tdTagGrp_referenceId}" />
+				<app:input id="referenceId" value="#{tdTagGrp.referenceId}" label="${msg.tdTagGrp_referenceId}(Integer)" required="true"/>
 				<app:inputDateTime id="updationDate" value="#{tdTagGrp.updationDate}" label="${msg.tdTagGrp_updationDate}" />
 			<!--	<app:input id="isActive" value="#{tdTagGrp.isActive}" label="${msg.tdTagGrp_isActive}" />   -->
-                <appcc:outputLabel for="isActive" value="${msg.tdTagGrp_isActive}" />
+                <appcc:outputLabel for="isActive" value="${msg.tdTagGrp_isActive}" required="true"/>
                   <p:selectOneRadio id="isActive" value="#{tdTagGrp.isActive}">
                   <f:selectItem itemLabel="Active" itemValue="1" />
                   <f:selectItem itemLabel="Inactive" itemValue="0" />
                   </p:selectOneRadio>
                 <h:outputText value="#{tdTagGrp.isActive}" rendered="${readonly}"/>
-				<app:input id="tagGrpStatus" value="#{tdTagGrp.tagGrpStatus}" label="${msg.tdTagGrp_tagGrpStatus}" />
+				<app:input id="tagGrpStatus" value="#{tdTagGrp.tagGrpStatus}" label="${msg.tdTagGrp_tagGrpStatus}(Integer)" />
 			<!--	<app:input id="referenceType" value="#{tdTagGrp.referenceType}" label="${msg.tdTagGrp_referenceType}" /> -->
-                <appcc:outputLabel for="referenceType" value="${msg.tdTagGrp_referenceType}" required="${empty required ? false : required}" rendered="${empty rendered ? true : rendered}" />
+                <appcc:outputLabel for="referenceType" value="${msg.tdTagGrp_referenceType}" required="true" rendered="true" />
                          <p:selectOneListbox id="referenceType" value="#{tdTagGrp.referenceType}">
                             <f:selectItem itemLabel="500/Topic Type" itemValue="500" />
                             <f:selectItem itemLabel="400/Product Type" itemValue="400" />

@@ -19,9 +19,9 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdMakeModel}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="makeModelId" value="#{tdMakeModel.makeModelId}" label="${msg.tdMakeModel_makeModelId} (Integer)" />
+				<app:input id="makeModelId" value="#{tdMakeModel.makeModelId}" label="${msg.tdMakeModel_makeModelId} (Integer)" required="true"/>
 			<!-- 	<app:input id="makeId" value="#{tdMakeModel.makeId}" label="${msg.tdMakeModel_makeId}" /> -->
-				<app:inputTextArea id="makemodelDisplayName" value="#{tdMakeModel.makemodelDisplayName}" label="${msg.tdMakeModel_makemodelDisplayName} (String)" />
+				<app:inputTextArea id="makemodelDisplayName" value="#{tdMakeModel.makemodelDisplayName}" label="${msg.tdMakeModel_makemodelDisplayName} (String)" required="true"/>
 				<app:inputTextArea id="makemodelTechnicalName" value="#{tdMakeModel.makemodelTechnicalName}" label="${msg.tdMakeModel_makemodelTechnicalName} (String)" />
 				<app:inputTextArea id="makemodelAlternateName" value="#{tdMakeModel.makemodelAlternateName}" label="${msg.tdMakeModel_makemodelAlternateName} (String)" />
 				<app:inputTextArea id="shortDesc" value="#{tdMakeModel.shortDesc}" label="${msg.tdMakeModel_shortDesc} (String)" />
@@ -47,7 +47,7 @@
 				<app:input id="torque" value="#{tdMakeModel.torque}" label="${msg.tdMakeModel_torque} (Integer)" />
 				<app:input id="makemodelStatus" value="#{tdMakeModel.makemodelStatus}" label="${msg.tdMakeModel_makemodelStatus} (Integer)" />
 				<app:inputTextArea id="seoResources" value="#{tdMakeModel.seoResources}" label="${msg.tdMakeModel_seoResources} (String)" />
-				<app:inputTextArea id="seoUrl" value="#{tdMakeModel.seoUrl}" label="${msg.tdMakeModel_seoUrl} (String)" />
+				<app:inputTextArea id="seoUrl" value="#{tdMakeModel.seoUrl}" label="${msg.tdMakeModel_seoUrl} (String)" required="true"/>
 				<app:inputTextArea id="seoH1" value="#{tdMakeModel.seoH1}" label="${msg.tdMakeModel_seoH1} (String)" />
 				<app:inputTextArea id="seoH2" value="#{tdMakeModel.seoH2}" label="${msg.tdMakeModel_seoH2} (String)" />
 				<app:inputTextArea id="metaTitle" value="#{tdMakeModel.metaTitle}" label="${msg.tdMakeModel_metaTitle} (String)" />

@@ -19,7 +19,7 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdProductSubmodel}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="productSubmodelId" value="#{tdProductSubmodel.productSubmodelId}" label="${msg.tdProductSubmodel_productSubmodelId}" required="true" />
+				<app:input id="productSubmodelId" value="#{tdProductSubmodel.productSubmodelId}" label="${msg.tdProductSubmodel_productSubmodelId}(Integer)" required="true" />
 			<!-- 	<app:input id="submodelYearMappingId" value="#{tdProductSubmodel.submodelYearMappingId}" label="${msg.tdProductSubmodel_submodelYearMappingId}" required="true" />
 				<app:input id="productId" value="#{tdProductSubmodel.productId}" label="${msg.tdProductSubmodel_productId}" required="true" /> -->
 				<app:tdProductAutoComplete id="product" value="#{tdProductSubmodel.product}" required="true" label="${msg.tdProductSubmodel_product}">
@@ -32,8 +32,8 @@
 					<app:iconEdit action="editSubmodelYearMapping" title="${msg.tdProductSubmodel_submodelYearMapping}" />
 					<app:iconView action="viewSubmodelYearMapping" title="${msg.tdProductSubmodel_submodelYearMapping}" />
 				</app:tdSubmodelYearMappingAutoComplete>
-				<app:input id="makeInternalProductCode" value="#{tdProductSubmodel.makeInternalProductCode}" size="128" label="${msg.tdProductSubmodel_makeInternalProductCode}" />
-				<app:inputTextArea id="productSubmodelApplyLocation" value="#{tdProductSubmodel.productSubmodelApplyLocation}" label="${msg.tdProductSubmodel_productSubmodelApplyLocation}" />
+				<app:input id="makeInternalProductCode" value="#{tdProductSubmodel.makeInternalProductCode}" size="128" label="${msg.tdProductSubmodel_makeInternalProductCode}(String)" />
+				<app:inputTextArea id="productSubmodelApplyLocation" value="#{tdProductSubmodel.productSubmodelApplyLocation}" label="${msg.tdProductSubmodel_productSubmodelApplyLocation}(String)" />
 			</h:panelGrid>
 		</p:fieldset>
 		<app:saveButton title="${msg.tdProductSubmodel}"/>

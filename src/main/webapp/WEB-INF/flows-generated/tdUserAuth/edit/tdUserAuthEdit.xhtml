@@ -19,9 +19,9 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdUserAuth}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="username" value="#{tdUserAuth.username}" size="100" label="${msg.tdUserAuth_username}" required="true" />
-				<app:input id="email" value="#{tdUserAuth.email}" size="100" label="${msg.tdUserAuth_email}" required="true" />
-				<app:inputPassword id="userpassword" value="#{tdUserAuth.userpassword}" size="100" label="${msg.tdUserAuth_userpassword}" required="true" />
+				<app:input id="username" value="#{tdUserAuth.username}" size="100" label="${msg.tdUserAuth_username}(String)" required="true" />
+				<app:input id="email" value="#{tdUserAuth.email}" size="100" label="${msg.tdUserAuth_email}(String)" required="true" />
+				<app:inputPassword id="userpassword" value="#{tdUserAuth.userpassword}" size="100" label="${msg.tdUserAuth_userpassword}(String)" required="true" />
 			<!--	<app:input id="isActive" value="#{tdUserAuth.isActive}" label="${msg.tdUserAuth_isActive}" />   -->
                 <appcc:outputLabel for="isActive" value="${msg.tdUserAuth_isActive}" />
                   <p:selectOneRadio id="isActive" value="#{tdUserAuth.isActive}">

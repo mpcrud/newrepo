@@ -20,11 +20,11 @@
 		<p:fieldset legend="${msg.tdUserActivity}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:inputDateTime id="userLogintime" value="#{tdUserActivity.userLogintime}" label="${msg.tdUserActivity_userLogintime}" />
-				<app:input id="duration" value="#{tdUserActivity.duration}" label="${msg.tdUserActivity_duration}" />
-				<app:input id="viewCount" value="#{tdUserActivity.viewCount}" label="${msg.tdUserActivity_viewCount}" />
-				<app:input id="replyCount" value="#{tdUserActivity.replyCount}" label="${msg.tdUserActivity_replyCount}" />
-				<app:input id="ipaddress" value="#{tdUserActivity.ipaddress}" size="8" label="${msg.tdUserActivity_ipaddress}" maxlength="8"/>
-				<app:input id="currentStatus" value="#{tdUserActivity.currentStatus}" label="${msg.tdUserActivity_currentStatus}" />
+				<app:input id="duration" value="#{tdUserActivity.duration}" label="${msg.tdUserActivity_duration}(Integer)" />
+				<app:input id="viewCount" value="#{tdUserActivity.viewCount}" label="${msg.tdUserActivity_viewCount}(Integer)" />
+				<app:input id="replyCount" value="#{tdUserActivity.replyCount}" label="${msg.tdUserActivity_replyCount}(Integer)" />
+				<app:input id="ipaddress" value="#{tdUserActivity.ipaddress}" size="8" label="${msg.tdUserActivity_ipaddress}(String)" maxlength="8" required="true"/>
+				<app:input id="currentStatus" value="#{tdUserActivity.currentStatus}" label="${msg.tdUserActivity_currentStatus}(Integer)" />
 				<app:inputDateTime id="updationDate" value="#{tdUserActivity.updationDate}" label="${msg.tdUserActivity_updationDate}" />
 			<!--	<app:input id="isActive" value="#{tdUserActivity.isActive}" label="${msg.tdUserActivity_isActive}" />     -->
                 <appcc:outputLabel for="isActive" value="${msg.tdUserActivity_isActive}" />
@@ -33,8 +33,8 @@
                   <f:selectItem itemLabel="Inactive" itemValue="0" />
                   </p:selectOneRadio>
                 <h:outputText value="#{tdUserActivity.isActive}" rendered="${readonly}"/>
-				<app:input id="sessionPage" value="#{tdUserActivity.sessionPage}" label="${msg.tdUserActivity_sessionPage}" />
-				<app:tdUserAuthAutoComplete id="user" value="#{tdUserActivity.user}" required="false" label="${msg.tdUserActivity_user}">
+				<app:input id="sessionPage" value="#{tdUserActivity.sessionPage}" label="${msg.tdUserActivity_sessionPage}(Integer)" />
+				<app:tdUserAuthAutoComplete id="user" value="#{tdUserActivity.user}" required="true" label="${msg.tdUserActivity_user}">
 					<app:iconSearch action="selectUser" title="${msg.tdUserActivity_user} " />
 					<app:iconEdit action="editUser" title="${msg.tdUserActivity_user}" />
 					<app:iconView action="viewUser" title="${msg.tdUserActivity_user}" />

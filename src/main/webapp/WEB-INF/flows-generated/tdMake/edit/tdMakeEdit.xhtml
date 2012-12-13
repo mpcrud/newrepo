@@ -20,7 +20,7 @@
 		<p:fieldset legend="${msg.tdMake}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:input id="makeId" value="#{tdMake.makeId}" label="${msg.tdMake_makeId}(Integer)" required="true"/>
-				<app:inputTextArea id="makeDisplayName" value="#{tdMake.makeDisplayName}" label="${msg.tdMake_makeDisplayName}(String)" />
+				<app:inputTextArea id="makeDisplayName" value="#{tdMake.makeDisplayName}" label="${msg.tdMake_makeDisplayName}(String)" required="true"/>
 				<app:inputTextArea id="makeTechnicalName" value="#{tdMake.makeTechnicalName}" label="${msg.tdMake_makeTechnicalName}(String)" />
 				<app:inputTextArea id="makeAlternateName" value="#{tdMake.makeAlternateName}" label="${msg.tdMake_makeAlternateName}(String)" />
 				<app:inputTextArea id="shortDesc" value="#{tdMake.shortDesc}" label="${msg.tdMake_shortDesc}(String)"/>
@@ -32,14 +32,14 @@
                   <f:selectItem itemLabel="Inactive" itemValue="0" />
                 </p:selectOneRadio>
                 <h:outputText value="#{tdMake.isActive}" rendered="${readonly}"/>
-				<app:input id="startingYearOps" value="#{tdMake.startingYearOps}" label="${msg.tdMake_startingYearOps}(Integer)" />
+				<app:input id="startingYearOps" value="#{tdMake.startingYearOps}" label="${msg.tdMake_startingYearOps}(Integer)" required="true"/>
 				<app:input id="representCountryId" value="#{tdMake.representCountryId}" label="${msg.tdMake_representCountryId}Integer)" />
 				<app:inputTextArea id="custom1" value="#{tdMake.custom1}" label="${msg.tdMake_custom1}(String)" />
 				<app:inputTextArea id="custom2" value="#{tdMake.custom2}" label="${msg.tdMake_custom2}(String)" />
 				<app:inputTextArea id="custom3" value="#{tdMake.custom3}" label="${msg.tdMake_custom3}(String)" />
 				<app:input id="makeStatus" value="#{tdMake.makeStatus}" label="${msg.tdMake_makeStatus}(Integer)" />
 				<app:inputTextArea id="seoResources" value="#{tdMake.seoResources}" label="${msg.tdMake_seoResources}(String)" />
-				<app:inputTextArea id="seoUrl" value="#{tdMake.seoUrl}" label="${msg.tdMake_seoUrl}(String)" />
+				<app:inputTextArea id="seoUrl" value="#{tdMake.seoUrl}" label="${msg.tdMake_seoUrl}(String)" required="true"/>
 				<app:inputTextArea id="seoH1" value="#{tdMake.seoH1}" label="${msg.tdMake_seoH1}(String)" />
 				<app:inputTextArea id="seoH2" value="#{tdMake.seoH2}" label="${msg.tdMake_seoH2}(String)" />
 				<app:inputTextArea id="metaTitle" value="#{tdMake.metaTitle}" label="${msg.tdMake_metaTitle}(String)" />

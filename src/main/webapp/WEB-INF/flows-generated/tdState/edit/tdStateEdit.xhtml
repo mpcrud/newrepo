@@ -19,12 +19,12 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdState}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="stateName" value="#{tdState.stateName}" label="${msg.tdState_stateName}" />
-				<app:input id="importance" value="#{tdState.importance}" label="${msg.tdState_importance}" />
-				<app:inputTextArea id="descShort" value="#{tdState.descShort}" label="${msg.tdState_descShort}" />
-				<app:inputTextArea id="descLong" value="#{tdState.descLong}" label="${msg.tdState_descLong}" />
+				<app:input id="stateName" value="#{tdState.stateName}" label="${msg.tdState_stateName}(String)" required="true"/>
+				<app:input id="importance" value="#{tdState.importance}" label="${msg.tdState_importance}(Integer)" />
+				<app:inputTextArea id="descShort" value="#{tdState.descShort}" label="${msg.tdState_descShort}(String)" />
+				<app:inputTextArea id="descLong" value="#{tdState.descLong}" label="${msg.tdState_descLong}(String)" />
 				<app:inputDateTime id="updationDate" value="#{tdState.updationDate}" label="${msg.tdState_updationDate}" />
-				<app:tdCountryAutoComplete id="country" value="#{tdState.country}" required="false" label="${msg.tdState_country}">
+				<app:tdCountryAutoComplete id="country" value="#{tdState.country}" required="false" label="${msg.tdState_country}" >
 					<app:iconSearch action="selectCountry" title="${msg.tdState_country} " />
 					<app:iconEdit action="editCountry" title="${msg.tdState_country}" />
 					<app:iconView action="viewCountry" title="${msg.tdState_country}" />

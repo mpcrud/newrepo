@@ -19,9 +19,9 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdMakeSubmodel}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="makeSubmodelId" value="#{tdMakeSubmodel.makeSubmodelId}" label="${msg.tdMakeSubmodel_makeSubmodelId} (Integer)" />
-				<app:input id="makeModelId" value="#{tdMakeSubmodel.makeModelId}" label="${msg.tdMakeSubmodel_makeModelId} (Integer)" />
-				<app:inputTextArea id="makesubmodelDisplayName" value="#{tdMakeSubmodel.makesubmodelDisplayName}" label="${msg.tdMakeSubmodel_makesubmodelDisplayName} (String)" />
+				<app:input id="makeSubmodelId" value="#{tdMakeSubmodel.makeSubmodelId}" label="${msg.tdMakeSubmodel_makeSubmodelId} (Integer)" required="true"/>
+				<app:input id="makeModelId" value="#{tdMakeSubmodel.makeModelId}" label="${msg.tdMakeSubmodel_makeModelId} (Integer)" required="true"/>
+				<app:inputTextArea id="makesubmodelDisplayName" value="#{tdMakeSubmodel.makesubmodelDisplayName}" label="${msg.tdMakeSubmodel_makesubmodelDisplayName} (String)" required="true"/>
 				<app:inputTextArea id="makesubmodelTechnicalName" value="#{tdMakeSubmodel.makesubmodelTechnicalName}" label="${msg.tdMakeSubmodel_makesubmodelTechnicalName} (String)" />
 				<app:inputTextArea id="makesubmodelAlternateName" value="#{tdMakeSubmodel.makesubmodelAlternateName}" label="${msg.tdMakeSubmodel_makesubmodelAlternateName} (String)" />
 				<app:inputTextArea id="shortDesc" value="#{tdMakeSubmodel.shortDesc}" label="${msg.tdMakeSubmodel_shortDesc} (String)" />
@@ -45,7 +45,7 @@
 				<app:input id="specialEditionYear" value="#{tdMakeSubmodel.specialEditionYear}" label="${msg.tdMakeSubmodel_specialEditionYear} (Integer)" />
 				<app:input id="makesubmodelStatus" value="#{tdMakeSubmodel.makesubmodelStatus}" label="${msg.tdMakeSubmodel_makesubmodelStatus} (Integer)" />
 				<app:inputTextArea id="seoResources" value="#{tdMakeSubmodel.seoResources}" label="${msg.tdMakeSubmodel_seoResources} (String)" />
-				<app:inputTextArea id="seoUrl" value="#{tdMakeSubmodel.seoUrl}" label="${msg.tdMakeSubmodel_seoUrl} (String)" />
+				<app:inputTextArea id="seoUrl" value="#{tdMakeSubmodel.seoUrl}" label="${msg.tdMakeSubmodel_seoUrl} (String)" required="true"/>
 				<app:inputTextArea id="seoH1" value="#{tdMakeSubmodel.seoH1}" label="${msg.tdMakeSubmodel_seoH1} (String)" />
 				<app:inputTextArea id="seoH2" value="#{tdMakeSubmodel.seoH2}" label="${msg.tdMakeSubmodel_seoH2} (String)" />
 				<app:inputTextArea id="metaTitle" value="#{tdMakeSubmodel.metaTitle}" label="${msg.tdMakeSubmodel_metaTitle} (String)" />

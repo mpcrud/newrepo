@@ -19,7 +19,7 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdVote}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="voteType" value="#{tdVote.voteType}" label="${msg.tdVote_voteType}" />
+				<app:input id="voteType" value="#{tdVote.voteType}" label="${msg.tdVote_voteType}(Integer)" />
 				<app:inputDateTime id="updationDate" value="#{tdVote.updationDate}" label="${msg.tdVote_updationDate}" />
 			<!--	<app:input id="isActive" value="#{tdVote.isActive}" label="${msg.tdVote_isActive}" />    -->
                 <appcc:outputLabel for="isActive" value="${msg.tdVote_isActive}" />
@@ -28,14 +28,14 @@
                   <f:selectItem itemLabel="Inactive" itemValue="0" />
                   </p:selectOneRadio>
                 <h:outputText value="#{tdVote.isActive}" rendered="${readonly}"/>
-				<app:input id="voteStatus" value="#{tdVote.voteStatus}" label="${msg.tdVote_voteStatus}" />
-				<app:input id="commentId" value="#{tdVote.commentId}" label="${msg.tdVote_commentId}" />
-				<app:tdUserAuthAutoComplete id="user" value="#{tdVote.user}" required="false" label="${msg.tdVote_user}">
+				<app:input id="voteStatus" value="#{tdVote.voteStatus}" label="${msg.tdVote_voteStatus}(Integer)" />
+				<app:input id="commentId" value="#{tdVote.commentId}" label="${msg.tdVote_commentId}(Integer)" />
+				<app:tdUserAuthAutoComplete id="user" value="#{tdVote.user}" required="true" label="${msg.tdVote_user}">
 					<app:iconSearch action="selectUser" title="${msg.tdVote_user} " />
 					<app:iconEdit action="editUser" title="${msg.tdVote_user}" />
 					<app:iconView action="viewUser" title="${msg.tdVote_user}" />
 				</app:tdUserAuthAutoComplete>
-				<app:tdTopicAutoComplete id="topic" value="#{tdVote.topic}" required="false" label="${msg.tdVote_topic}">
+				<app:tdTopicAutoComplete id="topic" value="#{tdVote.topic}" required="true" label="${msg.tdVote_topic}">
 					<app:iconSearch action="selectTopic" title="${msg.tdVote_topic} " />
 					<app:iconEdit action="editTopic" title="${msg.tdVote_topic}" />
 					<app:iconView action="viewTopic" title="${msg.tdVote_topic}" />

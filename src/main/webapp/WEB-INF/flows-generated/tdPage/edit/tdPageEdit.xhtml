@@ -19,12 +19,12 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdPage}">
 			<h:panelGrid  columns="4" styleClass="aria-role-presentation">
-				<app:input id="pageHeading" value="#{tdPage.pageHeading}" label="${msg.tdPage_pageHeading}(String)" maxlength="50"/>
+				<app:input id="pageHeading" value="#{tdPage.pageHeading}" label="${msg.tdPage_pageHeading}(String)" maxlength="50" required="true"/>
 				<app:inputTextArea id="pageShortDesc" value="#{tdPage.pageShortDesc}" label="${msg.tdPage_pageShortDesc} (String)" maxlength="150"/>
 				<app:inputTextArea id="pageLongDesc" value="#{tdPage.pageLongDesc}" label="${msg.tdPage_pageLongDesc} (String)" />
-				<app:input id="pageType" value="#{tdPage.pageType}" label="${msg.tdPage_pageType}(Integer Value)" requiredMessage="Enter integer value for page type"/>
-				<app:input id="pageReferenceId" value="#{tdPage.pageReferenceId}" label="${msg.tdPage_pageReferenceId}" required="true"/>
-				<app:inputTextArea id="pageSeoUrl" value="#{tdPage.pageSeoUrl}" label="${msg.tdPage_pageSeoUrl} (String)" />
+				<app:input id="pageType" value="#{tdPage.pageType}" label="${msg.tdPage_pageType}(Integer)" requiredMessage="Enter integer value for page type"/>
+				<app:input id="pageReferenceId" value="#{tdPage.pageReferenceId}" label="${msg.tdPage_pageReferenceId}(Integer)" required="true"/>
+				<app:inputTextArea id="pageSeoUrl" value="#{tdPage.pageSeoUrl}" label="${msg.tdPage_pageSeoUrl} (String)" required="true"/>
 				<app:inputTextArea id="pageSeoKeyword" value="#{tdPage.pageSeoKeyword}" label="${msg.tdPage_pageSeoKeyword} (String)" />
 				<app:inputTextArea id="pageSeoMetaDesc" value="#{tdPage.pageSeoMetaDesc}" label="${msg.tdPage_pageSeoMetaDesc} (String)" />
 				<app:inputTextArea id="pageSeoTitle" value="#{tdPage.pageSeoTitle}" label="${msg.tdPage_pageSeoTitle} (String)" />
@@ -41,7 +41,7 @@
                 <h:outputText value="#{tdPage.pageIsActive}" rendered="${readonly}"/>
 				<app:input id="pagePriority" value="#{tdPage.pagePriority}" label="${msg.tdPage_pagePriority} (Integer)" />
 				<app:inputDateTime id="updationDate" value="#{tdPage.updationDate}" label="${msg.tdPage_updationDate}" />
-				<app:input id="pageUserId" value="#{tdPage.pageUserId}" label="${msg.tdPage_pageUserId}" />
+				<app:input id="pageUserId" value="#{tdPage.pageUserId}" label="${msg.tdPage_pageUserId}(Integer)" />
 				<app:inputTextArea id="pageCustom1" value="#{tdPage.pageCustom1}" label="${msg.tdPage_pageCustom1} (String)" />
 				<app:inputTextArea id="pageCustom2" value="#{tdPage.pageCustom2}" label="${msg.tdPage_pageCustom2} (String)" />
 				<app:input id="pageCustom3" value="#{tdPage.pageCustom3}" label="${msg.tdPage_pageCustom3} (Integer)" />

@@ -19,14 +19,14 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdUserTagPreference}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="userTagPreferenceId" value="#{tdUserTagPreference.userTagPreferenceId}" label="${msg.tdUserTagPreference_userTagPreferenceId}" required="true" />
+				<app:input id="userTagPreferenceId" value="#{tdUserTagPreference.userTagPreferenceId}" label="${msg.tdUserTagPreference_userTagPreferenceId}(Integer)" required="true" />
 				<app:inputDateTime id="updationDate" value="#{tdUserTagPreference.updationDate}" label="${msg.tdUserTagPreference_updationDate}" required="true" />
-				<app:tdUserAuthAutoComplete id="user" value="#{tdUserTagPreference.user}" required="false" label="${msg.tdUserTagPreference_user}">
+				<app:tdUserAuthAutoComplete id="user" value="#{tdUserTagPreference.user}" required="true" label="${msg.tdUserTagPreference_user}">
 					<app:iconSearch action="selectUser" title="${msg.tdUserTagPreference_user} " />
 					<app:iconEdit action="editUser" title="${msg.tdUserTagPreference_user}" />
 					<app:iconView action="viewUser" title="${msg.tdUserTagPreference_user}" />
 				</app:tdUserAuthAutoComplete>
-				<app:tdTagAutoComplete id="tag" value="#{tdUserTagPreference.tag}" required="false" label="${msg.tdUserTagPreference_tag}">
+				<app:tdTagAutoComplete id="tag" value="#{tdUserTagPreference.tag}" required="true" label="${msg.tdUserTagPreference_tag}">
 					<app:iconSearch action="selectTag" title="${msg.tdUserTagPreference_tag} " />
 					<app:iconEdit action="editTag" title="${msg.tdUserTagPreference_tag}" />
 					<app:iconView action="viewTag" title="${msg.tdUserTagPreference_tag}" />

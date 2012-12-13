@@ -19,26 +19,26 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdProductBrand}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
-				<app:input id="brandDisplayName" value="#{tdProductBrand.brandDisplayName}" label="${msg.tdProductBrand_brandDisplayName}" required="true" />
-				<app:input id="brandAlternateName" value="#{tdProductBrand.brandAlternateName}" label="${msg.tdProductBrand_brandAlternateName}" />
-				<app:inputTextArea id="shortDesc" value="#{tdProductBrand.shortDesc}" label="${msg.tdProductBrand_shortDesc}" maxlength="100"/>
-				<app:inputTextArea id="longDesc" value="#{tdProductBrand.longDesc}" label="${msg.tdProductBrand_longDesc}" />
-				<app:input id="internalRating" value="#{tdProductBrand.internalRating}" label="${msg.tdProductBrand_internalRating}" />
-				<app:inputTextArea id="refLink1" value="#{tdProductBrand.refLink1}" label="${msg.tdProductBrand_refLink1}" />
-				<app:inputTextArea id="refLink2" value="#{tdProductBrand.refLink2}" label="${msg.tdProductBrand_refLink2}" />
+				<app:input id="brandDisplayName" value="#{tdProductBrand.brandDisplayName}" label="${msg.tdProductBrand_brandDisplayName}(String)" required="true" />
+				<app:input id="brandAlternateName" value="#{tdProductBrand.brandAlternateName}" label="${msg.tdProductBrand_brandAlternateName}(String)" />
+				<app:inputTextArea id="shortDesc" value="#{tdProductBrand.shortDesc}" label="${msg.tdProductBrand_shortDesc}(String)" maxlength="100"/>
+				<app:inputTextArea id="longDesc" value="#{tdProductBrand.longDesc}" label="${msg.tdProductBrand_longDesc}(String)" />
+				<app:input id="internalRating" value="#{tdProductBrand.internalRating}" label="${msg.tdProductBrand_internalRating}(Integer)" />
+				<app:inputTextArea id="refLink1" value="#{tdProductBrand.refLink1}" label="${msg.tdProductBrand_refLink1}(String)" />
+				<app:inputTextArea id="refLink2" value="#{tdProductBrand.refLink2}" label="${msg.tdProductBrand_refLink2}(String)" />
 				<app:inputBoolean id="brandStatus" value="#{tdProductBrand.brandStatus}" label="${msg.tdProductBrand_brandStatus}" required="true" />
-				<app:inputTextArea id="custom1" value="#{tdProductBrand.custom1}" label="${msg.tdProductBrand_custom1}" />
-				<app:inputTextArea id="custom2" value="#{tdProductBrand.custom2}" label="${msg.tdProductBrand_custom2}" />
-				<app:inputTextArea id="custom3" value="#{tdProductBrand.custom3}" label="${msg.tdProductBrand_custom3}" />
-				<app:inputTextArea id="seoResources" value="#{tdProductBrand.seoResources}" label="${msg.tdProductBrand_seoResources}" />
-				<app:inputTextArea id="seoUrl" value="#{tdProductBrand.seoUrl}" label="${msg.tdProductBrand_seoUrl}" required="true">
+				<app:inputTextArea id="custom1" value="#{tdProductBrand.custom1}" label="${msg.tdProductBrand_custom1}(String)" />
+				<app:inputTextArea id="custom2" value="#{tdProductBrand.custom2}" label="${msg.tdProductBrand_custom2}(String)" />
+				<app:inputTextArea id="custom3" value="#{tdProductBrand.custom3}" label="${msg.tdProductBrand_custom3}(String)" />
+				<app:inputTextArea id="seoResources" value="#{tdProductBrand.seoResources}" label="${msg.tdProductBrand_seoResources}(String)" />
+				<app:inputTextArea id="seoUrl" value="#{tdProductBrand.seoUrl}" label="${msg.tdProductBrand_seoUrl}(String)" required="true">
 					<f:validateBean binding="#{jpaUniqueValidator}" entity="${tdProductBrand}" property="seoUrl" />
 				</app:inputTextArea>
-				<app:inputTextArea id="seoH1" value="#{tdProductBrand.seoH1}" label="${msg.tdProductBrand_seoH1}" />
-				<app:inputTextArea id="seoH2" value="#{tdProductBrand.seoH2}" label="${msg.tdProductBrand_seoH2}" />
-				<app:inputTextArea id="metaTitle" value="#{tdProductBrand.metaTitle}" label="${msg.tdProductBrand_metaTitle}" />
-				<app:inputTextArea id="metaKeyword" value="#{tdProductBrand.metaKeyword}" label="${msg.tdProductBrand_metaKeyword}" />
-				<app:inputTextArea id="metaDescription" value="#{tdProductBrand.metaDescription}" label="${msg.tdProductBrand_metaDescription}" />
+				<app:inputTextArea id="seoH1" value="#{tdProductBrand.seoH1}" label="${msg.tdProductBrand_seoH1}(String)" />
+				<app:inputTextArea id="seoH2" value="#{tdProductBrand.seoH2}" label="${msg.tdProductBrand_seoH2}(String)" />
+				<app:inputTextArea id="metaTitle" value="#{tdProductBrand.metaTitle}" label="${msg.tdProductBrand_metaTitle}(String)" />
+				<app:inputTextArea id="metaKeyword" value="#{tdProductBrand.metaKeyword}" label="${msg.tdProductBrand_metaKeyword}(String)" />
+				<app:inputTextArea id="metaDescription" value="#{tdProductBrand.metaDescription}" label="${msg.tdProductBrand_metaDescription}(String)" />
 				<app:inputDateTime id="updationDate" value="#{tdProductBrand.updationDate}" label="${msg.tdProductBrand_updationDate}" />
 			<!--	<app:input id="isActive" value="#{tdProductBrand.isActive}" label="${msg.tdProductBrand_isActive}" />    -->
                 <appcc:outputLabel for="isActive" value="${msg.tdProductBrand_isActive}" />

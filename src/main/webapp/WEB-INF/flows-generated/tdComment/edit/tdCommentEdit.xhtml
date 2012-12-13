@@ -20,7 +20,7 @@
 		<p:fieldset legend="${msg.tdComment}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 		<!-- 		<app:input id="topicId" value="#{tdComment.topicId}" label="${msg.tdComment_topicId}" /> -->
-				<app:input id="commentName" value="#{tdComment.commentName}" size="45" label="${msg.tdComment_commentName}(String)" maxlength="45"/>
+				<app:input id="commentName" value="#{tdComment.commentName}" size="45" label="${msg.tdComment_commentName}(String)" maxlength="45" required="true"/>
 				<app:input id="commentCount" value="#{tdComment.commentCount}" label="${msg.tdComment_commentCount} (Integer)" />
 		<!-- 		<app:input id="userId" value="#{tdComment.userId}" label="${msg.tdComment_userId}" /> -->
 				<app:inputDateTime id="updationDate" value="#{tdComment.updationDate}" label="${msg.tdComment_updationDate}" />

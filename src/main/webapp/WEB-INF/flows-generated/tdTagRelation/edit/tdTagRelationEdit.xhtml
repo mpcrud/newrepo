@@ -19,9 +19,9 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdTagRelation}">
 			<h:panelGrid columns="2" styleClass="aria-role-presentation">
-				<app:input id="tagRelationId" value="#{tdTagRelation.tagRelationId}" label="${msg.tdTagRelation_tagRelationId}" required="true" />
+				<app:input id="tagRelationId" value="#{tdTagRelation.tagRelationId}" label="${msg.tdTagRelation_tagRelationId}(Integer)" required="true" />
 				<app:inputDateTime id="updationDate" value="#{tdTagRelation.updationDate}" label="${msg.tdTagRelation_updationDate}" />
-				<app:input id="tagStatus" value="#{tdTagRelation.tagStatus}" label="${msg.tdTagRelation_tagStatus}" />
+				<app:input id="tagStatus" value="#{tdTagRelation.tagStatus}" label="${msg.tdTagRelation_tagStatus}(Integer)" />
 			<!--	<app:input id="isActive" value="#{tdTagRelation.isActive}" label="${msg.tdTagRelation_isActive}" />   -->
                 <appcc:outputLabel for="isActive" value="${msg.tdTagRelation_isActive}" />
                   <p:selectOneRadio id="isActive" value="#{tdTagRelation.isActive}">
