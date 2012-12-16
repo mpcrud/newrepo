@@ -20,20 +20,20 @@
 		<p:fieldset legend="${msg.tdMake}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:input id="makeId" value="#{tdMake.makeId}" label="${msg.tdMake_makeId}(Integer)" required="true"/>
-				<app:inputTextArea id="makeDisplayName" value="#{tdMake.makeDisplayName}" label="${msg.tdMake_makeDisplayName}(String)" required="true"/>
-				<app:inputTextArea id="makeTechnicalName" value="#{tdMake.makeTechnicalName}" label="${msg.tdMake_makeTechnicalName}(String)" />
-				<app:inputTextArea id="makeAlternateName" value="#{tdMake.makeAlternateName}" label="${msg.tdMake_makeAlternateName}(String)" />
-				<app:inputTextArea id="shortDesc" value="#{tdMake.shortDesc}" label="${msg.tdMake_shortDesc}(String)"/>
+				<app:input id="makeDisplayName" value="#{tdMake.makeDisplayName}" label="${msg.tdMake_makeDisplayName}(String)" required="true"/>
+				<app:input id="makeTechnicalName" value="#{tdMake.makeTechnicalName}" label="${msg.tdMake_makeTechnicalName}(String)" />
+				<app:input id="makeAlternateName" value="#{tdMake.makeAlternateName}" label="${msg.tdMake_makeAlternateName}(String)" />
+				<app:inputTextArea id="shortDesc" value="#{tdMake.shortDesc}" label="${msg.tdMake_shortDesc}(String)" maxlength="100"/>
 			<!--	<app:inputTextArea id="longDesc" value="#{tdMake.longDesc}" label="${msg.tdMake_longDesc}(String)" />
 			<!-	<app:input id="isActive" value="#{tdMake.isActive}" label="${msg.tdMake_isActive}" />       -->
                 <appcc:outputLabel for="isActive" value="${msg.tdMake_isActive}" />
-                <p:selectOneRadio id="isActive" value="#{tdMake.isActive}">
+                <p:selectOneRadio id="isActive" value="#{tdMake.isActive}" rendered="${not readonly and empty rendered ? true : rendered}">
                   <f:selectItem itemLabel="Active" itemValue="1" />
                   <f:selectItem itemLabel="Inactive" itemValue="0" />
                 </p:selectOneRadio>
                 <h:outputText value="#{tdMake.isActive}" rendered="${readonly}"/>
 				<app:input id="startingYearOps" value="#{tdMake.startingYearOps}" label="${msg.tdMake_startingYearOps}(Integer)" required="true"/>
-				<app:input id="representCountryId" value="#{tdMake.representCountryId}" label="${msg.tdMake_representCountryId}Integer)" />
+				<app:input id="representCountryId" value="#{tdMake.representCountryId}" label="${msg.tdMake_representCountryId}(Integer)" />
 				<app:inputTextArea id="custom1" value="#{tdMake.custom1}" label="${msg.tdMake_custom1}(String)" />
 				<app:inputTextArea id="custom2" value="#{tdMake.custom2}" label="${msg.tdMake_custom2}(String)" />
 				<app:inputTextArea id="custom3" value="#{tdMake.custom3}" label="${msg.tdMake_custom3}(String)" />

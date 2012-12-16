@@ -23,7 +23,7 @@
 				<app:inputDateTime id="updationDate" value="#{tdTagGrp.updationDate}" label="${msg.tdTagGrp_updationDate}" />
 			<!--	<app:input id="isActive" value="#{tdTagGrp.isActive}" label="${msg.tdTagGrp_isActive}" />   -->
                 <appcc:outputLabel for="isActive" value="${msg.tdTagGrp_isActive}" required="true"/>
-                  <p:selectOneRadio id="isActive" value="#{tdTagGrp.isActive}">
+                  <p:selectOneRadio id="isActive" value="#{tdTagGrp.isActive}" required="true" rendered="${not readonly and empty rendered ? true : rendered}">
                   <f:selectItem itemLabel="Active" itemValue="1" />
                   <f:selectItem itemLabel="Inactive" itemValue="0" />
                   </p:selectOneRadio>
@@ -31,7 +31,7 @@
 				<app:input id="tagGrpStatus" value="#{tdTagGrp.tagGrpStatus}" label="${msg.tdTagGrp_tagGrpStatus}(Integer)" />
 			<!--	<app:input id="referenceType" value="#{tdTagGrp.referenceType}" label="${msg.tdTagGrp_referenceType}" /> -->
                 <appcc:outputLabel for="referenceType" value="${msg.tdTagGrp_referenceType}" required="true" rendered="true" />
-                         <p:selectOneListbox id="referenceType" value="#{tdTagGrp.referenceType}">
+                         <p:selectOneListbox id="referenceType" value="#{tdTagGrp.referenceType}" required="true">
                             <f:selectItem itemLabel="500/Topic Type" itemValue="500" />
                             <f:selectItem itemLabel="400/Product Type" itemValue="400" />
                          </p:selectOneListbox>

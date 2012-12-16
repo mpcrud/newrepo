@@ -23,7 +23,7 @@
 				<app:inputDateTime id="updationDate" value="#{tdVote.updationDate}" label="${msg.tdVote_updationDate}" />
 			<!--	<app:input id="isActive" value="#{tdVote.isActive}" label="${msg.tdVote_isActive}" />    -->
                 <appcc:outputLabel for="isActive" value="${msg.tdVote_isActive}" />
-                  <p:selectOneRadio id="isActive" value="#{tdVote.isActive}">
+                  <p:selectOneRadio id="isActive" value="#{tdVote.isActive}" rendered="${not readonly and empty rendered ? true : rendered}">
                   <f:selectItem itemLabel="Active" itemValue="1" />
                   <f:selectItem itemLabel="Inactive" itemValue="0" />
                   </p:selectOneRadio>

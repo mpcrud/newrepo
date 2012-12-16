@@ -23,7 +23,7 @@
 				<app:input id="lastname" value="#{tdUserDetail.lastname}" size="45" label="${msg.tdUserDetail_lastname}(String)" maxlength="45" required="true"/>
 			<!--	<app:input id="isActive" value="#{tdUserDetail.isActive}" label="${msg.tdUserDetail_isActive}" />  -->
                 <appcc:outputLabel for="isActive" value="${msg.tdUserDetail_isActive}" />
-                  <p:selectOneRadio id="isActive" value="#{tdUserDetail.isActive}">
+                  <p:selectOneRadio id="isActive" value="#{tdUserDetail.isActive}" rendered="${not readonly and empty rendered ? true : rendered}">
                   <f:selectItem itemLabel="Active" itemValue="1" />
                   <f:selectItem itemLabel="Inactive" itemValue="0" />
                   </p:selectOneRadio>

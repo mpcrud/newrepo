@@ -51,6 +51,7 @@
 		<transition on="saveAndClose">
 			<evaluate expression="tdProductModelController.saveAndClose(tdProductModel)" />
 		</transition>
+        <transition on="forceClose" to="quit" />
 	</view-state>
 
 	<view-state id="tdProductSubSelect" view="productUnmappedToCar.xhtml">

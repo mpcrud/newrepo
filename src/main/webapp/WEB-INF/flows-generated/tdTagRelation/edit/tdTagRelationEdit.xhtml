@@ -24,7 +24,7 @@
 				<app:input id="tagStatus" value="#{tdTagRelation.tagStatus}" label="${msg.tdTagRelation_tagStatus}(Integer)" />
 			<!--	<app:input id="isActive" value="#{tdTagRelation.isActive}" label="${msg.tdTagRelation_isActive}" />   -->
                 <appcc:outputLabel for="isActive" value="${msg.tdTagRelation_isActive}" />
-                  <p:selectOneRadio id="isActive" value="#{tdTagRelation.isActive}">
+                  <p:selectOneRadio id="isActive" value="#{tdTagRelation.isActive}" rendered="${not readonly and empty rendered ? true : rendered}">
                   <f:selectItem itemLabel="Active" itemValue="1" />
                   <f:selectItem itemLabel="Inactive" itemValue="0" />
                   </p:selectOneRadio>
