@@ -31,6 +31,7 @@
 		<transition on="select" to="checkIfAlreadyOpenFlow" validate="false"/>
 		<transition on="delete" validate="false">
 			<evaluate expression="tdSubmodelYearMappingController.delete(tdSubmodelYearMappingLazyDataModel.selectedRow)" />
+            <evaluate expression="tdSubmodelYearMappingLazyDataModel.clearSelected()"/>
 		</transition>
 		<transition on="sendNew" to="edit" validate="false" />
 	</view-state>
@@ -47,8 +48,12 @@
 
 	<subflow-state id="edit" subflow="tdSubmodelYearMapping/edit">
 		<input name="tdSubmodelYearMapping" value="tdSubmodelYearMappingLazyDataModel.selectedRow" />
-		<transition on="endEdit" to="quitChoice" />
-		<transition on="deleteAndClose" to="tdSubmodelYearMappingSelect" />
+		<transition on="endEdit" to="quitChoice" >
+             <evaluate expression="tdSubmodelYearMappingLazyDataModel.clearSelected()"/>
+        </transition>
+		<transition on="deleteAndClose" to="tdSubmodelYearMappingSelect" >
+             <evaluate expression="tdSubmodelYearMappingLazyDataModel.clearSelected()"/>
+        </transition>
 	</subflow-state>
 
 	<decision-state id="quitChoice">

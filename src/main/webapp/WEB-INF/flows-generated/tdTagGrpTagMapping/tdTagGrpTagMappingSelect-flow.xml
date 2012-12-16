@@ -31,6 +31,7 @@
 		<transition on="select" to="checkIfAlreadyOpenFlow" validate="false"/>
 		<transition on="delete" validate="false">
 			<evaluate expression="tdTagGrpTagMappingController.delete(tdTagGrpTagMappingLazyDataModel.selectedRow)" />
+            <evaluate expression="tdTagGrpTagMappingLazyDataModel.clearSelected()"/>
 		</transition>
 		<transition on="sendNew" to="edit" validate="false" />
 	</view-state>
@@ -47,8 +48,12 @@
 
 	<subflow-state id="edit" subflow="tdTagGrpTagMapping/edit">
 		<input name="tdTagGrpTagMapping" value="tdTagGrpTagMappingLazyDataModel.selectedRow" />
-		<transition on="endEdit" to="quitChoice" />
-		<transition on="deleteAndClose" to="tdTagGrpTagMappingSelect" />
+		<transition on="endEdit" to="quitChoice" >
+            <evaluate expression="tdTagGrpTagMappingLazyDataModel.clearSelected()"/>
+        </transition>
+		<transition on="deleteAndClose" to="tdTagGrpTagMappingSelect" >
+            <evaluate expression="tdTagGrpTagMappingLazyDataModel.clearSelected()"/>
+        </transition>
 	</subflow-state>
 
 	<decision-state id="quitChoice">

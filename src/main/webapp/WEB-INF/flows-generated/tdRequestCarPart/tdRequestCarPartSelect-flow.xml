@@ -33,14 +33,17 @@
 		<transition on="select" to="checkIfAlreadyOpenFlow" validate="false"/>
 		<transition on="delete" validate="false">
 			<evaluate expression="tdRequestCarPartController.delete(tdRequestCarPartLazyDataModel.selectedRow)" />
+            <evaluate expression="tdRequestCarPartLazyDataModel.clearSelected()"/>
 		</transition>
 		<transition on="sendNew" to="edit" validate="false" />
         <transition on="updateAll">
             <evaluate expression="tdRequestCarPartController.updateStatus(tdRequestCarPartLazyDataModel.selectedList)"/>
+            <evaluate expression="tdRequestCarPartLazyDataModel.clearSelected()"/>
             <evaluate expression="primeFacesUtil.refresh()"/>
         </transition>
         <transition on="deleteAll">
             <evaluate expression="tdRequestCarPartController.deleteAll(tdRequestCarPartLazyDataModel.selectedList)"/>
+            <evaluate expression="tdRequestCarPartLazyDataModel.clearSelected()"/>
             <evaluate expression="primeFacesUtil.refresh()"/>
         </transition>
         <transition on="sendEmail" to="sendemail" validate="false">
@@ -89,8 +92,12 @@
 
 	<subflow-state id="edit" subflow="tdRequestCarPart/edit">
 		<input name="tdRequestCarPart" value="tdRequestCarPartLazyDataModel.selectedRow" />
-		<transition on="endEdit" to="quitChoice" />
-		<transition on="deleteAndClose" to="tdRequestCarPartSelect" />
+		<transition on="endEdit" to="quitChoice" >
+            <evaluate expression="tdRequestCarPartLazyDataModel.clearSelected()"/>
+        </transition>
+		<transition on="deleteAndClose" to="tdRequestCarPartSelect" >
+            <evaluate expression="tdRequestCarPartLazyDataModel.clearSelected()"/>
+        </transition>
 	</subflow-state>
 
 	<decision-state id="quitChoice">

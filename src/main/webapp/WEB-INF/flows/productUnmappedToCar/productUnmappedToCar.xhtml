@@ -19,15 +19,16 @@
     <f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdProductModel}">
 			<h:panelGrid columns="2" styleClass="aria-role-presentation">
+                <app:input id="productModelId" value="#{tdProductModel.productModelId}" label="${msg.tdProductModel_productModelId}(Integer)" required="true" />
 			 	 <app:tdMakeModelAutoComplete id="makeModel" value="#{tdProductModel.makeModel}" required="true" label="${msg.tdProductModel_makeModel}">
-					<app:iconSearch action="selectMakeModel" title="${msg.tdProductModel_makeModel} " />
+				<!--	<app:iconSearch action="selectMakeModel" title="${msg.tdProductModel_makeModel} " />
 					<app:iconEdit action="editMakeModel" title="${msg.tdProductModel_makeModel}" />
-					<app:iconView action="viewMakeModel" title="${msg.tdProductModel_makeModel}" />
+					<app:iconView action="viewMakeModel" title="${msg.tdProductModel_makeModel}" />    -->
 				</app:tdMakeModelAutoComplete>
 				<app:tdProductAutoComplete id="product" value="#{tdProductModel.product}" required="true" label="${msg.tdProductModel_product}">
-					<app:iconSearch action="selectProduct" title="${msg.tdProductModel_product} " />
+				<!--	<app:iconSearch action="selectProduct" title="${msg.tdProductModel_product} " />
 					<app:iconEdit action="editProduct" title="${msg.tdProductModel_product}" />
-					<app:iconView action="viewProduct" title="${msg.tdProductModel_product}" />
+					<app:iconView action="viewProduct" title="${msg.tdProductModel_product}" />  -->
 				</app:tdProductAutoComplete>
 			</h:panelGrid>
 		</p:fieldset>

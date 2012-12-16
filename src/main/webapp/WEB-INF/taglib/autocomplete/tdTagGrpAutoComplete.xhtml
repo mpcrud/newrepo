@@ -17,7 +17,8 @@
 			dropdown="#{not readonly}"
 			readonly="#{readonly}"			
 			size="50"
-            scrollHeight="150"    >
+            scrollHeight="150"
+            required="#{empty required ? false : required}">
 			<f:validateBean binding="#{lenientBeanValidator}"/>
 		</p:autoComplete>
 		<h:panelGroup>

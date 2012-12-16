@@ -31,6 +31,7 @@
 		<transition on="select" to="checkIfAlreadyOpenFlow" validate="false"/>
 		<transition on="delete" validate="false">
 			<evaluate expression="tdProductShipmentController.delete(tdProductShipmentLazyDataModel.selectedRow)" />
+            <evaluate expression="tdProductShipmentLazyDataModel.clearSelected()"/>
 		</transition>
 		<transition on="sendNew" to="edit" validate="false" />
 	</view-state>
@@ -47,8 +48,12 @@
 
 	<subflow-state id="edit" subflow="tdProductShipment/edit">
 		<input name="tdProductShipment" value="tdProductShipmentLazyDataModel.selectedRow" />
-		<transition on="endEdit" to="quitChoice" />
-		<transition on="deleteAndClose" to="tdProductShipmentSelect" />
+		<transition on="endEdit" to="quitChoice" >
+            <evaluate expression="tdProductShipmentLazyDataModel.clearSelected()"/>
+        </transition>
+		<transition on="deleteAndClose" to="tdProductShipmentSelect" >
+            <evaluate expression="tdProductShipmentLazyDataModel.clearSelected()"/>
+        </transition>
 	</subflow-state>
 
 	<decision-state id="quitChoice">

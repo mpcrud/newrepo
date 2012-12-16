@@ -65,6 +65,23 @@
 	
 	<view-state id="tdProductEditCommon">
 		<!-- TagGrpTagMapping transitions  -->
+        <transition on="selectproductSupplier" to="selectproductSupplier" />
+        <transition on="editproductSupplier" to="editproductSupplier">
+			<set name="requestScope.paramReadonly" value="false" type="boolean" />
+		</transition>
+		<transition on="viewproductSupplier" to="editproductSupplier">
+			<set name="requestScope.paramReadonly" value="true" type="boolean" />
+		</transition>
+
+		<!-- topic transitions (x-to-one) -->
+		<transition on="selectproductShipment" to="selectproductShipment" />
+		<transition on="editproductShipment" to="editproductShipment">
+			<set name="requestScope.paramReadonly" value="false" type="boolean" />
+		</transition>
+		<transition on="viewproductShipment" to="editproductShipment">
+			<set name="requestScope.paramReadonly" value="true" type="boolean" />
+		</transition>
+
 		<transition on="editTagGrpTagMapping" to="editTagGrpTagMapping">
 			<set name="requestScope.paramReadonly" value="false" type="boolean" />
 		</transition>
@@ -77,7 +94,46 @@
 		<transition on="endEdit" to="startChoice"/>			
 		<transition on="cancelEdit" to="startChoice" />
 	</subflow-state>
-	
+
+
+	<!-- SUBFLOW user (x-to-one) -->
+	<subflow-state id="selectproductSupplier" subflow="tdProductSupplier">
+		<input name="sub" value="true" />
+		<transition on="tdProductSupplierSelected" to="startChoice">
+			<evaluate expression="tdProduct.setProductSupplier(currentEvent.attributes.tdProductSupplierSelected)" />
+			<evaluate expression="messageUtil.info('status_selected_ok',resourceBundle.tdProduct_productSupplier)" />
+		</transition>
+		<transition on="cancel" to="startChoice" />
+	</subflow-state>
+	<subflow-state id="editproductSupplier" subflow="tdProductSupplier/edit">
+		<input name="sub" value="true" />
+		<input name="readonly" value="requestScope.paramReadonly" />
+		<input name="tdProductSupplier" value="tdProduct.productSupplier" />
+		<transition on="endEdit" to="startChoice">
+			<evaluate expression="messageUtil.info('status_edited_ok',resourceBundle.tdProduct_productSupplier)" />
+		</transition>
+		<transition on="cancelEdit" to="startChoice" />
+	</subflow-state>
+
+
+	<!-- SUBFLOW topic (x-to-one) -->
+	<subflow-state id="selectproductShipment" subflow="tdProductShipment">
+		<input name="sub" value="true" />
+		<transition on="tdProductShipmentSelected" to="startChoice">
+			<evaluate expression="tdProduct.setProductShipment(currentEvent.attributes.tdProductShipmentSelected)" />
+			<evaluate expression="messageUtil.info('status_selected_ok',resourceBundle.tdProduct_productShipment)" />
+		</transition>
+		<transition on="cancel" to="startChoice" />
+	</subflow-state>
+	<subflow-state id="editproductShipment" subflow="tdProductShipment/edit">
+		<input name="sub" value="true" />
+		<input name="readonly" value="requestScope.paramReadonly" />
+		<input name="tdProductShipment" value="tdProduct.productShipment" />
+		<transition on="endEdit" to="startChoice">
+			<evaluate expression="messageUtil.info('status_edited_ok',resourceBundle.tdProduct_productShipment)" />
+		</transition>
+		<transition on="cancelEdit" to="startChoice" />
+	</subflow-state>
 
 	<end-state id="endEdit">
 		<output name="tdProduct" value="tdProduct" />

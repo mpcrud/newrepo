@@ -31,6 +31,7 @@
 		<transition on="select" to="checkIfAlreadyOpenFlow" validate="false"/>
 		<transition on="delete" validate="false">
 			<evaluate expression="tdPermissionController.delete(tdPermissionLazyDataModel.selectedRow)" />
+            <evaluate expression="tdPermissionLazyDataModel.clearSelected()"/>
 		</transition>
 		<transition on="sendNew" to="edit" validate="false" />
 	</view-state>
@@ -47,8 +48,12 @@
 
 	<subflow-state id="edit" subflow="tdPermission/edit">
 		<input name="tdPermission" value="tdPermissionLazyDataModel.selectedRow" />
-		<transition on="endEdit" to="quitChoice" />
-		<transition on="deleteAndClose" to="tdPermissionSelect" />
+		<transition on="endEdit" to="quitChoice" >
+            <evaluate expression="tdPermissionLazyDataModel.clearSelected()"/>
+        </transition>
+		<transition on="deleteAndClose" to="tdPermissionSelect" >
+            <evaluate expression="tdPermissionLazyDataModel.clearSelected()"/>
+        </transition>
 	</subflow-state>
 
 	<decision-state id="quitChoice">

@@ -7,7 +7,7 @@
 
 	<appcc:outputLabel for="${id}" value="${label}" required="${empty required ? false : required}" />
 
-	<p:inputTextarea id="${id}" value="#{value}" cols="80" rows="7" rendered="${not readonly}" disabled="${empty disabled ? false : disabled}" maxlength="${empty maxlength ? 700 : maxlength}" counter="${id}_counter" counterTemplate="{0} characters remaining." autoResize="true">
+	<p:inputTextarea id="${id}" value="#{value}" cols="80" rows="7" rendered="${not readonly}" disabled="${empty disabled ? false : disabled}" maxlength="${empty maxlength ? 700 : maxlength}" counter="${id}_counter" counterTemplate="{0} characters remaining." autoResize="true" required="${empty required ? false : required}">
         <f:validateBean binding="#{lenientBeanValidator}"/>
         <ui:insert/>
         <h:outputText id="${id}_counter"/> <br/>

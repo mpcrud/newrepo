@@ -31,6 +31,7 @@
 		<transition on="select" to="checkIfAlreadyOpenFlow" validate="false"/>
 		<transition on="delete" validate="false">
 			<evaluate expression="tdUserAuthController.delete(tdUserAuthLazyDataModel.selectedRow)" />
+             <evaluate expression="tdUserAuthLazyDataModel.clearSelected()"/>
 		</transition>
 		<transition on="sendNew" to="edit" validate="false" />
 	</view-state>
@@ -47,8 +48,12 @@
 
 	<subflow-state id="edit" subflow="tdUserAuth/edit">
 		<input name="tdUserAuth" value="tdUserAuthLazyDataModel.selectedRow" />
-		<transition on="endEdit" to="quitChoice" />
-		<transition on="deleteAndClose" to="tdUserAuthSelect" />
+		<transition on="endEdit" to="quitChoice" >
+            <evaluate expression="tdUserAuthLazyDataModel.clearSelected()"/>
+        </transition>
+		<transition on="deleteAndClose" to="tdUserAuthSelect" >
+            <evaluate expression="tdUserAuthLazyDataModel.clearSelected()"/>
+        </transition>
 	</subflow-state>
 
 	<decision-state id="quitChoice">

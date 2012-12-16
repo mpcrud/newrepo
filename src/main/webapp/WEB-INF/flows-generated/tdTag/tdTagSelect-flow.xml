@@ -31,14 +31,17 @@
 		<transition on="select" to="checkIfAlreadyOpenFlow" validate="false"/>
 		<transition on="delete" validate="false">
 			<evaluate expression="tdTagController.delete(tdTagLazyDataModel.selectedRow)" />
+             <evaluate expression="tdTagLazyDataModel.clearSelected()"/>
 		</transition>
 		<transition on="sendNew" to="edit" validate="false" />
         <transition on="updateAll">
             <evaluate expression="tdTagController.updateAll(tdTagLazyDataModel.selectedList)"/>
+            <evaluate expression="tdTagLazyDataModel.clearSelected()"/>
             <evaluate expression="primeFacesUtil.refresh()"/>
         </transition>
         <transition on="deleteAll">
             <evaluate expression="tdTagController.deleteAll(tdTagLazyDataModel.selectedList)"/>
+            <evaluate expression="tdTagLazyDataModel.clearSelected()"/>
             <evaluate expression="primeFacesUtil.refresh()"/>
         </transition>
 	</view-state>
@@ -55,8 +58,12 @@
 
 	<subflow-state id="edit" subflow="tdTag/edit">
 		<input name="tdTag" value="tdTagLazyDataModel.selectedRow" />
-		<transition on="endEdit" to="quitChoice" />
-		<transition on="deleteAndClose" to="tdTagSelect" />
+		<transition on="endEdit" to="quitChoice" >
+            <evaluate expression="tdTagLazyDataModel.clearSelected()"/>
+        </transition>
+		<transition on="deleteAndClose" to="tdTagSelect" >
+            <evaluate expression="tdTagLazyDataModel.clearSelected()"/>
+        </transition>
 	</subflow-state>
 
 	<decision-state id="quitChoice">

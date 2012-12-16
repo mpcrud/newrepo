@@ -49,6 +49,7 @@
 
 		<transition on="deleteAndClose" to="deleteAndClose">
 			<evaluate expression="tdTagController.delete(tdTag)" />
+            <evaluate expression="tdTagController.newIfNull(null)" result="tdTag" />
 		</transition>
 	</view-state>
 

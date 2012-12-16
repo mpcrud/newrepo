@@ -82,7 +82,10 @@ public abstract class GenericLazyDataModel<E> extends LazyDataModel<E> {
         this.selectedList[this.selectedList.length]=row;
     }
 
-
+    public void clearSelected(){
+        this.setSelectedRow(null);
+        this.selectedList = null;
+    }
     /**
      * Convert PrimeFaces SortOrder to our OrderByDirection.
      */

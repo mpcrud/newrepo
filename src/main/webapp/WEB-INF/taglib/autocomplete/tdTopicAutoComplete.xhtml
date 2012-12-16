@@ -15,7 +15,8 @@
 			converter="#{tdTopicConverter}"
 			forceSelection="true"
 			dropdown="#{not readonly}"
-			readonly="#{readonly}"			
+			readonly="#{readonly}"
+            required="#{empty required ? false : required}"
 			size="50">
 			<f:validateBean binding="#{lenientBeanValidator}"/>
 		</p:autoComplete>

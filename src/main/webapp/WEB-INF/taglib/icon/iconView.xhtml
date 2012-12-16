@@ -7,6 +7,7 @@
 		process="${empty process? '@form' : process}"
 		rendered="#{empty rendered or rendered}"
 		icon="iconView"
+        immediate="true"
 		title="${msg.icon_view} ${empty title? '' : title}">
 		<ui:insert/>
 	</p:commandButton>

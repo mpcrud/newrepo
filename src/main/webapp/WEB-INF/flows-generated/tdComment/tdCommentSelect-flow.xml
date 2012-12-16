@@ -32,6 +32,7 @@
 		<transition on="select" to="checkIfAlreadyOpenFlow" validate="false"/>
 		<transition on="delete" validate="false">
 			<evaluate expression="tdCommentController.delete(tdCommentLazyDataModel.selectedRow)" />
+            <evaluate expression="tdCommentLazyDataModel.clearSelected()"/>
 		</transition>
 		<transition on="sendNew" to="edit" validate="false" />
         <transition on="viewUser" to="editUser">
@@ -51,8 +52,12 @@
 
 	<subflow-state id="edit" subflow="tdComment/edit">
 		<input name="tdComment" value="tdCommentLazyDataModel.selectedRow" />
-		<transition on="endEdit" to="quitChoice" />
-		<transition on="deleteAndClose" to="tdCommentSelect" />
+		<transition on="endEdit" to="quitChoice" >
+            <evaluate expression="tdCommentLazyDataModel.clearSelected()"/>
+        </transition>
+		<transition on="deleteAndClose" to="tdCommentSelect" >
+            <evaluate expression="tdCommentLazyDataModel.clearSelected()"/>
+        </transition>
 	</subflow-state>
 
     <subflow-state id="editUser" subflow="tdUserAuth/edit">

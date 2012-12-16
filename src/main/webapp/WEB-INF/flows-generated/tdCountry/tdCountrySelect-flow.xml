@@ -31,6 +31,7 @@
 		<transition on="select" to="checkIfAlreadyOpenFlow" validate="false"/>
 		<transition on="delete" validate="false">
 			<evaluate expression="tdCountryController.delete(tdCountryLazyDataModel.selectedRow)" />
+            <evaluate expression="tdCountryLazyDataModel.clearSelected()"/>
 		</transition>
 		<transition on="sendNew" to="edit" validate="false" />
 	</view-state>
@@ -47,8 +48,12 @@
 
 	<subflow-state id="edit" subflow="tdCountry/edit">
 		<input name="tdCountry" value="tdCountryLazyDataModel.selectedRow" />
-		<transition on="endEdit" to="quitChoice" />
-		<transition on="deleteAndClose" to="tdCountrySelect" />
+		<transition on="endEdit" to="quitChoice">
+            <evaluate expression="tdCountryLazyDataModel.clearSelected()"/>
+        </transition>
+		<transition on="deleteAndClose" to="tdCountrySelect" >
+            <evaluate expression="tdCountryLazyDataModel.clearSelected()"/>
+        </transition>
 	</subflow-state>
 
 	<decision-state id="quitChoice">

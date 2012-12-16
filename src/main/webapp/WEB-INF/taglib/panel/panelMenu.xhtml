@@ -46,12 +46,12 @@
 						rendered="#{not empty bean}"
 						value="#{msg.menu_new}"
 						title="#{msg.menu_new} #{title}" />
-					<p:commandButton id="openLocation"
+			<!--		<p:commandButton id="openLocation"
 						onclick="APP.menu.openLocation();"
 						icon="ui-icon-folder-open"
 						value="#{msg.menu_open}"
 						title="#{msg.menu_open} #{title}"
-						rendered="#{not empty bean}" />
+						rendered="#{not empty bean}" />    -->
 				</p:toolbarGroup>
 				<p:toolbarGroup align="left" rendered="#{sub or readonly}">
 					<p:commandButton id="cancel" action="cancel" process="@none" ajax="false" immediate="true"
