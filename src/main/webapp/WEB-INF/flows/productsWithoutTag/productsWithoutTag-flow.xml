@@ -60,6 +60,8 @@
 			<set name="requestScope.paramReadonly" value="false" type="boolean" />
 		</transition>
 
+     <transition on="forceClose" to="quit" />
+
 	</view-state>
 
 	<view-state id="tdProductSubSelect" view="productsWithoutTag.xhtml">

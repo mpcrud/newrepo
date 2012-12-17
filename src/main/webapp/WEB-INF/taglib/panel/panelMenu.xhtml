@@ -27,7 +27,8 @@
 						icon="ui-icon-closethick"
 						value="#{msg.menu_quit}"
 						title="#{msg.menu_quit} #{title}"
-						rendered="#{empty bean}"/>
+						rendered="#{empty bean}"
+                        immediate="true"/>
 					<p:commandButton id="delete" icon="ui-icon-trash"
 						onclick="askForDeleteDialog.show(); APP.focusAskForDeleteDialog();"
 						value="#{msg.menu_delete_and_close}"
