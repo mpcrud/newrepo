@@ -34,6 +34,9 @@
             <evaluate expression="tdPageLazyDataModel.clearSelected()"/>
 		</transition>
 		<transition on="sendNew" to="edit" validate="false" />
+        <transition on="clear">
+            <evaluate expression="tdPageLazyDataModel.clearSelected()"/>
+        </transition>
 	</view-state>
 
 	<view-state id="tdPageSubSelect" view="tdPageSelect.xhtml">

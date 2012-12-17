@@ -44,6 +44,9 @@
             <evaluate expression="tdTagLazyDataModel.clearSelected()"/>
             <evaluate expression="primeFacesUtil.refresh()"/>
         </transition>
+        <transition on="clear">
+            <evaluate expression="tdTagLazyDataModel.clearSelected()"/>
+        </transition>
 	</view-state>
 
 	<view-state id="tdTagSubSelect" view="tdTagSelect.xhtml">

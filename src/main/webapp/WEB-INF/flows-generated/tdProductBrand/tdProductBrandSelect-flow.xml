@@ -31,8 +31,12 @@
 		<transition on="select" to="checkIfAlreadyOpenFlow" validate="false"/>
 		<transition on="delete" validate="false">
 			<evaluate expression="tdProductBrandController.delete(tdProductBrandLazyDataModel.selectedRow)" />
+            <evaluate expression="tdProductBrandLazyDataModel.clearSelected()"/>
 		</transition>
 		<transition on="sendNew" to="edit" validate="false" />
+        <transition on="clear">
+             <evaluate expression="tdProductBrandLazyDataModel.clearSelected()"/>
+        </transition>
 	</view-state>
 
 	<view-state id="tdProductBrandSubSelect" view="tdProductBrandSelect.xhtml">
@@ -47,8 +51,12 @@
 
 	<subflow-state id="edit" subflow="tdProductBrand/edit">
 		<input name="tdProductBrand" value="tdProductBrandLazyDataModel.selectedRow" />
-		<transition on="endEdit" to="quitChoice" />
-		<transition on="deleteAndClose" to="tdProductBrandSelect" />
+		<transition on="endEdit" to="quitChoice" >
+            <evaluate expression="tdProductBrandLazyDataModel.clearSelected()"/>
+        </transition>
+		<transition on="deleteAndClose" to="tdProductBrandSelect" >
+            <evaluate expression="tdProductBrandLazyDataModel.clearSelected()"/>
+        </transition>
 	</subflow-state>
 
 	<decision-state id="quitChoice">

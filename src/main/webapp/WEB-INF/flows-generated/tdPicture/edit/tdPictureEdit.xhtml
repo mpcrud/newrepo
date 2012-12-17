@@ -20,8 +20,9 @@
 		<p:fieldset legend="${msg.tdPicture}">
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
              <!--   <img src="#{tdPicture.picturePath}#{tdPicture.pictureName}" width="200" height="171" alt="#{tdPicture.picturePath}#{tdPicture.pictureName}"/> -->
-                <h:outputText value="Image"/>
-                <p:fileUpload mode="advanced" sizeLimit="2097152" fileUploadListener="#{fileUploadController.upload}" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+              <!--  <h:outputText value="Image"/>   -->
+                <appcc:outputLabel for="image" value="Image" required="true" />
+                <p:fileUpload id="image" mode="advanced" sizeLimit="2097152" fileUploadListener="#{fileUploadController.upload}" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" required="true"/>
                  <app:input id="pictureName" value="#{tdPicture.pictureName}" size="48" label="${msg.tdPicture_pictureName} (String)" required="true" />
 			<!--	<app:input id="pictureShortDesc" value="#{tdPicture.pictureShortDesc}" label="${msg.tdPicture_pictureShortDesc}" maxlength="45"/>
 				<app:inputTextArea id="pictureLongDesc" value="#{tdPicture.pictureLongDesc}" label="${msg.tdPicture_pictureLongDesc}" />   -->
@@ -29,7 +30,7 @@
                 <appcc:outputLabel for="picturePath" value="${msg.tdPicture_picturePath} (String)" required="true" />
                          <p:selectOneListbox id="picturePath" value="#{tdPicture.picturePath}" style="width:150px">
                             <f:selectItem itemLabel="/root/img/" itemValue="/root/img/" />
-                            <f:selectItem itemLabel="C:\Geo\" itemValue="C:\Geo\" />
+                        <!--    <f:selectItem itemLabel="C:\Geo\" itemValue="C:\Geo\" />  -->
                          </p:selectOneListbox>
                   <h:outputText value="#{tdPicture.picturePath}" rendered="${readonly}"/>
 				<app:inputTextArea id="pictureUrl" value="#{tdPicture.pictureUrl}" label="${msg.tdPicture_pictureUrl} (String)" maxlength="512"/>

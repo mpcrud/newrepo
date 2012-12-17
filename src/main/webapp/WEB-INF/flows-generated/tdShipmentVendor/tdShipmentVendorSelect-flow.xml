@@ -34,6 +34,9 @@
             <evaluate expression="tdShipmentVendorLazyDataModel.clearSelected()"/>
 		</transition>
 		<transition on="sendNew" to="edit" validate="false" />
+        <transition on="clear">
+            <evaluate expression="tdShipmentVendorLazyDataModel.clearSelected()"/>
+        </transition>
 	</view-state>
 
 	<view-state id="tdShipmentVendorSubSelect" view="tdShipmentVendorSelect.xhtml">

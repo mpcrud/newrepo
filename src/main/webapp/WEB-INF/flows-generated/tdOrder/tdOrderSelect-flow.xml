@@ -44,6 +44,9 @@
             <evaluate expression="tdOrderLazyDataModel.clearSelected()"/>
             <evaluate expression="primeFacesUtil.refresh()"/>
         </transition>
+        <transition on="clear">
+            <evaluate expression="tdOrderLazyDataModel.clearSelected()"/>
+        </transition>
 	</view-state>
 
 	<view-state id="tdOrderSubSelect" view="tdOrderSelect.xhtml">

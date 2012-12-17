@@ -26,7 +26,7 @@
 	</decision-state>
 
 	<!-- EDIT -->
-	<view-state id="tdProductSubmodelEdit">
+	<view-state id="tdProductSubmodelEdit" parent="#tdProductSubmodelEditCommon">
 		<on-render>
 			<evaluate expression="flowsMenuHandler.updateMenu(flowRequestContext,tdProductSubmodel.id,tdProductSubmodelConverter.print(tdProductSubmodel))" />
 		</on-render>
@@ -53,12 +53,72 @@
 	</view-state>
 
 	<!-- SUB-EDIT -->
-	<view-state id="tdProductSubmodelSubEdit" view="tdProductSubmodelEdit.xhtml">
+	<view-state id="tdProductSubmodelSubEdit" view="tdProductSubmodelEdit.xhtml" parent="#tdProductSubmodelEditCommon">
 		<transition on="ok">
 			<evaluate expression="primeFacesUtil.forceClose()" />
 		</transition>
 		<transition on="cancel" to="cancelEdit" />
 	</view-state>
+
+    <view-state id="tdProductSubmodelEditCommon">
+
+		<!-- product transitions (x-to-one) -->
+		<transition on="selectProduct" to="selectProduct" />
+		<transition on="editProduct" to="editProduct">
+			<set name="requestScope.paramReadonly" value="false" type="boolean" />
+		</transition>
+		<transition on="viewProduct" to="editProduct">
+			<set name="requestScope.paramReadonly" value="true" type="boolean" />
+		</transition>
+
+		<!-- SubmodelYearMapping transitions (x-to-one) -->
+		<transition on="selectSubmodelYearMapping" to="selectSubmodelYearMapping" />
+		<transition on="editSubmodelYearMapping" to="editSubmodelYearMapping">
+			<set name="requestScope.paramReadonly" value="false" type="boolean" />
+		</transition>
+		<transition on="viewSubmodelYearMapping" to="editSubmodelYearMapping">
+			<set name="requestScope.paramReadonly" value="true" type="boolean" />
+		</transition>
+	</view-state>
+
+	<!-- SUBFLOW product (x-to-one) -->
+	<subflow-state id="selectProduct" subflow="tdProduct">
+		<input name="sub" value="true" />
+		<transition on="tdProductSelected" to="startChoice">
+			<evaluate expression="tdProductSubmodel.setProduct(currentEvent.attributes.tdProductSelected)" />
+			<evaluate expression="messageUtil.info('status_selected_ok',resourceBundle.tdProductSubmodel_product)" />
+		</transition>
+		<transition on="cancel" to="startChoice" />
+	</subflow-state>
+	<subflow-state id="editProduct" subflow="tdProduct/edit">
+		<input name="sub" value="true" />
+		<input name="readonly" value="requestScope.paramReadonly" />
+		<input name="tdProduct" value="tdProductSubmodel.product" />
+		<transition on="endEdit" to="startChoice">
+			<evaluate expression="messageUtil.info('status_edited_ok',resourceBundle.tdProductSubmodel_product)" />
+		</transition>
+		<transition on="cancelEdit" to="startChoice" />
+	</subflow-state>
+
+
+	<!-- SUBFLOW SubmodelYearMapping (x-to-one) -->
+	<subflow-state id="selectSubmodelYearMapping" subflow="tdSubmodelYearMapping">
+		<input name="sub" value="true" />
+		<transition on="tdSubmodelYearMappingSelected" to="startChoice">
+			<evaluate expression="tdProductSubmodel.setSubmodelYearMapping(currentEvent.attributes.tdSubmodelYearMappingSelected)" />
+			<evaluate expression="messageUtil.info('status_selected_ok',resourceBundle.tdProductSubmodel_submodelYearMapping)" />
+		</transition>
+		<transition on="cancel" to="startChoice" />
+	</subflow-state>
+	<subflow-state id="editSubmodelYearMapping" subflow="tdSubmodelYearMapping/edit">
+		<input name="sub" value="true" />
+		<input name="readonly" value="requestScope.paramReadonly" />
+		<input name="tdSubmodelYearMapping" value="tdProductSubmodel.submodelYearMapping" />
+		<transition on="endEdit" to="startChoice">
+			<evaluate expression="messageUtil.info('status_edited_ok',resourceBundle.tdProductSubmodel_submodelYearMapping)" />
+		</transition>
+		<transition on="cancelEdit" to="startChoice" />
+	</subflow-state>
 
 	<end-state id="endEdit">
 		<output name="tdProductSubmodel" value="tdProductSubmodel" />

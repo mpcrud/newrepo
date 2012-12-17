@@ -61,7 +61,7 @@
                 <h:outputText value="#{tdProductConverter.print(item.tagGrp.product)}" />
             </p:column>
             <p:column id="tdTagGrpTagMapping_topic" headerText="${msg.tdTagGrp_topic}">
-                <h:outputText value="#{tdTopicConverter.print(item.tagGrp.topic)}" />
+                <h:outputText value="#{tdTopicConverter.print(item.tagGrp.topic)}" converter="#{fewCharacterConverter}" />
              </p:column>
 			
 
@@ -71,7 +71,7 @@
 <ui:define name="dialogs">
     <p:confirmDialog widgetVar="askForDeleteItemDialog" header="${msg.menu_delete}?" message="${msg.dialog_delete_confirm}">
         <p:commandButton id="askForDeleteItemDialogYes" action="delete" ajax="true" update=":form:searchResults :form:messages" oncomplete="askForDeleteItemDialog.hide(); APP.updateSearchResultsRegion(xhr,status,args)" immediate="true" process="@this" value="${msg.yes}" title="${msg.dialog_delete_confirm} ${msg.yes}" icon="ui-icon-check" />
-        <p:commandButton id="askForDeleteItemDialogNo" value="${msg.no}" title="${msg.dialog_delete_confirm} ${msg.no}" onclick="askForDeleteItemDialog.hide(); return false;" icon="ui-icon-cancel"/>
+        <p:commandButton id="askForDeleteItemDialogNo" value="${msg.no}" title="${msg.dialog_delete_confirm} ${msg.no}" action="clear" oncomplete="askForDeleteItemDialog.hide();return false;" icon="ui-icon-cancel"/>
     </p:confirmDialog>
 </ui:define>
 </app:panelMenu>

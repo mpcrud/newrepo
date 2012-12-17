@@ -52,6 +52,9 @@
          <evaluate expression="editor.setSubject(editorList.subject)"/>
          <evaluate expression="editor.setValue(editorList.value)"/>
        </transition>
+        <transition on="clear">
+            <evaluate expression="tdRequestCarPartLazyDataModel.clearSelected()"/>
+        </transition>
      <!--   <transition on="sendEmail" to="sendemail" validate="false">
           <evaluate expression="tdRequestCarPartLazyDataModel.emailList()" result="flowScope.eList" result-type="java.util.List"/>
           <evaluate expression="editor.setEmail(eList)"/>

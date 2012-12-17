@@ -38,6 +38,9 @@
         <transition on="viewUser" to="editUser">
 			<set name="requestScope.paramReadonly" value="true" type="boolean" />
 		</transition>
+        <transition on="clear">
+            <evaluate expression="tdCommentLazyDataModel.clearSelected()"/>
+        </transition>
 	</view-state>
 
 	<view-state id="tdCommentSubSelect" view="tdCommentSelect.xhtml">
