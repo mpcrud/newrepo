@@ -25,6 +25,16 @@
 		<!-- 		<app:input id="userId" value="#{tdComment.userId}" label="${msg.tdComment_userId}" /> -->
 				<app:inputDateTime id="updationDate" value="#{tdComment.updationDate}" label="${msg.tdComment_updationDate}" />
 			<!--	<app:input id="isActive" value="#{tdComment.isActive}" label="${msg.tdComment_isActive}" />   -->
+             <!--   <app:tdTopicAutoComplete id="topic" value="#{tdComment.topic}" required="true" label="${msg.tdComment_topic}">
+					<app:iconSearch action="selectTopic" title="${msg.tdComment_topic} " />
+					<app:iconEdit action="editTopic" title="${msg.tdComment_topic}" />
+					<app:iconView action="viewTopic" title="${msg.tdComment_topic}" />
+				</app:tdTopicAutoComplete> -->
+                <appcc:outputLabel for="topic" value="${msg.tdComment_topic}" required="true"/>
+                <p:selectOneListbox id="topic" value="#{tdComment.topic}" converter="#{tdTopicConverter}" style="height:300px;width:230px" required="true" rendered="${not readonly and empty rendered ? true : rendered}">
+                   <f:selectItems itemValue="#{item}" itemLabel="#{tdTopicConverter.print(item)}"  value="#{tdTopicRepository.find()}" var="item"/>
+                </p:selectOneListbox>
+                <h:outputText value="#{tdComment.topic}" rendered="${readonly}"/>
                 <appcc:outputLabel for="isActive" value="${msg.tdComment_isActive}" />
                   <p:selectOneRadio id="isActive" value="#{tdComment.isActive}">
                   <f:selectItem itemLabel="Active" itemValue="1" />
@@ -39,11 +49,7 @@
 					<app:iconEdit action="editUser" title="${msg.tdComment_user}" />
 					<app:iconView action="viewUser" title="${msg.tdComment_user}" />
 				</app:tdUserAuthAutoComplete>
-				<app:tdTopicAutoComplete id="topic" value="#{tdComment.topic}" required="true" label="${msg.tdComment_topic}">
-					<app:iconSearch action="selectTopic" title="${msg.tdComment_topic} " />
-					<app:iconEdit action="editTopic" title="${msg.tdComment_topic}" />
-					<app:iconView action="viewTopic" title="${msg.tdComment_topic}" />
-				</app:tdTopicAutoComplete>
+
 			</h:panelGrid>
 		</p:fieldset>
 		<app:saveButton title="${msg.tdComment}"/>

@@ -30,7 +30,7 @@ import com.app.mpadmin.web.domain.support.SearchFormBase;
  * Simple parameters holder for tdUserAddress search.
  */
 @Component
-@Scope("session")
+@Scope("request")
 public class TdUserAddressSearchForm extends SearchFormBase {
     private static final long serialVersionUID = 1L;
 

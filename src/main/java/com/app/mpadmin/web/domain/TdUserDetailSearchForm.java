@@ -24,7 +24,7 @@ import com.app.mpadmin.web.domain.support.SearchFormBase;
  * Simple parameters holder for tdUserDetail search.
  */
 @Component
-@Scope("session")
+@Scope("request")
 public class TdUserDetailSearchForm extends SearchFormBase {
     private static final long serialVersionUID = 1L;
 

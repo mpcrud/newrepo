@@ -26,7 +26,7 @@ import com.app.mpadmin.dao.support.EntitySelectors.TdUserAuthSelector;
  * Simple parameters holder for tdComment search.
  */
 @Component
-@Scope("session")
+@Scope("request")
 public class TdCommentSearchForm extends SearchFormBase {
     private static final long serialVersionUID = 1L;
 

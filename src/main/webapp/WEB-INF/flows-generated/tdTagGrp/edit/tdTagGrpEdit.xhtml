@@ -31,7 +31,7 @@
 				<app:input id="tagGrpStatus" value="#{tdTagGrp.tagGrpStatus}" label="${msg.tdTagGrp_tagGrpStatus}(Integer)" />
 			<!--	<app:input id="referenceType" value="#{tdTagGrp.referenceType}" label="${msg.tdTagGrp_referenceType}" /> -->
                 <appcc:outputLabel for="referenceType" value="${msg.tdTagGrp_referenceType}" required="true" rendered="true" />
-                         <p:selectOneListbox id="referenceType" value="#{tdTagGrp.referenceType}" required="true">
+                         <p:selectOneListbox id="referenceType" value="#{tdTagGrp.referenceType}" required="true" rendered="${not readonly and empty rendered ? true : rendered}">
                             <f:selectItem itemLabel="500/Topic Type" itemValue="500" />
                             <f:selectItem itemLabel="400/Product Type" itemValue="400" />
                          </p:selectOneListbox>

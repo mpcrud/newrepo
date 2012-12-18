@@ -24,7 +24,7 @@ import com.app.mpadmin.web.domain.support.SearchFormBase;
  * Simple parameters holder for tdTagRelation search.
  */
 @Component
-@Scope("session")
+@Scope("request")
 public class TdTagRelationSearchForm extends SearchFormBase {
     private static final long serialVersionUID = 1L;
 

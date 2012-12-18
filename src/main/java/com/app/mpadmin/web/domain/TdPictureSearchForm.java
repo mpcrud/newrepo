@@ -23,7 +23,7 @@ import com.app.mpadmin.web.domain.support.SearchFormBase;
  * Simple parameters holder for tdPicture search.
  */
 @Component
-@Scope("session")
+@Scope("request")
 public class TdPictureSearchForm extends SearchFormBase {
     private static final long serialVersionUID = 1L;
 

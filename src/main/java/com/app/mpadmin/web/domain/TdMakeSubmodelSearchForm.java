@@ -29,7 +29,7 @@ import com.app.mpadmin.web.domain.support.SearchFormBase;
  * Simple parameters holder for tdMakeSubmodel search.
  */
 @Component
-@Scope("session")
+@Scope("request")
 public class TdMakeSubmodelSearchForm extends SearchFormBase {
     private static final long serialVersionUID = 1L;
 

@@ -23,7 +23,7 @@ import com.app.mpadmin.web.domain.support.SearchFormBase;
  * Simple parameters holder for tdPermission search.
  */
 @Component
-@Scope("session")
+@Scope("request")
 public class TdPermissionSearchForm extends SearchFormBase {
     private static final long serialVersionUID = 1L;
 

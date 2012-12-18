@@ -22,7 +22,7 @@ import com.app.mpadmin.web.domain.support.SearchFormBase;
  * Simple parameters holder for tdPage search.
  */
 @Component
-@Scope("session")
+@Scope("request")
 public class TdPageSearchForm extends SearchFormBase {
     private static final long serialVersionUID = 1L;
 

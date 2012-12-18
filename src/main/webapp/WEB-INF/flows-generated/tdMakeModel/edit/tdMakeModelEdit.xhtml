@@ -28,7 +28,7 @@
 			<!--	<app:input id="longDesc" value="#{tdMakeModel.longDesc}" label="${msg.tdMakeModel_longDesc} (String)" />
 			<!-	<app:input id="isActive" value="#{tdMakeModel.isActive}" label="${msg.tdMakeModel_isActive}" />  -->
                 <appcc:outputLabel for="isActive" value="${msg.tdMakeModel_isActive}" />
-                  <p:selectOneRadio id="isActive" value="#{tdMakeModel.isActive}">
+                  <p:selectOneRadio id="isActive" value="#{tdMakeModel.isActive}" rendered="${not readonly and empty rendered ? true : rendered}">
                   <f:selectItem itemLabel="Active" itemValue="1" />
                   <f:selectItem itemLabel="Inactive" itemValue="0" />
                   </p:selectOneRadio>

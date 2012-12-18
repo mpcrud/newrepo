@@ -26,7 +26,7 @@ import com.app.mpadmin.web.domain.support.SearchFormBase;
  * Simple parameters holder for tdShipmentVendor search.
  */
 @Component
-@Scope("session")
+@Scope("request")
 public class TdShipmentVendorSearchForm extends SearchFormBase {
     private static final long serialVersionUID = 1L;
 

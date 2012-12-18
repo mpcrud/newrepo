@@ -77,13 +77,13 @@
 		<if test="create" then="quit" else="tdCommentSelect"/>
 	</decision-state>
 
-    <end-state id="quit" view="/WEB-INF/views/home.xhtml">
+ <!--   <end-state id="quit" view="/WEB-INF/views/home.xhtml">
 		<on-entry>
 			<evaluate expression="messageUtil.displayDelayedMessages()" />
             <evaluate expression="tdCommentSearchForm.topicSelector.clearSelected()"/>
             <evaluate expression="tdCommentSearchForm.userSelector.clearSelected()"/>
 		</on-entry>
-	</end-state>
+	</end-state>  -->
 
 	<end-state id="endSwitchToAlreadyOpenFlow"
 		view="externalRedirect:contextRelative:#{flowsMenuHandler.endStateRedirectToAlreadyOpenFlow(flowRequestContext,tdCommentLazyDataModel.selectedRow)}" />
