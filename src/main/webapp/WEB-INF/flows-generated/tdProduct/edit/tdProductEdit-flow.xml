@@ -91,7 +91,7 @@
 	<subflow-state id="editTagGrpTagMapping" subflow="tdTagGrpTagMapping/edit">
 		<input name="sub" value="false" />
 		<input name="readonly" value="requestScope.paramReadonly" />
-		<transition on="endEdit" to="startChoice"/>			
+		<transition on="endEdit" to="endEdit"/>
 		<transition on="cancelEdit" to="startChoice" />
 	</subflow-state>
 
