@@ -77,7 +77,7 @@
             		<!--		<app:iconSelect action="select" process="@this" title="${tdTagGrpConverter.print(item)}" rendered="true" ajax="true" immediate="true">
             					<f:setPropertyActionListener value="#{item}" target="#{tdTagGrpLazyDataModel.selectedRow}" />
             				</app:iconSelect>    -->
-                            <p:commandButton ajax="false" action="select" process="@this" rendered="true" immediate="true" icon="iconSelect" title="${tdTagGrpConverter.print(item)}">
+                            <p:commandButton ajax="true" action="select" process="@this" rendered="true" immediate="false" icon="iconSelect" title="${tdTagGrpConverter.print(item)}">
 		                       <f:setPropertyActionListener value="#{item}" target="#{tdTagGrpLazyDataModel.selectedRow}" />
 	                        </p:commandButton>
             			</p:column>

@@ -58,6 +58,7 @@
         <transition on="select">
             <evaluate expression="tdTagGrpTagMapping.setTagGrp(tdTagGrpLazyDataModel.selectedRow)" />
             <evaluate expression="messageUtil.info('status_selected_ok',resourceBundle.tdTagGrpTagMapping_tagGrp)" />
+            <evaluate expression="primeFacesUtil.refresh()"/>
         </transition>
 	</view-state>
 
