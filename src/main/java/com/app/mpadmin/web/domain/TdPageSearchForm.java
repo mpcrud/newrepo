@@ -11,6 +11,7 @@ import static com.app.mpadmin.dao.support.Ranges.RangeDate.newRangeDate;
 import static com.app.mpadmin.dao.support.Ranges.RangeInteger.newRangeInteger;
 import static com.app.mpadmin.domain.TdPage_.*;
 
+import com.app.mpadmin.dao.support.EntitySelectors;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import com.app.mpadmin.dao.support.Ranges.RangeDate;
@@ -32,10 +33,11 @@ public class TdPageSearchForm extends SearchFormBase {
     private RangeInteger<TdPage> pageIsActiveRange = newRangeInteger(pageIsActive);
     private RangeInteger<TdPage> pagePriorityRange = newRangeInteger(pagePriority);
     private RangeDate<TdPage> updationDateRange = newRangeDate(updationDate);
-    private RangeInteger<TdPage> pageUserIdRange = newRangeInteger(pageUserId);
+  //  private RangeInteger<TdPage> pageUserIdRange = newRangeInteger(pageUserId);
     private RangeInteger<TdPage> pageCustom3Range = newRangeInteger(pageCustom3);
     private RangeInteger<TdPage> pageCustom4Range = newRangeInteger(pageCustom4);
     private RangeInteger<TdPage> pageIdRange = newRangeInteger(pageId);
+    private EntitySelectors.TdUserAuthSelector<TdPage> userSelector = EntitySelectors.TdUserAuthSelector.newTdUserAuthSelector(pageUserId);
     public TdPage getTdPage() {
         return tdPage;
     }
@@ -65,8 +67,11 @@ public class TdPageSearchForm extends SearchFormBase {
         return updationDateRange;
     }
 
-    public RangeInteger<TdPage> getPageUserIdRange() {
+   /* public RangeInteger<TdPage> getPageUserIdRange() {
         return pageUserIdRange;
+    }  */
+    public EntitySelectors.TdUserAuthSelector<TdPage> getUserSelector() {
+        return userSelector;
     }
 
     public RangeInteger<TdPage> getPageCustom3Range() {

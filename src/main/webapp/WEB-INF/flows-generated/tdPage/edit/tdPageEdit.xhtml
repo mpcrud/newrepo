@@ -21,7 +21,7 @@
 			<h:panelGrid  columns="4" styleClass="aria-role-presentation">
 				<app:input id="pageHeading" value="#{tdPage.pageHeading}" label="${msg.tdPage_pageHeading}(String)" maxlength="50" required="true"/>
 				<app:inputTextArea id="pageShortDesc" value="#{tdPage.pageShortDesc}" label="${msg.tdPage_pageShortDesc} (String)" maxlength="150"/>
-				<app:inputTextArea id="pageLongDesc" value="#{tdPage.pageLongDesc}" label="${msg.tdPage_pageLongDesc} (String)" />
+				<app:inputTextArea id="pageLongDesc" value="#{tdPage.pageLongDesc}" label="${msg.tdPage_pageLongDesc} (String)" maxlength="20000"/>
 				<app:input id="pageType" value="#{tdPage.pageType}" label="${msg.tdPage_pageType}(Integer)" requiredMessage="Enter integer value for page type"/>
 				<app:input id="pageReferenceId" value="#{tdPage.pageReferenceId}" label="${msg.tdPage_pageReferenceId}(Integer)" required="true"/>
 				<app:inputTextArea id="pageSeoUrl" value="#{tdPage.pageSeoUrl}" label="${msg.tdPage_pageSeoUrl} (String)" required="true"/>
@@ -41,7 +41,12 @@
                 <h:outputText value="#{tdPage.pageIsActive}" rendered="${readonly}"/>
 				<app:input id="pagePriority" value="#{tdPage.pagePriority}" label="${msg.tdPage_pagePriority} (Integer)" />
 				<app:inputDateTime id="updationDate" value="#{tdPage.updationDate}" label="${msg.tdPage_updationDate}" />
-				<app:input id="pageUserId" value="#{tdPage.pageUserId}" label="${msg.tdPage_pageUserId}(Integer)" />
+			<!--	<app:input id="pageUserId" value="#{tdPage.pageUserId}" label="${msg.tdPage_pageUserId}(Integer)" />     -->
+                <app:tdUserAuthAutoComplete id="pageUser" value="#{tdPage.pageUser}" label="${msg.tdPage_pageUserId}">
+					<app:iconSearch action="selectUser" title="${msg.tdPage_pageUserId} " />
+					<app:iconEdit action="editUser" title="${msg.tdPage_pageUserId}" />
+					<app:iconView action="viewUser" title="${msg.tdPage_pageUserId}" />
+				</app:tdUserAuthAutoComplete>
 				<app:inputTextArea id="pageCustom1" value="#{tdPage.pageCustom1}" label="${msg.tdPage_pageCustom1} (String)" />
 				<app:inputTextArea id="pageCustom2" value="#{tdPage.pageCustom2}" label="${msg.tdPage_pageCustom2} (String)" />
 				<app:input id="pageCustom3" value="#{tdPage.pageCustom3}" label="${msg.tdPage_pageCustom3} (Integer)" />

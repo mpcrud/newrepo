@@ -37,7 +37,8 @@
 					<app:rangeInt id="pageIsActive" value="#{tdPageSearchForm.pageIsActiveRange}" label="${msg.tdPage_pageIsActive}"/>
 					<app:rangeInt id="pagePriority" value="#{tdPageSearchForm.pagePriorityRange}" label="${msg.tdPage_pagePriority}"/>
                     <app:rangeDateTime id="updationDate" value="#{tdPageSearchForm.updationDateRange}" label="${msg.tdPage_updationDate}" />
-					<app:rangeInt id="pageUserId" value="#{tdPageSearchForm.pageUserIdRange}" label="${msg.tdPage_pageUserId}"/>
+				<!--	<app:rangeInt id="pageUserId" value="#{tdPageSearchForm.pageUserIdRange}" label="${msg.tdPage_pageUserId}"/>  -->
+                    <app:tdUserAuthMultiAutoComplete id="userSelector" value="#{tdPageSearchForm.userSelector.selected}" label="${msg.tdPage_pageUserId}"/>
 					<app:input id="pageCustom1" value="#{tdPageSearchForm.tdPage.pageCustom1}" label="${msg.tdPage_pageCustom1}"/>
 					<app:input id="pageCustom2" value="#{tdPageSearchForm.tdPage.pageCustom2}" label="${msg.tdPage_pageCustom2}"/>
 					<app:rangeInt id="pageCustom3" value="#{tdPageSearchForm.pageCustom3Range}" label="${msg.tdPage_pageCustom3}"/>

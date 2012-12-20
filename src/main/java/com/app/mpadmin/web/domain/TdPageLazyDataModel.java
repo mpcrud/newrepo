@@ -66,7 +66,9 @@ public class TdPageLazyDataModel extends GenericLazyDataModel<TdPage> {
         sp.addRange(tdPageSearchForm.getPageIsActiveRange());
         sp.addRange(tdPageSearchForm.getPagePriorityRange());
         sp.addRange(tdPageSearchForm.getUpdationDateRange());
-        sp.addRange(tdPageSearchForm.getPageUserIdRange());
+      //  sp.addRange(tdPageSearchForm.getPageUserIdRange());
+        sp.clearEntitySelectors();
+        sp.addEntitySelector(tdPageSearchForm.getUserSelector());
         sp.addRange(tdPageSearchForm.getPageCustom3Range());
         sp.addRange(tdPageSearchForm.getPageCustom4Range());
         sp.addRange(tdPageSearchForm.getPageIdRange());

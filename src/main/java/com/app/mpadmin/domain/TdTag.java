@@ -45,7 +45,7 @@ public class TdTag implements Identifiable<Integer>, Serializable {
     private Date updationDate;
     private Integer isActive;
     private Integer tagStatus;
-
+    private String tagLongDesc;
     // ---------------------------
     // Constructors
     // ---------------------------
@@ -146,6 +146,16 @@ public class TdTag implements Identifiable<Integer>, Serializable {
 
     public void setTagDesc(String tagDesc) {
         this.tagDesc = tagDesc;
+    }
+
+    @Size(max = 8096)
+    @Column(name = "tag_long_desc", length = 8096)
+    public String getTagLongDesc() {
+        return tagLongDesc;
+    }
+
+    public void setTagLongDesc(String tagLongDesc) {
+        this.tagLongDesc = tagLongDesc;
     }
 
     // -- [tagUrl] ------------------------

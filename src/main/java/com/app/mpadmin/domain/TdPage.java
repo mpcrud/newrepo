@@ -7,23 +7,20 @@
  */
 package com.app.mpadmin.domain;
 
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.TemporalType.TIMESTAMP;
 import static org.hibernate.annotations.CacheConcurrencyStrategy.NONSTRICT_READ_WRITE;
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.PrePersist;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlTransient;
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 import org.hibernate.validator.constraints.URL;
 import com.app.mpadmin.domain.PersistableHashBuilder;
 import com.google.common.base.Objects;
@@ -59,6 +56,8 @@ public class TdPage implements Identifiable<Integer>, Serializable {
     private String pageCustom2;
     private Integer pageCustom3;
     private Integer pageCustom4;
+
+    private TdUserAuth pageUser;
 
     // ---------------------------
     // Constructors
@@ -372,6 +371,34 @@ public class TdPage implements Identifiable<Integer>, Serializable {
 
     public void setPageCustom4(Integer pageCustom4) {
         this.pageCustom4 = pageCustom4;
+    }
+
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    // many-to-one: TdPage.userId ==> TdUserAuth.userId
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    @Cache(usage = NONSTRICT_READ_WRITE)
+    @JoinColumn(name = "page_user_id",updatable = false,insertable = false)
+    @ManyToOne(cascade = PERSIST, fetch = LAZY)
+    @NotFound(action= NotFoundAction.IGNORE)
+    public TdUserAuth getPageUser() {
+        return pageUser;
+    }
+
+    /**
+     * Set the user without adding this TdPage instance on the passed user
+     * If you want to preserve referential integrity we recommend to use
+     * instead the corresponding adder method provided by {@link TdUserAuth}
+     */
+    public void setPageUser(TdUserAuth user) {
+        this.pageUser = user;
+
+        // We set the foreign key property so it can be used by our JPA search by Example facility.
+        if (user != null) {
+            setPageUserId(user.getUserId());
+        } else {
+            setPageUserId(null);
+        }
     }
 
     /**

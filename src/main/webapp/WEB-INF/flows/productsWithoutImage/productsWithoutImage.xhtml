@@ -54,9 +54,12 @@
         		height="500px">
                                      <!--action="selectProduct"-->
             <p:column id="open" headerText="${msg.actions}" styleClass="actions-column" resizable="false">
-				<app:iconSelect  process="@this" title="${tdProductConverter.print(item)}" rendered="true" ajax="true" action="selectProduct" update="@form">
+                <p:commandButton ajax="true" action="selectProduct" process="@this" rendered="true" immediate="false" icon="iconSelect" title="${tdProductConverter.print(item)}">
+		           <f:setPropertyActionListener value="#{item}" target="#{tdProductLazyDataModel.selectedRow}" />
+	             </p:commandButton>
+			<!--	<app:iconSelect ajax="true" title="${tdProductConverter.print(item)}" rendered="true" action="selectProduct" process="@this" immediate="true" >
             			<f:setPropertyActionListener value="#{item}" target="#{tdProductLazyDataModel.selectedRow}" />
-            	</app:iconSelect>
+            	</app:iconSelect> -->
 			</p:column>
 		    <p:column id="tdProduct_productId" headerText="${msg.tdProduct_productId}">
 				<h:outputText value="#{item.productId}" />
@@ -291,7 +294,7 @@
 </ui:define>
 <ui:define name="dialogs">
     <p:confirmDialog widgetVar="askForDeleteItemDialog" header="${msg.menu_delete}?" message="${msg.dialog_delete_confirm}">
-        <p:commandButton id="askForDeleteItemDialogYes" action="delete" ajax="true" update=":form:searchResults :form:messages" oncomplete="askForDeleteItemDialog.hide(); APP.updateSearchResultsRegion(xhr,status,args)" immediate="true" process="@this" value="${msg.yes}" title="${msg.dialog_delete_confirm} ${msg.yes}" icon="ui-icon-check" />
+        <p:commandButton id="askForDeleteItemDialogYes" action="delete" ajax="true" update=":form:searchResults :form:messages" oncomplete="askForDeleteItemDialog.hide(); APP.updateSearchResultsRegion(xhr,status,args)" immediate="false" process="@this" value="${msg.yes}" title="${msg.dialog_delete_confirm} ${msg.yes}" icon="ui-icon-check" />
         <p:commandButton id="askForDeleteItemDialogNo" value="${msg.no}" title="${msg.dialog_delete_confirm} ${msg.no}" onclick="askForDeleteItemDialog.hide(); return false;" icon="ui-icon-cancel"/>
     </p:confirmDialog>
    <!--    <p:dialog id="multiDialog" header="Car Detail" widgetVar="multiCarDialog"

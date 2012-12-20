@@ -26,12 +26,12 @@
 	</decision-state>
 
 	<!-- EDIT -->
-	<view-state id="tdPageEdit">
+	<view-state id="tdPageEdit" parent="#tdPageEditCommon">
 		<on-render>
 			<evaluate expression="flowsMenuHandler.updateMenu(flowRequestContext,tdPage.id,tdPageConverter.print(tdPage))" />
 		</on-render>
 
-		<transition on="send">
+		<transition on="send" >
 			<evaluate expression="messageUtil.info('status_submitted_ok')" />
 		</transition>
 
@@ -53,12 +53,46 @@
 	</view-state>
 
 	<!-- SUB-EDIT -->
-	<view-state id="tdPageSubEdit" view="tdPageEdit.xhtml">
+	<view-state id="tdPageSubEdit" view="tdPageEdit.xhtml" parent="#tdPageEditCommon">
 		<transition on="ok">
 			<evaluate expression="primeFacesUtil.forceClose()" />
 		</transition>
 		<transition on="cancel" to="cancelEdit" />
 	</view-state>
+
+    <!-- COMMON-EDIT -->
+	<view-state id="tdPageEditCommon">
+
+		<!-- user transitions (x-to-one) -->
+		<transition on="selectUser" to="selectUser" />
+		<transition on="editUser" to="editUser">
+			<set name="requestScope.paramReadonly" value="false" type="boolean" />
+		</transition>
+		<transition on="viewUser" to="editUser">
+			<set name="requestScope.paramReadonly" value="true" type="boolean" />
+		</transition>
+
+	</view-state>
+
+	<!-- SUBFLOW user (x-to-one) -->
+	<subflow-state id="selectUser" subflow="tdUserAuth">
+		<input name="sub" value="true" />
+		<transition on="tdUserAuthSelected" to="startChoice">
+			<evaluate expression="tdPage.setPageUser(currentEvent.attributes.tdUserAuthSelected)" />
+			<evaluate expression="messageUtil.info('status_selected_ok',resourceBundle.tdPage_pageUserId)" />
+		</transition>
+		<transition on="cancel" to="startChoice" />
+	</subflow-state>
+	<subflow-state id="editUser" subflow="tdUserAuth/edit">
+		<input name="sub" value="true" />
+		<input name="readonly" value="requestScope.paramReadonly" />
+		<input name="tdUserAuth" value="tdPage.pageUser" />
+		<transition on="endEdit" to="startChoice">
+			<evaluate expression="messageUtil.info('status_edited_ok',resourceBundle.tdPage_pageUserId)" />
+		</transition>
+		<transition on="cancelEdit" to="startChoice" />
+	</subflow-state>
+
 
 	<end-state id="endEdit">
 		<output name="tdPage" value="tdPage" />
