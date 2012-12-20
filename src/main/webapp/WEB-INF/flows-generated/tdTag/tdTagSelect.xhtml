@@ -81,6 +81,9 @@
             <p:column id="tdTag_tagStatus" headerText="${msg.tdTag_tagStatus}" sortBy="#{item.tagStatus}">
 				<h:outputText value="#{item.tagStatus}" />
 			</p:column>
+            <p:column id="tdTag_tagLongDesc" headerText="${msg.tdTag_tagLongDesc}" sortBy="#{item.tagLongDesc}">
+				<h:outputText value="#{item.tagLongDesc}" />
+			</p:column>
             <f:facet name="footer">
          <!--   <p:commandButton id="multiViewButton" value="View" icon="ui-icon-search" action="updateAll"
                              > <!N-update=":form:displayMulti" oncomplete="multiCarDialog.show()"-->
