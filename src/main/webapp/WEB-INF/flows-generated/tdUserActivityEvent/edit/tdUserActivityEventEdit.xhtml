@@ -18,6 +18,12 @@
 	<ui:define name="content">
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdUserActivityEvent}">
+            <p:commandButton id="saveAndCloseTop" action="saveAndClose" ajax="true" update="messages delete" process="@form"
+		styleClass="aria-save-button default" style="margin-bottom: 14px"
+		icon="ui-icon-disk"
+		value="#{msg.menu_save}"
+		title="#{msg.menu_save} #{title}"
+		rendered="#{not sub and not readonly}" />
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:input id="userActivityName" value="#{tdUserActivityEvent.userActivityName}" size="45" label="${msg.tdUserActivityEvent_userActivityName}(String)" maxlength="45" required="true"/>
 				<app:input id="userEventName" value="#{tdUserActivityEvent.userEventName}" size="45" label="${msg.tdUserActivityEvent_userEventName}(String)" maxlength="45"/>

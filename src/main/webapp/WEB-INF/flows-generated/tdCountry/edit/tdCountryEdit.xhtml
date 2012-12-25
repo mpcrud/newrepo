@@ -18,6 +18,12 @@
 	<ui:define name="content">
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdCountry}">
+            <p:commandButton id="saveAndCloseTop" action="saveAndClose" ajax="true" update="messages delete" process="@form"
+		styleClass="aria-save-button default" style="margin-bottom: 14px"
+		icon="ui-icon-disk"
+		value="#{msg.menu_save}"
+		title="#{msg.menu_save} #{title}"
+		rendered="#{not sub and not readonly}" />
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:input id="countryId" value="#{tdCountry.countryId}" label="${msg.tdCountry_countryId}(Integer)" required="true" />
 				<app:input id="countryName" value="#{tdCountry.countryName}" label="${msg.tdCountry_countryName}(String)" required="true" />

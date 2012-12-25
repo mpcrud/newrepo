@@ -18,6 +18,12 @@
 	<ui:define name="content">
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdUserAddress}">
+            <p:commandButton id="saveAndCloseTop" action="saveAndClose" ajax="true" update="messages delete" process="@form"
+		styleClass="aria-save-button default" style="margin-bottom: 14px"
+		icon="ui-icon-disk"
+		value="#{msg.menu_save}"
+		title="#{msg.menu_save} #{title}"
+		rendered="#{not sub and not readonly}" />
 			<h:panelGrid columns="2" styleClass="aria-role-presentation">
 				<app:input id="address1" value="#{tdUserAddress.address1}" size="90" label="${msg.tdUserAddress_address1}(String)" maxlength="90" required="true"/>
 				<app:input id="address2" value="#{tdUserAddress.address2}" size="90" label="${msg.tdUserAddress_address2}(String)" maxlength="90"/>

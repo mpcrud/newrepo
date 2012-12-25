@@ -25,6 +25,8 @@ import org.apache.log4j.Logger;
 import org.hibernate.annotations.Cache;
 import com.app.mpadmin.domain.PersistableHashBuilder;
 import com.google.common.base.Objects;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 @Entity
 @Table(name = "td_tag_grp_tag_mapping")
@@ -133,6 +135,7 @@ public class TdTagGrpTagMapping implements Identifiable<Integer>, Serializable {
     @Cache(usage = NONSTRICT_READ_WRITE)
     @JoinColumn(name = "tag_grp_id")
     @ManyToOne(cascade = PERSIST, fetch = LAZY)
+    @NotFound(action= NotFoundAction.IGNORE)
     public TdTagGrp getTagGrp() {
         return tagGrp;
     }
@@ -160,6 +163,7 @@ public class TdTagGrpTagMapping implements Identifiable<Integer>, Serializable {
     @Cache(usage = NONSTRICT_READ_WRITE)
     @JoinColumn(name = "tag_id")
     @ManyToOne(cascade = PERSIST, fetch = LAZY)
+    @NotFound(action= NotFoundAction.IGNORE)
     public TdTag getTag() {
         return tag;
     }

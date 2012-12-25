@@ -18,6 +18,12 @@
 	<ui:define name="content">
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdUserTagPreference}">
+            <p:commandButton id="saveAndCloseTop" action="saveAndClose" ajax="true" update="messages delete" process="@form"
+		styleClass="aria-save-button default" style="margin-bottom: 14px"
+		icon="ui-icon-disk"
+		value="#{msg.menu_save}"
+		title="#{msg.menu_save} #{title}"
+		rendered="#{not sub and not readonly}" />
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:input id="userTagPreferenceId" value="#{tdUserTagPreference.userTagPreferenceId}" label="${msg.tdUserTagPreference_userTagPreferenceId}(Integer)" required="true" />
 				<app:inputDateTime id="updationDate" value="#{tdUserTagPreference.updationDate}" label="${msg.tdUserTagPreference_updationDate}" required="true" />

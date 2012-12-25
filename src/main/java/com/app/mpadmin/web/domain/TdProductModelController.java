@@ -13,10 +13,15 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
+import com.app.mpadmin.dao.support.SearchParameters;
 import com.app.mpadmin.domain.TdProductModel;
 import com.app.mpadmin.repository.TdProductModelRepository;
 import com.app.mpadmin.web.converter.domain.TdProductModelConverter;
 import com.app.mpadmin.web.util.MessageUtil;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Thin controller layer allowing you to do business validation and other conditional 
@@ -61,6 +66,19 @@ public class TdProductModelController {
         String infoArg = tdProductModelConverter.print(tdProductModel);
         tdProductModelRepository.delete(tdProductModel);
         messageUtil.info("status_deleted_ok", infoArg);
+        return true;
+    }
+
+    public boolean deleteProductModel(int productId){
+        SearchParameters sp = new SearchParameters();
+        Map<String,Object> par = new HashMap<String,Object>();
+        par.put("productId", productId);
+        sp.setNamedQuery("productModel.deleteProducts");
+        sp.setNamedQueryParameters(par);
+        TdProductModel pm = new TdProductModel();
+        List<TdProductModel> deleteList =  tdProductModelRepository.find(pm,sp);
+        for(TdProductModel productModel:deleteList)
+           tdProductModelRepository.delete(productModel);
         return true;
     }
 }

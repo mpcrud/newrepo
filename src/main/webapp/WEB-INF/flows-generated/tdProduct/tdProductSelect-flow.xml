@@ -33,6 +33,16 @@
 			<evaluate expression="tdProductController.delete(tdProductLazyDataModel.selectedRow)" />
             <evaluate expression="tdProductLazyDataModel.clearSelected()"/>
 		</transition>
+        <transition on="deleteProductModel" validate="false">
+            <evaluate expression="tdProductModelController.deleteProductModel(tdProductLazyDataModel.selectedRow.productId)"/>
+            <evaluate expression="tdProductController.delete(tdProductLazyDataModel.selectedRow)" />
+            <evaluate expression="tdProductLazyDataModel.clearSelected()"/>
+        </transition>
+        <transition on="updateAll">
+            <evaluate expression="tdProductController.updateStatus(tdProductLazyDataModel.selectedList)"/>
+            <evaluate expression="tdProductLazyDataModel.clearSelected()"/>
+            <evaluate expression="primeFacesUtil.refresh()"/>
+        </transition>
 		<transition on="sendNew" to="edit" validate="false" />
         <transition on="clear">
             <evaluate expression="tdProductLazyDataModel.clearSelected()"/>

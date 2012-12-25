@@ -18,6 +18,12 @@
 	<ui:define name="content">
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdUserActivity}">
+            <p:commandButton id="saveAndCloseTop" action="saveAndClose" ajax="true" update="messages delete" process="@form"
+		styleClass="aria-save-button default" style="margin-bottom: 14px"
+		icon="ui-icon-disk"
+		value="#{msg.menu_save}"
+		title="#{msg.menu_save} #{title}"
+		rendered="#{not sub and not readonly}" />
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:inputDateTime id="userLogintime" value="#{tdUserActivity.userLogintime}" label="${msg.tdUserActivity_userLogintime}" />
 				<app:input id="duration" value="#{tdUserActivity.duration}" label="${msg.tdUserActivity_duration}(Integer)" />

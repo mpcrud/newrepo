@@ -10,26 +10,24 @@ package com.app.mpadmin.web.domain;
 import static com.app.mpadmin.web.util.PrimeFacesUtil.forceClose;
 import static com.app.mpadmin.web.util.PrimeFacesUtil.showAskForMapTagGrpToTagDialog;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.inject.Singleton;
 
 
-import com.app.mpadmin.domain.TdProduct;
-import com.app.mpadmin.domain.TdTagGrp;
-import com.app.mpadmin.domain.TdTagGrpTagMapping;
-import com.app.mpadmin.repository.TdProductRepository;
-import com.app.mpadmin.repository.TdTagGrpTagMappingRepository;
-import com.app.mpadmin.repository.TdTagRepository;
+import com.app.mpadmin.dao.support.SearchParameters;
+import com.app.mpadmin.domain.*;
+import com.app.mpadmin.repository.*;
 import com.app.mpadmin.web.converter.domain.TdProductConverter;
 import com.app.mpadmin.web.converter.domain.TdTagConverter;
 import com.app.mpadmin.web.converter.domain.TdTagGrpConverter;
 import com.app.mpadmin.web.converter.domain.TdTagGrpTagMappingConverter;
 import com.app.mpadmin.web.util.FileUploadController;
 import com.app.mpadmin.web.util.MessageUtil;
-import com.app.mpadmin.repository.TdTagGrpRepository;
-import com.app.mpadmin.domain.TdTag;
 
 /**
  * Thin controller layer allowing you to do business validation and other conditional 
@@ -45,7 +43,7 @@ public class TdProductController {
     @Inject
     private TdTagGrpRepository tdTagGrpRepository;
     @Inject
-    private TdTagRepository tdTagRepository;
+    private TdProductModelRepository tdProductModelRepository;
     @Inject
     private TdTagGrpTagMappingRepository tdTagGrpTagMappingRepository;
 
@@ -156,10 +154,40 @@ public class TdProductController {
         return true;
     }
 
-    public boolean delete(TdProduct tdProduct) {
+     public boolean delete(TdProduct tdProduct) {
         String infoArg = tdProductConverter.print(tdProduct);
         tdProductRepository.delete(tdProduct);
         messageUtil.info("status_deleted_ok", infoArg);
         return true;
     }
+
+    public boolean updateStatus(TdProduct[] arr){
+        for(TdProduct tdProduct:arr){
+            if(tdProduct.getProductStatus()){
+                tdProduct.setProductStatus(false);
+            }
+            else
+              tdProduct.setProductStatus(true);
+            tdProductRepository.save(tdProduct);
+        }
+        messageUtil.info("status_saved_ok",arr.length+" request status updated");
+        return true;
+    }
+
+
+  /*  public boolean delete(TdProduct tdProduct) {
+        String infoArg = tdProductConverter.print(tdProduct);
+        SearchParameters sp = new SearchParameters();
+        Map<String,Object> par = new HashMap<String,Object>();
+        par.put("productId", tdProduct.getProductId());
+        sp.setNamedQuery("productModel.deleteProducts");
+        sp.setNamedQueryParameters(par);
+        TdProductModel pm = new TdProductModel();
+        List<TdProductModel> deleteList =  tdProductModelRepository.find(pm,sp);
+        for(TdProductModel productModel:deleteList)
+           tdProductModelRepository.delete(productModel);
+        tdProductRepository.delete(tdProduct);
+        messageUtil.info("status_deleted_ok", infoArg);
+        return true;
+    }*/
 }

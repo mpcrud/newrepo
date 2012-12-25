@@ -49,7 +49,7 @@
 		</transition>
 
 		<transition on="deleteAndClose" to="deleteAndClose">
-			<evaluate expression="tdProductController.delete(tdProduct)" />
+            <evaluate expression="tdProductController.delete(tdProduct)" />
 		</transition>
 
 

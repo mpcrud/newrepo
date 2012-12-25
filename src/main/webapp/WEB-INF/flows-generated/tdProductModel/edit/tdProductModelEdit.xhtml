@@ -18,6 +18,12 @@
 	<ui:define name="content">
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdProductModel}">
+            <p:commandButton id="saveAndCloseTop" action="saveAndClose" ajax="true" update="messages delete" process="@form"
+		styleClass="aria-save-button default" style="margin-bottom: 14px"
+		icon="ui-icon-disk"
+		value="#{msg.menu_save}"
+		title="#{msg.menu_save} #{title}"
+		rendered="#{not sub and not readonly}" />
 			<h:panelGrid columns="4" styleClass="aria-role-presentation">
 				<app:input id="productModelId" value="#{tdProductModel.productModelId}" label="${msg.tdProductModel_productModelId}(Integer)" required="true" />
 			<!-- 	<app:input id="makeModelId" value="#{tdProductModel.makeModelId}" label="${msg.tdProductModel_makeModelId}" required="true" />

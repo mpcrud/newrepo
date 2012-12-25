@@ -27,6 +27,8 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlTransient;
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.URL;
 import com.app.mpadmin.domain.PersistableHashBuilder;
@@ -1765,10 +1767,11 @@ public class TdOrder implements Identifiable<Integer>, Serializable {
     // many-to-one: TdOrder.productId ==> TdProduct.productId
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-    @NotNull
+  //  @NotNull
     @Cache(usage = NONSTRICT_READ_WRITE)
     @JoinColumn(name = "product_id", nullable = false)
     @ManyToOne(cascade = PERSIST, fetch = LAZY)
+    @NotFound(action= NotFoundAction.IGNORE)
     public TdProduct getProduct() {
         return product;
     }
