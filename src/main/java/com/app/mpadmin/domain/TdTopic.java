@@ -540,9 +540,12 @@ public class TdTopic implements Identifiable<Integer>, Serializable {
      */
     @Override
     public String toString() {
+        String title= getTopicTitle().replace("&nbsp;"," ");
+        if(title.length()>10)
+            title = title.substring(0,10);
         return Objects.toStringHelper(this) //
                 .add("topicId", getTopicId()) //
-                .add("topicTitle", getTopicTitle().replace("&nbsp;"," ").substring(0,10)) //
+                .add("topicTitle", title) //
               /*  .add("viewCount", getViewCount()) //
                 .add("commentCount", getCommentCount()) //
                 .add("assignedSince", getAssignedSince()) //
