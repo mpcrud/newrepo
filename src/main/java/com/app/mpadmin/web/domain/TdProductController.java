@@ -79,7 +79,7 @@ public class TdProductController {
 
         tagGroup.setIsActive(1);
         tagGroup.setCreationDate(Calendar.getInstance().getTime());
-        tagGroup.setReferenceId(tdProduct.getId());
+        tagGroup.setReferenceId(tdProduct.getProductId());
         tagGroup.setReferenceType(400);
         tagGroup.setTagGrpStatus(1);
         tagGroup.setUpdationDate(Calendar.getInstance().getTime());
