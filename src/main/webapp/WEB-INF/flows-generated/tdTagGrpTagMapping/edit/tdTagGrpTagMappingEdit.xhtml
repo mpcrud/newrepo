@@ -19,11 +19,8 @@
 	<f:validateBean disabled="true">
 		<p:fieldset legend="${msg.tdTagGrpTagMapping}">
             <p:commandButton id="saveAndCloseTop" action="saveAndClose" ajax="true" update="messages delete" process="@form"
-		styleClass="aria-save-button default" style="margin-bottom: 14px"
-		icon="ui-icon-disk"
-		value="#{msg.menu_save}"
-		title="#{msg.menu_save} #{title}"
-		rendered="#{not sub and not readonly}" />
+		      styleClass="aria-save-button default" style="margin-bottom: 14px"
+		      icon="ui-icon-disk"  value="#{msg.menu_save}"	title="#{msg.menu_save} #{title}" rendered="#{not sub and not readonly}" />
 			<h:panelGrid columns="2" styleClass="aria-role-presentation">
 			<!-- 	<app:input id="tagGrpId" value="#{tdTagGrpTagMapping.tagGrpId}" label="${msg.tdTagGrpTagMapping_tagGrpId}" />
 				<app:input id="tagId" value="#{tdTagGrpTagMapping.tagId}" label="${msg.tdTagGrpTagMapping_tagId}" /> -->
@@ -50,9 +47,9 @@
         		lazy="true"
         		paginator="true"
         		paginatorAlwaysVisible="true"
-        		paginatorPosition="bottom"
+        		paginatorPosition="both"
         		currentPageReportTemplate="{currentPage} / {totalPages}"
-        		paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}"
+        		paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
         		rowKey="#{item}"
         		height="500px">
                         <p:column id="tdTagGrp_tagGrpId" headerText="${msg.tdTagGrp_tagGrpId}" sortBy="#{item.tagGrpId}" >
