@@ -41,9 +41,9 @@
         		lazy="true"
         		paginator="true"
         		paginatorAlwaysVisible="true"
-        		paginatorPosition="bottom"
+        		paginatorPosition="both"
         		currentPageReportTemplate="{currentPage} / {totalPages}"
-        		paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink}"
+        		paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
         		rowKey="#{item}"
         		height="500px">
 <!--	<app:search data="#{tdProductLazyDataModel}" title="${msg.tdProduct}">
@@ -145,13 +145,13 @@
             <!--	</app:iconSelect>   -->
                 </p:commandButton>
 			</p:column>
-		    <p:column id="tdProduct_productId" headerText="${msg.tdProduct_productId}">
+		    <p:column id="tdProduct_productId" headerText="${msg.tdProduct_productId}" sortBy="#{item.productId}">
 				<h:outputText value="#{item.productId}" />
 			</p:column>
-		    <p:column id="tdProduct_productSupplier" headerText="${msg.tdProduct_productSupplier}">
+		    <p:column id="tdProduct_productSupplier" headerText="${msg.tdProduct_productSupplier}" sortBy="#{item.productSupplier}">
 				<h:outputText value="#{tdProductSupplierConverter.print(item.productSupplier)}" />
 			</p:column>
-			<p:column id="tdProduct_productShipment" headerText="${msg.tdProduct_productShipment}">
+			<p:column id="tdProduct_productShipment" headerText="${msg.tdProduct_productShipment}" sortBy="#{item.productShipment}">
 				<h:outputText value="#{tdProductShipmentConverter.print(item.productShipment)}" />
 			</p:column>
 		<!--  <p:column id="tdProduct_productSupplierId" headerText="${msg.tdProduct_productSupplierId}" sortBy="#{item.productSupplierId}">
