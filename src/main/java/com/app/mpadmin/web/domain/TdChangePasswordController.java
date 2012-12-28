@@ -59,7 +59,9 @@ public class TdChangePasswordController {
 
     public boolean delete(TdChangePassword tdChangePassword) {
         String infoArg = tdChangePasswordConverter.print(tdChangePassword);
-        tdChangePasswordRepository.delete(tdChangePassword);
+        tdChangePassword.setIsActive(new Integer(0));
+        tdChangePasswordRepository.save(tdChangePassword);
+        //tdChangePasswordRepository.delete(tdChangePassword);
         messageUtil.info("status_deleted_ok", infoArg);
         return true;
     }
