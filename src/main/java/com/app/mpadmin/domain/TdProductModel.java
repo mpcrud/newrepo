@@ -11,18 +11,31 @@ import static javax.persistence.CascadeType.PERSIST;
 import static javax.persistence.FetchType.LAZY;
 import static org.hibernate.annotations.CacheConcurrencyStrategy.NONSTRICT_READ_WRITE;
 import java.io.Serializable;
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlTransient;
 import org.apache.log4j.Logger;
 import org.hibernate.annotations.Cache;
 import com.app.mpadmin.domain.PersistableHashBuilder;
 import com.google.common.base.Objects;
+import org.hibernate.annotations.NamedQuery;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 @NamedQuery(name="productModel.deleteProducts",
-            query= "from TdProductModel as pm where pm.productId =:productId")
+        query= "from TdProductModel as pm where pm.productId =:productId")
+
+
+
+
+
 
 @Entity
 @Table(name = "td_product_model")
