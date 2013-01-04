@@ -60,7 +60,7 @@ public class TdChangePasswordLazyDataModel extends GenericLazyDataModel<TdChange
 
         // ranges
         sp.clearRanges();
-      //  sp.addRange(tdChangePasswordSearchForm.getUseridRange());
+        //sp.addRange(tdChangePasswordSearchForm.get);
         sp.addRange(tdChangePasswordSearchForm.getIsActiveRange());
         sp.addRange(tdChangePasswordSearchForm.getGuidIntRange());
         sp.addRange(tdChangePasswordSearchForm.getChangePasswordIdRange());

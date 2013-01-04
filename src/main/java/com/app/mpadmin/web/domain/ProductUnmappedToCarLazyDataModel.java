@@ -25,7 +25,7 @@ public class ProductUnmappedToCarLazyDataModel extends GenericLazyDataModel<TdPr
            @Override
            public List<TdProduct> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, String> filters) {
             SearchParameters sp = new SearchParameters();
-            sp.setNamedQuery("product.getAllWithoutImages");
+            sp.setNamedQuery("product.getUnmappedToCars");
             TdProduct tdTagGrp = new TdProduct();
             setRowCount(tdProductRepository.findCount(tdTagGrp,sp));
             populateSearchParameters(sp, first, pageSize, sortField, sortOrder, filters);
