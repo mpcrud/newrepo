@@ -94,7 +94,6 @@ public class TdProductModel implements Identifiable<Integer>, Serializable {
     // -- [productModelId] ------------------------
 
     @Column(name = "product_model_id", precision = 10)
-    @GeneratedValue
     @Id
     public Integer getProductModelId() {
         return productModelId;
