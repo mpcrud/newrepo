@@ -42,7 +42,7 @@
 		<transition on="sendNew" to="edit" validate="false" />
 
         <transition on="selectTopic">
-            <evaluate expression="tdTagGrp.setTopic(tdTopicLazyDataModel.selectedRow)" />
+            <evaluate expression="tdTagGrp.setTopicToSelect(tdTopicLazyDataModel.selectedRow)" />
             <evaluate expression="messageUtil.info('status_selected_ok',resourceBundle.tdTagGrpTag_topic)" />
             <evaluate expression="primeFacesUtil.refresh()"/>
         </transition>

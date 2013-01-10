@@ -187,12 +187,17 @@ public class TdTagGrp implements Identifiable<Integer>, Serializable {
 
     public void setTopic(TdTopic topic){
         this.topic=topic;
-        if(topic!=null)
-        {
+    }
+    
+    public void setTopicToSelect(TdTopic topic){
+        this.topic=topic;
+        if(topic!=null) {
           setReferenceType(500);
           setReferenceId(topic.getId());
         }
-        else setReferenceId(null);
+        else {
+        	setReferenceId(null);
+        }
     }
 
     @Cache(usage = NONSTRICT_READ_WRITE)
@@ -208,12 +213,17 @@ public class TdTagGrp implements Identifiable<Integer>, Serializable {
 
     public void setProduct(TdProduct product){
         this.product = product;
-        if(product!=null)
-        {
+    }
+    
+    public void setProductToSelect(TdProduct product){
+        this.product = product;
+        if(product!=null) {
             setReferenceType(400);
             setReferenceId(product.getId());
         }
-        else setReferenceId(null);
+        else {
+        	setReferenceId(null);
+        }
     }
 
       /**
