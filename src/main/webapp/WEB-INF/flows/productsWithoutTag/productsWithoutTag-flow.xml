@@ -41,7 +41,7 @@
 		</transition>
 		<transition on="sendNew" to="edit" validate="false" />
         <transition on="selectProduct">
-            <evaluate expression="tdTagGrp.setProduct(tdProductLazyDataModel.selectedRow)" />
+            <evaluate expression="tdTagGrp.setProductToSelect(tdProductLazyDataModel.selectedRow)" />
             <evaluate expression="messageUtil.info('status_selected_ok',resourceBundle.tdTagGrpTag_product)" />
             <evaluate expression="primeFacesUtil.refresh()"/>
         </transition>
